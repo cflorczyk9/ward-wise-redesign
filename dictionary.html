@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Metric dictionary — Ward Wise Penlight</title>
+    
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="static/k3-shell.css">
+    
+  </head>
+  <body data-page="dictionary">
+    <header class="site-header">
+      <a class="site-brand" href="index.html" aria-label="Ward Wise Penlight home">
+        <span class="brand-mark" aria-hidden="true">
+          <img class="brand-logo" src="static/logo.svg" alt=""
+               width="64" height="64">
+        </span>
+        <span class="brand-copy">
+          <span class="brand-kicker">Ward Wise</span>
+          <span class="brand-name">Penlight</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a class="nav-link" href="index.html">Explore</a>
+        <a class="nav-link" href="reports.html">Reports</a>
+        <a class="nav-link is-active" href="dictionary.html">Dictionary</a>
+        <a class="nav-link" href="support.html">Support</a>
+      </nav>
+    </header>
+
+    
+  <main class="metrics-layout">
+    <div class="metrics-header panel-heading">
+      <p class="eyebrow">Ward Wise Penlight</p>
+      <h1>Metric dictionary</h1>
+      <p>
+        Every measure behind the map. What it counts, who published the number, which
+        wards it covers, and how it is scored. Search it, or open a topic below.
+      </p>
+    </div>
+
+    <p id="dict-note" class="dict-note"></p>
+
+    
+    <div class="dict-bar">
+      <div class="dict-searchrow">
+        <input type="text" id="dict-search" autocomplete="off" spellcheck="false"
+               placeholder="Search every measure&hellip;" aria-label="Search measures">
+        <button type="button" id="dict-clear" class="dict-linkbtn" hidden>clear</button>
+      </div>
+      <div class="dict-knobs">
+        <div class="dict-knob" role="group" aria-label="Group measures by">
+          <span class="dict-knoblab">Group by</span>
+          <button type="button" data-group-btn="topic" class="is-on" aria-pressed="true">Topic</button>
+          <button type="button" data-group-btn="source" aria-pressed="false">Source</button>
+          <button type="button" data-group-btn="az" aria-pressed="false">A to Z</button>
+        </div>
+        <div class="dict-knob" role="group" aria-label="Filter measures">
+          <span class="dict-knoblab">Show</span>
+          <button type="button" data-show-btn="all" class="is-on" aria-pressed="true">Everything</button>
+          <button type="button" data-show-btn="lists" aria-pressed="false">In a starting list</button>
+          <button type="button" data-show-btn="partial" aria-pressed="false">Partial coverage</button>
+        </div>
+      </div>
+    </div>
+
+    <p class="dict-tally">
+      <span id="dict-count"></span>
+      <button type="button" id="dict-expand" class="dict-linkbtn">expand all</button>
+    </p>
+
+    <div id="dict-results" class="dict-results">
+      <p class="dict-empty">Loading the catalog&hellip;</p>
+    </div>
+  </main>
+
+
+    
+  <script src="static/common.js"></script>
+  
+  <script src="static/metric_details.js"></script>
+  <script src="static/k3-presets.js"></script>
+  <script src="static/k3-dictionary.js"></script>
+
+  </body>
+</html>

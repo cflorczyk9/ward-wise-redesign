@@ -43,11 +43,39 @@
 
   // ---- helpers ---------------------------------------------------------
 
-  function getJson(path) {
-    return fetch(API + path, { headers: { Accept: "application/json" } }).then(function (res) {
-      if (!res.ok) throw new Error(path + " returned " + res.status);
-      return res.json();
-    });
+  // Every request here is a read against an API this site does not run, and a
+  // single transient blip was enough to leave the whole page dead pending a
+  // manual retry (seen live: one 502 on /wards while the API was otherwise
+  // healthy). Retry the failures that are worth retrying, and only those: a
+  // 404 or a 400 will not fix itself, so those fail immediately.
+  var RETRY_DELAYS = [400, 1200];
+
+  function retriable(status) {
+    return status === 0 || status === 429 || (status >= 500 && status < 600);
+  }
+
+  function getJson(path, attempt) {
+    attempt = attempt || 0;
+    return fetch(API + path, { headers: { Accept: "application/json" } })
+      .then(function (res) {
+        if (!res.ok) {
+          var err = new Error(path + " returned " + res.status);
+          err.status = res.status;
+          throw err;
+        }
+        return res.json();
+      })
+      .catch(function (err) {
+        var status = err.status === undefined ? 0 : err.status; // 0 = network/DNS
+        if (attempt < RETRY_DELAYS.length && retriable(status)) {
+          return new Promise(function (resolve) {
+            setTimeout(resolve, RETRY_DELAYS[attempt]);
+          }).then(function () {
+            return getJson(path, attempt + 1);
+          });
+        }
+        throw err;
+      });
   }
 
   function status(message, isError) {

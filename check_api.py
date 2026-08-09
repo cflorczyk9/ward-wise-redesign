@@ -51,10 +51,86 @@ REQUIRED = {
 }
 
 
+# Every upstream this site touches, across both surfaces. The reports view uses
+# the first three; the explorer uses the rest. A 200 here is not proof the page
+# works, but a non-200 is proof it does not.
+ENDPOINTS = [
+    ("reports", "/api/metrics"),
+    ("reports", "/api/wards"),
+    ("reports", "/api/metrics/timeseries?area_type=ward&area_id=42"),
+    ("explorer", "/api/wards.geojson"),
+    ("explorer", "/api/metrics/score-matrix?area_type=ward&year=latest"),
+    ("explorer", "/api/metrics/scores?area_type=ward"),
+    ("explorer", "/api/metrics/scores/details?ward_id=42"),
+    ("explorer", "/api/metrics/comparison?metrics=poverty_pct&area_type=ward"),
+    ("explorer", "/api/metrics/timeline?metrics=poverty_pct&area_type=ward&area_id=42"),
+    ("explorer", "/api/metrics/delta?metric_id=poverty_pct&from_year=2019&to_year=2023"),
+    ("explorer", "/api/wards/42"),
+    ("explorer", "/api/wards/42/community-areas"),
+    ("explorer", "/api/wards/42/places"),
+]
+
+# The address lookup moved into the browser, so these are load-bearing in a way
+# they were not when a Flask route sat in front of them. Both must keep
+# answering AND keep sending a CORS header, or the search box dies with no
+# server-side fallback to catch it.
+GEOCODERS = [
+    (
+        "chicago",
+        "https://gisapps.chicago.gov/arcgis/rest/services/Chicago_Addresses/"
+        "GeocodeServer/suggest?f=json&maxSuggestions=3&text=550+N+Saint+Clair",
+    ),
+    (
+        "nominatim",
+        "https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&q=Wicker+Park,+Chicago",
+    ),
+]
+
+
 def fetch(path: str) -> dict:
     request = urllib.request.Request(API_BASE + path, headers={"Accept": "application/json"})
     with urllib.request.urlopen(request, timeout=45) as response:
         return json.loads(response.read())
+
+
+def probe(url: str, origin: str | None = None) -> tuple[int, int, str | None]:
+    """Return (status, bytes, allow-origin header) without raising."""
+    headers = {"Accept": "application/json", "User-Agent": "wardwise-reports/check_api"}
+    if origin:
+        headers["Origin"] = origin
+    request = urllib.request.Request(url, headers=headers)
+    try:
+        with urllib.request.urlopen(request, timeout=20) as response:
+            body = response.read()
+            return response.status, len(body), response.headers.get("Access-Control-Allow-Origin")
+    except urllib.error.HTTPError as err:
+        return err.code, 0, err.headers.get("Access-Control-Allow-Origin")
+    except Exception:
+        return 0, 0, None
+
+
+def check_surfaces() -> list[str]:
+    """Every endpoint both pages depend on, plus the two geocoders."""
+    problems: list[str] = []
+
+    for surface, path in ENDPOINTS:
+        status_code, size, _ = probe(API_BASE + path)
+        if status_code != 200:
+            problems.append(f"[{surface}] {path} returned {status_code or 'no response'}")
+        elif size == 0:
+            problems.append(f"[{surface}] {path} returned an empty body")
+
+    for name, url in GEOCODERS:
+        status_code, size, allow = probe(url, origin="https://wardwise-reports.example")
+        if status_code != 200:
+            problems.append(f"[geocode:{name}] returned {status_code or 'no response'}")
+        elif not allow:
+            problems.append(
+                f"[geocode:{name}] answered but sent no Access-Control-Allow-Origin, so the "
+                "browser will block it and the address search will stop working"
+            )
+
+    return problems
 
 
 def fingerprint() -> dict:
@@ -184,7 +260,7 @@ def main() -> int:
     args = parser.parse_args()
 
     try:
-        problems = check_required_fields()
+        problems = check_surfaces() + check_required_fields()
         current = fingerprint()
     except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError) as err:
         print(f"could not reach {API_BASE}: {err}", file=sys.stderr)
@@ -219,8 +295,15 @@ def main() -> int:
 
     if not problems and not drift:
         print("API matches the baseline. Nothing to do.")
+    reports_eps = sum(1 for surface, _ in ENDPOINTS if surface == "reports")
+    explorer_eps = sum(1 for surface, _ in ENDPOINTS if surface == "explorer")
     print(
-        f"\n{current['metric_count']} metrics, {current['ward_count']} wards, "
+        f"\nChecked {len(ENDPOINTS)} API endpoints "
+        f"({reports_eps} reports, {explorer_eps} explorer) and "
+        f"{len(GEOCODERS)} geocoders."
+    )
+    print(
+        f"{current['metric_count']} metrics, {current['ward_count']} wards, "
         f"{current[f'rankable_in_ward_{PROBE_WARD}']} rankable in ward {PROBE_WARD}."
     )
 

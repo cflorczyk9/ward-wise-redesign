@@ -1,0 +1,266 @@
+/* Ward Wise Reports
+   One stylesheet, no build step, no framework. Deliberately not Penlight's
+   look: this view is about change over time, so it reads like a report and
+   not like a map UI. */
+
+/* The palette is inherited, not redeclared, so the two surfaces cannot drift.
+   The source is the --k3-* tokens on :root in k3-shell.css, which every page
+   here loads. (k3.css declares the same values on .k3-page, but that sheet is
+   the explorer's and is not loaded on this page. Aliasing to it silently
+   resolved to nothing and dropped every hairline border back to near-black.)
+
+   No dark theme on purpose. Nothing else on the site has one, and a
+   theme-aware report under a light-only header renders as a dark page hanging
+   off a white bar. */
+.k3-page {
+  --ink: var(--k3-ink);
+  --ink-soft: var(--k3-soft);
+  --ink-faint: #9aa0ab;
+  --paper: #fff;
+  --card: #fff;
+  --rule: var(--k3-hair);
+  --brand: var(--k3-hue);
+  --brand-soft: var(--k3-hue-soft);
+  --better: #1f6f47;
+  --better-soft: #e8f3ed;
+  --worse: #b03a2b;
+  --worse-soft: #fbecea;
+  --measure: 68rem;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+/* The browser hides [hidden] with `display: none`, but that comes from the UA
+   stylesheet and loses to any class rule that sets display. `.results` is a
+   grid and `.filters` is a flex row, so both kept rendering while "hidden" and
+   showed two empty column headings with nothing under them. That reads exactly
+   like a broken page. */
+[hidden] { display: none !important; }
+
+/* The header comes from k3-shell.css and the body chrome from styles.css, so
+   this file owns only the report itself. Upstream's textured body background
+   would show through below the content, so the page paints its own white. */
+body { margin: 0; background: #fff; }
+
+.k3-page a { color: var(--brand); }
+
+.k3-page {
+  max-width: none;
+  padding: 2rem clamp(1rem, 4vw, 1.5rem) 4rem;
+}
+
+.k3-page > * {
+  max-width: var(--measure);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---- controls -------------------------------------------------------- */
+
+.picker {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  padding-bottom: 1.6rem;
+}
+
+.picker label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--ink-faint);
+}
+
+.picker select {
+  appearance: none;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 0.42rem 0.7rem;
+  cursor: pointer;
+  max-width: 22rem;
+}
+
+.picker select:focus-visible { outline: 2px solid var(--brand); outline-offset: 1px; }
+.picker select:disabled { opacity: 0.5; cursor: default; }
+.picker-sep { flex: 0 0 1px; height: 1.4rem; background: var(--rule); margin: 0 0.5rem; }
+
+/* ---- lede ------------------------------------------------------------ */
+
+.lede { padding-bottom: 1.4rem; border-bottom: 1px solid var(--rule); margin-bottom: 1.6rem; }
+
+.lede h1 {
+  margin: 0 0 0.4rem;
+  font-size: clamp(1.55rem, 3.6vw, 2.15rem);
+  line-height: 1.18;
+  letter-spacing: -0.022em;
+  font-weight: 640;
+}
+
+.lede p { margin: 0; color: var(--ink-soft); font-size: 1rem; }
+.lede .count { color: var(--brand); font-weight: 600; }
+
+.statusbar { color: var(--ink-soft); font-size: 0.94rem; padding: 0.5rem 0 1rem; }
+.statusbar[hidden] { display: none; }
+
+.statusbar.error {
+  color: var(--worse);
+  background: var(--worse-soft);
+  border: 1px solid var(--worse);
+  border-radius: var(--radius);
+  padding: 0.85rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.statusbar .retry {
+  display: inline-block;
+  margin-top: 0.6rem;
+  font: inherit;
+  font-size: 0.88rem;
+  color: var(--paper);
+  background: var(--worse);
+  border: 0;
+  border-radius: 7px;
+  padding: 0.35rem 0.85rem;
+  cursor: pointer;
+}
+
+/* ---- category filters ------------------------------------------------ */
+
+.filters { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.6rem; }
+
+.chip {
+  font: inherit;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 0.28rem 0.72rem;
+  cursor: pointer;
+}
+
+.chip:hover { border-color: var(--brand); color: var(--brand); }
+
+.chip[aria-pressed="true"] {
+  background: var(--brand-soft);
+  border-color: var(--brand);
+  color: var(--brand);
+  font-weight: 560;
+}
+
+/* ---- results --------------------------------------------------------- */
+
+.results { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem; }
+
+@media (max-width: 800px) {
+  .results { grid-template-columns: 1fr; }
+}
+
+.column h2 {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+  font-weight: 620;
+  margin: 0 0 0.7rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+#col-better h2 { color: var(--better); }
+#col-worse h2 { color: var(--worse); }
+
+.rows { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+
+.row {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.row-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0.7rem 0.85rem;
+  cursor: pointer;
+}
+
+.row-head:hover { background: var(--brand-soft); }
+.row-head:focus-visible { outline: 2px solid var(--brand); outline-offset: -2px; }
+
+/* min-width:0 stops a long value pair (a nine-figure dollar amount, say) from
+   forcing the grid track wider than the card and scrolling the whole page. */
+.row-label { font-size: 0.95rem; font-weight: 550; letter-spacing: -0.008em; min-width: 0; }
+.row-cat { display: block; font-size: 0.74rem; color: var(--ink-faint); font-weight: 400; margin-top: 0.08rem; }
+
+/* The two real numbers, always visible. A percent with no base behind it is
+   how a jump from one to fourteen reads as a landslide. */
+.row-pair {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+  margin-top: 0.22rem;
+  overflow-wrap: anywhere;
+}
+
+.row-years { color: var(--ink-faint); font-weight: 400; }
+
+.row-flag {
+  color: var(--ink-faint);
+  font-weight: 400;
+  font-style: italic;
+}
+
+.row.low-start .row-delta { opacity: 0.62; font-weight: 560; }
+
+.row-right { display: flex; align-items: center; gap: 0.7rem; }
+
+.spark { display: block; }
+
+.row-delta { font-size: 0.92rem; font-weight: 620; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.row.better .row-delta { color: var(--better); }
+.row.worse .row-delta { color: var(--worse); }
+
+.row-detail { padding: 0 0.85rem 0.85rem; border-top: 1px solid var(--rule); }
+.row-detail[hidden] { display: none; }
+.row-detail dl { display: grid; grid-template-columns: auto 1fr; gap: 0.25rem 0.9rem; margin: 0.75rem 0 0; font-size: 0.87rem; }
+.row-detail dt { color: var(--ink-faint); }
+.row-detail dd { margin: 0; font-variant-numeric: tabular-nums; }
+.row-detail .desc { margin: 0.75rem 0 0; font-size: 0.87rem; color: var(--ink-soft); }
+.row-detail .src { margin: 0.4rem 0 0; font-size: 0.78rem; color: var(--ink-faint); }
+
+/* ---- excluded + footer ----------------------------------------------- */
+
+.excluded { margin-top: 2.4rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); }
+.excluded h2 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint); margin: 0 0 0.5rem; }
+.excluded p { margin: 0; color: var(--ink-soft); font-size: 0.9rem; }
+
+footer {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 1.6rem clamp(1rem, 4vw, 1.5rem) 3rem;
+  border-top: 1px solid #e9ebef;
+  color: #6f7683;
+  font-size: 0.86rem;
+  background: #fff;
+}
+
+footer p { margin: 0 0 0.4rem; }
+footer .fine { color: var(--ink-faint); font-size: 0.78rem; }

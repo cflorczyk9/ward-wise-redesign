@@ -1,7 +1,15 @@
 # Ward Wise Reports
 
-A reporting view for Chicago ward data, built against the public
-[Ward Wise Penlight](https://penlight.wardwise.org) API.
+An independent Chicago civic-data site built against the public
+[Ward Wise Penlight](https://penlight.wardwise.org) API. Four pages, no build
+step at runtime, no backend.
+
+| Page | What it is |
+|---|---|
+| `index.html` | **Explore.** The sequenced explorer: address search, ward map, preset metric lists. |
+| `reports.html` | **Reports.** What actually changed in a ward, and which way. |
+| `dictionary.html` | Every measure, its source, and how it is scored. |
+| `support.html` | How residents contribute. Links out to the live Penlight site. |
 
 Penlight answers "how does my ward score right now". This answers the question the
 same API can already support and the map cannot show: **what actually moved, and
@@ -18,7 +26,38 @@ python3 dev.py
 ```
 
 Then open <http://localhost:1838>. Standard library only. No venv, no pip install,
-no npm, no build step.
+no npm, no bundler.
+
+## Where the explorer came from
+
+The explorer, dictionary, and support pages started as a Flask app, because
+Harry's repo is one. They are rendered to static HTML once by `build_static.py`
+and the output is committed. Re-run it after pulling template changes:
+
+```bash
+python3 build_static.py ../ward-wise-frontend
+```
+
+Static JS and CSS are copied across separately, not rendered.
+
+## No backend
+
+Upstream geocodes server-side through three Flask routes. This site does it in
+the browser instead (`static/geocode.js`), because both geocoders send
+permissive CORS headers, checked live:
+
+| Geocoder | Allow-Origin | Role |
+|---|---|---|
+| `gisapps.chicago.gov` | the calling origin | authoritative for Chicago addresses, used first |
+| `nominatim.openstreetmap.org` | `*` | fallback for neighborhoods and landmarks |
+
+The return shapes match what the Flask routes returned, so the explorer's three
+call sites changed by one word each.
+
+One caveat worth knowing. Upstream proxied Nominatim partly to send a
+descriptive User-Agent, which a browser will not let a page set. Chicago's own
+locator answers nearly every real address, so Nominatim is rarely reached. If it
+ever draws rate limiting, drop the fallback rather than adding a server back.
 
 ## Why there is a proxy
 
@@ -90,6 +129,11 @@ python3 check_api.py --update   # accept what is live now as the new baseline
 python3 check_api.py --json     # for CI
 ```
 
+It covers **13 endpoints across both surfaces** (3 the reports view reads, 10 the
+explorer reads) plus **both geocoders**, checking those still answer *and* still
+send a CORS header. The geocoders became load-bearing when the address lookup
+moved into the browser, since there is no server-side fallback left to catch them.
+
 Exit 0 clean, 1 drift, 2 unreachable. Two kinds of finding:
 
 - **Broken** means a field this site actually reads is gone. `direction` vanishing
@@ -113,19 +157,32 @@ is the cheapest early warning available.
 ## Files
 
 ```
-index.html        the shell
-static/app.js     everything: fetch, change math, sparklines, render
-static/styles.css one stylesheet
-static/logo.svg   penlight mark
-dev.py            static server + /api proxy, stdlib only
-check_api.py      contract check against the live API
-api-baseline.json last known-good API fingerprint
-_redirects        the Netlify version of that proxy
+index.html         Explore  (rendered from upstream k3.html)
+reports.html       Reports  (this project's own page)
+dictionary.html    Dictionary (rendered)
+support.html       Support    (rendered)
+static/reports.js  the report: fetch, change math, sparklines, render
+static/reports.css the report's styles; palette inherited from k3-shell.css
+static/geocode.js  browser-side address lookup, replaces the Flask routes
+static/k3*.js/css  the explorer, from upstream
+static/styles.css  upstream's base stylesheet
+build_static.py    renders upstream Jinja templates to static HTML
+dev.py             static server + /api proxy, stdlib only
+check_api.py       contract check across both surfaces
+api-baseline.json  last known-good API fingerprint
+_redirects         the Netlify version of the /api proxy
 ```
 
 ## Status
 
-Scaffold. The change ranking, category filters, year window, and per-metric detail
-work against live data. Not yet built: ward-versus-city comparison (the
-`/api/metrics/delta` endpoint returns `delta_vs_city` and is not wired in yet),
-neighborhood and χGRID area types, and a shareable permalink per ward.
+All four pages work against live data. The explorer's address search, ward map,
+and preset lists work with no backend. The reports view ranks change with
+direction awareness, category filters, a year window, and per-metric detail.
+
+Reads retry twice on a transient failure (502, 503, 429, or a dropped
+connection) before giving up, and fail immediately on a 404 or 400. A single
+upstream blip was otherwise enough to leave the page dead.
+
+Not yet built: ward-versus-city comparison (`/api/metrics/delta` already returns
+`delta_vs_city`), neighborhood and χGRID area types, a shareable permalink per
+ward, and a deploy.
