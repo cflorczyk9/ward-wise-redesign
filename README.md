@@ -76,6 +76,40 @@ A few decisions that are easy to get wrong and are worth knowing about.
 - **No dividing by zero.** Percent change off a near-zero base is meaningless, so
   those fall back to showing raw movement.
 
+## Staying current with the API
+
+The API is someone else's, carries no version number, and publishes no schema.
+Nothing will announce a breaking change. The failure mode is quiet: a renamed
+field empties a column and the page still looks fine.
+
+So run the contract check instead of trusting it.
+
+```bash
+python3 check_api.py            # compare against api-baseline.json
+python3 check_api.py --update   # accept what is live now as the new baseline
+python3 check_api.py --json     # for CI
+```
+
+Exit 0 clean, 1 drift, 2 unreachable. Two kinds of finding:
+
+- **Broken** means a field this site actually reads is gone. `direction` vanishing
+  would put improvements in the wrong column. `period_end` vanishing would empty
+  the whole report. It also checks that the no-`metric_id` timeseries call still
+  returns every series, since the entire page is built on that one request.
+- **Drift** is softer. New metrics, removed metrics, a changed ward count, a new
+  category. Worth reading, usually fine.
+
+Run it before deploying, and on a schedule if the site is public. `api-baseline.json`
+is committed, so a drift report is a real diff against a known-good state rather
+than a fresh guess.
+
+Two things worth watching by hand as well. The pipeline repo behind the API is
+private, so the public
+[ward-wise-frontend](https://github.com/HarryBrisson/ward-wise-frontend) repo is
+the closest thing to a reference client. Its `static/common.js` is where the API
+calls live, so a change there usually means a change upstream. Watching that repo
+is the cheapest early warning available.
+
 ## Files
 
 ```
@@ -84,6 +118,8 @@ static/app.js     everything: fetch, change math, sparklines, render
 static/styles.css one stylesheet
 static/logo.svg   penlight mark
 dev.py            static server + /api proxy, stdlib only
+check_api.py      contract check against the live API
+api-baseline.json last known-good API fingerprint
 _redirects        the Netlify version of that proxy
 ```
 
