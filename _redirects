@@ -1,0 +1,10 @@
+# Netlify proxy for the Penlight API.
+#
+# The API is public and unauthenticated for reads but sends no
+# Access-Control-Allow-Origin header, so the browser will not let this site
+# call it cross-origin. Proxying through the same origin sidesteps that
+# without asking Harry to change anything on his side.
+#
+# Keep this in sync with dev.py, which does the same thing locally.
+
+/api/*  https://penlight.wardwise.org/api/:splat  200

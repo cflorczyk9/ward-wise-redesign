@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ward Wise Reports — what changed in your ward</title>
+<meta name="description" content="Fifteen years of Chicago ward data, read as change instead of a snapshot. Built on the Ward Wise Penlight API.">
+<link rel="icon" href="static/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="./">
+    <img src="static/logo.svg" alt="" width="28" height="28">
+    <span class="brand-name">Ward Wise <strong>Reports</strong></span>
+  </a>
+  <nav class="topnav">
+    <a href="https://penlight.wardwise.org">The map</a>
+    <a href="https://penlight.wardwise.org/reports">Penlight</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="picker">
+    <label for="ward">Ward</label>
+    <select id="ward" disabled><option>Loading…</option></select>
+    <span class="picker-sep"></span>
+    <label for="from-year">From</label>
+    <select id="from-year" disabled></select>
+    <label for="to-year">To</label>
+    <select id="to-year" disabled></select>
+  </section>
+
+  <section class="lede" id="lede" hidden>
+    <h1 id="headline"></h1>
+    <p id="subhead"></p>
+  </section>
+
+  <section class="statusbar" id="status">Loading the metric dictionary…</section>
+
+  <section class="filters" id="filters" hidden></section>
+
+  <section class="results" id="results" hidden>
+    <div class="column" id="col-better">
+      <h2>Moved the right way</h2>
+      <ol class="rows" id="rows-better"></ol>
+    </div>
+    <div class="column" id="col-worse">
+      <h2>Moved the wrong way</h2>
+      <ol class="rows" id="rows-worse"></ol>
+    </div>
+  </section>
+
+  <section class="excluded" id="excluded" hidden>
+    <h2>Not in this report</h2>
+    <p id="excluded-note"></p>
+  </section>
+
+</main>
+
+<footer>
+  <p>
+    Data from the <a href="https://penlight.wardwise.org">Ward Wise Penlight</a> API, a
+    <a href="https://chihacknight.org/">Chi Hack Night</a> project by Harry Brisson.
+    This is an independent reporting view built against that public API.
+  </p>
+  <p class="fine" id="provenance"></p>
+</footer>
+
+<script src="static/app.js"></script>
+</body>
+</html>

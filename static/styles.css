@@ -1,0 +1,270 @@
+/* Ward Wise Reports
+   One stylesheet, no build step, no framework. Deliberately not Penlight's
+   look: this view is about change over time, so it reads like a report and
+   not like a map UI. */
+
+:root {
+  --ink: #17181c;
+  --ink-soft: #55565e;
+  --ink-faint: #8a8b93;
+  --paper: #fbfaf8;
+  --card: #ffffff;
+  --rule: #e6e4df;
+  --brand: #4c1d95;
+  --brand-soft: #f2ecff;
+  --better: #1f6f47;
+  --better-soft: #e8f3ed;
+  --worse: #a03024;
+  --worse-soft: #fbecea;
+  --measure: 68rem;
+  --radius: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #f0eeea;
+    --ink-soft: #a9a8b0;
+    --ink-faint: #74737b;
+    --paper: #121317;
+    --card: #191a1f;
+    --rule: #2a2b31;
+    --brand: #b79cf5;
+    --brand-soft: #241a3b;
+    --better: #63c894;
+    --better-soft: #14261d;
+    --worse: #ee8878;
+    --worse-soft: #2a1815;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 16px/1.55 ui-sans-serif, -apple-system, "Segoe UI", Inter, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--brand); }
+
+/* ---- chrome ---------------------------------------------------------- */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1.5rem;
+  border-bottom: 1px solid var(--rule);
+  background: var(--card);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.brand-name { font-size: 1.02rem; letter-spacing: -0.01em; }
+.brand-name strong { color: var(--brand); font-weight: 650; }
+
+.topnav { display: flex; gap: 1.2rem; font-size: 0.9rem; }
+.topnav a { color: var(--ink-soft); text-decoration: none; }
+.topnav a:hover { color: var(--brand); }
+
+main {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* ---- controls -------------------------------------------------------- */
+
+.picker {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  padding-bottom: 1.6rem;
+}
+
+.picker label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--ink-faint);
+}
+
+.picker select {
+  appearance: none;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 0.42rem 0.7rem;
+  cursor: pointer;
+  max-width: 22rem;
+}
+
+.picker select:focus-visible { outline: 2px solid var(--brand); outline-offset: 1px; }
+.picker select:disabled { opacity: 0.5; cursor: default; }
+.picker-sep { flex: 0 0 1px; height: 1.4rem; background: var(--rule); margin: 0 0.5rem; }
+
+/* ---- lede ------------------------------------------------------------ */
+
+.lede { padding-bottom: 1.4rem; border-bottom: 1px solid var(--rule); margin-bottom: 1.6rem; }
+
+.lede h1 {
+  margin: 0 0 0.4rem;
+  font-size: clamp(1.55rem, 3.6vw, 2.15rem);
+  line-height: 1.18;
+  letter-spacing: -0.022em;
+  font-weight: 640;
+}
+
+.lede p { margin: 0; color: var(--ink-soft); font-size: 1rem; }
+.lede .count { color: var(--brand); font-weight: 600; }
+
+.statusbar { color: var(--ink-soft); font-size: 0.94rem; padding: 0.5rem 0 1rem; }
+.statusbar.error { color: var(--worse); }
+.statusbar[hidden] { display: none; }
+
+/* ---- category filters ------------------------------------------------ */
+
+.filters { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.6rem; }
+
+.chip {
+  font: inherit;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 0.28rem 0.72rem;
+  cursor: pointer;
+}
+
+.chip:hover { border-color: var(--brand); color: var(--brand); }
+
+.chip[aria-pressed="true"] {
+  background: var(--brand-soft);
+  border-color: var(--brand);
+  color: var(--brand);
+  font-weight: 560;
+}
+
+/* ---- results --------------------------------------------------------- */
+
+.results { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem; }
+
+@media (max-width: 800px) {
+  .results { grid-template-columns: 1fr; }
+}
+
+.column h2 {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+  font-weight: 620;
+  margin: 0 0 0.7rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+#col-better h2 { color: var(--better); }
+#col-worse h2 { color: var(--worse); }
+
+.rows { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+
+.row {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.row-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0.7rem 0.85rem;
+  cursor: pointer;
+}
+
+.row-head:hover { background: var(--brand-soft); }
+.row-head:focus-visible { outline: 2px solid var(--brand); outline-offset: -2px; }
+
+/* min-width:0 stops a long value pair (a nine-figure dollar amount, say) from
+   forcing the grid track wider than the card and scrolling the whole page. */
+.row-label { font-size: 0.95rem; font-weight: 550; letter-spacing: -0.008em; min-width: 0; }
+.row-cat { display: block; font-size: 0.74rem; color: var(--ink-faint); font-weight: 400; margin-top: 0.08rem; }
+
+/* The two real numbers, always visible. A percent with no base behind it is
+   how a jump from one to fourteen reads as a landslide. */
+.row-pair {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+  margin-top: 0.22rem;
+  overflow-wrap: anywhere;
+}
+
+.row-years { color: var(--ink-faint); font-weight: 400; }
+
+.row-flag {
+  color: var(--ink-faint);
+  font-weight: 400;
+  font-style: italic;
+}
+
+.row.low-start .row-delta { opacity: 0.62; font-weight: 560; }
+
+.row-right { display: flex; align-items: center; gap: 0.7rem; }
+
+.spark { display: block; }
+
+.row-delta { font-size: 0.92rem; font-weight: 620; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.row.better .row-delta { color: var(--better); }
+.row.worse .row-delta { color: var(--worse); }
+
+.row-detail { padding: 0 0.85rem 0.85rem; border-top: 1px solid var(--rule); }
+.row-detail[hidden] { display: none; }
+.row-detail dl { display: grid; grid-template-columns: auto 1fr; gap: 0.25rem 0.9rem; margin: 0.75rem 0 0; font-size: 0.87rem; }
+.row-detail dt { color: var(--ink-faint); }
+.row-detail dd { margin: 0; font-variant-numeric: tabular-nums; }
+.row-detail .desc { margin: 0.75rem 0 0; font-size: 0.87rem; color: var(--ink-soft); }
+.row-detail .src { margin: 0.4rem 0 0; font-size: 0.78rem; color: var(--ink-faint); }
+
+/* ---- excluded + footer ----------------------------------------------- */
+
+.excluded { margin-top: 2.4rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); }
+.excluded h2 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint); margin: 0 0 0.5rem; }
+.excluded p { margin: 0; color: var(--ink-soft); font-size: 0.9rem; }
+
+footer {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 1.6rem 1.5rem 3rem;
+  border-top: 1px solid var(--rule);
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+}
+
+footer p { margin: 0 0 0.4rem; }
+footer .fine { color: var(--ink-faint); font-size: 0.78rem; }
