@@ -56,6 +56,28 @@
     el.status.classList.toggle("error", Boolean(isError));
   }
 
+  // A blank page is the worst possible failure, because it looks the same as a
+  // page that is still loading. Anything that goes wrong says so on screen,
+  // names the step that failed, and offers a way to try again. The full error
+  // also goes to the console so a stack is available.
+  function fail(step, err) {
+    console.error("[wardwise-reports] " + step, err);
+    el.status.hidden = false;
+    el.status.classList.add("error");
+    el.status.textContent = "";
+
+    var line = document.createElement("div");
+    line.textContent = step + " " + ((err && err.message) || err || "unknown error");
+    el.status.appendChild(line);
+
+    var retry = document.createElement("button");
+    retry.type = "button";
+    retry.className = "retry";
+    retry.textContent = "Try again";
+    retry.addEventListener("click", function () { location.reload(); });
+    el.status.appendChild(retry);
+  }
+
   function titleCase(slug) {
     return String(slug || "")
       .split("_")
@@ -208,7 +230,7 @@
         render();
       })
       .catch(function (err) {
-        status("Could not load Ward " + Number(wardId) + ". " + err.message, true);
+        fail("Loading Ward " + Number(wardId) + " failed.", err);
       });
   }
 
@@ -459,21 +481,40 @@
     render();
   });
 
+  // The dictionary and the ward list are separate failure points from the
+  // report itself, so they report separately. Lumping them together is how a
+  // working API produced the message "could not reach the API".
   loadDictionary()
+    .catch(function (err) {
+      fail("Could not load the metric dictionary from the API.", err);
+      throw err;
+    })
     .then(function () {
-      el.ward.innerHTML = "";
-      state.wards.forEach(function (ward) {
-        var option = document.createElement("option");
-        option.value = ward.ward_id;
-        var alderName = ward.alderperson && ward.alderperson.name ? " · " + ward.alderperson.name : "";
-        option.textContent = "Ward " + Number(ward.ward_id) + alderName;
-        if (ward.ward_id === "42") option.selected = true;
-        el.ward.appendChild(option);
-      });
-      el.ward.disabled = false;
+      try {
+        el.ward.innerHTML = "";
+        state.wards.forEach(function (ward) {
+          var option = document.createElement("option");
+          option.value = ward.ward_id;
+          var alderName = ward.alderperson && ward.alderperson.name ? " · " + ward.alderperson.name : "";
+          option.textContent = "Ward " + Number(ward.ward_id) + alderName;
+          if (ward.ward_id === "42") option.selected = true;
+          el.ward.appendChild(option);
+        });
+        el.ward.disabled = false;
+      } catch (err) {
+        fail("Building the ward list failed.", err);
+        throw err;
+      }
+
+      if (!state.wards.length) {
+        fail("The API returned no wards, so there is nothing to report on.", new Error("0 wards"));
+        return null;
+      }
+
       return loadWard(el.ward.value || "42");
     })
-    .catch(function (err) {
-      status("Could not reach the Penlight API. " + err.message, true);
+    .catch(function () {
+      // Already surfaced above. Swallow so it does not land as an unhandled
+      // rejection with no message on screen.
     });
 })();
