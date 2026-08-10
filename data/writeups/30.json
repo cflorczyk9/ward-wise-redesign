@@ -1,0 +1,42 @@
+{
+  "ward": "30",
+  "headline": "Ward 30 ranks 24th of 50, with low landlord margins but few parks or libraries.",
+  "summary": "Ward 30 covers Portage Park, Belmont Cragin, Irving Park, and Avondale on Chicago's Northwest Side. It lands close to the middle of the city, ranking 24th out of 50 wards.\n\nThe strongest numbers track two different things, landlord finances and city upkeep. On two separate measures of how much of a tenant's rent ends up as landlord profit, this ward posts the lowest share in the city. Chicago 311 also closes garbage cart repair requests faster here than in most wards, and none of the ward's park drinking fountains have tested positive for elevated lead. The weaker numbers are about public amenities. There's no mapped library in the ward, parks and civic gathering spots are scarcer than in almost any other ward, and parking complaints run higher than in most of the city. This ward has solid basic services and low landlord margins, alongside a real shortage of the parks and public buildings that round out a neighborhood.",
+  "reading_the_rankings": "Two of the ward's numbers come from the city's aldermanic menu-money records, which were redrawn along with the wards themselves in 2023. The ward's menu spending is unusually spread out across the area, a measure that ranks 2nd out of 50, but that same source also puts the ward 47th out of 50 on how much of its roughly $1.5 million annual menu budget actually got committed to projects in the latest full year, at 79.2 percent. Both numbers carry the same asterisk. They're being compared against today's ward lines and, in some cases, wards that didn't exist in their current shape before 2023, so there isn't much history yet to judge either ranking against. The garbage cart repair time, ranked 4th at under 20 days, has a smaller catch. The underlying 311 data isn't fully filed for every ward, so the comparison is real but not complete.",
+  "news": [
+    {
+      "headline": "Homeless Shelter Coming To Far Northwest Side: 'This Is Overdue'",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/15/homeless-shelter-coming-to-far-northwest-side-this-is-overdue/",
+      "date": "2026-07-15",
+      "note": "State and city officials, including Ald. Ruth Cruz, secured $13 million in state funds to build a shelter for older adults in the 30th Ward."
+    },
+    {
+      "headline": "Hagen's Fish Market Celebrates 80 Years As 4th Generation Takes Over",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/13/hagens-fish-market-celebrates-80-years-as-4th-generation-takes-over/",
+      "date": "2026-07-13",
+      "note": "Hagen's Fish Market in Portage Park marked 80 years in business as a fourth-generation family member took over as owner."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Ruth Cruz",
+    "website_url": "https://www.30thward.org",
+    "verified": true,
+    "verification_note": "Fetched https://www.30thward.org directly. The homepage reads 'Welcome to the website of 30th Ward Alderwoman Ruth Cruz,' and the footer reads 'Ruth Cruz, 30th Ward Alderwoman.'"
+  },
+  "sources_fetched": [
+    "https://www.30thward.org",
+    "https://blockclubchicago.org/tag/30th-ward/",
+    "https://blockclubchicago.org/30th-ward/",
+    "https://blockclubchicago.org/jefferson-park-portage-park-norwood-park/",
+    "https://blockclubchicago.org/category/belmont-cragin-hermosa/",
+    "https://blockclubchicago.org/2026/07/15/homeless-shelter-coming-to-far-northwest-side-this-is-overdue/",
+    "https://blockclubchicago.org/2026/07/13/hagens-fish-market-celebrates-80-years-as-4th-generation-takes-over/",
+    "https://blockclubchicago.org/2026/07/09/pollyanna-brewing-to-revive-alarmist-taproom-and-its-award-winning-beers/",
+    "https://blockclubchicago.org/2026/05/19/the-years-long-wait-for-affordable-housing-in-chicago-could-get-even-longer/",
+    "https://blockclubchicago.org/2026/05/05/long-awaited-overhaul-of-peoples-gas-site-in-portage-park-could-start-this-summer/",
+    "https://news.google.com/rss/search?q=Ruth+Cruz+Chicago+alderman&hl=en-US&gl=US&ceid=US:en"
+  ]
+}

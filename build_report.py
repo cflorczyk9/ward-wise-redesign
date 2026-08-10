@@ -34,7 +34,8 @@ WINDOW = ("2026-05-11", "2026-08-09")
 ALLOWED_OUTLETS = re.compile(
     r"blockclubchicago\.org|chicago\.suntimes\.com|suntimes\.com|chicagotribune\.com|"
     r"chicagobusiness\.com|wttw\.com|news\.wttw\.com|chicago\.gov|cityofchicago\.org|"
-    r"chicityclerk\.com|illinoispolicy\.org|axios\.com/local/chicago",
+    r"chicityclerk\.com|chicago\.councilmatic\.org|illinoispolicy\.org|"
+    r"axios\.com/local/chicago",
     re.I,
 )
 

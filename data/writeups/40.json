@@ -1,0 +1,46 @@
+{
+  "ward": "40",
+  "headline": "Ward 40 ranks 16th of 50 overall, cleaner air but fewer nearby grocery stores.",
+  "summary": "Ward 40 covers Lincoln Square, West Ridge, Edgewater, and Rogers Park on the North Side. It ranks 16th out of 50 wards overall, just inside the top third of the city, with its clearest strength in air quality. Fine-particle pollution and diesel exhaust both rank among the lowest citywide. Government-function measures also do well here. The ward sponsored more non-routine legislation than most wards this session, and its aldermanic menu spending reaches a broader spread of projects than in most of the city.\n\nThe weaker spots are ozone levels, grocery access, and school funding. Ground-level ozone here ranks near the bottom of the city, a different kind of air pollution than the fine particles the ward does well on. Licensed grocery stores per resident are also scarce, among the lowest counts in Chicago. Per-pupil school spending ranks in the bottom 10 wards. The overall rank of 16 lands a little ahead of what these specific weak spots suggest. This is a ward that beats most of Chicago on some kinds of air pollution but falls behind on food access and school funding.",
+  "reading_the_rankings": "A couple of these rankings are softer than they look. Resident metric ideas submitted to Ward Wise Explorer put the ward 46th out of 50, which reads like low civic engagement, but the source notes that 39 of the 50 wards land within two points of each other here, and the whole middle half of the city spans zero points. Almost every ward submitted close to nothing, so 46th mostly reflects app use, not anything about the neighborhood. The share of menu money spent on street and alley lighting has a similar problem. That measure ranks the ward 44th, but 38 other wards sit within two points of it, the boundaries were redrawn in 2023, and the measure isn't filled in for every ward, so a rank this far down the list is close to a tie with most of the city. Trust in local government looks like a real strength at 4th place, though the figure isn't available for every ward, so the comparison runs against however many wards reported it, not the full 50.",
+  "news": [
+    {
+      "headline": "Lincoln Square Apartment Plan Needs More Family Units, Less Parking, Neighbors Say",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/27/lincoln-square-apartment-plan-needs-more-family-units-less-parking-neighbors-say/",
+      "date": "2026-07-27",
+      "note": "Neighbors at a community meeting hosted by the ward's office asked the developer of a proposed 37-unit building on West Lawrence Avenue to add more family-sized units and fewer parking spots."
+    },
+    {
+      "headline": "Rogers Park Affordable Apartments, West Ridge Dispensary Approved By City Council",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/05/20/rogers-park-affordable-apartments-west-ridge-dispensary-approved-by-city-council/",
+      "date": "2026-05-20",
+      "note": "City Council approved the ward's first dispensary, planned for a vacant commercial building at 2415 W. Peterson Ave. in West Ridge."
+    },
+    {
+      "headline": "Cary's Lounge Sold After 50+ Years As A Family Business, But New Owner Vows To Keep It The Same",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/06/02/carys-lounge-sold-after-50-years-as-a-family-business-but-new-owner-vows-to-keep-it-the-same/",
+      "date": "2026-06-02",
+      "note": "A family-owned bar on Devon Avenue in West Ridge changed hands after more than 50 years, with the new owner planning to keep its character."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Andre Vasquez",
+    "website_url": "https://40thward.org/",
+    "verified": true,
+    "verification_note": "The data's website_url already pointed to the right site. Fetched https://40thward.org/ directly this session and confirmed the page identifies itself as 'Chicago's 40th Ward | Alderperson Andre Vasquez.' The wards.json name field read 'Jr., Andre Vasquez,' a reversed rendering of his full name (Chicago Councilmatic lists him as 'Vasquez, Jr., Andre'). The ward's own site and its page title use 'Andre Vasquez,' so that form is used here."
+  },
+  "sources_fetched": [
+    "https://40thward.org/",
+    "https://blockclubchicago.org/2026/07/27/lincoln-square-apartment-plan-needs-more-family-units-less-parking-neighbors-say/",
+    "https://blockclubchicago.org/2026/05/20/rogers-park-affordable-apartments-west-ridge-dispensary-approved-by-city-council/",
+    "https://blockclubchicago.org/2026/06/02/carys-lounge-sold-after-50-years-as-a-family-business-but-new-owner-vows-to-keep-it-the-same/",
+    "https://blockclubchicago.org/2026/05/19/lincoln-park-landmarks-rogers-park-apartments-among-projects-to-get-key-zoning-approval/",
+    "https://blockclubchicago.org/2026/07/15/lincoln-square-alderperson-beyond-frustrated-as-welles-park-grub-infestation-continues/",
+    "https://blockclubchicago.org/2026/07/21/loyolas-plan-to-turn-closed-school-into-student-housing-could-free-up-apartments-in-rogers-park-university-says/",
+    "https://blockclubchicago.org/2026/07/26/e-scooters-are-now-blocked-on-busy-stretch-of-sheridan-road-in-edgewater/"
+  ]
+}

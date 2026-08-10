@@ -1,0 +1,45 @@
+{
+  "ward": "14",
+  "headline": "Ward 14 ranks 41st of 50, the most multilingual ward in the city.",
+  "summary": "Ward 14 covers Archer Heights, Gage Park, Chicago Lawn and Brighton Park on the Southwest Side. It ranks 41st out of 50 wards overall, in the bottom fifth of the city. Language is where it stands apart. No ward has a higher share of residents speaking a language other than English at home, about 85 percent. It also has the second-lowest share of people living alone, so more households here share a home than in nearly every other ward, and a modeled estimate puts it among the more religious wards, with one of the lowest shares of residents expected to report no religious affiliation. Median rent for renters paying cash rent is the third-lowest in the city, and ozone pollution is lower here than in all but four other wards.\n\nThe weak spots are investment and a handful of less common measures. Ward 14 ranks last of 50 wards on residential renovation permits issued, and last on the dollar value of recorded property sales in the latest year. It also ranks last on the density of massage and bodywork businesses, and last on proximity to facilities that report toxic releases, meaning it sits closer to those sites, on average, than any other ward. It ranks last, too, on the number of religious congregations with paid staff per resident. Together, these numbers describe a linguistically diverse, family-dense residential ward with comparatively low housing turnover and more exposure to industrial sites than most of Chicago.",
+  "reading_the_rankings": "A couple of these numbers need context. The rank of 1st on language, with about 85 percent of residents speaking something other than English at home, comes from a direct Census Bureau survey, not a model, but it still reaches the ward by splitting census tracts by area, so households near the edge of Ward 14 may actually belong to a neighboring ward's tally. A 2nd-place rank on 'no religious affiliation' means the modeled estimate for that group is one of the lowest in the city, since a low share counts as a good score on this measure. That estimate looks just as solid as the language number, but the source calls it a modeled estimate, not an observed survey, built from patterns in similar areas rather than a headcount taken here, and rates the whole measure low confidence. The last-place rank on religious congregations comes from ZIP code data, and the source itself notes ZIP codes don't follow ward lines at all, so this number may really describe a differently shaped area.",
+  "news": [
+    {
+      "headline": "Amazon To Begin Demolition Of Central Steel & Wire Plant In Gage Park",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/05/13/amazon-to-begin-demolition-of-central-steel-wire-plant-in-gage-park/",
+      "date": "2026-05-13",
+      "note": "Demolition began on the former Central Steel & Wire plant site to make way for a 230,000-square-foot Amazon delivery station."
+    },
+    {
+      "headline": "Cyclist Hit By Driver In Gage Park Faces Long Road To Recovery — And 'Overwhelming' Medical Debt",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/05/28/cyclist-hit-by-driver-in-gage-park-faces-long-road-to-recovery-and-overwhelming-medical-debt/",
+      "date": "2026-05-28",
+      "note": "A 22-year-old cyclist was seriously injured when a driver hit him on South Western Avenue, and his family started a fundraiser to cover medical costs."
+    },
+    {
+      "headline": "'Moving Archer Forward' Initiative Aims To Bring 800 New Housing Units To Archer Avenue",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/13/moving-archer-forward-initiative-aims-to-bring-800-new-housing-units-to-archer-avenue/",
+      "date": "2026-07-13",
+      "note": "The same planning initiative is tagged to Gage Park and Brighton Park, and would add housing, retail space and transit upgrades along the Archer Avenue corridor over the next 10 to 20 years."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Jeylu B. Gutierrez",
+    "website_url": "https://www.chicago.gov/city/en/about/wards/14.html",
+    "verified": true,
+    "verification_note": "Fetched chicago.gov/city/en/about/wards/14.html directly this session. The page's metadata and body both name Jeylu B. Gutierrez as the sitting alderman of Ward 14. Also checked jeylugutierrez.com, her campaign site, but it frames her as a candidate rather than the current officeholder, so it wasn't used as the official link."
+  },
+  "sources_fetched": [
+    "https://www.chicago.gov/city/en/about/wards/14.html",
+    "https://www.jeylugutierrez.com/",
+    "https://www.jeylugutierrez.com/about",
+    "https://blockclubchicago.org/2026/05/13/amazon-to-begin-demolition-of-central-steel-wire-plant-in-gage-park/",
+    "https://blockclubchicago.org/category/bridgeport-chinatown-mckinley-park/gage-park-brighton-park/",
+    "https://blockclubchicago.org/2026/05/28/cyclist-hit-by-driver-in-gage-park-faces-long-road-to-recovery-and-overwhelming-medical-debt/",
+    "https://blockclubchicago.org/2026/07/13/moving-archer-forward-initiative-aims-to-bring-800-new-housing-units-to-archer-avenue/"
+  ]
+}

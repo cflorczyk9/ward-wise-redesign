@@ -1,0 +1,34 @@
+{
+  "ward": "16",
+  "headline": "Ward 16 ranks last of 50 wards overall, though permit and fountain data top the city.",
+  "summary": "Ward 16 covers Englewood, West Englewood, Chicago Lawn, and New City on Chicago's South Side. It ranks last of the 50 wards on the report's overall scale, a score of 25.3, the lowest overall mark in the report.\n\nA handful of specific measures buck that overall score. Building permits here move faster than anywhere else in the city, none of the Chicago Park District fountains tested in the ward came back with an elevated lead reading, and asking rents rank among the lowest in Chicago. Health measures pull the overall number down hard. The ward ranks last of 50 on adults reporting fair or poor general health and last on physical inactivity, and it also posts the city's lowest voter turnout.",
+  "reading_the_rankings": "Building permits here rank 1st of the 47 wards with enough data to compare, at an average of 0 days to issue a permit. The source rates that figure medium confidence and doesn't have full data for every ward, so a 0-day average likely reflects a small number of recorded permits rather than a citywide-leading permit office. The park fountain numbers carry no such caveat. None of the ward's sites tested by Should I Drink Here? show a historically elevated lead result, good for 1st of 50 wards on that measure. The weakest numbers come from the CDC's PLACES program, which reports the 34.9 percent of adults here estimated to have fair or poor general health. The ward ranks last in the city on that measure. The source rates it medium confidence, and the estimate is allocated to the ward from census tracts by area, assuming residents are spread evenly inside each tract, so a tract that straddles the ward line has some of its estimate counted here that really belongs to the neighboring ward.",
+  "news": [
+    {
+      "headline": "Englewood Sculpture Garden Opens On Former Vacant Lots: 'A Positive Footprint For The Community'",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/08/03/englewood-sculpture-garden-opens-on-former-vacant-lots-a-positive-footprint-for-the-community/",
+      "date": "2026-08-03",
+      "note": "The Englewood Arts Collective opened a public sculpture garden on formerly vacant lots at 6300 S. May St., inside the ward."
+    },
+    {
+      "headline": "Englewood development wants to make 59th Street a 'corridor to watch'",
+      "outlet": "Chicago Sun-Times",
+      "url": "https://chicago.suntimes.com/real-estate/2026/06/16/englewood-development-reup-rage-59th-street-corridor-watch",
+      "date": "2026-06-16",
+      "note": "The Resident Association of Greater Englewood is building a $6.4 million mixed-use headquarters and retail space at 1210 W. 59th St., set to open in 2027."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Stephanie D. Coleman",
+    "website_url": "https://www.16thward.org",
+    "verified": true,
+    "verification_note": "Fetched https://www.16thward.org this session. The homepage title reads 'Alderman Stephanie D. Coleman | Chicago's 16th Ward.'"
+  },
+  "sources_fetched": [
+    "https://www.16thward.org",
+    "https://blockclubchicago.org/2026/08/03/englewood-sculpture-garden-opens-on-former-vacant-lots-a-positive-footprint-for-the-community/",
+    "https://chicago.suntimes.com/real-estate/2026/06/16/englewood-development-reup-rage-59th-street-corridor-watch"
+  ]
+}

@@ -30,7 +30,11 @@ HARD = [
     # A colon used to introduce prose, as opposed to one inside a time or ratio.
     ("prose colon", re.compile(r"[a-z]\s*:\s+[A-Za-z]")),
     ("contrastive fragment", re.compile(r"\.\s+Not\s+[a-z]", re.I)),
-    ("not X but Y", re.compile(r"\bnot\s+(?:just\s+|only\s+|merely\s+)?\w+[^.]{0,40}\bbut\b", re.I)),
+    # Only the rhetorical construction, not ordinary contrast. "from a survey,
+    # not a model, but it still reaches the ward" is plain English; "not just a
+    # ranking but a verdict" is the banned emphasis move.
+    ("not just X but Y", re.compile(r"\bnot\s+(?:just|only|merely|simply)\b[^.]{0,50}\bbut\b", re.I)),
+    ("it is not X it is Y", re.compile(r"\b(?:it'?s|it is|this is|that'?s)\s+not\s+[^.,]{2,40},\s*(?:it'?s|it is|this is)\b", re.I)),
 ]
 
 # AI tells from the catalog that show up most in generated civic prose.

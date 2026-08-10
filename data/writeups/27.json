@@ -1,0 +1,57 @@
+{
+  "ward": "27",
+  "headline": "Ward 27 ranks 15th of 50, deep in new construction, weak on pollution and street safety.",
+  "summary": "Ward 27 covers Near West Side, West Town, Humboldt Park, and Near North Side, and ranks 15th out of 50 wards overall with a score of 50.61. Building is the clearest story here. The ward ranks first in the city on reported investment in new residential permits, at $279.7 million, on the number of new permits issued, 44, and on the estimated new housing units those permits will bring, 633. It also collected more TIF increment revenue than any other ward, $256.4 million, and every graffiti removal request logged here closed in zero days, also a citywide best. Arts and culture ranks second, with 13 mapped venues and spaces.\n\nThe weaknesses sit somewhere else. Ward 27 has the worst pollution-site proximity score in the city, a measure of how close residents live to Superfund sites, brownfields, and other contaminated land under state remediation. It also posts the lowest council attendance rate of any ward this session, and ranks near the bottom on both traffic injuries and pedestrian and cyclist crashes, each 49th of 50. Licensed music and dance venues are scarce too, ranking 48th of the 48 wards with usable data.",
+  "reading_the_rankings": "The attendance measure that puts the ward 50th of 50, at 41 percent, comes from a count that blends more than one term in office. The measure's own description says it is combined by ward when representation changed during the session, folding together whoever held the seat across the full year into a single number. The three first-place construction rankings, covering investment dollars, permit count, and estimated new units, look commanding, but the middle half of all 50 wards spans only about four to five points on the investment and unit-count measures, so most of the city sits within a few points of each other and the ward's lead reflects a narrow margin over a crowded field. The TIF increment ranking, also first citywide at $256.4 million, carries the softest evidence of the group. The source itself rates that figure low confidence, and the data is missing for one ward entirely.",
+  "news": [
+    {
+      "headline": "Man Killed, Another Wounded By 5 Gunmen Outside River North Hotel",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/01/man-killed-another-wounded-by-5-gunmen-outside-river-north-hotel/",
+      "date": "2026-07-01",
+      "note": "Five masked gunmen opened fire on two men outside a hotel in the 500 block of North State Street, killing a 30-year-old and wounding a 65-year-old."
+    },
+    {
+      "headline": "Gilda Basque Tavern Brings Spanish Pintxos To West Town With Crowdfunding Help",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/21/gilda-basque-tavern-bring-spanish-pintxos-to-west-town-with-crowdfunding-help/",
+      "date": "2026-07-21",
+      "note": "Three chef-partners raised $20,000 through crowdfunding to open a Basque-style pintxos bar on Chicago Avenue in West Town."
+    },
+    {
+      "headline": "Streetwear Icon Joe Freshgoods Is Back With Every Now And Then, A Store And Cafe In West Town",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/23/streetwear-icon-joe-freshgoods-is-back-with-every-now-and-then-a-store-and-cafe-in-west-town/",
+      "date": "2026-07-23",
+      "note": "Designer Joe Freshgoods opened a permanent store and cafe, Josephine's, on West Chicago Avenue in West Town."
+    },
+    {
+      "headline": "Humboldt Park Neighbor Launches Fundraiser To Provide Swimsuits For Local Kids",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/31/humboldt-park-neighbor-launches-fundraiser-to-provide-swimsuits-for-local-kids/",
+      "date": "2026-07-31",
+      "note": "A Humboldt Park resident started a GoFundMe for swimsuits after noticing kids at the pool going without proper swim gear because their families couldn't afford it."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Walter R. Burnett",
+    "website_url": "http://aldermanburnett.com/",
+    "verified": true,
+    "verification_note": "Fetched http://aldermanburnett.com/ this session. The page's title tag reads 'Alderman Walter R. Burnett - 27th Ward,' confirming the domain is tied to the ward's alderperson, but the page itself currently shows only a 'coming soon' placeholder with no further biographical or contact content (its canonical link points to a website-builder staging domain). It is a live but under-construction official site."
+  },
+  "sources_fetched": [
+    "http://aldermanburnett.com/",
+    "https://en.wikipedia.org/wiki/Walter_Burnett_Jr.",
+    "https://blockclubchicago.org/tag/walter-burnett/",
+    "https://blockclubchicago.org/category/wicker-park-bucktown-west-town/",
+    "https://blockclubchicago.org/category/downtown/river-north-gold-coast-near-north-side/",
+    "https://blockclubchicago.org/category/logan-square-humboldt-park-avondale/",
+    "https://blockclubchicago.org/category/downtown/west-loop/",
+    "https://blockclubchicago.org/2026/07/01/man-killed-another-wounded-by-5-gunmen-outside-river-north-hotel/",
+    "https://blockclubchicago.org/2026/07/21/gilda-basque-tavern-bring-spanish-pintxos-to-west-town-with-crowdfunding-help/",
+    "https://blockclubchicago.org/2026/07/23/streetwear-icon-joe-freshgoods-is-back-with-every-now-and-then-a-store-and-cafe-in-west-town/",
+    "https://blockclubchicago.org/2026/07/31/humboldt-park-neighbor-launches-fundraiser-to-provide-swimsuits-for-local-kids/",
+    "https://blockclubchicago.org/2026/05/21/ukrainian-village-bucktown-apartment-proposals-approved-by-city-council/"
+  ]
+}

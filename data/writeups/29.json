@@ -1,0 +1,29 @@
+{
+  "ward": "29",
+  "headline": "Ward 29 ranks 38th of 50, strong on air quality, short on green space.",
+  "summary": "Ward 29 covers Austin, Montclare, Dunning, and Belmont Cragin on Chicago's West Side. It ranks 38th out of 50 wards overall, in the bottom third of the city.\n\nThe strongest numbers here are about air and city responsiveness. Chicago 311 closes graffiti requests almost immediately, and the ward posts the lowest average ozone reading of any ward in the city on one air-quality measure, with a similarly strong reading on a second, separate measure that ranks 7th out of 50. The weaker numbers are about outdoor space and upkeep. Mapped gardens, registered murals, and distance to the lake all sit near the bottom of the list, half of the ward's park drinking fountains have tested positive for elevated lead at some point, and pothole repairs take longer here than in almost any other ward. This is a ward with clean air and quick city response in some areas, and a real gap in green space and street repair in others.",
+  "reading_the_rankings": "Take the camera-spending share, which ranks 2nd out of 50 at 0.2 percent of the ward's menu money. The source itself notes that the middle half of all 50 wards spans a single point on this measure, so nearly the whole city is bunched at a similarly low share, and a rank of 2 says less than it looks like. The wastewater proximity score, a measure of industrial pollution near local streams, ranks 3rd out of 50, but 34 other wards land within two points of this one, and the estimate is spread evenly across each census tract, so where a tract crosses the ward line, some of that number really belongs to the ward next door. The garden count runs the other way. It ranks 47th with zero gardens mapped, but 17 other wards sit within two points of that same low count, so the sharp-looking rank sits on top of a fairly small real gap.",
+  "news": [],
+  "news_status": "none_found",
+  "alderperson": {
+    "name": "Chris Taliaferro",
+    "website_url": "http://www.aldtaliaferro.com",
+    "verified": true,
+    "verification_note": "Fetched http://www.aldtaliaferro.com directly. The homepage reads 'Alderman Christopher Taliaferro has served the people in Chicago's 29th ward since his first election in 2015,' and the header reads '29th Ward Alderman Chris Taliaferro.'"
+  },
+  "sources_fetched": [
+    "http://www.aldtaliaferro.com",
+    "https://aldtaliaferro.com/",
+    "https://aldtaliaferro.com/29th-ward-developments",
+    "https://blockclubchicago.org/tag/29th-ward/",
+    "https://blockclubchicago.org/29th-ward/",
+    "https://blockclubchicago.org/austin/",
+    "https://blockclubchicago.org/category/belmont-cragin-hermosa/",
+    "https://blockclubchicago.org/2026/07/17/krzysztof-arsenowicz-longtime-polish-radio-host-remembered-with-honorary-street-sign-in-dunning/",
+    "https://blockclubchicago.org/2026/07/13/42-park-fieldhouses-on-south-west-sides-getting-improved-air-conditioning-to-help-battle-heat-waves/",
+    "https://chicago.suntimes.com/crime/2026/08/09/4-hurt-austin-shooting",
+    "https://news.google.com/rss/search?q=%2229th+Ward%22+Chicago+Taliaferro&hl=en-US&gl=US&ceid=US:en",
+    "https://news.google.com/rss/search?q=Chris+Taliaferro&hl=en-US&gl=US&ceid=US:en",
+    "https://news.google.com/rss/search?q=Austin+OR+Montclare+OR+Belmont+Cragin+Chicago+alderman+when:90d&hl=en-US&gl=US&ceid=US:en"
+  ]
+}

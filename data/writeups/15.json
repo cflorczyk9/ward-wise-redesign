@@ -1,0 +1,26 @@
+{
+  "ward": "15",
+  "headline": "Ward 15 ranks 42nd of 50 wards, with an independent business mix and low civic turnout.",
+  "summary": "Ward 15 stretches across New City, Gage Park, West Englewood, and Chicago Lawn on Chicago's Southwest Side. It ranks 42nd out of 50 wards on the report's overall scale, a score of 32.41, which puts it well below the citywide middle.\n\nThe rankings point to a place with strong independent businesses and comparatively low consumer spending. Restaurants and food stores here skew local rather than chain, and the ward's coffee shops rate near the top of the city. Ride-share spending and recorded real estate sales both sit near the bottom of all 50 wards, and residents report some of the lowest rates of physical activity and everyday contact with neighbors in Chicago.",
+  "reading_the_rankings": "Two of the ward's best marks come from business licensing data. Independent restaurants and grocers dominate here, with chain restaurant share ranked 2nd of 50 wards at just over 19 percent of licensed restaurants, and major chain store share ranked 2nd as well, at under 2 percent of licensed food stores. Both numbers come from a business-license snapshot tied to the ward as it existed when recorded. The source rates the data medium confidence, and neither measure covers every ward in the city. The ward also ranks 2nd on non-routine bills sponsored by alders associated with it this council session, 206 in total. That's a count of legislative activity tied to the ward rather than a measure of any one official's output, and it carries the same boundary caveat as the business data. On the softer end, the ward ranks 49th of 50 on the modeled share of adults who talk or spend time with neighbors at least monthly, which this dataset puts at 0 percent. The source rates that estimate low confidence, since it comes from a statistical model built on survey data rather than a direct count, so it says more about how this ward compares to others than about any specific number of actual conversations.",
+  "news": [
+    {
+      "headline": "Pedestrian killed in Gage Park crash",
+      "outlet": "Chicago Sun-Times",
+      "url": "https://chicago.suntimes.com/news/2026/07/27/pedestrian-killed-in-gage-park-crash",
+      "date": "2026-07-27",
+      "note": "A 63-year-old man was fatally struck by a speeding SUV that lost control in the 5100 block of South Western Avenue, inside the ward."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Raymond A. Lopez",
+    "website_url": "http://www.the15thward.org",
+    "verified": true,
+    "verification_note": "Fetched http://www.the15thward.org this session. The homepage title reads 'Welcome to The15thWard.org | Chicago's 15th Ward' and names Raymond A. Lopez as alderman of the 15th Ward."
+  },
+  "sources_fetched": [
+    "http://www.the15thward.org",
+    "https://chicago.suntimes.com/news/2026/07/27/pedestrian-killed-in-gage-park-crash"
+  ]
+}

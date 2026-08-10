@@ -1,0 +1,35 @@
+{
+  "ward": "13",
+  "headline": "Ward 13 ranks 26th of 50, quick on city services, weak on housing reinvestment.",
+  "summary": "Ward 13 covers Clearing, Garfield Ridge, West Lawn and West Elsdon on the Southwest Side, near Midway Airport. It lands 26th out of 50 wards overall, roughly the middle of the pack. Its strongest showing is city service delivery. No ward closes 311 requests to fix a broken garbage cart faster, and only two wards commit more of their yearly aldermanic menu money to actual projects instead of leaving it unspent. The ward also gets more direct sunlight at street level than almost any other ward, both across the year and on the summer solstice.\n\nThe weak spots sit in housing and air quality. Ward 13 ranks last of 50 wards on dollars invested in residential renovation permits, and last on the size of its surveyed stock of historic buildings from before 1940. Two separate measures of fine-particle air pollution both put it last, and it sits near the bottom on worship-related activity and the number of cafes, bars, restaurants and other everyday gathering spots per resident. Taken together, this is a settled, well-serviced residential ward that isn't drawing much new housing investment or many informal places to gather.",
+  "reading_the_rankings": "A few of these numbers deserve a second look. The rank of 3rd on menu money spent, with the ward committing all of its roughly $1.5 million in yearly aldermanic capital funds, sounds decisive, but 16 other wards land within two points of that same score, so third and, say, tenth aren't meaningfully different. The rank of 2nd on demolition permits, just one issued in the tracked year, looks just as strong, but the Chicago Data Portal itself rates that measure medium confidence, and it isn't tracked the same way in every ward, so a single unfiled or reclassified permit could move the number. The ward's last-place score on fine-particulate air pollution comes from two separate sources that both estimate exposure by splitting census-tract data across ward boundaries by area, so some of what's measured here may really belong to a neighboring ward.",
+  "news": [
+    {
+      "headline": "Southwest Side Ald. Marty Quinn Won't Seek Reelection After 4 Terms In City Council",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/08/southwest-side-ald-marty-quinn-wont-seek-reelection-after-4-terms-in-city-council/",
+      "date": "2026-07-08",
+      "note": "Quinn announced he won't run again in the 2027 election, ending 15 years representing the ward, and said he plans to serve out his term through next May."
+    },
+    {
+      "headline": "'Moving Archer Forward' Initiative Aims To Bring 800 New Housing Units To Archer Avenue",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/13/moving-archer-forward-initiative-aims-to-bring-800-new-housing-units-to-archer-avenue/",
+      "date": "2026-07-13",
+      "note": "A city and regional transit planning initiative, tagged to Garfield Ridge and West Lawn along with several other Southwest Side neighborhoods, would rezone a 6.3-mile Archer Avenue corridor running from Bridgeport to Garfield Ridge for new housing, retail space and transit upgrades over the next 10 to 20 years."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Marty Quinn",
+    "website_url": "https://www.chicago.gov/city/en/about/wards/13.html",
+    "verified": true,
+    "verification_note": "Fetched chicago.gov/city/en/about/wards/13.html directly this session. The page's metadata and body both name Marty Quinn as the sitting alderman of Ward 13, listing the ward office email ward13@cityofchicago.org."
+  },
+  "sources_fetched": [
+    "https://www.chicago.gov/city/en/about/wards/13.html",
+    "https://blockclubchicago.org/2026/07/08/southwest-side-ald-marty-quinn-wont-seek-reelection-after-4-terms-in-city-council/",
+    "https://blockclubchicago.org/tag/marty-quinn/",
+    "https://blockclubchicago.org/2026/07/13/moving-archer-forward-initiative-aims-to-bring-800-new-housing-units-to-archer-avenue/"
+  ]
+}
