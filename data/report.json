@@ -4348,8 +4348,16 @@
         "Englewood"
       ],
       "display_name": "Ward 17",
-      "news": [],
-      "news_status": "not_researched",
+      "news": [
+        {
+          "date": "2026-07-21",
+          "headline": "7 Save A Lot Stores On South, West Sides Could Close In Days As Owners Face 'Financial Headwinds'",
+          "note": "Financial strain at Yellow Banana put its Save A Lot stores at risk of closing, including two in Auburn Gresham where Ald. Moore was quoted about the situation.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/07/21/7-save-a-lot-stores-on-south-west-sides-could-close-in-days-as-owners-face-financial-headwinds/"
+        }
+      ],
+      "news_status": "found",
       "overall": {
         "of": 50,
         "rank": 45,
@@ -4598,15 +4606,20 @@
           "within_two_points": 7
         }
       ],
-      "writeup": null
+      "writeup": {
+        "headline": "Ward 17 ranks 45th of 50 overall, weighed down by six last-place city rankings.",
+        "reading_the_rankings": "The 2nd-place ranking on time poverty looks like a clear win, but it comes from a model built on national survey patterns, not a local survey, and the source itself calls it low confidence. It describes what a ward like this one typically looks like, not something measured on these actual blocks. The worst-in-the-city rank on mental health providers is a real number, 0.62 providers per 10,000 residents, but 22 other wards land within two points of it. Most of the bottom of the city is bunched together here, so the ranking is sharper than the gap behind it. Civic engagement, also ranked 50th, comes from spreading census-tract data evenly across the ward. Blocks near a ward line can end up reflecting a neighboring ward's numbers more than this one's, and the source itself rates the measure low confidence.",
+        "summary": "Ward 17 covers Auburn Gresham, West Englewood, Chicago Lawn and Englewood on Chicago's South Side. It ranks 45th of 50 wards overall. A handful of its rankings sit near the top of the city. Council session attendance for the seat ranks 2nd, at 97 percent. The ward also ranks 2nd in the city for its number of mapped houses of worship, 96 in total, and 2nd for worship places per resident. A modeled estimate of time poverty, meaning residents who get under two hours of daily leisure time, ranks 2nd, at 17.7 percent. Pothole repairs average about four days, 3rd-fastest in the city, and park acreage per resident ranks 3rd.\n\nThe weaker rankings are more numerous. Ward 17 ranks last in the city, 50th of 50, on six separate measures. Those are civic engagement, the share of adults sleeping under seven hours a night, mental health providers per resident, licensed restaurants that serve liquor, chronic school absenteeism, and the share of workers who walk or bike to their job. The ward has real physical and institutional strengths, parks, churches, fast pothole repairs, sitting next to some of the roughest numbers in the city for health access, sleep, schooling and civic life."
+      }
     },
     "18": {
       "alderperson": {
         "name": "Derrick G. Curtis",
         "photo_url": "https://occprodstoragev1.blob.core.usgovcloudapi.net/council-profile-pictures/EE27295C-FC88-EC11-8D20-001DD804FD38.jpg",
         "title": "Alderperson",
-        "website_url": null,
-        "website_verified": false
+        "verification_note": "wards.json listed no site for this ward. Fetched chicago.gov/city/en/about/wards/18.html, which names 'Ward 18 Alderman Derrick G. Curtis' and lists ward18@cityofchicago.org as the ward office email. Fetched https://www.derrickgcurtis.com and https://www.derrickgcurtis.com/about, both titled '18th Ward Alderman Derrick G. Curtis' and listing the same ward18@cityofchicago.org contact address.",
+        "website_url": "https://www.derrickgcurtis.com",
+        "website_verified": true
       },
       "caveated_count": 161,
       "communities": [
@@ -4616,8 +4629,30 @@
         "Chicago Lawn"
       ],
       "display_name": "Ward 18",
-      "news": [],
-      "news_status": "not_researched",
+      "news": [
+        {
+          "date": "2026-05-15",
+          "headline": "Ford City Mall To Close In June",
+          "note": "A Cook County judge ordered the Ashburn mall's tenants to evacuate over a defective fire suppression system, and Ald. Curtis called the ownership group slumlords.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/05/15/ford-city-mall-to-close-in-june-judge-rules/"
+        },
+        {
+          "date": "2026-06-22",
+          "headline": "Ford City Mall Closes Ahead Of City-Ordered Deadline As Site's Future Remains Uncertain",
+          "note": "The mall closed for good ahead of the city's deadline, and Ald. Curtis said he was open to a developer's plan to demolish it for an industrial campus.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/06/22/ford-city-mall-closes-ahead-of-city-ordered-deadline-report/"
+        },
+        {
+          "date": "2026-07-01",
+          "headline": "South Siders Still Waiting For Tree Cleanup After June Storms, But City Departments Are 'Overwhelmed'",
+          "note": "Ward 18 had more than 568 open tree-cleanup requests as of late June, the most of any South Side ward, after storm damage overwhelmed city crews.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/07/01/south-siders-still-waiting-for-tree-cleanup-after-june-storms-but-city-departments-are-overwhelmed/"
+        }
+      ],
+      "news_status": "found",
       "overall": {
         "of": 50,
         "rank": 35,
@@ -4850,7 +4885,11 @@
           "within_two_points": 1
         }
       ],
-      "writeup": null
+      "writeup": {
+        "headline": "Ward 18 ranks 35th of 50, solid on housing, thin on groceries and entertainment.",
+        "reading_the_rankings": "The last-place rank on grocery stores sounds decisive. But the source itself calls this measure medium confidence, and it isn't complete for every ward. Some of what looks like Ward 18 falling behind might just be the record catching up elsewhere. The 4th-place rank for spending the aldermanic capital budget looks strong next to a full 100 percent utilization, but 16 other wards land within two points of that same score. Most of the city spends nearly all of what it's allotted, so a top-four finish here is closer to keeping pace than standing out. Rent burden, also last in the city at 63 percent, comes from census-tract estimates spread evenly across the ward. That means a tract straddling the ward line could be pulling in a neighbor's numbers along with its own.",
+        "summary": "Ward 18 covers Ashburn, Auburn Gresham, West Lawn and Chicago Lawn on Chicago's Southwest Side. It ranks 35th of 50 wards overall, closer to the middle than either extreme. Its strongest marks describe the physical stock of the place. It ranks 1st in the city for owner-occupancy, measured by how often a parcel's tax bill goes to the same address as the property itself, and 1st for having the fewest licensed tobacco retailers per resident. It also ranks 3rd for the fewest demolition permits issued and 3rd for the least residential parking-zone congestion. The ward fully spent its roughly $1.5 million annual aldermanic capital budget in the latest full year, good for 4th in the city, and ground-level sun access ranks 5th.\n\nThe weak spots cluster around retail and daily amenities. Ward 18 ranks last in the city, 50th of 50, for licensed grocery stores per resident, for licensed entertainment venues such as theaters and music halls, and for coffee shops that Google reviewers rate highly. Renters are stretched thin too. Sixty-three percent of renter households spend 30 percent or more of income on rent, the worst share of any ward. Car ownership per household ranks 49th, near the bottom of the city."
+      }
     },
     "19": {
       "alderperson": {
@@ -4868,8 +4907,30 @@
         "Auburn Gresham"
       ],
       "display_name": "Ward 19",
-      "news": [],
-      "news_status": "not_researched",
+      "news": [
+        {
+          "date": "2026-07-29",
+          "headline": "As Beverly Speed Cameras Continue To Rack Up Tickets, One Camera Could Be On The Move",
+          "note": "The 19th Ward's lowest-ticketing speed camera, on 99th Street, may move to a stretch near two schools on 111th Street after parents raised safety concerns.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/07/29/as-beverly-speed-cameras-continue-to-rack-up-tickets-one-camera-could-be-on-the-move/"
+        },
+        {
+          "date": "2026-08-05",
+          "headline": "Original Rainbow Cone Hosting 100th Birthday Bash Sunday",
+          "note": "The Beverly ice cream shop on Western Avenue is marking its 100th year with a birthday party, cake, and prize giveaways.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/08/05/original-rainbow-cone-hosting-100th-birthday-bash-sunday/"
+        },
+        {
+          "date": "2026-08-04",
+          "headline": "Horse Thief Hollow's Barrel-Aged Brew Wins Gold At U.S. Beer Championships",
+          "note": "The Beverly brewery won a national gold medal for a Belgian-style beer that spent more than two years aging in oak barrels.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/08/04/horse-thief-hollows-barrel-aged-brew-wins-gold-at-u-s-beer-championships/"
+        }
+      ],
+      "news_status": "found",
       "overall": {
         "of": 50,
         "rank": 7,
@@ -5125,15 +5186,20 @@
           "within_two_points": 3
         }
       ],
-      "writeup": null
+      "writeup": {
+        "headline": "Ward 19 ranks 7th of 50 citywide, though several top scores rest on modeled estimates.",
+        "reading_the_rankings": "Ward 19's rank of first for voter turnout is a straight count, 62 percent of registered voters cast a ballot, the highest share of any ward, tallied against the ward's current 2023 boundaries rather than the different-shaped ward that existed in earlier elections. Its rank of 50th, dead last, on menu spending diversity looks damning next to that, but the caveat attached to the measure says the opposite: it only tracks how spread out the aldermanic infrastructure budget is across project types, and the source itself notes that concentrating money in one category isn't better or worse than spreading it around. A rank of 49th on entertainment venues carries a similar warning: 16 other wards land within two points of this ward's score, and the whole city is bunched into a 10-point range on this measure, so a rank in the high 40s reflects a small gap in a crowded field, not real distance from the middle of the pack.",
+        "summary": "Ward 19 covers Beverly, Mount Greenwood, Morgan Park and Auburn Gresham on the far southwest side. It ranks 7th of 50 wards overall, one of the higher scores in the report. The strongest numbers include the lowest measured proximity to hazardous-waste facilities of any ward, the highest share of aldermanic menu money spent on street resurfacing (99.6 percent), and the highest voter turnout in the city (62 percent of registered voters). A separate set of top scores comes from modeled estimates of resident satisfaction and safety rather than an actual local survey.\n\nThe weaker numbers describe a different kind of place. Ward 19 has the fewest grocery stores per resident of any ward, just over one per 10,000 people, and ranks near the bottom for licensed entertainment venues, fine-particulate air pollution, ride-share spending, and the share of workers who commute by public transit (9.2 percent, third lowest in the city). Together, the numbers describe a mostly residential part of the city built more around driving than transit or retail."
+      }
     },
     "20": {
       "alderperson": {
         "name": "Jeanette B. Taylor",
         "photo_url": "https://occprodstoragev1.blob.core.usgovcloudapi.net/council-profile-pictures/E3010C0E-F888-EC11-8D20-001DD804FD38.jpg",
         "title": "Alderperson",
-        "website_url": null,
-        "website_verified": false
+        "verification_note": "wards.json listed no site for this ward. Found https://www.ward20th.com/ by search and fetched https://www.ward20th.com/meet-jbt this session. It names 'Alderwoman Jeanette B. Taylor' and lists the official ward contact, ward20@cityofchicago.org, confirming it is her official site.",
+        "website_url": "https://www.ward20th.com/",
+        "website_verified": true
       },
       "caveated_count": 162,
       "communities": [
@@ -5143,8 +5209,23 @@
         "Englewood"
       ],
       "display_name": "Ward 20",
-      "news": [],
-      "news_status": "not_researched",
+      "news": [
+        {
+          "date": "2026-07-14",
+          "headline": "Sprawling Woodlawn Central Development, Daily News Building Landmarking Get Zoning Approval",
+          "note": "City Council's zoning committee approved the first phase of the $580 million Woodlawn Central mixed-use development, plus landmark status for the Chicago Daily News Building.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/07/14/sprawling-woodlawn-central-development-daily-news-building-landmarking-get-zoning-approval/"
+        },
+        {
+          "date": "2026-06-16",
+          "headline": "South Side residents call for stronger housing protections as Obama Center's official opening nears",
+          "note": "Community groups held a news conference in Woodlawn and nearby neighborhoods asking for rent control and other anti-displacement measures as the Obama Presidential Center opens.",
+          "outlet": "Chicago Sun-Times",
+          "url": "https://chicago.suntimes.com/news/2026/06/16/obama-center-housing-costs-displacement-gentrification-jackson-park-woodlawn-south-shore"
+        }
+      ],
+      "news_status": "found",
       "overall": {
         "of": 50,
         "rank": 46,
@@ -5393,7 +5474,11 @@
           "within_two_points": 4
         }
       ],
-      "writeup": null
+      "writeup": {
+        "headline": "Ward 20 ranks 46th of 50, and its poverty rate is the highest of any Chicago ward.",
+        "reading_the_rankings": "Ward 20's worst score, a rank of 50th on poverty rate at 34.7 percent, comes from an actual Census count reallocated from tract data to ward lines, not an estimate, though the source rates that reallocation only medium confidence since census tracts don't line up neatly with ward boundaries. Three other bottom-ranked measures, happiness, financial satisfaction, and social trust, are modeled figures built from national survey patterns and the ward's demographic makeup rather than a poll of anyone who lives here, and the source itself rates all three low confidence. The ward's fifth-place rank on permit-zone parking density is a different case, a measure with no caveats attached at all, about as close as this report gets to a number that means exactly what it says.",
+        "summary": "Ward 20 covers New City, Washington Park, Woodlawn and Englewood on the South Side. It ranks 46th of 50 wards overall. The clearest weak point is poverty. At 34.7 percent, the share of residents living below the poverty line is the highest of any ward in the city, and median household income also ranks near the bottom, at about $40,500 a year. A cluster of modeled wellbeing measures, happiness, financial satisfaction, and social trust, land at or near last place too, though those come from estimates built on population characteristics rather than a survey of the people who actually live here.\n\nThe ward's other rankings look different. It places in the top 10 of 50 wards on the share of menu money spent on street resurfacing, on how many residential parking permit zones cover its blocks, and on new residential building permits, 22 issued over the past year. Together, the numbers point to a ward carrying real material hardship on one side and steady infrastructure and construction activity on the other."
+      }
     },
     "21": {
       "alderperson": {
@@ -8017,8 +8102,9 @@
         "name": "Jr., Felix Cardona",
         "photo_url": "https://occprodstoragev1.blob.core.usgovcloudapi.net/council-profile-pictures/1C8E86C8-FB88-EC11-8D20-001DD804FD38.jpg",
         "title": "Alderperson",
-        "website_url": null,
-        "website_verified": false
+        "verification_note": "Fetched https://www.ward31.org/ directly this session. It is the official City of Chicago 31st Ward hub and names Felix Cardona as the ward's alderman. The wards.json data had no website on file for this ward, so this one was found and verified fresh.",
+        "website_url": "https://www.ward31.org/",
+        "website_verified": true
       },
       "caveated_count": 165,
       "communities": [
@@ -8028,8 +8114,16 @@
         "Avondale"
       ],
       "display_name": "Ward 31",
-      "news": [],
-      "news_status": "not_researched",
+      "news": [
+        {
+          "date": "2026-06-03",
+          "headline": "Woman Killed At Busy NW Side Intersection Where Planned Traffic Light Was Never Installed",
+          "note": "A 62-year-old woman was fatally struck by a driver in Hermosa at Belmont and Kilbourn, an intersection where a traffic signal has been planned since 2023.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/06/03/woman-killed-at-busy-nw-side-intersection-where-planned-traffic-light-was-never-installed/"
+        }
+      ],
+      "news_status": "found",
       "overall": {
         "of": 50,
         "rank": 37,
@@ -8272,7 +8366,11 @@
           "within_two_points": 1
         }
       ],
-      "writeup": null
+      "writeup": {
+        "headline": "Ward 31 ranks 37th of 50, cleanest industrial-site record, weak on new housing.",
+        "reading_the_rankings": "Take the No. 1 ranking on polluted-site proximity. It sounds like a clean sweep, but the source itself rates this measure only medium confidence, and it isn't filled in for every ward, so the comparison behind rank 1 is thinner than a full field of 50. The bottom-of-the-list new-housing numbers deserve the same caution in the other direction. Ward 31 ranks 50th on new homes permitted, but 29 other wards score within two points of it on that same measure, and the whole city's middle half spans under five points on it, so most of Chicago sits bunched near the bottom here too. The menu-spending rankings carry a different kind of asterisk. They're tied to today's ward boundaries, which were redrawn in 2023, so some of the historical spending data behind the 5th-place ranking on spending spread and the 6th-place ranking on sidewalk spending was actually collected for a differently shaped ward.",
+        "summary": "Ward 31 covers Belmont Cragin, Hermosa, Portage Park and Avondale on the city's Northwest Side. It ranks 37th out of 50 wards overall, a score of 36.09 that puts it in the lower half of the city. The ward's strongest numbers are environmental and civic. It has the least proximity to Superfund, brownfield and state-remediation sites of any ward in Chicago, and 71.7 percent of households here speak a language other than English at home, the fourth-highest share in the city. City services also move fast here. A street light outage gets fixed in an average of 1.68 days, one of the quickest turnarounds in Chicago, and the ward's aldermanic menu money is spent in a way that reaches a wide, even spread of blocks instead of concentrating in one corner.\n\nThe weak points cluster around housing and health coverage. An estimated 18.3 percent of residents here have no health insurance, the highest uninsured rate of any ward in the city. Parking complaints and disputes also run higher here than anywhere else in Chicago, and the city recorded only one new residential construction permit in the ward last year, the fewest of any ward. Rodent baiting requests take the longest to close of any ward too. The numbers describe a ward with clean industrial-site exposure and fast city response on basic requests, next to a housing supply that has nearly stopped growing and a bigger share of uninsured residents than anywhere else in Chicago."
+      }
     },
     "32": {
       "alderperson": {
@@ -8290,8 +8388,30 @@
         "Lake View"
       ],
       "display_name": "Ward 32",
-      "news": [],
-      "news_status": "not_researched",
+      "news": [
+        {
+          "date": "2026-05-21",
+          "headline": "Ukrainian Village, Bucktown Apartment Proposals Approved By City Council",
+          "note": "City Council approved a 30-unit apartment building at 1801-1809 N. Winnebago Ave. in Ward 32, on a lot the alderman's office said had sat vacant for years.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/05/21/ukrainian-village-bucktown-apartment-proposals-approved-by-city-council/"
+        },
+        {
+          "date": "2026-06-09",
+          "headline": "Foundry Park In Line For $200 Million In Public Funding At Former Lincoln Yards Site",
+          "note": "A city commission cleared the way for roughly $200 million in public infrastructure funding tied to the Foundry Park development on the former Lincoln Yards site, which sits in Ward 32.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/06/09/foundry-park-in-line-for-200-million-in-public-funding-at-former-lincoln-yards-site/"
+        },
+        {
+          "date": "2026-07-21",
+          "headline": "A Sliver Of Land Along The Kennedy Expressway Has Been Reborn As A Native Prairie",
+          "note": "A Bucktown resident has spent years turning a strip of state highway land into a native plant garden, with the ward office backing efforts to keep it from being mowed.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/07/21/a-sliver-of-land-along-the-kennedy-expressway-has-been-reborn-as-a-native-prairie/"
+        }
+      ],
+      "news_status": "found",
       "overall": {
         "of": 50,
         "rank": 2,
@@ -8545,15 +8665,20 @@
           "within_two_points": 17
         }
       ],
-      "writeup": null
+      "writeup": {
+        "headline": "Ward 32 ranks 2nd of 50, strongest on income, weakest on neighbor socializing.",
+        "reading_the_rankings": "A few of these rankings need the fine print attached. The modeled happiness ranking, for instance, is a statistical estimate built from the ward's income, marital status, employment, homeownership and health mix. The source rates it low confidence, so it describes what a ward with this demographic profile usually looks like more than how residents here actually feel day to day. The bars-and-taverns ranking has a different limitation. It comes from ZIP code data that doesn't follow ward lines at all, so some of what counts toward Ward 32's rank of 1st may actually sit in a neighboring ward, or miss a bar just across a ZIP boundary. The ward's near-bottom finish on mapped landmarks looks worse than the gap behind it. Twenty other wards score within two points of Ward 32 here, and the whole city's middle half spans only 6.2 points on this measure, so a landmark count drawn from OpenStreetMap is bunching most of the city together near the bottom, not singling out Ward 32.",
+        "summary": "Ward 32 covers Logan Square, Lincoln Park, North Center and Lake View on the North Side, and it ranks 2nd out of 50 Chicago wards overall, a score of 63.81. Income and material comfort drive that ranking. Median household income here is $166,248, the highest of any ward, and the poverty rate sits at 5.9 percent, the lowest in the city. A model built from income, employment, marital status, homeownership and health also puts this ward first on subjective happiness and on the modeled share of adults who would call themselves very happy. The ward also has the most bars and taverns per resident in Chicago and ranks first on a population-vulnerability score, one piece of the city's environmental justice index built from socioeconomic and health risk factors.\n\nThe weaker numbers point to time and social connection more than money. A model of daily routines puts Ward 32 last in the city on both minutes of daily leisure and the modeled share of adults who socialize with neighbors weekly, and it ranks near the bottom on time poverty too. The ward also recorded 38 demolition permits, the most of any ward, and this dataset's map of landmarks and community gardens turns up none in Ward 32, ranking near the very bottom on both. Ward 32 is a wealthy, busy ward. Residents here report less unstructured time and fewer casual neighborhood ties than people in the rest of the city."
+      }
     },
     "33": {
       "alderperson": {
         "name": "Rossana Rodriguez Sanchez",
         "photo_url": "https://occprodstoragev1.blob.core.usgovcloudapi.net/council-profile-pictures/176937CC-9378-EC11-8940-001DD804DD33.jpg",
         "title": "Alderperson",
-        "website_url": null,
-        "website_verified": false
+        "verification_note": "Fetched https://33rdward.org/. The site's title and body text identify Rossana Rodriguez Sanchez as Alderwoman of the 33rd Ward.",
+        "website_url": "https://33rdward.org/",
+        "website_verified": true
       },
       "caveated_count": 160,
       "communities": [
@@ -8563,8 +8688,30 @@
         "North Park"
       ],
       "display_name": "Ward 33",
-      "news": [],
-      "news_status": "not_researched",
+      "news": [
+        {
+          "date": "2026-07-10",
+          "headline": "Homeless Encampment Fight Overshadows Long-Awaited Ronan Park Plaza Debut",
+          "note": "A ribbon-cutting for Ronan Park's new riverside plaza was disrupted by dueling protests over an unhoused encampment nearby, with Ald. Rossana Rodriguez-Sanchez among the officials present.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/07/10/homeless-encampment-fight-overshadows-long-awaited-ronan-park-plaza-debut/"
+        },
+        {
+          "date": "2026-06-03",
+          "headline": "ICE Crash And Arrest In Albany Park Leaves Neighbors Furious: 'We Should Not Have To Live Like This'",
+          "note": "Federal immigration agents crashed an SUV into a bystander's car while making an arrest near Lawrence and Kedzie, prompting a neighborhood protest the next evening.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/06/03/ice-crash-and-arrest-in-albany-park-leaves-neighbors-furious-we-should-not-have-to-live-like-this/"
+        },
+        {
+          "date": "2026-07-23",
+          "headline": "Kashgar Uyghur Dining Offers A Taste Of Central Asian Home Cooking",
+          "note": "A new Albany Park restaurant serving Uyghur home cooking opened at 4830 N. Pulaski Road.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/07/23/kashgar-uyghur-dining-offers-albany-park-neighbors-a-taste-of-central-asian-home-cooking/"
+        }
+      ],
+      "news_status": "found",
       "overall": {
         "of": 50,
         "rank": 25,
@@ -8806,15 +8953,20 @@
           "within_two_points": 1
         }
       ],
-      "writeup": null
+      "writeup": {
+        "headline": "Ward 33 ranks 25th of 50, with strong local businesses and slow city services.",
+        "reading_the_rankings": "A few of these numbers need their caveats to make sense. The finding that Ward 33 has the lowest share of chain food stores in the city, under 14 percent, comes from a business-license field tied to the ward as it existed when each license was recorded. Boundaries were redrawn in 2023, so some of those older licenses may describe a different-shaped ward than the one that exists today. The near-last finish on total place reviews, 49th of 50, looks worse than the real gap between wards. Thirty-six of the 50 wards score within two points of each other on that measure, so most of the city is bunched together near the bottom, and Ward 33's rank there is sharper than the difference behind it. The last-place finish on menu money spent, only 55.9 percent of the ward's roughly $1.5 million annual allotment went to committed projects in the latest full year, comes from that same boundary-redrawn ward field, so it reflects today's ward footprint more than a clean year-over-year trend.",
+        "summary": "Ward 33 covers Albany Park, Irving Park, Avondale, and North Park on the city's northwest side. It ranks 25th out of 50 wards overall, squarely in the middle of the pack. Its strongest marks come from neighborhood life rather than city government. The ward's bars carry a median Google rating of 4.75, the best score among the 45 wards with rated bars, and its houses of worship rate close behind at 4.9. Places across the ward rate second-best citywide overall, at 4.73 out of 5. Licensed food stores here skew independent more than in any other ward, with chain outlets making up just under 14 percent of the total. The ward also reports fewer traffic-crash injuries than all but two others citywide, and ranks third for how many home languages are spoken there, a mark of Albany Park's long history as a landing spot for immigrant and refugee families.\n\nThe weak points are almost all city services, not neighborhood character. Ward 33 ranks 48th of 50 on both 311 response time and pothole repair time, and dead last, 50th of 50, on the share of its yearly menu money actually spent on projects rather than left idle. The ward has no libraries mapped inside its boundaries, also last in the city. Registered murals and total place reviews rank near the bottom too, 48th of 49 and 49th of 50. The numbers describe a ward with an active bar and worship scene and mostly independent local businesses, sitting behind most of the city on infrastructure and how fast basic requests get handled."
+      }
     },
     "34": {
       "alderperson": {
         "name": "William Conway",
         "photo_url": "https://occprodstoragev1.blob.core.usgovcloudapi.net/council-profile-pictures/4C380420-6CF3-ED11-A7C6-001DD804FC2B.jpg",
         "title": "Alderperson",
-        "website_url": null,
-        "website_verified": false
+        "verification_note": "Fetched https://www.ward34.org/. The site's title and header identify Bill Conway as Alderman of the 34th Ward.",
+        "website_url": "https://www.ward34.org/",
+        "website_verified": true
       },
       "caveated_count": 164,
       "communities": [
@@ -8824,8 +8976,30 @@
         "West Town"
       ],
       "display_name": "Ward 34",
-      "news": [],
-      "news_status": "not_researched",
+      "news": [
+        {
+          "date": "2026-07-30",
+          "headline": "Ald. Bill Conway Launches Reelection Bid, Ending Speculation About Mayoral Run",
+          "note": "Conway announced he is running for reelection to the 34th Ward rather than entering the mayor's race.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/07/30/ald-bill-conway-launches-reelection-bid-ending-speculation-about-mayoral-run/"
+        },
+        {
+          "date": "2026-07-28",
+          "headline": "Team Behind Hyde Park's Virtue Opening Restaurant In West Loop",
+          "note": "Chef Damarr Brown, of the Hyde Park restaurant Virtue, is opening his first solo restaurant at 219 N. Elizabeth St.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/07/28/team-behind-hyde-parks-virtue-opening-restaurant-in-west-loop/"
+        },
+        {
+          "date": "2026-08-03",
+          "headline": "Wishbone, Beloved West Loop Restaurant, Closing After 36 Years",
+          "note": "The Southern-inspired brunch spot on West Washington Boulevard announced it is closing after 36 years.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/08/03/wishbone-west-loops-beloved-brunch-spot-closing-after-36-years/"
+        }
+      ],
+      "news_status": "found",
       "overall": {
         "of": 50,
         "rank": 8,
@@ -9082,7 +9256,11 @@
           "within_two_points": 1
         }
       ],
-      "writeup": null
+      "writeup": {
+        "headline": "Ward 34 ranks 8th of 50, a dense downtown ward with the city's highest rent burden.",
+        "reading_the_rankings": "A couple of these numbers need their caveats attached to make sense. Ward 34's last-place finish on landlord profit share, above 69 percent under both the assessed-value and sale-price versions of the estimate, looks like an outlier, but ten wards score within two points of it on each version. The ranking there is sharper than the real gap, so Ward 34 sits at the extreme end of a citywide pattern rather than standing alone. The sale-price version in particular is flagged by its own source as likely to read thin or even negative for anyone who bought recently, since it swaps in a mortgage basis closer to what current owners actually paid. On the strong side, the first-place rankings for bank branches, coffee shops, and gyms per resident come from a source that spreads county-level business counts across ZIP codes rather than ward lines, and the source itself rates that method low confidence, so a true ward-by-ward count could look different.",
+        "summary": "Ward 34 covers the Loop, Near West Side, Near South Side, and West Town, the dense center of downtown Chicago. It ranks 8th out of 50 wards overall, near the top citywide. Every one of its strongest scores comes in first in the city. It has more bank branches per resident than any other ward, at nearly 24 per 10,000 residents, and it also leads the city on coffee shops, gyms, and religious congregations, each counted per resident. It has the most 'L' station entries of any ward with rail service too, more than 7.4 million rides recorded at stations inside the ward. Licensed coffee and tea shops per resident rank first as well. The numbers describe a ward built around density and heavy daytime foot traffic more than a typical residential neighborhood.\n\nThe weak points cluster around cost of living rather than city services. Ward 34 ranks last in the city on the estimated share of rent that ends up as landlord profit, above 69 percent whether the estimate uses assessed property values or actual recent sale prices. It also ranks last on a modeled estimate of the share of adults with no religious affiliation, on licensed tobacco retailers per resident, and on the share of licensed food stores that belong to a major national chain. None of Ward 34's six weakest measures are 311 response time, pothole repair, or library and park counts, the city-service categories that show up at the bottom in many other wards."
+      }
     },
     "35": {
       "alderperson": {
@@ -9387,8 +9565,30 @@
         "Humboldt Park"
       ],
       "display_name": "Ward 36",
-      "news": [],
-      "news_status": "not_researched",
+      "news": [
+        {
+          "date": "2026-05-21",
+          "headline": "Ukrainian Village, Bucktown Apartment Proposals Approved By City Council",
+          "note": "City Council approved a 40-unit apartment building at Chicago and Washtenaw avenues on the Ukrainian Village-Humboldt Park border, part of Ward 36, after two rounds of community meetings over the project's size.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/05/21/ukrainian-village-bucktown-apartment-proposals-approved-by-city-council/"
+        },
+        {
+          "date": "2026-06-17",
+          "headline": "With Airbag Thefts Still Up, Could A New Ordinance Curb The Black Market Sales Fueling Them?",
+          "note": "An ordinance backed by Ald. Gilbert Villegas targets auto shops that resell stolen airbags, responding to a rise in thefts across the Northwest Side, including parts of Ward 36.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/06/17/with-airbag-thefts-still-up-could-a-new-ordinance-curb-the-black-market-sales-fueling-them/"
+        },
+        {
+          "date": "2026-06-09",
+          "headline": "City Council committee backs crackdown on selling weed near schools, parks",
+          "note": "A City Council committee advanced an ordinance from Ward 36's Ald. Gilbert Villegas penalizing marijuana sales near schools and parks, after a scaled back compromise on the restricted zone.",
+          "outlet": "Chicago Sun-Times",
+          "url": "https://chicago.suntimes.com/city-hall/2026/06/09/marijuana-sales-parks-schools-crackdown-city-council-public-safety-committee-gilbert-villegas"
+        }
+      ],
+      "news_status": "found",
       "overall": {
         "of": 50,
         "rank": 27,
@@ -9638,7 +9838,11 @@
           "within_two_points": 36
         }
       ],
-      "writeup": null
+      "writeup": {
+        "headline": "Ward 36 ranks 27th of 50, strong on alley spending and worship ratings, short on parks.",
+        "reading_the_rankings": "Ward 36 tops the city on bills sponsored, ranked 1st of 50, but that count is tied to whichever alderman held the seat as boundaries shifted after the 2023 remap, and the source itself only rates it medium confidence, so it credits legislative activity linked to today's ward lines more than to one person's full term. The ward also ranks 5th on the city's traffic proximity index, a measure allocated from census tracts by area rather than counted block by block, and 14 other wards land within two points of it, so most of the city is bunched close together here too. On mental health providers per resident, Ward 36 ranks 45th, which sounds worse than it is. Twenty-five wards score within two points of this one, and the whole middle half of Chicago's wards spans only seven points on this measure, so most wards, including plenty of higher ranked ones, look a lot alike here.",
+        "summary": "Ward 36 runs across Belmont Cragin, West Town, Montclare, and Humboldt Park on Chicago's Northwest Side. It ranks 27th out of 50 wards overall, with a score of 45.79 out of 100. Two of its top scores are about city government activity. The ward ranks 1st of 50 on bills sponsored, a count of non-routine legislation tied to this council session, and 1st on the share of infrastructure menu money spent on alley repair. Its houses of worship post some of the highest ratings in the city, and its bars score nearly as well as Ward 35's next door.\n\nThe weaker numbers cluster around green space, health access, and street level friction. Park acreage per resident ranks near the bottom of the city, mental health providers per resident are scarce compared to most wards, and parking complaints run higher here than almost anywhere else. Demolition permits and mapped landmarks also land in the bottom 10. The overall picture is a dense part of the city with strong food, drink, and worship options and an active council presence, alongside real gaps in park space and mental health access."
+      }
     },
     "37": {
       "alderperson": {

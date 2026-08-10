@@ -1,0 +1,44 @@
+{
+  "ward": "33",
+  "headline": "Ward 33 ranks 25th of 50, with strong local businesses and slow city services.",
+  "summary": "Ward 33 covers Albany Park, Irving Park, Avondale, and North Park on the city's northwest side. It ranks 25th out of 50 wards overall, squarely in the middle of the pack. Its strongest marks come from neighborhood life rather than city government. The ward's bars carry a median Google rating of 4.75, the best score among the 45 wards with rated bars, and its houses of worship rate close behind at 4.9. Places across the ward rate second-best citywide overall, at 4.73 out of 5. Licensed food stores here skew independent more than in any other ward, with chain outlets making up just under 14 percent of the total. The ward also reports fewer traffic-crash injuries than all but two others citywide, and ranks third for how many home languages are spoken there, a mark of Albany Park's long history as a landing spot for immigrant and refugee families.\n\nThe weak points are almost all city services, not neighborhood character. Ward 33 ranks 48th of 50 on both 311 response time and pothole repair time, and dead last, 50th of 50, on the share of its yearly menu money actually spent on projects rather than left idle. The ward has no libraries mapped inside its boundaries, also last in the city. Registered murals and total place reviews rank near the bottom too, 48th of 49 and 49th of 50. The numbers describe a ward with an active bar and worship scene and mostly independent local businesses, sitting behind most of the city on infrastructure and how fast basic requests get handled.",
+  "reading_the_rankings": "A few of these numbers need their caveats to make sense. The finding that Ward 33 has the lowest share of chain food stores in the city, under 14 percent, comes from a business-license field tied to the ward as it existed when each license was recorded. Boundaries were redrawn in 2023, so some of those older licenses may describe a different-shaped ward than the one that exists today. The near-last finish on total place reviews, 49th of 50, looks worse than the real gap between wards. Thirty-six of the 50 wards score within two points of each other on that measure, so most of the city is bunched together near the bottom, and Ward 33's rank there is sharper than the difference behind it. The last-place finish on menu money spent, only 55.9 percent of the ward's roughly $1.5 million annual allotment went to committed projects in the latest full year, comes from that same boundary-redrawn ward field, so it reflects today's ward footprint more than a clean year-over-year trend.",
+  "news": [
+    {
+      "headline": "Homeless Encampment Fight Overshadows Long-Awaited Ronan Park Plaza Debut",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/10/homeless-encampment-fight-overshadows-long-awaited-ronan-park-plaza-debut/",
+      "date": "2026-07-10",
+      "note": "A ribbon-cutting for Ronan Park's new riverside plaza was disrupted by dueling protests over an unhoused encampment nearby, with Ald. Rossana Rodriguez-Sanchez among the officials present."
+    },
+    {
+      "headline": "ICE Crash And Arrest In Albany Park Leaves Neighbors Furious: 'We Should Not Have To Live Like This'",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/06/03/ice-crash-and-arrest-in-albany-park-leaves-neighbors-furious-we-should-not-have-to-live-like-this/",
+      "date": "2026-06-03",
+      "note": "Federal immigration agents crashed an SUV into a bystander's car while making an arrest near Lawrence and Kedzie, prompting a neighborhood protest the next evening."
+    },
+    {
+      "headline": "Kashgar Uyghur Dining Offers A Taste Of Central Asian Home Cooking",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/23/kashgar-uyghur-dining-offers-albany-park-neighbors-a-taste-of-central-asian-home-cooking/",
+      "date": "2026-07-23",
+      "note": "A new Albany Park restaurant serving Uyghur home cooking opened at 4830 N. Pulaski Road."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Rossana Rodriguez Sanchez",
+    "website_url": "https://33rdward.org/",
+    "verified": true,
+    "verification_note": "Fetched https://33rdward.org/. The site's title and body text identify Rossana Rodriguez Sanchez as Alderwoman of the 33rd Ward."
+  },
+  "sources_fetched": [
+    "https://33rdward.org/",
+    "https://blockclubchicago.org/2026/07/10/homeless-encampment-fight-overshadows-long-awaited-ronan-park-plaza-debut/",
+    "https://blockclubchicago.org/2026/06/03/ice-crash-and-arrest-in-albany-park-leaves-neighbors-furious-we-should-not-have-to-live-like-this/",
+    "https://blockclubchicago.org/2026/07/23/kashgar-uyghur-dining-offers-albany-park-neighbors-a-taste-of-central-asian-home-cooking/",
+    "https://blockclubchicago.org/tag/33rd-ward/",
+    "https://blockclubchicago.org/category/lincoln-square-north-center-irving-park/albany-park/"
+  ]
+}

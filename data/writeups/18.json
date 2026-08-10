@@ -1,0 +1,54 @@
+{
+  "ward": "18",
+  "headline": "Ward 18 ranks 35th of 50, solid on housing, thin on groceries and entertainment.",
+  "summary": "Ward 18 covers Ashburn, Auburn Gresham, West Lawn and Chicago Lawn on Chicago's Southwest Side. It ranks 35th of 50 wards overall, closer to the middle than either extreme. Its strongest marks describe the physical stock of the place. It ranks 1st in the city for owner-occupancy, measured by how often a parcel's tax bill goes to the same address as the property itself, and 1st for having the fewest licensed tobacco retailers per resident. It also ranks 3rd for the fewest demolition permits issued and 3rd for the least residential parking-zone congestion. The ward fully spent its roughly $1.5 million annual aldermanic capital budget in the latest full year, good for 4th in the city, and ground-level sun access ranks 5th.\n\nThe weak spots cluster around retail and daily amenities. Ward 18 ranks last in the city, 50th of 50, for licensed grocery stores per resident, for licensed entertainment venues such as theaters and music halls, and for coffee shops that Google reviewers rate highly. Renters are stretched thin too. Sixty-three percent of renter households spend 30 percent or more of income on rent, the worst share of any ward. Car ownership per household ranks 49th, near the bottom of the city.",
+  "reading_the_rankings": "The last-place rank on grocery stores sounds decisive. But the source itself calls this measure medium confidence, and it isn't complete for every ward. Some of what looks like Ward 18 falling behind might just be the record catching up elsewhere. The 4th-place rank for spending the aldermanic capital budget looks strong next to a full 100 percent utilization, but 16 other wards land within two points of that same score. Most of the city spends nearly all of what it's allotted, so a top-four finish here is closer to keeping pace than standing out. Rent burden, also last in the city at 63 percent, comes from census-tract estimates spread evenly across the ward. That means a tract straddling the ward line could be pulling in a neighbor's numbers along with its own.",
+  "news": [
+    {
+      "headline": "Ford City Mall To Close In June",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/05/15/ford-city-mall-to-close-in-june-judge-rules/",
+      "date": "2026-05-15",
+      "note": "A Cook County judge ordered the Ashburn mall's tenants to evacuate over a defective fire suppression system, and Ald. Curtis called the ownership group slumlords."
+    },
+    {
+      "headline": "Ford City Mall Closes Ahead Of City-Ordered Deadline As Site's Future Remains Uncertain",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/06/22/ford-city-mall-closes-ahead-of-city-ordered-deadline-report/",
+      "date": "2026-06-22",
+      "note": "The mall closed for good ahead of the city's deadline, and Ald. Curtis said he was open to a developer's plan to demolish it for an industrial campus."
+    },
+    {
+      "headline": "South Siders Still Waiting For Tree Cleanup After June Storms, But City Departments Are 'Overwhelmed'",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/01/south-siders-still-waiting-for-tree-cleanup-after-june-storms-but-city-departments-are-overwhelmed/",
+      "date": "2026-07-01",
+      "note": "Ward 18 had more than 568 open tree-cleanup requests as of late June, the most of any South Side ward, after storm damage overwhelmed city crews."
+    },
+    {
+      "headline": "Honorary street designation as 'Reverend Darcell Morris'",
+      "outlet": "Chicago City Council (via Chicago Councilmatic)",
+      "url": "https://chicago.councilmatic.org/legislation/o2026-0026699/",
+      "date": "2026-07-15",
+      "note": "Ordinance O2026-0026699, introduced by Ald. Curtis, would recognize Reverend Darcell Morris with an honorary street designation."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Derrick G. Curtis",
+    "website_url": "https://www.derrickgcurtis.com",
+    "verified": true,
+    "verification_note": "wards.json listed no site for this ward. Fetched chicago.gov/city/en/about/wards/18.html, which names 'Ward 18 Alderman Derrick G. Curtis' and lists ward18@cityofchicago.org as the ward office email. Fetched https://www.derrickgcurtis.com and https://www.derrickgcurtis.com/about, both titled '18th Ward Alderman Derrick G. Curtis' and listing the same ward18@cityofchicago.org contact address."
+  },
+  "sources_fetched": [
+    "https://www.chicago.gov/city/en/about/wards/18.html",
+    "https://www.derrickgcurtis.com",
+    "https://www.derrickgcurtis.com/about",
+    "https://chicago.councilmatic.org/person/curtis-derrick-g-10b32bc26e2c/",
+    "https://chicago.councilmatic.org/legislation/o2026-0026699/",
+    "https://blockclubchicago.org/2026/05/15/ford-city-mall-to-close-in-june-judge-rules/",
+    "https://blockclubchicago.org/2026/05/22/ford-city-malls-final-weeks-draw-shoppers-and-neighbors-ready-to-fight-plans-for-industrial-park/",
+    "https://blockclubchicago.org/2026/06/22/ford-city-mall-closes-ahead-of-city-ordered-deadline-report/",
+    "https://blockclubchicago.org/2026/07/01/south-siders-still-waiting-for-tree-cleanup-after-june-storms-but-city-departments-are-overwhelmed/"
+  ]
+}

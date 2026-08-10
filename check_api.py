@@ -212,6 +212,20 @@ def check_required_fields() -> list[str]:
                 if field not in observations[0]:
                     problems.append(f"observations lost field '{field}'")
 
+    # Two of the alderperson website_url values are email addresses wrapped in
+    # "http://www.", which render as dead links. Found 2026-08-09 in wards 17
+    # and 39. Worth watching in case more appear.
+    malformed = []
+    for row in wards.get("wards", []):
+        url = ((row.get("alderperson") or {}).get("website_url") or "").strip()
+        if url and ("@" in url or " " in url):
+            malformed.append(f"ward {row.get('ward_id')} -> {url}")
+    if malformed:
+        problems.append(
+            "/api/wards has " + str(len(malformed)) + " malformed alderperson website_url "
+            "value(s), which would publish as dead links: " + "; ".join(malformed[:4])
+        )
+
     # Passing no metric_id is how the app gets every series in one request.
     # If that ever starts filtering, the page would quietly show one metric.
     if len(entries) < 50:

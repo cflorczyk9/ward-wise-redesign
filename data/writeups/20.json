@@ -1,0 +1,38 @@
+{
+  "ward": "20",
+  "headline": "Ward 20 ranks 46th of 50, and its poverty rate is the highest of any Chicago ward.",
+  "summary": "Ward 20 covers New City, Washington Park, Woodlawn and Englewood on the South Side. It ranks 46th of 50 wards overall. The clearest weak point is poverty. At 34.7 percent, the share of residents living below the poverty line is the highest of any ward in the city, and median household income also ranks near the bottom, at about $40,500 a year. A cluster of modeled wellbeing measures, happiness, financial satisfaction, and social trust, land at or near last place too, though those come from estimates built on population characteristics rather than a survey of the people who actually live here.\n\nThe ward's other rankings look different. It places in the top 10 of 50 wards on the share of menu money spent on street resurfacing, on how many residential parking permit zones cover its blocks, and on new residential building permits, 22 issued over the past year. Together, the numbers point to a ward carrying real material hardship on one side and steady infrastructure and construction activity on the other.",
+  "reading_the_rankings": "Ward 20's worst score, a rank of 50th on poverty rate at 34.7 percent, comes from an actual Census count reallocated from tract data to ward lines, not an estimate, though the source rates that reallocation only medium confidence since census tracts don't line up neatly with ward boundaries. Three other bottom-ranked measures, happiness, financial satisfaction, and social trust, are modeled figures built from national survey patterns and the ward's demographic makeup rather than a poll of anyone who lives here, and the source itself rates all three low confidence. The ward's fifth-place rank on permit-zone parking density is a different case, a measure with no caveats attached at all, about as close as this report gets to a number that means exactly what it says.",
+  "news": [
+    {
+      "headline": "Sprawling Woodlawn Central Development, Daily News Building Landmarking Get Zoning Approval",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/14/sprawling-woodlawn-central-development-daily-news-building-landmarking-get-zoning-approval/",
+      "date": "2026-07-14",
+      "note": "City Council's zoning committee approved the first phase of the $580 million Woodlawn Central mixed-use development, plus landmark status for the Chicago Daily News Building."
+    },
+    {
+      "headline": "South Side residents call for stronger housing protections as Obama Center's official opening nears",
+      "outlet": "Chicago Sun-Times",
+      "url": "https://chicago.suntimes.com/news/2026/06/16/obama-center-housing-costs-displacement-gentrification-jackson-park-woodlawn-south-shore",
+      "date": "2026-06-16",
+      "note": "Community groups held a news conference in Woodlawn and nearby neighborhoods asking for rent control and other anti-displacement measures as the Obama Presidential Center opens."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Jeanette B. Taylor",
+    "website_url": "https://www.ward20th.com/",
+    "verified": true,
+    "verification_note": "wards.json listed no site for this ward. Found https://www.ward20th.com/ by search and fetched https://www.ward20th.com/meet-jbt this session. It names 'Alderwoman Jeanette B. Taylor' and lists the official ward contact, ward20@cityofchicago.org, confirming it is her official site."
+  },
+  "sources_fetched": [
+    "https://www.ward20th.com/meet-jbt",
+    "https://blockclubchicago.org/hyde-park-woodlawn-south-shore/",
+    "https://blockclubchicago.org/2026/07/14/sprawling-woodlawn-central-development-daily-news-building-landmarking-get-zoning-approval/",
+    "https://chicago.suntimes.com/woodlawn",
+    "https://chicago.suntimes.com/news/2026/06/16/obama-center-housing-costs-displacement-gentrification-jackson-park-woodlawn-south-shore",
+    "https://chicago.suntimes.com/englewood",
+    "https://chicago.suntimes.com/real-estate/2026/06/16/englewood-development-reup-rage-59th-street-corridor-watch"
+  ]
+}

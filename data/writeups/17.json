@@ -1,0 +1,46 @@
+{
+  "ward": "17",
+  "headline": "Ward 17 ranks 45th of 50 overall, weighed down by six last-place city rankings.",
+  "summary": "Ward 17 covers Auburn Gresham, West Englewood, Chicago Lawn and Englewood on Chicago's South Side. It ranks 45th of 50 wards overall. A handful of its rankings sit near the top of the city. Council session attendance for the seat ranks 2nd, at 97 percent. The ward also ranks 2nd in the city for its number of mapped houses of worship, 96 in total, and 2nd for worship places per resident. A modeled estimate of time poverty, meaning residents who get under two hours of daily leisure time, ranks 2nd, at 17.7 percent. Pothole repairs average about four days, 3rd-fastest in the city, and park acreage per resident ranks 3rd.\n\nThe weaker rankings are more numerous. Ward 17 ranks last in the city, 50th of 50, on six separate measures. Those are civic engagement, the share of adults sleeping under seven hours a night, mental health providers per resident, licensed restaurants that serve liquor, chronic school absenteeism, and the share of workers who walk or bike to their job. The ward has real physical and institutional strengths, parks, churches, fast pothole repairs, sitting next to some of the roughest numbers in the city for health access, sleep, schooling and civic life.",
+  "reading_the_rankings": "The 2nd-place ranking on time poverty looks like a clear win, but it comes from a model built on national survey patterns, not a local survey, and the source itself calls it low confidence. It describes what a ward like this one typically looks like, not something measured on these actual blocks. The worst-in-the-city rank on mental health providers is a real number, 0.62 providers per 10,000 residents, but 22 other wards land within two points of it. Most of the bottom of the city is bunched together here, so the ranking is sharper than the gap behind it. Civic engagement, also ranked 50th, comes from spreading census-tract data evenly across the ward. Blocks near a ward line can end up reflecting a neighboring ward's numbers more than this one's, and the source itself rates the measure low confidence.",
+  "news": [
+    {
+      "headline": "7 Save A Lot Stores On South, West Sides Could Close In Days As Owners Face 'Financial Headwinds'",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/21/7-save-a-lot-stores-on-south-west-sides-could-close-in-days-as-owners-face-financial-headwinds/",
+      "date": "2026-07-21",
+      "note": "Financial strain at Yellow Banana put its Save A Lot stores at risk of closing, including two in Auburn Gresham where Ald. Moore was quoted about the situation."
+    },
+    {
+      "headline": "Commemoration of 60th anniversary of March of Marquette Park and recognition of legacies of Dr. Martin Luther King Jr. and Al Raby",
+      "outlet": "Chicago City Council (via Chicago Councilmatic)",
+      "url": "https://chicago.councilmatic.org/legislation/r2026-0026811/",
+      "date": "2026-07-15",
+      "note": "Resolution R2026-0026811, sponsored by Ald. Moore, marked the march's 60th anniversary and was adopted by the full council."
+    },
+    {
+      "headline": "Congratulations extended to Leo Catholic High School on 100th anniversary",
+      "outlet": "Chicago City Council (via Chicago Councilmatic)",
+      "url": "https://chicago.councilmatic.org/legislation/r2026-0026795/",
+      "date": "2026-07-15",
+      "note": "Resolution R2026-0026795, sponsored by Ald. Moore, was adopted by the full council."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "David H. Moore",
+    "website_url": "https://www.17thwardalderman.com/",
+    "verified": true,
+    "verification_note": "wards.json listed a malformed URL (http://www.David.Moore@cityofchicago.org), so this was treated as effectively missing and a real site was located and verified. Fetched chicago.gov/city/en/about/wards/17.html, which names 'Ward 17 Alderman David Moore.' Fetched https://www.17thwardalderman.com/, whose header reads 'Chicago 17th Ward Alderman David Moore' and whose footer reads '17th Ward Alderman - David Moore, All rights Reserved 2026.'"
+  },
+  "sources_fetched": [
+    "https://www.chicago.gov/city/en/about/wards/17.html",
+    "https://www.17thwardalderman.com/",
+    "https://www.17thwardalderman.com/events",
+    "https://www.17thwardalderman.com/news",
+    "https://chicago.councilmatic.org/person/moore-david-h-ee688e5a69d2/",
+    "https://chicago.councilmatic.org/legislation/r2026-0026811/",
+    "https://chicago.councilmatic.org/legislation/r2026-0026795/",
+    "https://blockclubchicago.org/2026/07/21/7-save-a-lot-stores-on-south-west-sides-could-close-in-days-as-owners-face-financial-headwinds/"
+  ]
+}

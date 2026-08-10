@@ -1,0 +1,43 @@
+{
+  "ward": "36",
+  "headline": "Ward 36 ranks 27th of 50, strong on alley spending and worship ratings, short on parks.",
+  "summary": "Ward 36 runs across Belmont Cragin, West Town, Montclare, and Humboldt Park on Chicago's Northwest Side. It ranks 27th out of 50 wards overall, with a score of 45.79 out of 100. Two of its top scores are about city government activity. The ward ranks 1st of 50 on bills sponsored, a count of non-routine legislation tied to this council session, and 1st on the share of infrastructure menu money spent on alley repair. Its houses of worship post some of the highest ratings in the city, and its bars score nearly as well as Ward 35's next door.\n\nThe weaker numbers cluster around green space, health access, and street level friction. Park acreage per resident ranks near the bottom of the city, mental health providers per resident are scarce compared to most wards, and parking complaints run higher here than almost anywhere else. Demolition permits and mapped landmarks also land in the bottom 10. The overall picture is a dense part of the city with strong food, drink, and worship options and an active council presence, alongside real gaps in park space and mental health access.",
+  "reading_the_rankings": "Ward 36 tops the city on bills sponsored, ranked 1st of 50, but that count is tied to whichever alderman held the seat as boundaries shifted after the 2023 remap, and the source itself only rates it medium confidence, so it credits legislative activity linked to today's ward lines more than to one person's full term. The ward also ranks 5th on the city's traffic proximity index, a measure allocated from census tracts by area rather than counted block by block, and 14 other wards land within two points of it, so most of the city is bunched close together here too. On mental health providers per resident, Ward 36 ranks 45th, which sounds worse than it is. Twenty-five wards score within two points of this one, and the whole middle half of Chicago's wards spans only seven points on this measure, so most wards, including plenty of higher ranked ones, look a lot alike here.",
+  "news": [
+    {
+      "headline": "Ukrainian Village, Bucktown Apartment Proposals Approved By City Council",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/05/21/ukrainian-village-bucktown-apartment-proposals-approved-by-city-council/",
+      "date": "2026-05-21",
+      "note": "City Council approved a 40-unit apartment building at Chicago and Washtenaw avenues on the Ukrainian Village-Humboldt Park border, part of Ward 36, after two rounds of community meetings over the project's size."
+    },
+    {
+      "headline": "With Airbag Thefts Still Up, Could A New Ordinance Curb The Black Market Sales Fueling Them?",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/06/17/with-airbag-thefts-still-up-could-a-new-ordinance-curb-the-black-market-sales-fueling-them/",
+      "date": "2026-06-17",
+      "note": "An ordinance backed by Ald. Gilbert Villegas targets auto shops that resell stolen airbags, responding to a rise in thefts across the Northwest Side, including parts of Ward 36."
+    },
+    {
+      "headline": "City Council committee backs crackdown on selling weed near schools, parks",
+      "outlet": "Chicago Sun-Times",
+      "url": "https://chicago.suntimes.com/city-hall/2026/06/09/marijuana-sales-parks-schools-crackdown-city-council-public-safety-committee-gilbert-villegas",
+      "date": "2026-06-09",
+      "note": "A City Council committee advanced an ordinance from Ward 36's Ald. Gilbert Villegas penalizing marijuana sales near schools and parks, after a scaled back compromise on the restricted zone."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Gilbert Villegas",
+    "website_url": "http://www.36thward.org",
+    "verified": true,
+    "verification_note": "wards.json already listed this site. Fetched https://36thward.org/ directly this session to confirm. The page reads 'As your Alderman of the 36th Ward, my two top priorities are city services and public safety,' and its title tag is 'Chicago's 36th Ward | Alderman Gilbert Villegas.'"
+  },
+  "sources_fetched": [
+    "https://36thward.org/",
+    "https://blockclubchicago.org/2026/05/21/ukrainian-village-bucktown-apartment-proposals-approved-by-city-council/",
+    "https://blockclubchicago.org/2026/06/17/with-airbag-thefts-still-up-could-a-new-ordinance-curb-the-black-market-sales-fueling-them/",
+    "https://chicago.suntimes.com/city-hall/2026/06/09/marijuana-sales-parks-schools-crackdown-city-council-public-safety-committee-gilbert-villegas",
+    "https://blockclubchicago.org/tag/36th-ward/"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "ward": "34",
+  "headline": "Ward 34 ranks 8th of 50, a dense downtown ward with the city's highest rent burden.",
+  "summary": "Ward 34 covers the Loop, Near West Side, Near South Side, and West Town, the dense center of downtown Chicago. It ranks 8th out of 50 wards overall, near the top citywide. Every one of its strongest scores comes in first in the city. It has more bank branches per resident than any other ward, at nearly 24 per 10,000 residents, and it also leads the city on coffee shops, gyms, and religious congregations, each counted per resident. It has the most 'L' station entries of any ward with rail service too, more than 7.4 million rides recorded at stations inside the ward. Licensed coffee and tea shops per resident rank first as well. The numbers describe a ward built around density and heavy daytime foot traffic more than a typical residential neighborhood.\n\nThe weak points cluster around cost of living rather than city services. Ward 34 ranks last in the city on the estimated share of rent that ends up as landlord profit, above 69 percent whether the estimate uses assessed property values or actual recent sale prices. It also ranks last on a modeled estimate of the share of adults with no religious affiliation, on licensed tobacco retailers per resident, and on the share of licensed food stores that belong to a major national chain. None of Ward 34's six weakest measures are 311 response time, pothole repair, or library and park counts, the city-service categories that show up at the bottom in many other wards.",
+  "reading_the_rankings": "A couple of these numbers need their caveats attached to make sense. Ward 34's last-place finish on landlord profit share, above 69 percent under both the assessed-value and sale-price versions of the estimate, looks like an outlier, but ten wards score within two points of it on each version. The ranking there is sharper than the real gap, so Ward 34 sits at the extreme end of a citywide pattern rather than standing alone. The sale-price version in particular is flagged by its own source as likely to read thin or even negative for anyone who bought recently, since it swaps in a mortgage basis closer to what current owners actually paid. On the strong side, the first-place rankings for bank branches, coffee shops, and gyms per resident come from a source that spreads county-level business counts across ZIP codes rather than ward lines, and the source itself rates that method low confidence, so a true ward-by-ward count could look different.",
+  "news": [
+    {
+      "headline": "Ald. Bill Conway Launches Reelection Bid, Ending Speculation About Mayoral Run",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/30/ald-bill-conway-launches-reelection-bid-ending-speculation-about-mayoral-run/",
+      "date": "2026-07-30",
+      "note": "Conway announced he is running for reelection to the 34th Ward rather than entering the mayor's race."
+    },
+    {
+      "headline": "Team Behind Hyde Park's Virtue Opening Restaurant In West Loop",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/28/team-behind-hyde-parks-virtue-opening-restaurant-in-west-loop/",
+      "date": "2026-07-28",
+      "note": "Chef Damarr Brown, of the Hyde Park restaurant Virtue, is opening his first solo restaurant at 219 N. Elizabeth St."
+    },
+    {
+      "headline": "Wishbone, Beloved West Loop Restaurant, Closing After 36 Years",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/08/03/wishbone-west-loops-beloved-brunch-spot-closing-after-36-years/",
+      "date": "2026-08-03",
+      "note": "The Southern-inspired brunch spot on West Washington Boulevard announced it is closing after 36 years."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "William Conway",
+    "website_url": "https://www.ward34.org/",
+    "verified": true,
+    "verification_note": "Fetched https://www.ward34.org/. The site's title and header identify Bill Conway as Alderman of the 34th Ward."
+  },
+  "sources_fetched": [
+    "https://www.ward34.org/",
+    "https://blockclubchicago.org/2026/07/30/ald-bill-conway-launches-reelection-bid-ending-speculation-about-mayoral-run/",
+    "https://blockclubchicago.org/2026/07/28/team-behind-hyde-parks-virtue-opening-restaurant-in-west-loop/",
+    "https://blockclubchicago.org/2026/08/03/wishbone-west-loops-beloved-brunch-spot-closing-after-36-years/",
+    "https://blockclubchicago.org/tag/34th-ward/",
+    "https://blockclubchicago.org/category/downtown/west-loop/"
+  ]
+}

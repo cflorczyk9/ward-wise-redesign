@@ -1,0 +1,43 @@
+{
+  "ward": "32",
+  "headline": "Ward 32 ranks 2nd of 50, strongest on income, weakest on neighbor socializing.",
+  "summary": "Ward 32 covers Logan Square, Lincoln Park, North Center and Lake View on the North Side, and it ranks 2nd out of 50 Chicago wards overall, a score of 63.81. Income and material comfort drive that ranking. Median household income here is $166,248, the highest of any ward, and the poverty rate sits at 5.9 percent, the lowest in the city. A model built from income, employment, marital status, homeownership and health also puts this ward first on subjective happiness and on the modeled share of adults who would call themselves very happy. The ward also has the most bars and taverns per resident in Chicago and ranks first on a population-vulnerability score, one piece of the city's environmental justice index built from socioeconomic and health risk factors.\n\nThe weaker numbers point to time and social connection more than money. A model of daily routines puts Ward 32 last in the city on both minutes of daily leisure and the modeled share of adults who socialize with neighbors weekly, and it ranks near the bottom on time poverty too. The ward also recorded 38 demolition permits, the most of any ward, and this dataset's map of landmarks and community gardens turns up none in Ward 32, ranking near the very bottom on both. Ward 32 is a wealthy, busy ward. Residents here report less unstructured time and fewer casual neighborhood ties than people in the rest of the city.",
+  "reading_the_rankings": "A few of these rankings need the fine print attached. The modeled happiness ranking, for instance, is a statistical estimate built from the ward's income, marital status, employment, homeownership and health mix. The source rates it low confidence, so it describes what a ward with this demographic profile usually looks like more than how residents here actually feel day to day. The bars-and-taverns ranking has a different limitation. It comes from ZIP code data that doesn't follow ward lines at all, so some of what counts toward Ward 32's rank of 1st may actually sit in a neighboring ward, or miss a bar just across a ZIP boundary. The ward's near-bottom finish on mapped landmarks looks worse than the gap behind it. Twenty other wards score within two points of Ward 32 here, and the whole city's middle half spans only 6.2 points on this measure, so a landmark count drawn from OpenStreetMap is bunching most of the city together near the bottom, not singling out Ward 32.",
+  "news": [
+    {
+      "headline": "Ukrainian Village, Bucktown Apartment Proposals Approved By City Council",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/05/21/ukrainian-village-bucktown-apartment-proposals-approved-by-city-council/",
+      "date": "2026-05-21",
+      "note": "City Council approved a 30-unit apartment building at 1801-1809 N. Winnebago Ave. in Ward 32, on a lot the alderman's office said had sat vacant for years."
+    },
+    {
+      "headline": "Foundry Park In Line For $200 Million In Public Funding At Former Lincoln Yards Site",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/06/09/foundry-park-in-line-for-200-million-in-public-funding-at-former-lincoln-yards-site/",
+      "date": "2026-06-09",
+      "note": "A city commission cleared the way for roughly $200 million in public infrastructure funding tied to the Foundry Park development on the former Lincoln Yards site, which sits in Ward 32."
+    },
+    {
+      "headline": "A Sliver Of Land Along The Kennedy Expressway Has Been Reborn As A Native Prairie",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/21/a-sliver-of-land-along-the-kennedy-expressway-has-been-reborn-as-a-native-prairie/",
+      "date": "2026-07-21",
+      "note": "A Bucktown resident has spent years turning a strip of state highway land into a native plant garden, with the ward office backing efforts to keep it from being mowed."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Scott Waguespack",
+    "website_url": "https://www.ward32.org/",
+    "verified": true,
+    "verification_note": "Fetched https://www.ward32.org/ directly this session. The site is the official City of Chicago 32nd Ward page and states that Scott Waguespack is the alderman."
+  },
+  "sources_fetched": [
+    "https://www.ward32.org/",
+    "https://blockclubchicago.org/tag/32nd-ward/",
+    "https://blockclubchicago.org/2026/05/21/ukrainian-village-bucktown-apartment-proposals-approved-by-city-council/",
+    "https://blockclubchicago.org/2026/06/09/foundry-park-in-line-for-200-million-in-public-funding-at-former-lincoln-yards-site/",
+    "https://blockclubchicago.org/2026/07/21/a-sliver-of-land-along-the-kennedy-expressway-has-been-reborn-as-a-native-prairie/"
+  ]
+}

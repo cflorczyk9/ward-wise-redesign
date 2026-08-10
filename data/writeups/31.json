@@ -1,0 +1,36 @@
+{
+  "ward": "31",
+  "headline": "Ward 31 ranks 37th of 50, cleanest industrial-site record, weak on new housing.",
+  "summary": "Ward 31 covers Belmont Cragin, Hermosa, Portage Park and Avondale on the city's Northwest Side. It ranks 37th out of 50 wards overall, a score of 36.09 that puts it in the lower half of the city. The ward's strongest numbers are environmental and civic. It has the least proximity to Superfund, brownfield and state-remediation sites of any ward in Chicago, and 71.7 percent of households here speak a language other than English at home, the fourth-highest share in the city. City services also move fast here. A street light outage gets fixed in an average of 1.68 days, one of the quickest turnarounds in Chicago, and the ward's aldermanic menu money is spent in a way that reaches a wide, even spread of blocks instead of concentrating in one corner.\n\nThe weak points cluster around housing and health coverage. An estimated 18.3 percent of residents here have no health insurance, the highest uninsured rate of any ward in the city. Parking complaints and disputes also run higher here than anywhere else in Chicago, and the city recorded only one new residential construction permit in the ward last year, the fewest of any ward. Rodent baiting requests take the longest to close of any ward too. The numbers describe a ward with clean industrial-site exposure and fast city response on basic requests, next to a housing supply that has nearly stopped growing and a bigger share of uninsured residents than anywhere else in Chicago.",
+  "reading_the_rankings": "Take the No. 1 ranking on polluted-site proximity. It sounds like a clean sweep, but the source itself rates this measure only medium confidence, and it isn't filled in for every ward, so the comparison behind rank 1 is thinner than a full field of 50. The bottom-of-the-list new-housing numbers deserve the same caution in the other direction. Ward 31 ranks 50th on new homes permitted, but 29 other wards score within two points of it on that same measure, and the whole city's middle half spans under five points on it, so most of Chicago sits bunched near the bottom here too. The menu-spending rankings carry a different kind of asterisk. They're tied to today's ward boundaries, which were redrawn in 2023, so some of the historical spending data behind the 5th-place ranking on spending spread and the 6th-place ranking on sidewalk spending was actually collected for a differently shaped ward.",
+  "news": [
+    {
+      "headline": "Woman Killed At Busy NW Side Intersection Where Planned Traffic Light Was Never Installed",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/06/03/woman-killed-at-busy-nw-side-intersection-where-planned-traffic-light-was-never-installed/",
+      "date": "2026-06-03",
+      "note": "A 62-year-old woman was fatally struck by a driver in Hermosa at Belmont and Kilbourn, an intersection where a traffic signal has been planned since 2023."
+    },
+    {
+      "headline": "Ordinance Would Allow More Package Liquor Licenses On West Belmont Avenue",
+      "outlet": "Chicago City Council (legislative record)",
+      "url": "https://chicago.councilmatic.org/legislation/o2026-0026550/",
+      "date": "2026-07-15",
+      "note": "The ward's alderman co-sponsored a City Council ordinance amending the municipal code to allow additional package goods licenses on part of West Belmont Avenue."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Felix Cardona Jr.",
+    "website_url": "https://www.ward31.org/",
+    "verified": true,
+    "verification_note": "Fetched https://www.ward31.org/ directly this session. It is the official City of Chicago 31st Ward hub and names Felix Cardona as the ward's alderman. The wards.json data had no website on file for this ward, so this one was found and verified fresh."
+  },
+  "sources_fetched": [
+    "https://www.ward31.org/",
+    "https://blockclubchicago.org/tag/31st-ward/",
+    "https://blockclubchicago.org/2026/05/22/avondale-townhome-apartment-development-approved-by-plan-commission/",
+    "https://chicago.councilmatic.org/legislation/o2026-0026550/",
+    "https://blockclubchicago.org/2026/06/03/woman-killed-at-busy-nw-side-intersection-where-planned-traffic-light-was-never-installed/"
+  ]
+}
