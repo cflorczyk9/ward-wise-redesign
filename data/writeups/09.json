@@ -1,0 +1,26 @@
+{
+  "ward": "09",
+  "headline": "Ward 9 ranks 43rd of 50, strong on child care and faith, weak on commutes and nightlife.",
+  "summary": "Roseland, Pullman, West Pullman and Riverdale make up Ward 9 on the Far South Side, which lands 43rd out of 50 wards overall, a below-average score of 32.29. The ward's strongest numbers come from family and faith life. It has more child care centers per resident than any other ward in the city, its 311 pothole requests close in about two and a half days on average, second-fastest citywide, and mapped houses of worship are denser here than almost anywhere else in Chicago.\n\nThe weaker numbers cluster around commuting and nightlife. Two in five workers here face a commute of 45 minutes or longer, among the longest in the city. The ward also has almost no bars or coffee shops by the count used in this report, and it scores worst in the city on a wastewater-proximity index drawn from environmental justice data. Ward 9 reads as a ward organized around home, family and worship, with little built around a night out or a short commute to work.",
+  "reading_the_rankings": "Take the No. 1 rank in child care centers per resident. It looks like the best ward in Chicago for day care access, but the count is apportioned from ZIP code areas that don't follow ward lines at all, and the source itself flags the figure as low confidence. The bottom-of-the-list rank in coffee shops looks just as stark until you read the caveat attached to it. Eleven other wards land within two points of Ward 9 on that same measure, so most of the city is bunched together down there, and one rank position doesn't separate this ward from many others. The worst-in-the-city wastewater-proximity score has a similar catch. It comes from census tract data that assumes residents are spread evenly across each tract, and the middle half of all 50 wards spans just three points on this measure, so a single rank can shift on very little real difference underneath it.",
+  "news": [
+    {
+      "headline": "14 Wounded In 'Horrific' Drive-By Mass Shooting In Roseland, Police Say",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/06/21/13-injured-in-horrific-drive-by-mass-shooting-in-roseland-police-say/",
+      "date": "2026-06-21",
+      "note": "A drive-by shooting into a Juneteenth gathering in the Princeton Park part of Roseland injured 14 people, Chicago's largest mass shooting so far in 2026."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Anthony Beale",
+    "website_url": "http://www.Ward09.com",
+    "verified": true,
+    "verification_note": "Fetched http://www.Ward09.com directly this session. The header reads 'Alderman Anthony A. Beale | Chicago's 9th Ward' and the footer reads '9th Ward Alderman Anthony A. Beale, copyright 2026, all rights reserved,' confirming the site is his official ward page."
+  },
+  "sources_fetched": [
+    "http://www.Ward09.com",
+    "https://blockclubchicago.org/2026/06/21/13-injured-in-horrific-drive-by-mass-shooting-in-roseland-police-say/"
+  ]
+}

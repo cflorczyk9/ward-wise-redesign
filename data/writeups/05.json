@@ -1,0 +1,54 @@
+{
+  "ward": "05",
+  "headline": "Ward 5 ranks 20th of 50, with strong environmental numbers and very little new housing.",
+  "summary": "Ward 5 covers Hyde Park, South Shore, Woodlawn, and Greater Grand Crossing, on the South Side along Lake Michigan. It ranks 20th of the city's 50 wards overall, squarely in the middle of the pack.\n\nThe ward's strongest numbers are environmental and civic. It ranks first in the city on modeled air pollution exposure, on proximity to major polluting facilities, and on demolition permits issued each year, and it has the highest council attendance rate of any ward. Its weakest numbers run the other way. Few new residential permits get issued here and almost no new housing gets built, bars and other nightlife spots are rare per resident, and chain restaurants make up a larger share of the dining scene than in most wards. That combination describes a quiet, residential ward with strong environmental readings and not much new construction.",
+  "reading_the_rankings": "Ward 5's top rank on modeled air-toxics cancer risk looks reassuring, but the number comes from census tracts mapped onto today's ward lines, and where a tract straddles the boundary, some of what's counted here really belongs to the ward next door. The source itself rates the figure medium confidence. The ward's first-place, 97 percent council attendance figure carries a similar catch. Chicago redrew ward boundaries in 2023, so this number combines records from whoever held the seat before and after that change, not one continuous term. The last-place rank on new housing construction investment is real, but 30 of the other 49 wards land within two points of Ward 5's score. Most of the city is bunched together at the bottom on this measure, so being ranked worst here means less than the number suggests.",
+  "news": [
+    {
+      "headline": "Ald. Desmon Yancy: The city's response to the recurring crisis of 'teen takeovers' is inadequate",
+      "outlet": "Chicago Tribune",
+      "url": "https://www.chicagotribune.com/2026/06/02/opinion-chicago-teen-takeover-response-inadequate/",
+      "date": "2026-06-02",
+      "note": "Opinion piece by the 5th Ward alderman arguing the city's response to large teen gatherings has been too slow."
+    },
+    {
+      "headline": "Chicago Memorial Day weekend 'teen trends' and mass gatherings end in violence and spark backlash",
+      "outlet": "Chicago Tribune",
+      "url": "https://www.chicagotribune.com/2026/05/26/teen-gathering-hyde-park/",
+      "date": "2026-05-26",
+      "note": "News coverage of a large teen gathering at 57th Street Beach in Hyde Park that grew chaotic, with comments from Ald. Yancy on the response."
+    },
+    {
+      "headline": "Obama Center spurs a boom in Airbnbs, housing advocates say affordable units are disappearing",
+      "outlet": "Chicago Sun-Times",
+      "url": "https://chicago.suntimes.com/real-estate/2026/06/05/barack-obama-airbnb-presidential-center-chicago-affordable-housing-displacement-gentrification",
+      "date": "2026-06-05",
+      "note": "Reporting on short-term rentals near the Obama Center in Woodlawn, including Ald. Yancy's comments on the city's Shared Housing Ordinance."
+    },
+    {
+      "headline": "Chicago Needs A 'Small Business Bill Of Rights' To Reduce Red Tape, Local Leaders Say",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/15/chicago-needs-a-small-business-bill-of-rights-to-reduce-red-tape-local-leaders-say/",
+      "date": "2026-07-15",
+      "note": "Coverage of a South Shore press conference where Ald. Yancy and business owners unveiled a proposed resolution to ease city licensing and permitting rules."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Desmon C. Yancy",
+    "website_url": null,
+    "verified": false,
+    "verification_note": "wards.json listed no site for this ward. The domain long associated with the office, 5thwardchicago.org, was fetched this session (both the homepage and /the-alderman/) and now redirects to a GoDaddy domain-parking page, not to anything naming Yancy. The city's ward directory page at chicago.gov/city/en/about/wards/05.html, fetched this session, confirms 'Desmon C. Yancy' as the 5th Ward alderperson but does not link to a personal or office site. His Facebook page, facebook.com/AlderYancy5, was also fetched and displays his name and title but nothing that reads as an independent verification of official status. No current, verifiable official website was found, so this field is left blank rather than pointing to a dead or unconfirmed link."
+  },
+  "sources_fetched": [
+    "https://5thwardchicago.org/the-alderman/",
+    "https://5thwardchicago.org/",
+    "https://5thwardchicago.org/lander",
+    "https://www.chicago.gov/city/en/about/wards/05.html",
+    "https://www.facebook.com/AlderYancy5/",
+    "https://www.chicagotribune.com/2026/06/02/opinion-chicago-teen-takeover-response-inadequate/",
+    "https://www.chicagotribune.com/2026/05/26/teen-gathering-hyde-park/",
+    "https://chicago.suntimes.com/real-estate/2026/06/05/barack-obama-airbnb-presidential-center-chicago-affordable-housing-displacement-gentrification",
+    "https://blockclubchicago.org/2026/07/15/chicago-needs-a-small-business-bill-of-rights-to-reduce-red-tape-local-leaders-say/"
+  ]
+}

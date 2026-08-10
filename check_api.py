@@ -226,6 +226,20 @@ def check_required_fields() -> list[str]:
             "value(s), which would publish as dead links: " + "; ".join(malformed[:4])
         )
 
+    # Two names arrive with the suffix sorted to the front ("Jr., Felix
+    # Cardona"), which would print under a photograph of a real person.
+    # build_ward_data.py repairs them; this reports the source problem.
+    mangled = []
+    for row in wards.get("wards", []):
+        name = ((row.get("alderperson") or {}).get("name") or "").strip()
+        if name.split(",")[0].strip().rstrip(".") in {"Jr", "Sr", "II", "III", "IV"}:
+            mangled.append(f"ward {row.get('ward_id')} -> {name!r}")
+    if mangled:
+        problems.append(
+            "/api/wards has " + str(len(mangled)) + " alderperson name(s) with the suffix "
+            "sorted to the front: " + "; ".join(mangled[:4])
+        )
+
     # Passing no metric_id is how the app gets every series in one request.
     # If that ever starts filtering, the page would quietly show one metric.
     if len(entries) < 50:

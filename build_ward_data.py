@@ -72,6 +72,26 @@ def get(path: str) -> dict:
         return json.loads(response.read())
 
 
+
+def tidy_name(name: str | None) -> str | None:
+    """Repair names that arrive with the suffix sorted to the front.
+
+    Two of the fifty come through as "Jr., Felix Cardona", which looks like a
+    "Lastname, Firstname" sort that lost its surname. Printing that under a
+    photograph of a real person is not acceptable, so it is corrected here and
+    reported upstream by check_api.py.
+    """
+    if not name:
+        return name
+    text = name.strip()
+    for suffix in ("Jr.", "Jr", "Sr.", "Sr", "II", "III", "IV"):
+        prefix = suffix + ","
+        if text.startswith(prefix):
+            rest = text[len(prefix):].strip()
+            return f"{rest} {suffix if suffix.endswith('.') or len(suffix) > 2 else suffix + '.'}".strip()
+    return text
+
+
 def caveats_for(entry: dict, meta: dict, coverage: dict) -> list[str]:
     """What makes this ranking mean less than it looks like."""
     notes: list[str] = []
@@ -180,7 +200,7 @@ def build() -> dict:
             "ward_number": int(ward),
             "display_name": ward_row.get("display_name"),
             "alderperson": {
-                "name": alder.get("name"),
+                "name": tidy_name(alder.get("name")),
                 "title": alder.get("title"),
                 "photo_url": alder.get("photo_url"),
                 # Present for 27 of 50. The rest are filled in by research and

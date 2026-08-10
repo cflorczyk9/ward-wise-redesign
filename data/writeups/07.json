@@ -1,0 +1,47 @@
+{
+  "ward": "07",
+  "headline": "Ward 7 ranks 48th of 50, weakest on restaurants and commute times, cheapest on rent.",
+  "summary": "Ward 7 sits on Chicago's far southeast side, covering South Deering, South Chicago, South Shore, and Calumet Heights. It ranks 48th out of 50 wards overall on this dataset's combined score.\n\nThe ward's weakest spots are almost all commercial. It ranks last in the city, 50th out of 50, for restaurants, for food businesses of any kind, and for places still open past 9 p.m. on a weeknight. Long commutes are the worst citywide too, with close to 41 percent of workers on the road 45 minutes or more each way. Rent tells a different story, ranking 3rd out of the 48 wards with reliable data, at a typical asking rent of $1,463, among the cheapest in the city. Several pollution-exposure measures also rank near the top of Chicago's 50 wards, though those carry real caveats, covered below.",
+  "reading_the_rankings": "Three numbers are worth a second look. Ward 7 ranks 1st out of 50 on traffic proximity, part of the city's Environmental Justice Index. That figure comes from census tract data spread evenly across each tract's area, so where a tract crosses the ward line, some of it really belongs to the ward next door, and the source itself calls the measure medium confidence. The restaurant count, dead last at 50th, has a different problem. It comes from ZIP code areas, which don't follow ward boundaries at all, and the source rates that measure low confidence. Packaged liquor licenses and food business counts, also last place, come from a ward field recorded before Chicago redrew ward lines in 2023, so some of that data describes a ward shaped differently than the one that exists now.",
+  "news": [
+    {
+      "headline": "Advocate Health Breaks Ground On Hospital At South Chicago Lakefront Megadevelopment Site",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/06/02/advocate-health-breaks-ground-on-hospital-at-south-chicago-lakefront-megadevelopment-site/",
+      "date": "2026-06-02",
+      "note": "Advocate Health broke ground on a smaller replacement for Trinity Hospital at 8000 S. DuSable Lake Shore Drive, part of a lakefront megadevelopment set to open in 2029."
+    },
+    {
+      "headline": "Steel Slag Meets Prairie at Chicago's Marian Byrnes Park, See This Natural Wonder in an Unnatural Setting",
+      "outlet": "WTTW",
+      "url": "https://news.wttw.com/2026/06/16/steel-slag-meets-prairie-chicago-s-marian-byrnes-park-see-natural-wonder-unnatural",
+      "date": "2026-06-23",
+      "note": "The Chicago Park District added a boardwalk, overlook, and picnic area to the 140-acre natural area in Jeffery Manor, built partly on old steel slag dumping grounds."
+    },
+    {
+      "headline": "Artifacts Of Louis Sullivan Building, Demolished In The '50s, Are Protecting South Shore's Lakefront",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/08/artifacts-of-louis-sullivan-building-demolished-in-the-50s-are-protecting-south-shores-lakefront/",
+      "date": "2026-07-08",
+      "note": "Carved limestone remnants of architect Louis Sullivan's demolished Walker Warehouse were found reused as lakefront revetment stone near Rainbow Beach."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Gregory I. Mitchell",
+    "website_url": "https://gregmitchell7thward.org/",
+    "verified": true,
+    "verification_note": "Fetched https://gregmitchell7thward.org/ this session. The homepage identifies him as Alderman Greg Mitchell of the 7th Ward and links to ward service requests. Cross-checked against the city's official ward page, https://www.chicago.gov/city/en/about/wards/07.html, which lists Alderman Gregory I. Mitchell for Ward 7, matching the name on file."
+  },
+  "sources_fetched": [
+    "https://gregmitchell7thward.org/",
+    "https://www.chicago.gov/city/en/about/wards/07.html",
+    "https://en.wikipedia.org/wiki/Gregory_Mitchell",
+    "https://blockclubchicago.org/2026/06/02/advocate-health-breaks-ground-on-hospital-at-south-chicago-lakefront-megadevelopment-site/",
+    "https://news.wttw.com/2026/06/16/steel-slag-meets-prairie-chicago-s-marian-byrnes-park-see-natural-wonder-unnatural",
+    "https://blockclubchicago.org/2026/07/08/artifacts-of-louis-sullivan-building-demolished-in-the-50s-are-protecting-south-shores-lakefront/",
+    "https://blockclubchicago.org/2026/08/06/state-city-sue-south-side-vegetable-oil-plant-over-foul-odors-pollution/",
+    "https://blockclubchicago.org/2026/08/07/dozens-of-decomposing-bodies-found-in-southeast-side-funeral-home/",
+    "https://blockclubchicago.org/2026/06/09/burning-cross-discovered-in-grant-park-tuesday-afternoon-officials-say/"
+  ]
+}

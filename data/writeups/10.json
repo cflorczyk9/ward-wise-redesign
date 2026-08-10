@@ -1,0 +1,50 @@
+{
+  "ward": "10",
+  "headline": "Ward 10 ranks 33rd of 50, best on rent and park space, weakest on income data and crowds.",
+  "summary": "Ward 10 stretches across the Far Southeast Side, taking in South Deering, Hegewisch, East Side and part of Riverdale, and it ranks 33rd out of 50 wards overall, a middling score of 37.43. Its clearest strengths are physical space and cost of living. The ward has more park acreage per resident than any other ward in the city, the lowest measured rent in Chicago by both a census survey and real-time listing data, and the lightest air-toxics burden citywide on the environmental justice index used here.\n\nThe weaker numbers are about crowding and cash income rather than pollution or space. The ward has fewer bars, cafes, gyms and other gathering spots per resident than anywhere else in the city, and its measured household income sits at the bottom of the list. Off-street parking lots are scarce too. Ward 10 reads as a ward with room to breathe and comparatively cheap housing, though it has few nearby places to spend an evening and comparatively low measured income.",
+  "reading_the_rankings": "Take the No. 1 rank for rent. Both the census survey and a real-time listing index put Ward 10 at the cheapest in the city, and that part holds up as a real signal, though the census figure is allocated from tracts by area, an approach that assumes residents are spread evenly within a tract even where a ward line cuts through one. The bottom-of-the-list rank on household income tells a thinner story. That number comes from income data covering several wards at once, so neighboring wards end up with close to the same score simply because of how the data is grouped, not because of anything specific happening inside Ward 10. The last-place rank for gathering spots like bars, cafes and gyms sits somewhere in between. It's a real count of businesses, but 13 other wards land within two points of Ward 10 on that measure, so the rank overstates how different this ward really is from much of the city.",
+  "news": [
+    {
+      "headline": "State, City Sue South Side Vegetable Oil Plant Over 'Foul Odors,' Pollution",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/08/06/state-city-sue-south-side-vegetable-oil-plant-over-foul-odors-pollution/",
+      "date": "2026-08-06",
+      "note": "The state and city sued Pullman Innovations, a South Deering vegetable oil plant, over odor complaints and air pollution violations at its East 100th Street facility."
+    },
+    {
+      "headline": "Altgeld Gardens Community Center Expansion, Including New Gym, Gets Council OK",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/15/altgeld-gardens-community-center-expansion-including-new-gym-gets-council-ok/",
+      "date": "2026-07-15",
+      "note": "City Council approved a $24 million renovation and expansion of the Up-Top Building in Altgeld Gardens, run by youth nonprofit By The Hand Club For Kids."
+    },
+    {
+      "headline": "Baby Eagles' Nest Gets Extra Protection As Park District Blocks Far South Side Trail",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/05/11/baby-eagles-nest-gets-extra-protection-as-park-district-blocks-far-south-side-trail/",
+      "date": "2026-05-11",
+      "note": "The Park District closed a trail near a South Deering nest where two bald eaglets hatched, the first documented successful hatching in the city in more than a century."
+    },
+    {
+      "headline": "Dozens Of Decomposing Bodies Found In Southeast Side Funeral Home",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/08/07/dozens-of-decomposing-bodies-found-in-southeast-side-funeral-home/",
+      "date": "2026-08-07",
+      "note": "State and city investigators found 57 decomposing bodies at the South Chicago Chapel funeral home in South Deering after a license-violation tip."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Peter Chico",
+    "website_url": "https://www.aldermanchico.org/",
+    "verified": true,
+    "verification_note": "The data had no site on file. Searched for Peter Chico's official 10th Ward site and found aldermanchico.org, then fetched https://www.aldermanchico.org/ directly this session. The header reads '10th Ward Alderman Peter Chico | East Side | 10500 South Ewing Avenue 1st floor, Chicago, Illinois, USA,' confirming the site is his."
+  },
+  "sources_fetched": [
+    "https://www.aldermanchico.org/",
+    "https://blockclubchicago.org/2026/08/06/state-city-sue-south-side-vegetable-oil-plant-over-foul-odors-pollution/",
+    "https://blockclubchicago.org/2026/07/15/altgeld-gardens-community-center-expansion-including-new-gym-gets-council-ok/",
+    "https://blockclubchicago.org/2026/05/11/baby-eagles-nest-gets-extra-protection-as-park-district-blocks-far-south-side-trail/",
+    "https://blockclubchicago.org/2026/08/07/dozens-of-decomposing-bodies-found-in-southeast-side-funeral-home/"
+  ]
+}

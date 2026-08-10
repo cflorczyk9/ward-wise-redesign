@@ -1,0 +1,29 @@
+{
+  "ward": "08",
+  "headline": "Ward 8 ranks 40th of 50 overall, weakest on coffee shops and cafes.",
+  "summary": "Ward 8 covers Avalon Park, Pullman, Calumet Heights, and Chatham on Chicago's South Side. It ranks 40th out of 50 wards overall, in the lower half of the city's combined score but not near the bottom.\n\nThe clearest weak spot is coffee. The ward ranks near last citywide for coffee shops overall, for highly rated coffee shops, and for licensed coffee and tea shop density. Linguistic diversity also ranks low, reflecting a ward that is largely English-speaking. On the strong side, child care is well represented on two separate counts, and two modeled measures of religious belief and affiliation rank first in the city, though those come from statistical modeling rather than a survey of actual residents.",
+  "reading_the_rankings": "Three numbers deserve a second look. The ward's 47th-place restaurant ranking sounds close to last, but 12 other wards score within two points of it, so the ranking is sharper than the real difference between them. That count also comes from ZIP code areas, which don't follow ward lines, and the source rates it low confidence. Coffee shops tell a similar story. Ward 8 ranks 49th, but again 11 other wards land within two points, and the measure isn't filled in for every ward in the city. The top strength, a modeled estimate that 74 percent of adults are certain God exists, isn't a survey result. It's a statistical estimate based on what a ward with this area's demographics usually looks like, and the source itself calls it low confidence.",
+  "news": [
+    {
+      "headline": "South Siders Still Waiting For Tree Cleanup After June Storms, But City Departments Are 'Overwhelmed'",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/01/south-siders-still-waiting-for-tree-cleanup-after-june-storms-but-city-departments-are-overwhelmed/",
+      "date": "2026-07-01",
+      "note": "City data showed the 8th Ward had more than 580 open tree-cleanup requests after June storms, the highest total of any Chicago ward."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Michelle A. Harris",
+    "website_url": "https://aldermanmichelleharris.com/",
+    "verified": true,
+    "verification_note": "The website_url listed in the source data, aldermanmichelleharris.net, returned a Cloudflare bot-block on every fetch attempt this session and could not be verified directly. Fetched https://aldermanmichelleharris.com/ instead and confirmed it is her official site, including bio text stating Alderman Harris has lived in the 8th Ward for over fifty years. Cross-checked against the city's official ward page, https://www.chicago.gov/city/en/about/wards/08.html, which lists Alderman Michelle A. Harris for Ward 8, matching the name on file."
+  },
+  "sources_fetched": [
+    "https://aldermanmichelleharris.com/",
+    "https://www.chicago.gov/city/en/about/wards/08.html",
+    "https://blockclubchicago.org/2026/07/01/south-siders-still-waiting-for-tree-cleanup-after-june-storms-but-city-departments-are-overwhelmed/",
+    "https://blockclubchicago.org/2026/06/15/food-delivery-robots-coming-to-south-side-after-alderman-approves-programs-expansion/",
+    "https://blockclubchicago.org/2026/06/26/2-assaults-near-rainbow-beach-have-neighbors-on-alert/"
+  ]
+}

@@ -1116,8 +1116,37 @@
         "Greater Grand Crossing"
       ],
       "display_name": "Ward 5",
-      "news": [],
-      "news_status": "not_researched",
+      "news": [
+        {
+          "date": "2026-06-02",
+          "headline": "Ald. Desmon Yancy: The city's response to the recurring crisis of 'teen takeovers' is inadequate",
+          "note": "Opinion piece by the 5th Ward alderman arguing the city's response to large teen gatherings has been too slow.",
+          "outlet": "Chicago Tribune",
+          "url": "https://www.chicagotribune.com/2026/06/02/opinion-chicago-teen-takeover-response-inadequate/"
+        },
+        {
+          "date": "2026-05-26",
+          "headline": "Chicago Memorial Day weekend 'teen trends' and mass gatherings end in violence and spark backlash",
+          "note": "News coverage of a large teen gathering at 57th Street Beach in Hyde Park that grew chaotic, with comments from Ald. Yancy on the response.",
+          "outlet": "Chicago Tribune",
+          "url": "https://www.chicagotribune.com/2026/05/26/teen-gathering-hyde-park/"
+        },
+        {
+          "date": "2026-06-05",
+          "headline": "Obama Center spurs a boom in Airbnbs, housing advocates say affordable units are disappearing",
+          "note": "Reporting on short-term rentals near the Obama Center in Woodlawn, including Ald. Yancy's comments on the city's Shared Housing Ordinance.",
+          "outlet": "Chicago Sun-Times",
+          "url": "https://chicago.suntimes.com/real-estate/2026/06/05/barack-obama-airbnb-presidential-center-chicago-affordable-housing-displacement-gentrification"
+        },
+        {
+          "date": "2026-07-15",
+          "headline": "Chicago Needs A 'Small Business Bill Of Rights' To Reduce Red Tape, Local Leaders Say",
+          "note": "Coverage of a South Shore press conference where Ald. Yancy and business owners unveiled a proposed resolution to ease city licensing and permitting rules.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/07/15/chicago-needs-a-small-business-bill-of-rights-to-reduce-red-tape-local-leaders-say/"
+        }
+      ],
+      "news_status": "found",
       "overall": {
         "of": 50,
         "rank": 20,
@@ -1372,15 +1401,20 @@
           "within_two_points": 29
         }
       ],
-      "writeup": null
+      "writeup": {
+        "headline": "Ward 5 ranks 20th of 50, with strong environmental numbers and very little new housing.",
+        "reading_the_rankings": "Ward 5's top rank on modeled air-toxics cancer risk looks reassuring, but the number comes from census tracts mapped onto today's ward lines, and where a tract straddles the boundary, some of what's counted here really belongs to the ward next door. The source itself rates the figure medium confidence. The ward's first-place, 97 percent council attendance figure carries a similar catch. Chicago redrew ward boundaries in 2023, so this number combines records from whoever held the seat before and after that change, not one continuous term. The last-place rank on new housing construction investment is real, but 30 of the other 49 wards land within two points of Ward 5's score. Most of the city is bunched together at the bottom on this measure, so being ranked worst here means less than the number suggests.",
+        "summary": "Ward 5 covers Hyde Park, South Shore, Woodlawn, and Greater Grand Crossing, on the South Side along Lake Michigan. It ranks 20th of the city's 50 wards overall, squarely in the middle of the pack.\n\nThe ward's strongest numbers are environmental and civic. It ranks first in the city on modeled air pollution exposure, on proximity to major polluting facilities, and on demolition permits issued each year, and it has the highest council attendance rate of any ward. Its weakest numbers run the other way. Few new residential permits get issued here and almost no new housing gets built, bars and other nightlife spots are rare per resident, and chain restaurants make up a larger share of the dining scene than in most wards. That combination describes a quiet, residential ward with strong environmental readings and not much new construction."
+      }
     },
     "06": {
       "alderperson": {
         "name": "William E. Hall",
         "photo_url": "https://occprodstoragev1.blob.core.usgovcloudapi.net/council-profile-pictures/7D95D6BB-6AF3-ED11-A7C6-001DD804FC2B.jpg",
         "title": "Alderperson",
-        "website_url": null,
-        "website_verified": false
+        "verification_note": "wards.json listed no site for this ward. Found https://www.6wardchicago.com/ and fetched it directly this session. The site identifies itself as '6th Ward Central' and names William E. Hall as alderman, with a ward office address of 8541 South State Street, Chicago, matching the office location reported elsewhere for the 6th Ward. The city's ward directory page at chicago.gov/ward6 (redirects to chicago.gov/city/en/about/wards/06.html), also fetched this session, confirms 'William E. Hall' as the 6th Ward alderperson.",
+        "website_url": "https://www.6wardchicago.com/",
+        "website_verified": true
       },
       "caveated_count": 165,
       "communities": [
@@ -1390,8 +1424,30 @@
         "Roseland"
       ],
       "display_name": "Ward 6",
-      "news": [],
-      "news_status": "not_researched",
+      "news": [
+        {
+          "date": "2026-05-28",
+          "headline": "Mini Soccer Field, Pickleball Court, Media Lab Coming To These South Side Parks",
+          "note": "Coverage of aldermanic menu fund improvements underway at Tuley Park and Cole Park in Chatham, including a new miniature soccer field and pickleball court.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/05/28/mini-soccer-field-pickleball-court-media-lab-coming-to-these-south-side-parks/"
+        },
+        {
+          "date": "2026-06-09",
+          "headline": "Can Indie Pharmacies Serve Areas Abandoned By Walgreens? New Plan Aims To Do Just That",
+          "note": "Reporting on a proposed city Office of Pharmacy Access and a pop-up pharmacy storefront planned for 79th Street after a Walgreens closure in the ward.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/06/09/after-another-walgreens-closes-south-side-alder-hopes-city-program-can-help-indie-pharmacies-fill-gaps/"
+        },
+        {
+          "date": "2026-06-15",
+          "headline": "Food Delivery Robots Coming To South Side After Alderman Approves Program's Expansion",
+          "note": "Coverage of Serve Robotics' planned expansion into the 6th Ward this fall following the alderman's written approval.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/06/15/food-delivery-robots-coming-to-south-side-after-alderman-approves-programs-expansion/"
+        }
+      ],
+      "news_status": "found",
       "overall": {
         "of": 50,
         "rank": 44,
@@ -1646,7 +1702,11 @@
           "within_two_points": 2
         }
       ],
-      "writeup": null
+      "writeup": {
+        "headline": "Ward 6 ranks 44th of 50 and has the city's highest violent crime rate.",
+        "reading_the_rankings": "Ward 6's worst number is its violent crime rate, about 709 incidents per 10,000 residents, last among all 50 wards. That figure comes from mapping crime reports and population counts from census tracts onto ward lines, so where a tract crosses the boundary, some of what's counted here may actually belong to a neighboring ward, and the source itself rates the number medium confidence. Two of the ward's best numbers need a different kind of caution. Its first-place ranks on modeled religious attendance and modeled daily leisure time aren't counts of anything observed in the ward. Both are statistical estimates of what a ward with this area's demographics usually looks like, built from national survey data rather than a local survey, and the source rates both low confidence. The ward's first-place rank on the share of aldermanic menu money spent on parks is a real number, but Chicago redrew ward boundaries in 2023, so part of what's measured may reflect a differently shaped ward, and the measure isn't tracked the same way for every ward in the comparison.",
+        "summary": "Ward 6 covers Greater Grand Crossing, Chatham, Englewood, and Roseland on the South Side. It ranks 44th of the city's 50 wards overall, among the lower-ranked wards citywide.\n\nThe ward's clearest strengths involve retail character and city administration. Only 1.54 percent of its licensed food stores belong to one of the 100 largest retail chains, the lowest share in the city, and its building permits are processed faster than almost anywhere else in Chicago. Its weaknesses sit mostly in safety and demographics. Ward 6 has the highest reported violent crime rate of any ward, the lowest share of multilingual households, and among the fewest sit-down restaurants per resident. It's a ward where most food retail isn't part of a big chain, alongside real gaps in reported safety and language diversity."
+      }
     },
     "07": {
       "alderperson": {
@@ -1664,8 +1724,30 @@
         "Calumet Heights"
       ],
       "display_name": "Ward 7",
-      "news": [],
-      "news_status": "not_researched",
+      "news": [
+        {
+          "date": "2026-06-02",
+          "headline": "Advocate Health Breaks Ground On Hospital At South Chicago Lakefront Megadevelopment Site",
+          "note": "Advocate Health broke ground on a smaller replacement for Trinity Hospital at 8000 S. DuSable Lake Shore Drive, part of a lakefront megadevelopment set to open in 2029.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/06/02/advocate-health-breaks-ground-on-hospital-at-south-chicago-lakefront-megadevelopment-site/"
+        },
+        {
+          "date": "2026-06-23",
+          "headline": "Steel Slag Meets Prairie at Chicago's Marian Byrnes Park, See This Natural Wonder in an Unnatural Setting",
+          "note": "The Chicago Park District added a boardwalk, overlook, and picnic area to the 140-acre natural area in Jeffery Manor, built partly on old steel slag dumping grounds.",
+          "outlet": "WTTW",
+          "url": "https://news.wttw.com/2026/06/16/steel-slag-meets-prairie-chicago-s-marian-byrnes-park-see-natural-wonder-unnatural"
+        },
+        {
+          "date": "2026-07-08",
+          "headline": "Artifacts Of Louis Sullivan Building, Demolished In The '50s, Are Protecting South Shore's Lakefront",
+          "note": "Carved limestone remnants of architect Louis Sullivan's demolished Walker Warehouse were found reused as lakefront revetment stone near Rainbow Beach.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/07/08/artifacts-of-louis-sullivan-building-demolished-in-the-50s-are-protecting-south-shores-lakefront/"
+        }
+      ],
+      "news_status": "found",
       "overall": {
         "of": 50,
         "rank": 48,
@@ -1923,7 +2005,11 @@
           "within_two_points": 2
         }
       ],
-      "writeup": null
+      "writeup": {
+        "headline": "Ward 7 ranks 48th of 50, weakest on restaurants and commute times, cheapest on rent.",
+        "reading_the_rankings": "Three numbers are worth a second look. Ward 7 ranks 1st out of 50 on traffic proximity, part of the city's Environmental Justice Index. That figure comes from census tract data spread evenly across each tract's area, so where a tract crosses the ward line, some of it really belongs to the ward next door, and the source itself calls the measure medium confidence. The restaurant count, dead last at 50th, has a different problem. It comes from ZIP code areas, which don't follow ward boundaries at all, and the source rates that measure low confidence. Packaged liquor licenses and food business counts, also last place, come from a ward field recorded before Chicago redrew ward lines in 2023, so some of that data describes a ward shaped differently than the one that exists now.",
+        "summary": "Ward 7 sits on Chicago's far southeast side, covering South Deering, South Chicago, South Shore, and Calumet Heights. It ranks 48th out of 50 wards overall on this dataset's combined score.\n\nThe ward's weakest spots are almost all commercial. It ranks last in the city, 50th out of 50, for restaurants, for food businesses of any kind, and for places still open past 9 p.m. on a weeknight. Long commutes are the worst citywide too, with close to 41 percent of workers on the road 45 minutes or more each way. Rent tells a different story, ranking 3rd out of the 48 wards with reliable data, at a typical asking rent of $1,463, among the cheapest in the city. Several pollution-exposure measures also rank near the top of Chicago's 50 wards, though those carry real caveats, covered below."
+      }
     },
     "08": {
       "alderperson": {
@@ -1941,8 +2027,16 @@
         "Chatham"
       ],
       "display_name": "Ward 8",
-      "news": [],
-      "news_status": "not_researched",
+      "news": [
+        {
+          "date": "2026-07-01",
+          "headline": "South Siders Still Waiting For Tree Cleanup After June Storms, But City Departments Are 'Overwhelmed'",
+          "note": "City data showed the 8th Ward had more than 580 open tree-cleanup requests after June storms, the highest total of any Chicago ward.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/07/01/south-siders-still-waiting-for-tree-cleanup-after-june-storms-but-city-departments-are-overwhelmed/"
+        }
+      ],
+      "news_status": "found",
       "overall": {
         "of": 50,
         "rank": 40,
@@ -2198,7 +2292,11 @@
           "within_two_points": 12
         }
       ],
-      "writeup": null
+      "writeup": {
+        "headline": "Ward 8 ranks 40th of 50 overall, weakest on coffee shops and cafes.",
+        "reading_the_rankings": "Three numbers deserve a second look. The ward's 47th-place restaurant ranking sounds close to last, but 12 other wards score within two points of it, so the ranking is sharper than the real difference between them. That count also comes from ZIP code areas, which don't follow ward lines, and the source rates it low confidence. Coffee shops tell a similar story. Ward 8 ranks 49th, but again 11 other wards land within two points, and the measure isn't filled in for every ward in the city. The top strength, a modeled estimate that 74 percent of adults are certain God exists, isn't a survey result. It's a statistical estimate based on what a ward with this area's demographics usually looks like, and the source itself calls it low confidence.",
+        "summary": "Ward 8 covers Avalon Park, Pullman, Calumet Heights, and Chatham on Chicago's South Side. It ranks 40th out of 50 wards overall, in the lower half of the city's combined score but not near the bottom.\n\nThe clearest weak spot is coffee. The ward ranks near last citywide for coffee shops overall, for highly rated coffee shops, and for licensed coffee and tea shop density. Linguistic diversity also ranks low, reflecting a ward that is largely English-speaking. On the strong side, child care is well represented on two separate counts, and two modeled measures of religious belief and affiliation rank first in the city, though those come from statistical modeling rather than a survey of actual residents."
+      }
     },
     "09": {
       "alderperson": {
@@ -2216,8 +2314,16 @@
         "Pullman"
       ],
       "display_name": "Ward 9",
-      "news": [],
-      "news_status": "not_researched",
+      "news": [
+        {
+          "date": "2026-06-21",
+          "headline": "14 Wounded In 'Horrific' Drive-By Mass Shooting In Roseland, Police Say",
+          "note": "A drive-by shooting into a Juneteenth gathering in the Princeton Park part of Roseland injured 14 people, Chicago's largest mass shooting so far in 2026.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/06/21/13-injured-in-horrific-drive-by-mass-shooting-in-roseland-police-say/"
+        }
+      ],
+      "news_status": "found",
       "overall": {
         "of": 50,
         "rank": 43,
@@ -2465,15 +2571,20 @@
           "within_two_points": 1
         }
       ],
-      "writeup": null
+      "writeup": {
+        "headline": "Ward 9 ranks 43rd of 50, strong on child care and faith, weak on commutes and nightlife.",
+        "reading_the_rankings": "Take the No. 1 rank in child care centers per resident. It looks like the best ward in Chicago for day care access, but the count is apportioned from ZIP code areas that don't follow ward lines at all, and the source itself flags the figure as low confidence. The bottom-of-the-list rank in coffee shops looks just as stark until you read the caveat attached to it. Eleven other wards land within two points of Ward 9 on that same measure, so most of the city is bunched together down there, and one rank position doesn't separate this ward from many others. The worst-in-the-city wastewater-proximity score has a similar catch. It comes from census tract data that assumes residents are spread evenly across each tract, and the middle half of all 50 wards spans just three points on this measure, so a single rank can shift on very little real difference underneath it.",
+        "summary": "Roseland, Pullman, West Pullman and Riverdale make up Ward 9 on the Far South Side, which lands 43rd out of 50 wards overall, a below-average score of 32.29. The ward's strongest numbers come from family and faith life. It has more child care centers per resident than any other ward in the city, its 311 pothole requests close in about two and a half days on average, second-fastest citywide, and mapped houses of worship are denser here than almost anywhere else in Chicago.\n\nThe weaker numbers cluster around commuting and nightlife. Two in five workers here face a commute of 45 minutes or longer, among the longest in the city. The ward also has almost no bars or coffee shops by the count used in this report, and it scores worst in the city on a wastewater-proximity index drawn from environmental justice data. Ward 9 reads as a ward organized around home, family and worship, with little built around a night out or a short commute to work."
+      }
     },
     "10": {
       "alderperson": {
         "name": "Peter Chico",
         "photo_url": "https://occprodstoragev1.blob.core.usgovcloudapi.net/council-profile-pictures/4C168A10-6BF3-ED11-A7C6-001DD804FC2B.jpg",
         "title": "Alderperson",
-        "website_url": null,
-        "website_verified": false
+        "verification_note": "The data had no site on file. Searched for Peter Chico's official 10th Ward site and found aldermanchico.org, then fetched https://www.aldermanchico.org/ directly this session. The header reads '10th Ward Alderman Peter Chico | East Side | 10500 South Ewing Avenue 1st floor, Chicago, Illinois, USA,' confirming the site is his.",
+        "website_url": "https://www.aldermanchico.org/",
+        "website_verified": true
       },
       "caveated_count": 162,
       "communities": [
@@ -2483,8 +2594,37 @@
         "Riverdale"
       ],
       "display_name": "Ward 10",
-      "news": [],
-      "news_status": "not_researched",
+      "news": [
+        {
+          "date": "2026-08-06",
+          "headline": "State, City Sue South Side Vegetable Oil Plant Over 'Foul Odors,' Pollution",
+          "note": "The state and city sued Pullman Innovations, a South Deering vegetable oil plant, over odor complaints and air pollution violations at its East 100th Street facility.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/08/06/state-city-sue-south-side-vegetable-oil-plant-over-foul-odors-pollution/"
+        },
+        {
+          "date": "2026-07-15",
+          "headline": "Altgeld Gardens Community Center Expansion, Including New Gym, Gets Council OK",
+          "note": "City Council approved a $24 million renovation and expansion of the Up-Top Building in Altgeld Gardens, run by youth nonprofit By The Hand Club For Kids.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/07/15/altgeld-gardens-community-center-expansion-including-new-gym-gets-council-ok/"
+        },
+        {
+          "date": "2026-05-11",
+          "headline": "Baby Eagles' Nest Gets Extra Protection As Park District Blocks Far South Side Trail",
+          "note": "The Park District closed a trail near a South Deering nest where two bald eaglets hatched, the first documented successful hatching in the city in more than a century.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/05/11/baby-eagles-nest-gets-extra-protection-as-park-district-blocks-far-south-side-trail/"
+        },
+        {
+          "date": "2026-08-07",
+          "headline": "Dozens Of Decomposing Bodies Found In Southeast Side Funeral Home",
+          "note": "State and city investigators found 57 decomposing bodies at the South Chicago Chapel funeral home in South Deering after a license-violation tip.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/08/07/dozens-of-decomposing-bodies-found-in-southeast-side-funeral-home/"
+        }
+      ],
+      "news_status": "found",
       "overall": {
         "of": 50,
         "rank": 33,
@@ -2736,7 +2876,11 @@
           "within_two_points": 1
         }
       ],
-      "writeup": null
+      "writeup": {
+        "headline": "Ward 10 ranks 33rd of 50, best on rent and park space, weakest on income data and crowds.",
+        "reading_the_rankings": "Take the No. 1 rank for rent. Both the census survey and a real-time listing index put Ward 10 at the cheapest in the city, and that part holds up as a real signal, though the census figure is allocated from tracts by area, an approach that assumes residents are spread evenly within a tract even where a ward line cuts through one. The bottom-of-the-list rank on household income tells a thinner story. That number comes from income data covering several wards at once, so neighboring wards end up with close to the same score simply because of how the data is grouped, not because of anything specific happening inside Ward 10. The last-place rank for gathering spots like bars, cafes and gyms sits somewhere in between. It's a real count of businesses, but 13 other wards land within two points of Ward 10 on that measure, so the rank overstates how different this ward really is from much of the city.",
+        "summary": "Ward 10 stretches across the Far Southeast Side, taking in South Deering, Hegewisch, East Side and part of Riverdale, and it ranks 33rd out of 50 wards overall, a middling score of 37.43. Its clearest strengths are physical space and cost of living. The ward has more park acreage per resident than any other ward in the city, the lowest measured rent in Chicago by both a census survey and real-time listing data, and the lightest air-toxics burden citywide on the environmental justice index used here.\n\nThe weaker numbers are about crowding and cash income rather than pollution or space. The ward has fewer bars, cafes, gyms and other gathering spots per resident than anywhere else in the city, and its measured household income sits at the bottom of the list. Off-street parking lots are scarce too. Ward 10 reads as a ward with room to breathe and comparatively cheap housing, though it has few nearby places to spend an evening and comparatively low measured income."
+      }
     },
     "11": {
       "alderperson": {
@@ -6937,8 +7081,9 @@
         "name": "Jessica L. Fuentes",
         "photo_url": "https://occprodstoragev1.blob.core.usgovcloudapi.net/council-profile-pictures/85DA45DD-6BF3-ED11-A7C6-001DD804FC2B.jpg",
         "title": "Alderperson",
-        "website_url": null,
-        "website_verified": false
+        "verification_note": "wards.json listed no site for this ward. Found and fetched https://www.the26thward.org/ this session, the ward office's own site, titled '26th Ward Alderperson Jessie Fuentes' and naming her directly as alderperson. This is the official ward office site, separate from her campaign site jessiefor26thward.com.",
+        "website_url": "https://www.the26thward.org/",
+        "website_verified": true
       },
       "caveated_count": 161,
       "communities": [
@@ -6948,8 +7093,30 @@
         "Hermosa"
       ],
       "display_name": "Ward 26",
-      "news": [],
-      "news_status": "not_researched",
+      "news": [
+        {
+          "date": "2026-06-09",
+          "headline": "Puerto Rican Parade And Fest Returns With Launch Of 'DIGNIDAD' Mobile Artwork",
+          "note": "The 48th annual Puerto Rican parade returned to the Division Street corridor in Humboldt Park, with a large new mobile artwork touring on a flatbed truck.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/06/09/puerto-rican-parade-and-fest-returns-this-weekend-with-launch-of-mobile-artwork-dignidad/"
+        },
+        {
+          "date": "2026-06-29",
+          "headline": "Humboldt Park Bathrooms Open For Summer",
+          "note": "Four of the five public restrooms at Humboldt Park reopened for the season, including one near the basketball courts that had stayed closed for years.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/06/29/humboldt-park-washrooms-open-for-summer-season/"
+        },
+        {
+          "date": "2026-05-20",
+          "headline": "Avondale, Humboldt Park Projects OK'd By Council Include Housing And Animal Rescue Expansion",
+          "note": "City Council approved a $12 million health and job training facility for a local nonprofit at 3446 W. North Ave. in Humboldt Park.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/05/20/avondale-humboldt-park-projects-okd-by-council-include-housing-and-animal-rescue-expansion/"
+        }
+      ],
+      "news_status": "found",
       "overall": {
         "of": 50,
         "rank": 22,
@@ -7191,7 +7358,11 @@
           "within_two_points": 6
         }
       ],
-      "writeup": null
+      "writeup": {
+        "headline": "Ward 26 ranks 22nd of 50, strong on local business, slow on city response times.",
+        "reading_the_rankings": "Two of the weakest rankings measure the same kind of thing from different angles. Pothole repair time ranks 50th out of 50, over 60 days on average, and general 311 response time ranks 49th, at just over 16 days. Both come from the city's 311 system, and the source notes this measure is not fully populated across all 50 wards, so the ranking reflects whichever wards have enough logged requests to compare, not a full head to head with every ward in the city. Menu budget utilization tells a different kind of story. The ward spent 85.3 percent of its roughly $1.5 million annual menu allotment, which sounds like solid follow through, but that number ranks only 44th, because most other wards spent an even higher share of theirs. And the ward's best ranking, lowest share of chain restaurants in the city, comes from a business license snapshot the source itself rates medium confidence, tied to a ward field recorded at the time and not updated for the 2023 boundary redraw, so some of what's being counted here may have belonged to a differently shaped ward.",
+        "summary": "Ward 26 covers Humboldt Park, West Town, Logan Square, and Hermosa. It ranks 22nd out of 50 wards overall, a score of 46.83, putting it just above the citywide middle. Its clearest strength is independent local business. The ward has the lowest share of chain restaurants of any ward in the city and the second-lowest share of chain food stores, and its bars carry some of the highest average ratings too. Aldermanic menu spending here is also the most geographically spread out of any ward, reaching a wide range of blocks rather than clustering in one spot.\n\nThe clearest weakness is how fast the city responds once something breaks. Pothole repair here ranks 50th out of 50, over 60 days on average, and general 311 response time ranks 49th, just over 16 days. Yoga and pilates studios are effectively absent, ranked 48th, and school proficiency ranks 43rd. It is a ward that scores well on the kind of independent business and civic spending measures residents notice day to day, and poorly on how quickly city crews respond once something needs fixing."
+      }
     },
     "27": {
       "alderperson": {
@@ -8321,7 +8492,7 @@
     },
     "31": {
       "alderperson": {
-        "name": "Jr., Felix Cardona",
+        "name": "Felix Cardona Jr.",
         "photo_url": "https://occprodstoragev1.blob.core.usgovcloudapi.net/council-profile-pictures/1C8E86C8-FB88-EC11-8D20-001DD804FD38.jpg",
         "title": "Alderperson",
         "verification_note": "Fetched https://www.ward31.org/ directly this session. It is the official City of Chicago 31st Ward hub and names Felix Cardona as the ward's alderman. The wards.json data had no website on file for this ward, so this one was found and verified fresh.",
@@ -10907,7 +11078,7 @@
     },
     "40": {
       "alderperson": {
-        "name": "Jr., Andre Vasquez",
+        "name": "Andre Vasquez Jr.",
         "photo_url": "https://occprodstoragev1.blob.core.usgovcloudapi.net/council-profile-pictures/9DB0248A-F988-EC11-8D20-001DD804FD38.jpg",
         "title": "Alderperson",
         "website_url": "http://www.40thward.org",

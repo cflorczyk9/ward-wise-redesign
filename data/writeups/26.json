@@ -1,0 +1,42 @@
+{
+  "ward": "26",
+  "headline": "Ward 26 ranks 22nd of 50, strong on local business, slow on city response times.",
+  "summary": "Ward 26 covers Humboldt Park, West Town, Logan Square, and Hermosa. It ranks 22nd out of 50 wards overall, a score of 46.83, putting it just above the citywide middle. Its clearest strength is independent local business. The ward has the lowest share of chain restaurants of any ward in the city and the second-lowest share of chain food stores, and its bars carry some of the highest average ratings too. Aldermanic menu spending here is also the most geographically spread out of any ward, reaching a wide range of blocks rather than clustering in one spot.\n\nThe clearest weakness is how fast the city responds once something breaks. Pothole repair here ranks 50th out of 50, over 60 days on average, and general 311 response time ranks 49th, just over 16 days. Yoga and pilates studios are effectively absent, ranked 48th, and school proficiency ranks 43rd. It is a ward that scores well on the kind of independent business and civic spending measures residents notice day to day, and poorly on how quickly city crews respond once something needs fixing.",
+  "reading_the_rankings": "Two of the weakest rankings measure the same kind of thing from different angles. Pothole repair time ranks 50th out of 50, over 60 days on average, and general 311 response time ranks 49th, at just over 16 days. Both come from the city's 311 system, and the source notes this measure is not fully populated across all 50 wards, so the ranking reflects whichever wards have enough logged requests to compare, not a full head to head with every ward in the city. Menu budget utilization tells a different kind of story. The ward spent 85.3 percent of its roughly $1.5 million annual menu allotment, which sounds like solid follow through, but that number ranks only 44th, because most other wards spent an even higher share of theirs. And the ward's best ranking, lowest share of chain restaurants in the city, comes from a business license snapshot the source itself rates medium confidence, tied to a ward field recorded at the time and not updated for the 2023 boundary redraw, so some of what's being counted here may have belonged to a differently shaped ward.",
+  "news": [
+    {
+      "headline": "Puerto Rican Parade And Fest Returns With Launch Of 'DIGNIDAD' Mobile Artwork",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/06/09/puerto-rican-parade-and-fest-returns-this-weekend-with-launch-of-mobile-artwork-dignidad/",
+      "date": "2026-06-09",
+      "note": "The 48th annual Puerto Rican parade returned to the Division Street corridor in Humboldt Park, with a large new mobile artwork touring on a flatbed truck."
+    },
+    {
+      "headline": "Humboldt Park Bathrooms Open For Summer",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/06/29/humboldt-park-washrooms-open-for-summer-season/",
+      "date": "2026-06-29",
+      "note": "Four of the five public restrooms at Humboldt Park reopened for the season, including one near the basketball courts that had stayed closed for years."
+    },
+    {
+      "headline": "Avondale, Humboldt Park Projects OK'd By Council Include Housing And Animal Rescue Expansion",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/05/20/avondale-humboldt-park-projects-okd-by-council-include-housing-and-animal-rescue-expansion/",
+      "date": "2026-05-20",
+      "note": "City Council approved a $12 million health and job training facility for a local nonprofit at 3446 W. North Ave. in Humboldt Park."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Jessica L. Fuentes",
+    "website_url": "https://www.the26thward.org/",
+    "verified": true,
+    "verification_note": "wards.json listed no site for this ward. Found and fetched https://www.the26thward.org/ this session, the ward office's own site, titled '26th Ward Alderperson Jessie Fuentes' and naming her directly as alderperson. This is the official ward office site, separate from her campaign site jessiefor26thward.com."
+  },
+  "sources_fetched": [
+    "https://www.the26thward.org/",
+    "https://blockclubchicago.org/2026/06/09/puerto-rican-parade-and-fest-returns-this-weekend-with-launch-of-mobile-artwork-dignidad/",
+    "https://blockclubchicago.org/2026/06/29/humboldt-park-washrooms-open-for-summer-season/",
+    "https://blockclubchicago.org/2026/05/20/avondale-humboldt-park-projects-okd-by-council-include-housing-and-animal-rescue-expansion/"
+  ]
+}

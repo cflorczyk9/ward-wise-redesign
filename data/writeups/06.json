@@ -1,0 +1,43 @@
+{
+  "ward": "06",
+  "headline": "Ward 6 ranks 44th of 50 and has the city's highest violent crime rate.",
+  "summary": "Ward 6 covers Greater Grand Crossing, Chatham, Englewood, and Roseland on the South Side. It ranks 44th of the city's 50 wards overall, among the lower-ranked wards citywide.\n\nThe ward's clearest strengths involve retail character and city administration. Only 1.54 percent of its licensed food stores belong to one of the 100 largest retail chains, the lowest share in the city, and its building permits are processed faster than almost anywhere else in Chicago. Its weaknesses sit mostly in safety and demographics. Ward 6 has the highest reported violent crime rate of any ward, the lowest share of multilingual households, and among the fewest sit-down restaurants per resident. It's a ward where most food retail isn't part of a big chain, alongside real gaps in reported safety and language diversity.",
+  "reading_the_rankings": "Ward 6's worst number is its violent crime rate, about 709 incidents per 10,000 residents, last among all 50 wards. That figure comes from mapping crime reports and population counts from census tracts onto ward lines, so where a tract crosses the boundary, some of what's counted here may actually belong to a neighboring ward, and the source itself rates the number medium confidence. Two of the ward's best numbers need a different kind of caution. Its first-place ranks on modeled religious attendance and modeled daily leisure time aren't counts of anything observed in the ward. Both are statistical estimates of what a ward with this area's demographics usually looks like, built from national survey data rather than a local survey, and the source rates both low confidence. The ward's first-place rank on the share of aldermanic menu money spent on parks is a real number, but Chicago redrew ward boundaries in 2023, so part of what's measured may reflect a differently shaped ward, and the measure isn't tracked the same way for every ward in the comparison.",
+  "news": [
+    {
+      "headline": "Mini Soccer Field, Pickleball Court, Media Lab Coming To These South Side Parks",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/05/28/mini-soccer-field-pickleball-court-media-lab-coming-to-these-south-side-parks/",
+      "date": "2026-05-28",
+      "note": "Coverage of aldermanic menu fund improvements underway at Tuley Park and Cole Park in Chatham, including a new miniature soccer field and pickleball court."
+    },
+    {
+      "headline": "Can Indie Pharmacies Serve Areas Abandoned By Walgreens? New Plan Aims To Do Just That",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/06/09/after-another-walgreens-closes-south-side-alder-hopes-city-program-can-help-indie-pharmacies-fill-gaps/",
+      "date": "2026-06-09",
+      "note": "Reporting on a proposed city Office of Pharmacy Access and a pop-up pharmacy storefront planned for 79th Street after a Walgreens closure in the ward."
+    },
+    {
+      "headline": "Food Delivery Robots Coming To South Side After Alderman Approves Program's Expansion",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/06/15/food-delivery-robots-coming-to-south-side-after-alderman-approves-programs-expansion/",
+      "date": "2026-06-15",
+      "note": "Coverage of Serve Robotics' planned expansion into the 6th Ward this fall following the alderman's written approval."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "William E. Hall",
+    "website_url": "https://www.6wardchicago.com/",
+    "verified": true,
+    "verification_note": "wards.json listed no site for this ward. Found https://www.6wardchicago.com/ and fetched it directly this session. The site identifies itself as '6th Ward Central' and names William E. Hall as alderman, with a ward office address of 8541 South State Street, Chicago, matching the office location reported elsewhere for the 6th Ward. The city's ward directory page at chicago.gov/ward6 (redirects to chicago.gov/city/en/about/wards/06.html), also fetched this session, confirms 'William E. Hall' as the 6th Ward alderperson."
+  },
+  "sources_fetched": [
+    "https://www.6wardchicago.com/",
+    "https://www.chicago.gov/city/en/about/wards/06.html",
+    "https://blockclubchicago.org/2026/05/28/mini-soccer-field-pickleball-court-media-lab-coming-to-these-south-side-parks/",
+    "https://blockclubchicago.org/2026/06/09/after-another-walgreens-closes-south-side-alder-hopes-city-program-can-help-indie-pharmacies-fill-gaps/",
+    "https://blockclubchicago.org/2026/06/15/food-delivery-robots-coming-to-south-side-after-alderman-approves-programs-expansion/"
+  ]
+}
