@@ -1,0 +1,42 @@
+{
+  "ward": "03",
+  "headline": "Ward 3 ranks 29th of 50, strong on history and fast city fixes, weak on renter strain.",
+  "summary": "Grand Boulevard, the Near South Side, Douglas and Washington Park make up Ward 3, which lands 29th out of 50 wards overall, a middle score of 44.67. The ward runs deep on history and on how fast the city answers basic requests. It holds 31 sites on the National Register of Historic Places and 35 designated Chicago Landmarks, both among the higher counts in the city, plus 33 mapped parks, good for third place. Rodent baiting requests here close in under three days on average and street light outages get fixed in under two, both close to the fastest turnaround in Chicago.\n\nThe weaker numbers point toward housing. About 85 percent of residential parcels in the ward list a taxpayer mailing address different from the property itself, the highest share of any ward in the city and a sign of heavy landlord and investor ownership over people living in homes they own. An estimated 70 percent of rent collected on rental units in the ward ends up as landlord profit rather than paying down a mortgage, near the bottom of the 50 wards. Houses of worship here also skew toward fewer religious traditions than most of the city. Ward 3 pairs a strong historic and civic record with a rental market that leans hard toward landlords.",
+  "reading_the_rankings": "A few of these numbers carry more texture than the rank alone shows. Ward 3's National Register listings rank 2nd, but that's out of only 41 wards where the measure is filled in at all, not the full 50, so it's a strong showing on an incomplete list rather than a clean citywide comparison. The landlord profit estimate ranks the ward 47th of 50, but 11 wards land within two points of each other on that measure, so the real distance between 47th and a ward ranked in the high 30s is thinner than the number implies. And the ward's menu spending spread, which measures how concentrated the ward's yearly capital budget is across its own blocks, comes from figures tied to ward boundaries that were redrawn in 2023, so some of the historical data behind that number was collected for a differently shaped ward.",
+  "news": [
+    {
+      "headline": "Long-Delayed Plans For Bronzeville Pete's Fresh Market To Go Before City Panel Next Month",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/21/long-delayed-plans-for-bronzeville-petes-fresh-market-to-go-before-city-panel-next-month/",
+      "date": "2026-07-21",
+      "note": "A developer plans to bring a grocery store, hardware store and apartments to the former Stateway Gardens site in Bronzeville, with a city Plan Commission hearing set for August 20."
+    },
+    {
+      "headline": "After Young People Shot In Bronzeville, Alder Calls For Accountability Over Teen Gatherings",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/06/07/4-boys-ages-12-through-14-shot-in-bronzeville-police-say/",
+      "date": "2026-06-07",
+      "note": "Seven young people were shot in two separate incidents in Bronzeville over one weekend, prompting calls for parents and social media platforms to address unsanctioned teen gatherings."
+    },
+    {
+      "headline": "South Loop Neighbors Pitch New Bus Connector As Development Booms In Area",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/30/south-loop-neighbors-pitch-new-bus-connector-as-development-booms-in-area/",
+      "date": "2026-07-30",
+      "note": "A community group proposed a 4.2-mile CTA bus route through the South Loop to ease congestion tied to nearby development, including the new Chicago Fire stadium."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Pat Dowell",
+    "website_url": "http://www.ward03chicago.com",
+    "verified": true,
+    "verification_note": "Fetched http://www.ward03chicago.com directly this session. The site is titled Ward 03 Chicago, identifies Pat Dowell as 3rd Ward alderperson since 2007, and lists the ward office contact as ward03@cityofchicago.org."
+  },
+  "sources_fetched": [
+    "http://www.ward03chicago.com",
+    "https://blockclubchicago.org/2026/07/21/long-delayed-plans-for-bronzeville-petes-fresh-market-to-go-before-city-panel-next-month/",
+    "https://blockclubchicago.org/2026/06/07/4-boys-ages-12-through-14-shot-in-bronzeville-police-say/",
+    "https://blockclubchicago.org/2026/07/30/south-loop-neighbors-pitch-new-bus-connector-as-development-booms-in-area/"
+  ]
+}

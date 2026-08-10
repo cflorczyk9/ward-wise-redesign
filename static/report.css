@@ -1,0 +1,406 @@
+/* Ward Wise Quarterly — editorial layout.
+ *
+ * Newspaper feature typography: a serif for reading, a narrow measure, hairline
+ * rules, letterspaced kickers, and photographs that carry their own credit.
+ * System serifs only, so the page pulls in no external fonts and stays
+ * self-contained.
+ *
+ * Every ward section is built from the same blocks in the same order, so fifty
+ * of them read as one publication rather than fifty pages.
+ */
+
+.report-page {
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --sans: ui-sans-serif, -apple-system, "Segoe UI", Inter, Helvetica, Arial, sans-serif;
+  --measure-text: 40rem;   /* body column, roughly 70 characters */
+  --measure-wide: 62rem;   /* photos, tables, the two-column measure grid */
+  --rule-strong: #17181c;
+  --rule-hair: #dcdee3;
+  --ink-quiet: #6f7683;
+  color: #17181c;
+}
+
+/* The shell centres direct children at 68rem. The report wants its own two
+   widths, so it opts out and each block sets its own. */
+.report-page > * { max-width: none; }
+
+.report-page .report-masthead,
+.report-page .report-howto,
+.report-page .report-index,
+.report-page .statusbar { max-width: var(--measure-wide); margin-inline: auto; }
+
+/* ---- masthead --------------------------------------------------------- */
+
+.report-masthead {
+  padding: 1rem 0 2rem;
+  border-bottom: 3px double var(--rule-strong);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.report-kicker {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  margin: 0 0 1rem;
+}
+
+.report-masthead h1 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5.2vw, 3.4rem);
+  line-height: 1.08;
+  letter-spacing: -0.018em;
+  font-weight: 700;
+  margin: 0 auto 1rem;
+  max-width: 22ch;
+}
+
+.report-standfirst {
+  font-family: var(--serif);
+  font-size: 1.09rem;
+  line-height: 1.62;
+  color: #3d4048;
+  max-width: 46ch;
+  margin: 0 auto;
+}
+
+/* ---- how to read ------------------------------------------------------ */
+
+.report-howto {
+  padding: 1.4rem 0 2rem;
+  border-bottom: 1px solid var(--rule-hair);
+  margin-bottom: 2.4rem;
+}
+
+.report-howto > h2,
+.report-index > h2 {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  margin: 0 0 1.1rem;
+  font-weight: 650;
+}
+
+.howto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.4rem 2rem;
+}
+
+.howto-grid h3 {
+  font-family: var(--serif);
+  font-size: 1rem;
+  margin: 0 0 0.3rem;
+  font-weight: 700;
+}
+
+.howto-grid p {
+  font-family: var(--serif);
+  font-size: 0.93rem;
+  line-height: 1.55;
+  margin: 0;
+  color: #3d4048;
+}
+
+/* ---- the index -------------------------------------------------------- */
+
+.report-index { padding-bottom: 2.4rem; border-bottom: 1px solid var(--rule-hair); margin-bottom: 3rem; }
+
+.index-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  gap: 0;
+}
+
+.index-grid a {
+  display: grid;
+  grid-template-columns: 2.1rem 1fr auto;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.42rem 0.3rem;
+  border-bottom: 1px solid var(--rule-hair);
+  text-decoration: none;
+  color: inherit;
+}
+
+.index-grid a:hover { background: #f6f4ef; }
+
+.idx-num {
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.idx-name { font-family: var(--sans); font-size: 0.8rem; color: var(--ink-quiet); overflow-wrap: anywhere; }
+.idx-rank { font-family: var(--sans); font-size: 0.72rem; color: var(--ink-quiet); font-variant-numeric: tabular-nums; }
+
+/* ---- a ward ----------------------------------------------------------- */
+
+.ward {
+  max-width: var(--measure-wide);
+  margin: 0 auto 4.5rem;
+  padding-top: 2.4rem;
+  border-top: 1px solid var(--rule-hair);
+}
+
+.ward:first-child { border-top: 0; padding-top: 0; }
+
+.ward-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  margin-bottom: 0.7rem;
+}
+
+.ward-num { color: var(--k3-hue); font-weight: 700; }
+.ward-communities { letter-spacing: 0.06em; text-transform: none; font-size: 0.78rem; }
+
+.ward > h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 3.4vw, 2.15rem);
+  line-height: 1.15;
+  letter-spacing: -0.016em;
+  font-weight: 700;
+  margin: 0 0 1rem;
+  max-width: 26ch;
+}
+
+/* ---- the photograph --------------------------------------------------- */
+
+.ward-photo { margin: 0 0 1.6rem; }
+
+.ward-photo img {
+  display: block;
+  width: 100%;
+  max-width: var(--measure-wide);
+  /* 16:9 and a height cap. At 3:2 across a 62rem measure each hero ran ~660px
+     and fifty of them made a 106,000px page. */
+  aspect-ratio: 16 / 9;
+  max-height: 26rem;
+  object-fit: cover;
+  background: #eceae5;
+}
+
+.ward-photo figcaption {
+  font-family: var(--sans);
+  font-size: 0.76rem;
+  line-height: 1.45;
+  color: var(--ink-quiet);
+  padding-top: 0.5rem;
+  border-bottom: 1px solid var(--rule-hair);
+  padding-bottom: 0.7rem;
+}
+
+.photo-caption { color: #3d4048; }
+.photo-credit { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.68rem; }
+.ward-photo a { color: inherit; }
+
+/* ---- body ------------------------------------------------------------- */
+
+.ward-summary, .ward-reading p { max-width: var(--measure-text); }
+
+.ward-summary p, .ward-reading p {
+  font-family: var(--serif);
+  font-size: 1.06rem;
+  line-height: 1.68;
+  margin: 0 0 1rem;
+}
+
+/* Newspaper drop cap on the opening paragraph only. */
+.ward-summary p:first-of-type::first-letter {
+  font-family: var(--serif);
+  float: left;
+  font-size: 3.1em;
+  line-height: 0.82;
+  font-weight: 700;
+  padding: 0.06em 0.09em 0 0;
+}
+
+.ward-summary.missing { font-style: italic; color: var(--ink-quiet); }
+
+/* ---- alderperson ------------------------------------------------------ */
+
+.alder {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--rule-hair);
+  border-bottom: 1px solid var(--rule-hair);
+  margin-bottom: 1.5rem;
+  max-width: var(--measure-text);
+}
+
+.alder-photo { border-radius: 50%; object-fit: cover; flex: 0 0 auto; background: #eceae5; }
+.alder-copy { display: flex; flex-direction: column; gap: 0.08rem; font-family: var(--sans); }
+.alder-name { font-size: 0.95rem; font-weight: 620; }
+.alder-title { font-size: 0.75rem; color: var(--ink-quiet); }
+.alder-copy a { font-size: 0.8rem; }
+.alder-nosite { font-size: 0.78rem; color: var(--ink-quiet); font-style: italic; }
+
+/* ---- measures --------------------------------------------------------- */
+
+.ward-measures {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem 2.4rem;
+  margin: 2rem 0;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--rule-hair);
+}
+
+@media (max-width: 760px) { .ward-measures { grid-template-columns: 1fr; } }
+
+.ward-measures h3, .ward-reading h3, .ward-news h3 {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  font-weight: 650;
+  margin: 0 0 0.8rem;
+}
+
+.measures { list-style: none; margin: 0; padding: 0; }
+
+.measure { padding: 0.7rem 0; border-bottom: 1px solid var(--rule-hair); }
+.measure:first-child { border-top: 1px solid var(--rule-hair); }
+
+.measure-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: 0.8rem;
+}
+
+.measure-name { font-family: var(--sans); font-size: 0.9rem; font-weight: 560; min-width: 0; }
+.measure-value {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--ink-quiet);
+  font-variant-numeric: tabular-nums;
+  margin-top: 0.1rem;
+}
+
+.measure-rank {
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.is-strong .measure-rank { color: #1f6f47; }
+.is-weak .measure-rank { color: #b03a2b; }
+.measure-of { font-family: var(--sans); font-size: 0.7rem; font-weight: 400; color: var(--ink-quiet); }
+
+/* The caveats are the argument of the piece, so they sit in the flow rather
+   than behind a toggle. */
+.measure-caveats {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0 0 0 0.85rem;
+  border-left: 2px solid var(--rule-hair);
+}
+
+.measure-caveats li {
+  font-family: var(--serif);
+  font-size: 0.87rem;
+  line-height: 1.5;
+  color: #3d4048;
+  margin-bottom: 0.35rem;
+}
+
+.measure-clean {
+  margin: 0.4rem 0 0;
+  font-family: var(--serif);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--ink-quiet);
+}
+
+/* ---- reading + news --------------------------------------------------- */
+
+.ward-reading {
+  margin: 2rem 0;
+  padding: 1.3rem 1.5rem;
+  background: #f8f6f1;
+  border-left: 3px solid var(--k3-hue);
+  max-width: var(--measure-text);
+}
+
+.ward-reading p { margin: 0; font-size: 1rem; }
+
+.ward-news { margin: 2rem 0; max-width: var(--measure-text); }
+
+.news-list { list-style: none; margin: 0; padding: 0; }
+.news-list li { padding: 0.75rem 0; border-bottom: 1px solid var(--rule-hair); }
+.news-list li:first-child { border-top: 1px solid var(--rule-hair); }
+
+.news-list a {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-decoration: none;
+  color: #17181c;
+  display: block;
+}
+
+.news-list a:hover { text-decoration: underline; }
+
+.news-meta {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  margin-top: 0.25rem;
+}
+
+.news-note { font-family: var(--serif); font-size: 0.89rem; line-height: 1.5; color: #3d4048; margin: 0.35rem 0 0; }
+
+.news-empty {
+  font-family: var(--serif);
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--ink-quiet);
+  margin: 0;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--rule-hair);
+  border-bottom: 1px solid var(--rule-hair);
+}
+
+/* ---- ward footer ------------------------------------------------------ */
+
+.ward-footnote {
+  font-family: var(--sans);
+  font-size: 0.73rem;
+  color: var(--ink-quiet);
+  margin: 1.5rem 0 0.4rem;
+  max-width: var(--measure-text);
+}
+
+.ward-top { font-family: var(--sans); font-size: 0.73rem; text-decoration: none; }
+.ward-top:hover { text-decoration: underline; }
+
+@media print {
+  .site-header, .ward-top, .report-index { display: none; }
+  .ward { break-inside: avoid-page; }
+}

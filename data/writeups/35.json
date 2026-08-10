@@ -1,0 +1,43 @@
+{
+  "ward": "35",
+  "headline": "Ward 35 ranks 14th of 50, strong on restaurants and transit funding, weak on parks.",
+  "summary": "Ward 35 covers Avondale, Logan Square, Irving Park, and Hermosa on the Northwest Side. It ranks 14th out of 50 wards overall, with a score of 51.1 out of 100. Its restaurants are mostly independent rather than chains, the second lowest chain share of any ward in the city, and its bars post some of the highest average ratings anywhere in Chicago. City infrastructure money backs that pattern up. The ward has put a larger share of its aldermanic menu funds into bike lanes, sidewalks, and street redesigns than nearly every other ward, and it spreads that money across more different kinds of projects than most wards do.\n\nThe ward falls behind on green space and a couple of slower-moving city services. Park acreage per resident is among the lowest in Chicago, and rodent baiting requests here take longer to close than in nearly every other ward. Estimated adult loneliness runs higher than most of the city too, and the ward's dense permit parking zones point to a real parking squeeze. Council attendance tied to the ward's representation lands in the bottom five, though that figure blends more than one alderman's term across the 2023 boundary change. Put together, this looks like a walkable part of the city with a strong restaurant and bar scene and real money going into biking and walking routes, though green space and a couple of routine services haven't kept up.",
+  "reading_the_rankings": "Two of these rankings are softer than the raw numbers suggest. Park Access lands at 48th out of 50, but twelve other wards score within two points of it, and the whole middle half of the city is squeezed into an 11-point band on this measure, so the real distance between Ward 35 and much of Chicago is smaller than 48th place implies. The 4th place rank on menu money spent on bike and pedestrian projects is tied to the ward's boundaries as they stand today. Since those boundaries were redrawn in 2023, this number can't be read as a multi-year trend for one ward, only as this year's spending inside today's lines. And the ward's 46th place council attendance score blends more than one alderman's tenure across that same boundary change, on a measure the source itself rates only medium confidence.",
+  "news": [
+    {
+      "headline": "Construction Begins On Logan Square's Megamall Plaza",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/28/construction-begins-on-logan-squares-megamall-plaza/",
+      "date": "2026-07-28",
+      "note": "Work started on a new public plaza at the former Megamall site in Logan Square, with seating, a performance space, and a play area planned for completion by early next year."
+    },
+    {
+      "headline": "New Housing OK'd For Avondale, McKinley Park, Streeterville And Across From Johnny's Icehouse",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/06/16/new-housing-okd-for-avondale-mckinley-park-streeterville-and-across-from-johnnys-ice-house/",
+      "date": "2026-06-16",
+      "note": "City Council's zoning committee advanced an apartment and townhome development in Avondale at 3231-65 N. California Ave., part of nearly 300 housing units approved that day."
+    },
+    {
+      "headline": "Logan Square Homeless Encampment Being Cleared Ahead Of Plaza Construction",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/06/11/logan-square-homeless-encampment-being-cleared-ahead-of-plaza-construction/",
+      "date": "2026-06-11",
+      "note": "The last residents of a longtime encampment near the Logan Square monument relocated ahead of construction on the new public plaza there."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Anthony J. Quezada",
+    "website_url": "https://www.ward35.org/",
+    "verified": true,
+    "verification_note": "wards.json listed no site for this ward. Found https://www.ward35.org/ by search and fetched it directly this session. The page reads 'My name is Anthony J. Quezada, and I am proud to serve as your alderman of Chicago's 35th Ward,' and lists the ward office contact as ward35@cityofchicago.org."
+  },
+  "sources_fetched": [
+    "https://www.ward35.org/",
+    "https://blockclubchicago.org/2026/07/28/construction-begins-on-logan-squares-megamall-plaza/",
+    "https://blockclubchicago.org/2026/06/16/new-housing-okd-for-avondale-mckinley-park-streeterville-and-across-from-johnnys-ice-house/",
+    "https://blockclubchicago.org/2026/06/11/logan-square-homeless-encampment-being-cleared-ahead-of-plaza-construction/",
+    "https://blockclubchicago.org/tag/35th-ward/"
+  ]
+}

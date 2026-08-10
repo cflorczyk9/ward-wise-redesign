@@ -44,6 +44,7 @@ PAGES = {
 NAV = [
     ("index.html", "index", "Explore"),
     ("reports.html", "reports", "Reports"),
+    ("report.html", "report", "Quarterly"),
     ("dictionary.html", "dictionary", "Dictionary"),
     ("support.html", "about", "Support"),
 ]

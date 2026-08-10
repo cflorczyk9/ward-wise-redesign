@@ -1,0 +1,42 @@
+{
+  "ward": "04",
+  "headline": "Ward 4 ranks 17th of 50, deep in landmarks, thinner on retail and school attendance.",
+  "summary": "Ward 4 covers Douglas, Kenwood, the Near South Side and Oakland, and ranks 17th out of 50 wards overall, a solidly above-average score of 49.76. It stands out most for density of place. It has 130 mapped landmarks and 212 mapped civic, cultural and public places, both the most of any ward in the city, plus 755 buildings surveyed in the 1983-1995 citywide inventory of historically significant pre-1940 architecture, second most citywide. The ward also sits under three quarters of a mile from Lake Michigan on average, among the closest to the lakefront of any ward.\n\nThe weaker numbers here are about retail and schools. Roughly 60 percent of the ward's licensed food stores are chain outlets rather than independents, and about 21 percent belong to one of the 100 largest retail chains nationally, both among the higher shares in the city. Close to half the ward's students at nearby schools miss 10 percent or more of school days. The ward's own capital budget is also spent in a narrow, uneven slice of its blocks rather than across the ward as a whole. Ward 4 combines one of the city's deepest landmark counts with a retail mix leaning chain-heavy and school attendance numbers that lag much of the city.",
+  "reading_the_rankings": "The landmark count that puts Ward 4 first citywide looks commanding, but the middle half of all 50 wards spans only six points on that measure, so most wards are actually bunched close together and first place doesn't mean this ward is running away from the pack. Its 2nd-place rank on menu budget use, the share of the ward's yearly capital allotment actually spent on projects in the latest full year, comes with a similar footnote. 16 wards land within two points of each other on that measure, so the real gap between 2nd and a ward ranked in the teens is thin, and the underlying figures are tied to ward boundaries that were redrawn in 2023, so earlier years counted a differently shaped ward. The count of congregations per 10,000 residents, which ranks the ward 2nd, is built from ZIP code data that doesn't follow ward lines at all, and the source itself rates that number low confidence.",
+  "news": [
+    {
+      "headline": "Heading To 31st Street Beach This Summer? Expect To See More Cops, Says Alderman",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/05/12/heading-to-31st-street-beach-this-summer-expect-to-see-more-cops-says-alderman/",
+      "date": "2026-05-12",
+      "note": "Ald. Lamont Robinson said police presence would increase at 31st Street Beach for the summer season after past violent incidents and large teen gatherings there."
+    },
+    {
+      "headline": "Printers Row Sports Bar Reserv Faces Eviction Amid Noise Complaints, Wage Theft Allegations",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/15/printers-row-sports-bar-faces-eviction-amid-noise-complaints-wage-theft-allegations/",
+      "date": "2026-07-15",
+      "note": "A Printers Row bar received an eviction notice over unpaid rent, months after neighbors petitioned the city over noise complaints and former employees alleged wage theft."
+    },
+    {
+      "headline": "Southeast Side 'pocket garden' is testament to self-taught chainsaw artist Milton Mizenburg",
+      "outlet": "Chicago Sun-Times",
+      "url": "https://chicago.suntimes.com/art/2026/07/02/milton-mizenburg-artist-pocket-garden-oakland-southeast-side",
+      "date": "2026-07-02",
+      "note": "The Oakland neighborhood dedicated an honorary street sign to sculptor Milton Mizenburg Jr., whose outdoor art installations have stood in the community since the 1990s."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Lamont J. Robinson",
+    "website_url": "https://www.robinson4thward.com/",
+    "verified": true,
+    "verification_note": "wards.json listed no site for this ward. Found https://www.robinson4thward.com/ by search and fetched it directly this session. It identifies itself as Alderman Lamont Robinson's 4th Ward site, lists the ward office contact as ward04@cityofchicago.org, and links to his official social accounts."
+  },
+  "sources_fetched": [
+    "https://www.robinson4thward.com/",
+    "https://blockclubchicago.org/2026/05/12/heading-to-31st-street-beach-this-summer-expect-to-see-more-cops-says-alderman/",
+    "https://blockclubchicago.org/2026/07/15/printers-row-sports-bar-faces-eviction-amid-noise-complaints-wage-theft-allegations/",
+    "https://chicago.suntimes.com/art/2026/07/02/milton-mizenburg-artist-pocket-garden-oakland-southeast-side"
+  ]
+}
