@@ -73,6 +73,27 @@ def get(path: str) -> dict:
 
 
 
+
+# Measures that record what the officeholder did, not what the ward is like.
+# Menu money is the alderperson's own ~$1.5M discretionary budget, attendance
+# and sponsorship are their council record, and participatory budgeting is
+# their choice of process. Ranking a place on these reads as a verdict on a
+# named person, so they are labelled wherever they appear.
+OFFICEHOLDER_CONDUCT = {
+    "council_attendance_pct",
+    "nonroutine_bills_sponsored_current_session",
+    "participatory_budgeting",
+}
+OFFICEHOLDER_NOTE = (
+    "This records a decision by the ward's officeholder rather than a condition "
+    "in the ward, so it is a fact about an office and not about a neighbourhood."
+)
+
+
+def is_officeholder(metric_id: str) -> bool:
+    return metric_id in OFFICEHOLDER_CONDUCT or metric_id.startswith("menu_")
+
+
 def tidy_name(name: str | None) -> str | None:
     """Repair names that arrive with the suffix sorted to the front.
 
@@ -96,6 +117,9 @@ def caveats_for(entry: dict, meta: dict, coverage: dict) -> list[str]:
     """What makes this ranking mean less than it looks like."""
     notes: list[str] = []
     md = (coverage.get(entry["metric_id"]) or {}).get("latest_metadata") or {}
+
+    if is_officeholder(entry["metric_id"]):
+        notes.append(OFFICEHOLDER_NOTE)
 
     method = md.get("allocation_method")
     if method in BY_METHOD:
