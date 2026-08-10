@@ -1,0 +1,51 @@
+{
+  "ward": "43",
+  "headline": "Ward 43 ranks first of 50 wards, strong on history and ties, weak on city services.",
+  "summary": "Ward 43 covers Lincoln Park, the Near North Side, and Lake View, and it ranks first out of Chicago's 50 wards on Ward Wise's overall score of 66.01. Most of that comes from history and social connection. The ward holds more buildings rated in the city's 1983 to 1995 historic resources survey than any other ward, and it ranks first on several measures of how connected and supported residents feel, plus the highest concentration of licensed music and dance venues and the lowest rate of elevated childhood lead levels.\n\nThe rest of the picture is less even. Ward 43 ranks last among all 50 wards on how quickly the city repairs a broken street light and last on a measure tied to depression rates. It also scores near the bottom on parking availability and per pupil school spending.",
+  "reading_the_rankings": "Take the historic buildings count, where Ward 43 ranks first with 1,531 structures logged in the city's historic resources survey. That count is real, but the survey itself was not completed evenly across all 50 wards, so a ward with a lower rank here might just sit in a part of the city the survey covered less thoroughly, not one with less history. The street light repair ranking cuts the other way. Ward 43 ranks last at 3.16 days to close a request, and the same uneven coverage caveat applies, so a better rank elsewhere may reflect more complete reporting rather than faster repairs. The depression ranking, where Ward 43 also ranks last, has the thinnest paper trail of any measure here. The data file lists no source and no description for it, which is reason enough to treat that single ranking as a question for further reporting, not a settled fact.",
+  "news": [
+    {
+      "headline": "Lincoln Park's Roger Brown Home, 2 Historic DePaul Buildings Get Landmark Protection",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/05/20/lincoln-parks-roger-brown-home-2-historic-depaul-buildings-get-landmark-protection/",
+      "date": "2026-05-20",
+      "note": "City Council approved landmark status for artist Roger Brown's former home and studio and two historic DePaul University buildings in Lincoln Park."
+    },
+    {
+      "headline": "Noisy Electronic Music Fest Riles Lincoln Park Neighbors, Could Prompt Future Ward-Wide Ban",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/06/26/noisy-electronic-music-fest-riles-lincoln-park-neighbors-could-prompt-future-ward-wide-ban/",
+      "date": "2026-06-26",
+      "note": "Residents complained about hours of loud bass and litter from the Lakeshore Music & Arts Festival, raising the possibility of a ward-wide ban on similar events."
+    },
+    {
+      "headline": "Lincoln Park Neighbors Say They Weren't Warned Ahead Of Pride Parade Towing Bonanza",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/07/lincoln-park-neighbors-say-they-werent-warned-ahead-of-pride-parade-towing-bonanza/",
+      "date": "2026-07-07",
+      "note": "Neighbors disputed the city's claim that no-parking signs for the Pride Parade route were posted with enough notice before their cars were towed."
+    },
+    {
+      "headline": "Lincoln Park Late-Night Bars Could Face Crackdown After 'Shocking' Fatal Shooting",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/21/lincoln-park-late-night-spots-could-face-crackdown-after-another-shocking-fatal-shooting/",
+      "date": "2026-07-21",
+      "note": "A fatal shooting near a late-night bar strip on Lincoln Avenue, weeks after a nearby shooting wounded a woman, renewed calls for tighter restrictions on late-night business licenses."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Timothy R. Knudsen",
+    "website_url": "https://ward43.org",
+    "verified": true,
+    "verification_note": "Fetched https://ward43.org directly this session. The site's About section refers to him as 'Timmy Knudsen' and lists the handle '@AldKnudsen43', matching the alderperson named in the ward data."
+  },
+  "sources_fetched": [
+    "https://ward43.org",
+    "https://blockclubchicago.org/2026/05/20/lincoln-parks-roger-brown-home-2-historic-depaul-buildings-get-landmark-protection/",
+    "https://blockclubchicago.org/2026/06/26/noisy-electronic-music-fest-riles-lincoln-park-neighbors-could-prompt-future-ward-wide-ban/",
+    "https://blockclubchicago.org/2026/07/07/lincoln-park-neighbors-say-they-werent-warned-ahead-of-pride-parade-towing-bonanza/",
+    "https://blockclubchicago.org/2026/07/21/lincoln-park-late-night-spots-could-face-crackdown-after-another-shocking-fatal-shooting/",
+    "https://blockclubchicago.org/2026/06/24/after-lincoln-park-shooting-ald-knudsen-eyes-new-restrictions-on-late-night-bars/"
+  ]
+}

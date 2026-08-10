@@ -1,0 +1,27 @@
+{
+  "ward": "42",
+  "headline": "Ward 42 ranks 5th of 50, led by downtown incomes and culture, held back by rent, shade.",
+  "summary": "Ward 42 covers the Loop, the Near North Side, West Town, and part of the Near West Side, downtown Chicago and the blocks around it. It ranks 5th out of 50 wards overall, the highest of any ward in this report. Its strengths cluster around downtown living. More residents here commute by foot or bike than in any other ward, and the ward has more mapped arts and culture spots than anywhere else in the city. Average income reported on tax returns filed from the ward is the highest in Chicago, and city crews close out 311 requests fastest here, both for potholes and for rodent complaints.\n\nThe weak points trace back to density and shadow. Downtown's tall buildings block a lot of direct sunlight at street level, and the ward ranks last in the city for ground-level sun access on both the summer and winter solstice. Pedestrian and cyclist crash counts and median rent both rank last in the city too, and licensed child care per resident is the lowest of any ward. Ward 42 combines the city's top income and culture numbers with its highest rent and least sunlight at street level.",
+  "reading_the_rankings": "A couple of the standout numbers here lean on shakier plumbing than the rank suggests. The top-ranked average income per tax return is apportioned from ZIP code areas, which don't follow ward lines at all, and the source itself rates that figure low confidence and notes it isn't filled in for every ward, so the number describes the ZIP codes touching the ward more than the ward itself. The last-place rank on rent has a smaller version of the same issue. It's allocated from census tracts by area, which assumes residents are spread evenly across each tract, so a tract that crosses into a cheaper neighboring ward can pull the number in either direction. The bottom rank on licensed child care per resident carries a different caveat. It's tied to a ward boundary recorded at the time the source counted it, and boundaries were redrawn in 2023, so part of what this number reflects belongs to a differently shaped ward that no longer exists on the map.",
+  "news": [
+    {
+      "headline": "Trump Tower On Obama Way? Chicago Considers Honorary Designation For Downtown Street",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/06/17/trump-tower-on-obama-way-chicago-considers-honorary-designation-for-downtown-street/",
+      "date": "2026-06-17",
+      "note": "The ward's alderman proposed an honorary street sign for the stretch of Wabash Avenue that includes the block with Trump Tower, naming it after Barack Obama."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Brendan Reilly",
+    "website_url": "https://ward42chicago.com",
+    "verified": true,
+    "verification_note": "The data's website_url field was empty. Found ward42chicago.com and fetched both its homepage and its About page directly this session. The homepage reads 'Alderman Reilly represents downtown's 42nd Ward, Chicago's Central Business District and home to 90,000 residents and over 10,000 business licenses,' and the About page reads 'Alderman Brendan Reilly has served as a member of the Chicago City Council since 2007 when he unseated a 36-year incumbent,' confirming the site is his."
+  },
+  "sources_fetched": [
+    "https://ward42chicago.com/",
+    "https://ward42chicago.com/about-brendan/",
+    "https://blockclubchicago.org/2026/06/17/trump-tower-on-obama-way-chicago-considers-honorary-designation-for-downtown-street/"
+  ]
+}

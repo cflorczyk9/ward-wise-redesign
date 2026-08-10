@@ -1,0 +1,52 @@
+{
+  "ward": "49",
+  "headline": "Ward 49 ranks 30th of 50, with the city's cleanest air and its worst ozone.",
+  "summary": "Ward 49 covers Rogers Park, West Ridge, and Edgewater on the city's northern lakefront. It ranks 30th out of 50 wards overall, a score of 42.78, putting it a little below the middle of the pack. Its best marks are environmental. The ward has the lowest fine-particle air pollution, the lowest diesel exhaust, and the lowest industrial toxic-release levels of any ward in the city, and it recorded the fewest traffic injuries in the city, 87 a year. It also put a larger share of its menu money into bike lanes, sidewalks, and street redesign than any other ward, 47.9 percent, well above the usual mix of paving and parking work.\n\nThe weak spots sit somewhere else. Ozone ranks last in the city, the opposite of the fine-particle result above, because ozone and fine particles are different pollutants that form and travel differently through the air. Two modeled measures, the share of adults afraid to walk alone at night and the share of adults who are lonely, also land at the bottom of the list. The ward spent none of its menu money on alley repair, and its rate of abandoned-vehicle and bike-lane parking complaints is worse than every ward except one.",
+  "reading_the_rankings": "The fine-particle pollution numbers put Ward 49 first in the city on four separate measures, but the source rates that data medium confidence and admits it isn't filled in for every ward, so first place means cleanest among the wards that were measured, not a guaranteed citywide lead. Ozone lands at the opposite end, last place, and that isn't a contradiction. Ozone and fine particles come from different sources and behave differently once they're in the air, so a ward can top one list and trail the other. The modeled fear of walking at night, also last place, isn't a crime count or a local survey. It's a statistical estimate of what a ward with these demographics usually reports, built from national survey data, and the source itself rates it low confidence.",
+  "news": [
+    {
+      "headline": "Rogers Park's Historic 400 Theater, Closed Since 2023, Reopening This Month Under New Owner",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/22/rogers-parks-new-400-theater-closed-since-2023-opening-this-month-under-new-owner/",
+      "date": "2026-07-22",
+      "note": "Chicago's oldest movie theater, shuttered since 2023, reopened under new ownership with screenings starting July 31."
+    },
+    {
+      "headline": "Restaurant Owner Moonlights As An Advocate For Somali Asylum Seekers. He's Never Been Busier",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/08/06/rogers-park-restaurant-owner-moonlights-as-advocate-for-somali-asylum-seekers-hes-never-been-busier/",
+      "date": "2026-08-06",
+      "note": "A Rogers Park restaurant owner who fled Somalia's civil war has become a key volunteer helping East African asylum seekers through fast-tracked immigration court cases."
+    },
+    {
+      "headline": "Burglars steal SUV, cause multivehicle crash in Rogers Park",
+      "outlet": "Chicago Sun-Times",
+      "url": "https://chicago.suntimes.com/crime/2026/07/15/burglars-steal-suv-cause-multi-vehicle-crash-in-rogers-park-1-in-custody",
+      "date": "2026-07-15",
+      "note": "Burglars stole an SUV from a Rogers Park business and crashed it into several other vehicles, injuring four people."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Maria E. Hadden",
+    "website_url": "http://www.49thward.org",
+    "verified": true,
+    "verification_note": "Fetched http://www.49thward.org directly this session. The page identifies itself as the Ward Service Office for Chicago's 49th Ward and carries a social handle 'Alderwoman49' and a newsletter signup tied to 'mariafor49.' Cross-checked against Wikipedia's Maria Hadden entry, which lists www.49thward.org as her official ward website and confirms she represents the 49th Ward."
+  },
+  "sources_fetched": [
+    "http://www.49thward.org",
+    "https://www.49thward.org/news",
+    "https://www.49thward.org/newsletter-archive",
+    "https://en.wikipedia.org/wiki/Maria_Hadden",
+    "https://blockclubchicago.org/",
+    "https://blockclubchicago.org/category/uptown-edgewater-rogers-park/",
+    "https://blockclubchicago.org/2026/07/22/rogers-parks-new-400-theater-closed-since-2023-opening-this-month-under-new-owner/",
+    "https://blockclubchicago.org/2026/08/06/rogers-park-restaurant-owner-moonlights-as-advocate-for-somali-asylum-seekers-hes-never-been-busier/",
+    "https://blockclubchicago.org/2026/07/16/hexe-haus-closing-after-35-years-of-building-witchy-community-in-edgewater/",
+    "https://chicago.suntimes.com/rogers-park",
+    "https://chicago.suntimes.com/edgewater",
+    "https://chicago.suntimes.com/crime/2026/07/15/burglars-steal-suv-cause-multi-vehicle-crash-in-rogers-park-1-in-custody",
+    "https://chicago.suntimes.com/real-estate/2026/06/30/judge-cohen-dismisses-edgewater-residents-businesses-lawsuit-broadway-upzoning",
+    "https://chicago.suntimes.com/real-estate/2026/06/04/edgewater-residents-emanuel-congregation-land-public-park"
+  ]
+}

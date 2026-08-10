@@ -1,0 +1,43 @@
+{
+  "ward": "12",
+  "headline": "Ward 12 ranks 31st of 50, diverse and connected, thin on mental health access.",
+  "summary": "Ward 12 covers Brighton Park, McKinley Park, New City, and the Lower West Side on the Southwest Side. It ranks 31st out of 50 wards overall, in the bottom half of the city. Its strongest showing is around how people live and connect. Three in four households here speak a language other than English at home, the third-highest share in Chicago, and the ward has one of the lowest shares of people living alone. It also ranks second on participatory budgeting, meaning residents get a direct vote on how the ward's menu money gets spent.\n\nThe weaker numbers touch health access and everyday gathering spots. Ward 12 has the second-lowest count of mental health providers per resident in the city, and ranks near the bottom on third places, the cafes, bars, restaurants, and gyms where people spend informal time. Recorded real estate sales run low too, and the ward used only about 70 percent of its yearly aldermanic menu budget in the most recent full year, one of the lower utilization rates in Chicago. The starkest number sits at the park level, where Ward 12 ranks last of 50 wards on the share of park fountains with a historically elevated lead reading.",
+  "reading_the_rankings": "A few of these numbers hold up better than others. The rank of 2nd on participatory budgeting looks close to the top, but 13 other wards score within two points of it, so the real gap between 2nd and several wards below it is small. The rank of 49th on mental health providers per resident, at 0.9 per 10,000 people, looks close to worst in the city, but 22 wards land within two points of that same low score. Most of Chicago is bunched near the bottom on this measure, and Ward 12's rank comes from sitting inside that wide, weak middle. The park fountain lead number carries no such caveat. Two-thirds of the ward's tested park fountains came back flagged, and the source lists nothing softening that figure.",
+  "news": [
+    {
+      "headline": "New Housing OK'd For Avondale, McKinley Park, Streeterville And Across From Johnny's Icehouse",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/06/16/new-housing-okd-for-avondale-mckinley-park-streeterville-and-across-from-johnnys-ice-house/",
+      "date": "2026-06-16",
+      "note": "The City Council's zoning committee approved a 199-apartment, nine-townhome development at 3033 S. Justine St. in McKinley Park, in Ald. Julia Ramirez's ward."
+    },
+    {
+      "headline": "Riverfront Data Center In McKinley Park Revives Expansion Plans But Faces Delay",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/15/riverfront-data-center-in-mckinley-park-revives-expansion-plans-but-faces-delay/",
+      "date": "2026-07-15",
+      "note": "QTS Data Center's plan to expand its McKinley Park riverfront campus hit a permitting delay, and Ald. Julia Ramirez said any expansion should show public benefits matched to its infrastructure demands."
+    },
+    {
+      "headline": "'Moving Archer Forward' Initiative Aims To Bring 800 New Housing Units To Archer Avenue",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/13/moving-archer-forward-initiative-aims-to-bring-800-new-housing-units-to-archer-avenue/",
+      "date": "2026-07-13",
+      "note": "The same Archer Avenue plan, about 800 housing units and 280,000 square feet of retail along a 6.3-mile stretch, runs through Brighton Park and McKinley Park on its way from Bridgeport to Garfield Ridge."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Julia M. Ramirez",
+    "website_url": "https://www.the12thward.org/",
+    "verified": true,
+    "verification_note": "Fetched chicago.gov/city/en/about/wards/12.html this session. It names 'Alderman Julia M. Ramirez' and lists https://www.the12thward.org/ directly in the page's Website field, alongside the ward office contact info (3868 S Archer Ave., ward12@cityofchicago.org). Fetched the12thward.org directly, which identifies itself as 'Julia Ramirez - 12th Ward Alderwoman' in its page title and header, matching the city's page."
+  },
+  "sources_fetched": [
+    "https://www.chicago.gov/city/en/about/wards/12.html",
+    "https://www.the12thward.org/",
+    "https://blockclubchicago.org/2026/06/16/new-housing-okd-for-avondale-mckinley-park-streeterville-and-across-from-johnnys-ice-house/",
+    "https://blockclubchicago.org/2026/07/15/riverfront-data-center-in-mckinley-park-revives-expansion-plans-but-faces-delay/",
+    "https://blockclubchicago.org/2026/07/13/moving-archer-forward-initiative-aims-to-bring-800-new-housing-units-to-archer-avenue/"
+  ]
+}

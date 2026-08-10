@@ -1,0 +1,48 @@
+{
+  "ward": "50",
+  "headline": "Ward 50 ranks 23rd of 50, with the most grocery stores per resident in the city.",
+  "summary": "Ward 50 covers West Ridge, North Park, Lincoln Square, and part of Rogers Park in the city's far north, along the Devon Avenue corridor. It ranks 23rd out of 50 wards overall, a score of 46.43, just above the midpoint. Its strongest marks are about daily life. The ward has more licensed grocery stores per resident than any other ward, the widest mix of home languages spoken, and the most highly rated houses of worship in the city, both by count of top-rated congregations and by how many reviews they draw.\n\nThe weak spots cluster around civic participation and recreation options. The ward has no yoga or pilates studios and no mapped museums, and it logged zero resident-submitted ideas to the Ward Wise Explorer metric project. It also does not run a participatory budgeting process, where residents get a direct vote on some menu-money spending, and none of its reported menu money went specifically to school or park improvements. On most of these measures, dozens of other wards land at the same zero, so last place here mostly means part of a large group at the bottom rather than an outlier.",
+  "reading_the_rankings": "The grocery store ranking, first in the city at 8.7 licensed stores per 10,000 residents, comes with a caveat. Ward boundaries were redrawn in 2023, so this counts today's ward, and the source itself rates the underlying business-license data only medium confidence, with gaps across some wards. The worship rankings look similarly strong on paper, first place both for top-rated congregations and for total review volume, but the review measure notes that the middle half of all 50 wards spans just 6.8 points, meaning most wards are bunched close together and a rank of 1 doesn't mean a wide lead. On the other end, Ward 50's last-place score on participatory budgeting sits alongside 37 other wards within two points of the same zero. Participatory budgeting is still the exception rather than the rule across Chicago, so that ranking says more about the city as a whole than about this ward specifically.",
+  "news": [
+    {
+      "headline": "Services announced for veteran Chicago firefighter who died during training exercise in West Ridge",
+      "outlet": "Chicago Sun-Times",
+      "url": "https://chicago.suntimes.com/news/2026/05/18/services-announced-for-veteran-chicago-firefighter-who-died-during-training-exercise-in-west-ridge",
+      "date": "2026-05-18",
+      "note": "A nearly 30-year Chicago Fire Department engineer based at West Ridge's Engine Company 71 died after being injured in a training exercise, with visitation and funeral services held in the neighborhood."
+    },
+    {
+      "headline": "West Ridge mural that celebrates Holi led to an unexpected connection",
+      "outlet": "Chicago Sun-Times",
+      "url": "https://chicago.suntimes.com/murals/2026/05/22/chicago-murals-west-ridge-holi-jenny-vyas",
+      "date": "2026-05-22",
+      "note": "A new mural at Devon Avenue and Rockwell Street, inspired by the Hindu festival of Holi, led the artist to an unexpected personal connection with a neighbor."
+    },
+    {
+      "headline": "Man critical following West Ridge stabbing",
+      "outlet": "Chicago Sun-Times",
+      "url": "https://chicago.suntimes.com/crime/2026/07/01/man-critical-following-west-ridge-stabbing",
+      "date": "2026-07-01",
+      "note": "A 26-year-old man was critically injured in a stabbing on the 6200 block of North Oakley Avenue in West Ridge."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Debra L. Silverstein",
+    "website_url": "http://50thwardchicago.com",
+    "verified": true,
+    "verification_note": "Fetched http://50thwardchicago.com directly this session, which redirects to http://50thward.org/. That page's heading reads 'Meet Alderman Debra Silverstein' and its photo captions label her 'Alderman, City Council, City of Chicago.' The Sun-Times North Park listing page (chicago.suntimes.com/north-park), also fetched this session, independently attributes a grocery-store proposal in the ward to 'Ald. Debra Silverstein,' matching the ward data."
+  },
+  "sources_fetched": [
+    "http://50thwardchicago.com",
+    "http://50thward.org/",
+    "https://chicago.suntimes.com/west-ridge",
+    "https://chicago.suntimes.com/north-park",
+    "https://chicago.suntimes.com/murals/2026/05/22/chicago-murals-west-ridge-holi-jenny-vyas",
+    "https://chicago.suntimes.com/news/2026/05/18/services-announced-for-veteran-chicago-firefighter-who-died-during-training-exercise-in-west-ridge",
+    "https://chicago.suntimes.com/crime/2026/07/01/man-critical-following-west-ridge-stabbing",
+    "https://blockclubchicago.org/category/lincoln-square-north-center-irving-park/",
+    "https://blockclubchicago.org/2026/05/15/300-unit-housing-complex-could-be-coming-to-busy-lincoln-square-corner-alderman-says/",
+    "https://blockclubchicago.org/2026/05/22/atelier-lincoln-squares-michelin-starred-restaurant-has-closed/"
+  ]
+}

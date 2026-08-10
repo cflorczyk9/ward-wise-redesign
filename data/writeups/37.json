@@ -1,0 +1,41 @@
+{
+  "ward": "37",
+  "headline": "Ward 37 ranks 49th of 50, but its air quality and city response scores lead the city.",
+  "summary": "Ward 37 sits on Chicago's West Side, taking in Austin, Humboldt Park, Belmont Cragin, and West Garfield Park. It ranks 49th out of 50 wards on this project's combined score, second from the bottom citywide. That low number splits into two very different pictures underneath it. A few measures here beat almost every other ward, while most of the rest land dead last.\n\nThe strongest results are how quickly the city closes graffiti requests, the ward's ozone reading, and the share of its infrastructure budget spent on sidewalk repair, each ranking in the top five citywide. The weakest results all rank dead last, and there are six of them. They cover diversity of religious traditions among local houses of worship, a modeled measure of social cohesion, school proficiency, a modeled estimate of how many adults work with neighbors on something for the community, licensed bars and taverns, and bank branches per resident.",
+  "reading_the_rankings": "A few of these numbers need a caveat attached. The wastewater-proximity score, which measures pollution concentrated near local streams, ranks 5th, but 35 of the 50 wards land within two points of each other on it, so fifth place here is really part of a wide tie near the top of the city. Bank branches per resident rank last, and the source itself rates that measure low confidence, since the count comes from ZIP code areas that don't match ward boundaries, and most wards sit within four points of each other on it anyway. Social cohesion also ranks last, but that number comes from a modeled ZIP code proxy that the source itself calls low confidence rather than a ward-specific count.",
+  "news": [
+    {
+      "headline": "City Rolls Out Stormwater Storage System On West Side After Near-Record Rainfall Strains Reservoirs",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/10/city-rolls-out-stormwater-storage-system-on-west-side-after-near-record-rainfall-strains-reservoirs/",
+      "date": "2026-07-10",
+      "note": "The city switched on a new underground stormwater storage pilot built to protect close to 3,000 homes across the 28th, 29th, and 37th wards after a weekend of near-record rainfall pushed the region's reservoirs close to capacity."
+    },
+    {
+      "headline": "Austin's Frank Lloyd Wright House, Among City's Most Endangered Buildings, Bought By Nonprofit",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/06/24/austins-frank-lloyd-wright-house-among-citys-most-endangered-buildings-bought-by-nonprofit/",
+      "date": "2026-06-24",
+      "note": "Austin Coming Together bought the J.J. Walser House, the West Side's only Frank Lloyd Wright-designed single-family home, and plans a multimillion-dollar restoration after years of disrepair."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Emma Mitts",
+    "website_url": "https://www.cityofchicago.org/city/en/about/wards/37.html",
+    "verified": true,
+    "verification_note": "Fetched this URL directly in this session (it redirects to https://www.chicago.gov/city/en/about/wards/37.html). The page's own meta description reads 'Chicago Aldermanic Ward 37 served by Alderman Emma Mitts,' confirming the site names her as the ward's alderperson."
+  },
+  "sources_fetched": [
+    "https://www.cityofchicago.org/city/en/about/wards/37.html",
+    "https://www.chicago.gov/city/en/about/wards/37.html",
+    "https://blockclubchicago.org/tag/37th-ward/",
+    "https://blockclubchicago.org/?s=Emma+Mitts",
+    "https://blockclubchicago.org/?s=Austin",
+    "https://blockclubchicago.org/?s=West+Garfield+Park",
+    "https://blockclubchicago.org/?s=Humboldt+Park",
+    "https://blockclubchicago.org/?s=%2237th+Ward%22",
+    "https://blockclubchicago.org/2026/06/24/austins-frank-lloyd-wright-house-among-citys-most-endangered-buildings-bought-by-nonprofit/",
+    "https://blockclubchicago.org/2026/07/10/city-rolls-out-stormwater-storage-system-on-west-side-after-near-record-rainfall-strains-reservoirs/"
+  ]
+}

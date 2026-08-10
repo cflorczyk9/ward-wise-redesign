@@ -48,9 +48,19 @@ def load_writeup(path: Path) -> dict | None:
         return None
 
 
-def clean_news(entry: dict, ward: str, problems: list[str]) -> list[dict]:
-    """Keep only items the agent actually fetched from an expected outlet."""
+def host_of(url: str) -> str:
+    return re.sub(r"^https?://(www\.)?", "", url or "").split("/")[0].lower()
+
+
+def clean_news(entry: dict, ward: str, problems: list[str], own_site: str | None = None) -> list[dict]:
+    """Keep only items the agent actually fetched from an expected outlet.
+
+    A ward office's own site counts as a primary source for that ward, and only
+    for that ward. It is self-published rather than reported, so the outlet name
+    should make that obvious to a reader.
+    """
     fetched = {u.strip() for u in entry.get("sources_fetched", []) if isinstance(u, str)}
+    own_host = host_of(own_site) if own_site else None
     kept = []
     for item in entry.get("news") or []:
         url = (item.get("url") or "").strip()
@@ -60,7 +70,7 @@ def clean_news(entry: dict, ward: str, problems: list[str]) -> list[dict]:
         if url not in fetched:
             problems.append(f"ward {ward}: '{(item.get('headline') or '')[:44]}' cited but never fetched, dropped")
             continue
-        if not ALLOWED_OUTLETS.search(url):
+        if not ALLOWED_OUTLETS.search(url) and not (own_host and host_of(url) == own_host):
             problems.append(f"ward {ward}: {url[:52]} is off the agreed outlet list, dropped")
             continue
         date = (item.get("date") or "")[:10]
@@ -106,7 +116,9 @@ def main() -> int:
             report["wards"][ward_id] = {**facts, "writeup": None, "news": [], "news_status": "not_researched"}
             continue
 
-        news = clean_news(entry, ward_id, problems)
+        supplied_site = ((entry.get("alderperson") or {}).get("website_url") or "").strip()
+        news = clean_news(entry, ward_id, problems,
+                          own_site=facts["alderperson"].get("website_url") or supplied_site)
         if news:
             with_news += 1
 

@@ -1,0 +1,42 @@
+{
+  "ward": "45",
+  "headline": "Ward 45 ranks 9th of 50 citywide, strong on safety, weakest on sidewalk spending.",
+  "summary": "Ward 45 covers Jefferson Park, Forest Glen, Portage Park and Norwood Park on the Northwest Side, and it ranks 9th out of 50 Chicago wards overall. Residents report some of the lowest loneliness rates in the city, and the ward ranks second-lowest on violent crime and third-best on how safe people say they feel walking at night. It also put nearly all of its menu money into street resurfacing last year, more than every ward but one.\n\nThe rest of the picture is thinner. The ward spent none of its menu money on sidewalks or on bike and pedestrian projects, and it has no participatory budgeting process for residents to vote on how that money gets spent, though most of the city doesn't either. Response time on rodent baiting requests and the property tax dollars captured by TIF districts also rank near the bottom of the city.",
+  "reading_the_rankings": "Take the loneliness number first. Ward 45 ranks first in the city on adult loneliness, but that figure comes from spreading a census survey evenly across each tract, so a slice of it may really belong to a neighboring ward, and the source itself rates the estimate low confidence. The violent crime ranking, second-best citywide, carries the same tract-allocation caveat, and the source rates that one only medium confidence too. The ward's near-bottom finish on participatory budgeting, 49th of 50, looks worse than it is. Thirty-seven other wards score within two points of zero, because most of Chicago doesn't run a budgeting vote at all.",
+  "news": [
+    {
+      "headline": "Boy, 13, Wounded In Portage Park Drive-By Shooting",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/07/boy-13-wounded-in-portage-park-drive-by-shooting/",
+      "date": "2026-07-07",
+      "note": "A 13-year-old was shot in the leg on Montrose Avenue in Portage Park, with no arrests reported at the time of the story."
+    },
+    {
+      "headline": "Historic Jefferson Park Firehouse Could Be Turned Into Salon Suite For Local Businesses",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/06/10/historic-jefferson-park-firehouse-could-be-turned-into-salon-suite-for-local-businesses/",
+      "date": "2026-06-10",
+      "note": "A developer proposed converting the ground floor of a 120-year-old firehouse into a shared beauty and wellness space for about 15 local businesses."
+    },
+    {
+      "headline": "Jeff Fest Is No More. It's The Chicago Italian Beef Fest Now",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/23/jeff-fest-is-no-more-its-the-chicago-italian-beef-fest-now/",
+      "date": "2026-07-23",
+      "note": "Jefferson Park's 25-year-old music and arts festival was rebranded around Italian beef, with eight vendors set for the late-July event."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "James M. Gardiner",
+    "website_url": "http://www.aldermangardiner.com",
+    "verified": true,
+    "verification_note": "Fetched http://www.aldermangardiner.com this session. The page identifies itself as '45th Ward | Alderman James M. Gardiner | Chicago' and names him as Alderman James M. Gardiner of the 45th Ward."
+  },
+  "sources_fetched": [
+    "http://www.aldermangardiner.com",
+    "https://blockclubchicago.org/2026/07/07/boy-13-wounded-in-portage-park-drive-by-shooting/",
+    "https://blockclubchicago.org/2026/06/10/historic-jefferson-park-firehouse-could-be-turned-into-salon-suite-for-local-businesses/",
+    "https://blockclubchicago.org/2026/07/23/jeff-fest-is-no-more-its-the-chicago-italian-beef-fest-now/"
+  ]
+}

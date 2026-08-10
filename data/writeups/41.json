@@ -1,0 +1,42 @@
+{
+  "ward": "41",
+  "headline": "Ward 41 ranks 10th of 50, sunny and quiet, with less day-to-day social connection.",
+  "summary": "Ward 41 covers O'Hare, Norwood Park, Edison Park, and Jefferson Park on the Far Northwest Side. It ranks 10th out of 50 wards overall, in the top fifth of the city. Its clearest strengths are physical. Ground-level spots here get more direct sunlight across the year than anywhere else in Chicago, on both the summer and winter solstice. The ward also has the fewest abandoned-vehicle and bike-lane parking complaints per square kilometer of any ward, and its reported violent crime rate is the lowest in the city on this data set.\n\nThe weaker spots point to distance more than anything else. A modeled estimate of how often adults see friends weekly ranks the ward last out of 50, and public transit use for commuting ranks 49th. Divvy ridership and straight-line distance from the lake also land at the bottom of the list citywide. Ward 41 sits at the far edge of the city, away from downtown and the lakefront, and several of its weaker measures track that distance.",
+  "reading_the_rankings": "A few of these numbers carry real asterisks. The violent crime rank of 1st looks clean, but that figure comes from allocating citywide crime data across census tracts by area, which assumes people are spread evenly inside each tract, so a tract that straddles the ward line can shift some of a neighbor's crime onto Ward 41's side of the count, or the reverse. The last-place rank on seeing friends weekly is softer still. The figure comes from a model built on national survey data and the ward's general demographic makeup, and the source itself rates it low confidence, so it describes what a ward with this one's mix of residents usually looks like more than anything counted directly in Ward 41. The bottom rank on Divvy rides has the opposite problem. Twenty-seven of the 50 wards score within two points of Ward 41 on this measure, and the whole middle half of the city spans just 11 points, so last place here sits inside a thick cluster near the bottom rather than standing apart from it.",
+  "news": [
+    {
+      "headline": "After 4 Deaths At Norwood Park Metra Crossing, Safety Improvements Underway",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/16/after-4-deaths-at-norwood-park-metra-crossing-safety-improvements-underway/",
+      "date": "2026-07-16",
+      "note": "Union Pacific began installing a four-quadrant gate system at the Nagle Avenue Metra crossing in Norwood Park, the site of four deaths and 12 collisions since 2010."
+    },
+    {
+      "headline": "Brennan's Burger Shack Sets Up In Edison Park And More Northwest Side Food News",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/06/01/brennans-burger-shack-sets-up-in-edison-park-and-more-northwest-side-food-news/",
+      "date": "2026-06-01",
+      "note": "A roundup of new Far Northwest Side restaurant openings, including a gourmet burger shop that set up in Edison Park."
+    },
+    {
+      "headline": "Pilates Instructor Behind Popular Lakefront Classes Opens Edison Park Studio",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/05/13/pilates-instructor-behind-popular-lakefront-classes-opens-edison-park-studio/",
+      "date": "2026-05-13",
+      "note": "An instructor known for free sunrise pilates classes at Oak Street Beach opened her first studio, in Edison Park."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Anthony V. Napolitano",
+    "website_url": "http://www.chicago41.com",
+    "verified": true,
+    "verification_note": "The data already marked this site verified. Fetched chicago41.com directly this session and confirmed it loads as a working ward site, with the page titled 'ward-41,' a live 'REQUEST CITY SERVICE' portal, and linked social accounts for @aldnapolitano41 (Twitter/X) and facebook.com/chicago41. The visible navigation text does not spell out his name in full, but the linked handles tie the domain to Ald. Napolitano."
+  },
+  "sources_fetched": [
+    "https://www.chicago41.com/",
+    "https://blockclubchicago.org/2026/07/16/after-4-deaths-at-norwood-park-metra-crossing-safety-improvements-underway/",
+    "https://blockclubchicago.org/2026/06/01/brennans-burger-shack-sets-up-in-edison-park-and-more-northwest-side-food-news/",
+    "https://blockclubchicago.org/2026/05/13/pilates-instructor-behind-popular-lakefront-classes-opens-edison-park-studio/"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "ward": "38",
+  "headline": "Ward 38 ranks 18th of 50, with a wide public transit gap as its clearest weak point.",
+  "summary": "Ward 38 covers Dunning, O'Hare, Portage Park, and part of Belmont Cragin on Chicago's Far Northwest Side. It ranks 18th out of 50 wards on this project's combined score, solidly in the upper half of the city. Its strongest numbers touch civic spending and how connected residents feel to their neighbors. Its clearest weak spot is how residents get around.\n\nThe ward ranks first in the city on a measure of pollution near local waterways and first for the share of its infrastructure money spent on schools. It also ranks second for its estimated rate of adult loneliness, one of the lowest of any ward, and second on the ward's trust in local government score. The weak spot is public transit. Only 7.7 percent of workers here commute by bus or train, the lowest share of any ward in Chicago, and the ward also ranks near the bottom for how far it sits from Lake Michigan, for a modeled estimate of how often adults see friends, and for the share of infrastructure money spent on alley repair.",
+  "reading_the_rankings": "A few of these numbers come with real qualifiers. The pollution proximity measure that ranks the ward first in the city is one where 34 of the 50 wards land within two points of each other, so first place here means the ward is only barely ahead of most of the city on this measure. The trust in local government figure that ranks second has no listed source or description anywhere in the underlying data, so there's no way to say what survey or method produced that number. And the ward's near bottom ranking for lakefront distance, 48th of 50, only measures how many miles separate Dunning and O'Hare from Lake Michigan.",
+  "news": [
+    {
+      "headline": "Boy, 13, Wounded In Portage Park Drive-By Shooting",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/07/boy-13-wounded-in-portage-park-drive-by-shooting/",
+      "date": "2026-07-07",
+      "note": "A 13-year-old was shot in the leg on the 6000 block of West Montrose Avenue when someone in a passing SUV fired shots, and he was taken to a hospital in good condition."
+    },
+    {
+      "headline": "Immigration Agents Crash Into Car, Detain Man In Dunning, Neighbor Says",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/06/09/immigration-agents-crash-into-car-detain-man-in-dunning-neighbor-says/",
+      "date": "2026-06-09",
+      "note": "A neighbor near Grace Street and Olcott Avenue described federal agents crashing a car during a high-speed chase and detaining a man they identified as the target of an enforcement operation."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Nicholas Sposato",
+    "website_url": "http://aldermansposato.com/",
+    "verified": true,
+    "verification_note": "Fetched http://aldermansposato.com/ directly in this session. The page title reads 'Alderman Nicholas Sposato - 38th Ward' and the site identifies him in the first person as the ward's alderman, confirming it is his official site."
+  },
+  "sources_fetched": [
+    "http://aldermansposato.com/",
+    "https://blockclubchicago.org/tag/38th-ward/",
+    "https://blockclubchicago.org/?s=Sposato",
+    "https://blockclubchicago.org/?s=Portage+Park",
+    "https://blockclubchicago.org/?s=Dunning",
+    "https://blockclubchicago.org/?s=%2238th+Ward%22",
+    "https://blockclubchicago.org/2026/07/07/boy-13-wounded-in-portage-park-drive-by-shooting/",
+    "https://blockclubchicago.org/2026/06/09/immigration-agents-crash-into-car-detain-man-in-dunning-neighbor-says/",
+    "https://blockclubchicago.org/2026/07/17/krzysztof-arsenowicz-longtime-polish-radio-host-remembered-with-honorary-street-sign-in-dunning/"
+  ]
+}

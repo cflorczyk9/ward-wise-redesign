@@ -1,0 +1,50 @@
+{
+  "ward": "44",
+  "headline": "Ward 44 ranks sixth of 50 wards, strong on city response time and bars, weak on parks.",
+  "summary": "Ward 44 covers Lake View and part of Lincoln Park and ranks sixth out of Chicago's 50 wards on Ward Wise's overall score of 60.13. Its top marks cluster around city responsiveness and a dense bar and tavern scene. The ward ranks first on how fast the city closes routine 311 requests, first on the city's environmental justice index, and first on both the number of highly rated bars and the number of licensed taverns per resident, plus the largest share of aldermanic menu money spent on street and alley lighting.\n\nThe weaker measures land in two areas, park space and religion. Ward 44 ranks last of all 50 wards on park acres per resident and last on a measure of reviews for local worship spaces. It also ranks last on several modeled estimates of religious belief and attendance, projections built from national survey data rather than a local count of who attends services.",
+  "reading_the_rankings": "Take park space. Ward 44 ranks last at 0.73 acres of park land per 10,000 residents. But the middle half of all 50 wards spans only about 11 points on this measure, so most wards land close together, and last place here mainly reflects a tightly packed field rather than a dramatic gap. The worship engagement ranking, which counts Google reviews for local religious buildings, a proxy for online visibility more than congregation size or attendance, also puts Ward 44 last. A low count here could simply mean fewer local religious buildings have claimed a Google listing. The four modeled religion measures where the ward also ranks last cover weekly attendance, strength of belief, and certainty about God. Every one is a statistical prediction built from national survey data and the ward's demographics, and the source itself rates all four as low confidence.",
+  "news": [
+    {
+      "headline": "Lakeview High-Rise Proposal Moves Forward With Design Changes, Demolition Timeline",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/28/lakeview-high-rise-proposal-moves-forward-with-design-changes-demolition-timeline/",
+      "date": "2026-07-28",
+      "note": "Developers revised a proposed 355-unit apartment tower near Diversey Harbor after six months of meetings with Ald. Bennett Lawson's office, with demolition of the vacant Stone Medical Center site set to begin next month."
+    },
+    {
+      "headline": "Ann Sather Taking Over Stella's Diner In Lakeview",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/08/03/ann-sather-taking-over-stellas-diner-in-lakeview/",
+      "date": "2026-08-03",
+      "note": "The Lakeview restaurant chain Ann Sather is taking over the former Stella's Diner space, a sale its owner says was in the works for months before Stella's closed over health code violations."
+    },
+    {
+      "headline": "Mumford & Sons Kept Wrigleyville Up Late — Triggering Fines — But Neighbors Say They Didn't Mind",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/06/12/mumford-sons-kept-wrigleyville-awake-past-midnight-triggering-fines-but-neighbors-say-they-didnt-mind/",
+      "date": "2026-06-12",
+      "note": "A weather delay pushed a Mumford & Sons concert at Wrigley Field past its scheduled cutoff, triggering fines under the city's noise ordinance, though neighbors said late shows come with living next to the stadium."
+    },
+    {
+      "headline": "Wrigleyville Neighbors Demand Changes To Cubs Parking Lot Expansion",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/17/wrigleyville-neighbors-demand-changes-to-cubs-parking-lot-expansion/",
+      "date": "2026-07-17",
+      "note": "Neighbors met with the Cubs and the offices of Ald. Bennett Lawson and Ald. Angela Clay to push for landscaping, stormwater, and lighting conditions on a planned parking lot expansion near Wrigley Field."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Bennett R. Lawson",
+    "website_url": "https://www.44thward.org",
+    "verified": true,
+    "verification_note": "Ward data listed no website. Found https://www.44thward.org via search and fetched it directly this session. The site states 'Bennett Lawson was elected as the Alderman of Chicago's 44th Ward in 2023', confirming it's his official ward site."
+  },
+  "sources_fetched": [
+    "https://www.44thward.org",
+    "https://blockclubchicago.org/2026/07/28/lakeview-high-rise-proposal-moves-forward-with-design-changes-demolition-timeline/",
+    "https://blockclubchicago.org/2026/08/03/ann-sather-taking-over-stellas-diner-in-lakeview/",
+    "https://blockclubchicago.org/2026/06/12/mumford-sons-kept-wrigleyville-awake-past-midnight-triggering-fines-but-neighbors-say-they-didnt-mind/",
+    "https://blockclubchicago.org/2026/07/17/wrigleyville-neighbors-demand-changes-to-cubs-parking-lot-expansion/"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "ward": "47",
+  "headline": "Ward 47 ranks 3rd of 50, strong on schools and internet, thin on groceries and spending.",
+  "summary": "Ward 47 covers North Center, Lincoln Square, Lake View and Uptown, and it ranks 3rd out of 50 wards overall with a score of 63.64, near the top of the city. It leads all 50 wards on broadband access, on a survey measure of feeling part of the neighborhood, on licensed child care centers per resident, and on the share of students at area schools meeting state proficiency standards. Its aldermanic menu spending is also spread across a wide mix of project categories, the second most balanced mix of any ward.\n\nThe softer numbers sit in retail and public spending. The ward ranks 49th out of 50 for licensed grocery stores per resident and 49th for the share of menu money spent on street and alley lighting. It's also near the bottom on demolition permits issued and on a modeled estimate of residents getting less than two hours of daily leisure time. Ward 47 reads as a well-connected, high-performing stretch of the North Side that is light on grocery retail and where public dollars lean away from lighting and toward other priorities.",
+  "reading_the_rankings": "Ward 47's first-place rank on feeling part of the neighborhood looks like a clear win, but the source itself rates that figure low confidence, and it comes from survey data spread across census tracts that don't line up neatly with the ward's actual boundaries. Its 49th-place rank on menu dollars spent on lighting sits inside a near tie. Thirty-eight other wards land within two points of it, and the middle half of all 50 wards spans just two points on this measure, so most of the city is bunched together no matter the order. The ward also lands 49th out of 50 on per-pupil school spending even as it ranks 1st on the share of students meeting state proficiency standards, two different measures that the data doesn't claim to connect.",
+  "news": [
+    {
+      "headline": "Chicago's first-ever 'cat tour' brings a day of whimsy to Lincoln Square: 'I think people need it'",
+      "outlet": "Chicago Sun-Times",
+      "url": "https://chicago.suntimes.com/2026/08/09/cat-tour-lincoln-square-video-fest-davis-theater",
+      "date": "2026-08-09",
+      "note": "Lincoln Square hosted Chicago's first cat-themed walking tour, pairing more than 125 residents' cats along four routes with a cat video festival benefiting local rescues."
+    },
+    {
+      "headline": "Lake View's former Torstenson Glass building will be demolished, replaced by luxury apartments",
+      "outlet": "Chicago Sun-Times",
+      "url": "https://chicago.suntimes.com/real-estate/2026/08/07/lake-view-torstenson-glass-building-luxury-apartments",
+      "date": "2026-08-07",
+      "note": "Developers secured demolition permits for the former Torstenson Glass manufacturing building at 3233 N. Sheffield Ave. and plan a 99-unit apartment building in its place."
+    },
+    {
+      "headline": "Woman killed in Lake View hit-and-run crash",
+      "outlet": "Chicago Sun-Times",
+      "url": "https://chicago.suntimes.com/crime/2026/08/09/woman-killed-lake-view-hit-and-run-crash",
+      "date": "2026-08-09",
+      "note": "A 25-year-old pedestrian died after a driver struck her while she crossed Irving Park Road and fled the scene, causing further collisions before being caught."
+    },
+    {
+      "headline": "Ann Sather moving into shuttered Stella's Diner in Lake View",
+      "outlet": "Chicago Sun-Times",
+      "url": "https://chicago.suntimes.com/restaurants/2026/08/03/ann-sather-stellas-diner",
+      "date": "2026-08-03",
+      "note": "The longtime Chicago restaurant chain bought the closed Stella's Diner space at 3042 N. Broadway to open a new location there."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Matthew J. Martin",
+    "website_url": "http://www.aldermanmartin.com",
+    "verified": true,
+    "verification_note": "wards.json already listed this site as verified. Independently fetched http://www.aldermanmartin.com and http://www.aldermanmartin.com/the-alderman this session. The About page states 'Matt Martin is serving his second term as alderman of the 47th Ward,' confirming the site is his."
+  },
+  "sources_fetched": [
+    "http://www.aldermanmartin.com",
+    "http://www.aldermanmartin.com/the-alderman",
+    "https://chicago.suntimes.com/2026/08/09/cat-tour-lincoln-square-video-fest-davis-theater",
+    "https://chicago.suntimes.com/real-estate/2026/08/07/lake-view-torstenson-glass-building-luxury-apartments",
+    "https://chicago.suntimes.com/crime/2026/08/09/woman-killed-lake-view-hit-and-run-crash",
+    "https://chicago.suntimes.com/restaurants/2026/08/03/ann-sather-stellas-diner"
+  ]
+}

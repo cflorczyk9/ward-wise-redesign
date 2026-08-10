@@ -1,0 +1,51 @@
+{
+  "ward": "48",
+  "headline": "Ward 48 ranks 21st of 50, closest to the lake, softer on safety and park spending.",
+  "summary": "Ward 48 covers Edgewater, Uptown and Rogers Park and ranks 21st out of 50 wards overall with a score of 47.91, close to the city's midpoint. It sits closer to Lake Michigan than any other ward, averaging just over half a mile to the shoreline, and its aldermanic menu spending is split across the widest mix of project types in the city. It also scores highest on a measure of civic engagement, on the variety of faiths represented among its houses of worship, and near the top on fine-particle air quality.\n\nThe weaker numbers cluster around modeled safety and where capital dollars go. The ward ranks last in the city for the share of menu money spent on street and alley lighting, and it's not far behind on park spending, landing 49th out of 50. It also ranks 49th on a modeled estimate of adults afraid to walk alone at night, and more than half its households have someone living alone, among the highest shares in the city. Ward 48 pairs some of the city's best lakefront access with softer numbers on solitude, perceived safety after dark, and how its public building budget gets spent on lighting and parks.",
+  "reading_the_rankings": "Ward 48's last-place rank on worship ratings comes from a median Google rating of 4.7, still a strong score, and 12 other wards land within two points of it, so last place here is a photo finish rather than a real gap. Its rank of 49th on the share of menu money spent on parks sits inside an even tighter cluster, with 40 other wards landing within two points and the middle half of all wards spanning just three tenths of a point on this measure, so nearly the entire city is bunched together and a small shift in spending could reorder the whole list. Even the ward's first-place rank on civic engagement carries a footnote, since it comes from a ZIP-code proxy for volunteering that the source itself rates low confidence, and Chicago's ZIP boundaries don't match its ward lines.",
+  "news": [
+    {
+      "headline": "Judge dismisses Edgewater residents, businesses' lawsuit over Broadway zoning changes",
+      "outlet": "Chicago Sun-Times",
+      "url": "https://chicago.suntimes.com/real-estate/2026/06/30/judge-cohen-dismisses-edgewater-residents-businesses-lawsuit-broadway-upzoning",
+      "date": "2026-06-30",
+      "note": "A Cook County judge dismissed a lawsuit from Edgewater residents and business owners challenging the city's 2025 plan that upzoned nearly two miles of Broadway."
+    },
+    {
+      "headline": "Emanuel Congregation / Fern Hill Development - Frequently Asked Questions",
+      "outlet": "48th Ward Office",
+      "url": "https://www.the48thward.org/blog/emanuel-fern-hill-faq",
+      "date": "2026-07-14",
+      "note": "The ward office published an FAQ on a proposed mixed-use redevelopment of three Sheridan Road properties tied to Emanuel Congregation."
+    },
+    {
+      "headline": "Under 'L' Activation: New Community Spaces for Edgewater and Uptown",
+      "outlet": "48th Ward Office",
+      "url": "https://www.the48thward.org/blog/under-l-construction",
+      "date": "2026-08-06",
+      "note": "Construction began on a CTA project converting old embankments beneath the elevated tracks into about a mile of new public space between Lawrence and Ardmore."
+    },
+    {
+      "headline": "Bryn Mawr / Sheridan Water Main Construction",
+      "outlet": "48th Ward Office",
+      "url": "https://www.the48thward.org/blog/bryn-mawr-sheridan-water-main-replacement",
+      "date": "2026-06-09",
+      "note": "The city started a $2.8 million project replacing aging water mains and lead service lines along Bryn Mawr and Sheridan, running from June into the fall."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Leni Manaa-Hoppenworth",
+    "website_url": "https://www.the48thward.org/",
+    "verified": true,
+    "verification_note": "wards.json already listed this site as verified. Independently fetched https://www.the48thward.org/ this session. The homepage states 'Welcome to the website of the 48th ward's alderwoman, Leni Manaa-Hoppenworth,' confirming the site is hers."
+  },
+  "sources_fetched": [
+    "https://www.the48thward.org/",
+    "https://www.the48thward.org/blog",
+    "https://chicago.suntimes.com/real-estate/2026/06/30/judge-cohen-dismisses-edgewater-residents-businesses-lawsuit-broadway-upzoning",
+    "https://www.the48thward.org/blog/emanuel-fern-hill-faq",
+    "https://www.the48thward.org/blog/under-l-construction",
+    "https://www.the48thward.org/blog/bryn-mawr-sheridan-water-main-replacement"
+  ]
+}
