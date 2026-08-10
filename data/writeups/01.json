@@ -1,0 +1,42 @@
+{
+  "ward": "01",
+  "headline": "Ward 1 ranks 4th of 50, high on bars and coffee, low on modeled free time.",
+  "summary": "Ward 1 covers West Town, Logan Square, and the Near West Side, and it ranks 4th of 50 wards overall. It has more top-rated coffee shops and bars than any other ward in the city, and its count of home renovation permits also leads all 50. Two environmental measures, tied to industrial site proximity and to how much of the ward sits inside a designated environmental justice area, rank first as well, meaning almost none of the ward's population lives inside one of those flagged zones.\n\nThe same data shows residents here modeled as some of the most time-poor in the city, with less daily leisure time than every ward but one. Modeled religious attendance and affiliation run low, and a depression measure sits near the bottom of the rankings too. Parking is tight, with the ward ranking near the bottom on block-face density. The pattern is a dense, amenity-heavy stretch of the city where the numbers say people are busy and short on time, even as the neighborhood itself scores well on cleanliness and reinvestment.",
+  "reading_the_rankings": "The environmental justice score, showing almost none of the ward inside a designated priority area, comes from spreading census-tract data evenly across the ward, and 17 other wards land within two points of it, so the gap between first place and the middle of the pack is thinner than the single rank suggests. Participatory budgeting, where the ward scores a perfect 100 for letting residents vote on menu money, is also crowded, with 13 wards within two points, and the number reflects a 2023 ward boundary redraw as much as anything happening in the ward today. The last-place rank for modeled time poverty is a statistical estimate, built from national time-use data matched to the ward's demographic mix, and the source itself rates it low confidence, so it describes what a ward with this population profile tends to look like more than it describes any one resident's actual evening.",
+  "news": [
+    {
+      "headline": "Wicker Park's Six Corner Intersection Getting All-Pedestrian Crossing",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/16/wicker-parks-six-corner-intersection-getting-all-pedestrian-crossing-but-not-this-year/",
+      "date": "2026-07-16",
+      "note": "Ald. Daniel La Spata is pursuing an all-pedestrian crossing phase at the Milwaukee/Damen/North intersection, backed by a 2025 participatory budgeting vote, though a signal-hardware delay is likely to push installation to next year."
+    },
+    {
+      "headline": "40 Apartments, Including Rental Townhomes, Pitched For Vacant Logan Square Lot",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/14/40-apartments-including-rental-townhomes-pitched-for-vacant-logan-square-lot/",
+      "date": "2026-07-14",
+      "note": "A developer presented a 40-unit apartment and rowhome proposal for a vacant lot at Diversey and Mozart at a 1st Ward Office community meeting, with some neighbors raising parking and density concerns."
+    },
+    {
+      "headline": "Wicker Park's Car-Free 'Meet Me On Milwaukee' Events Return In August",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/14/wicker-parks-car-free-meet-me-on-milwaukee-events-return-in-august/",
+      "date": "2026-07-14",
+      "note": "The 1st Ward's car-free Milwaukee Avenue event series, run with the Wicker Park-Bucktown Chamber of Commerce, returns for three Sundays in August, September, and October."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Daniel La Spata",
+    "website_url": "https://www.the1stward.com/",
+    "verified": true,
+    "verification_note": "Fetched https://www.the1stward.com/ this session. The homepage identifies him as \"Alderman Daniel La Spata,\" names him the 1st Ward alderman, and notes he was elected in 2019."
+  },
+  "sources_fetched": [
+    "https://www.the1stward.com/",
+    "https://blockclubchicago.org/2026/07/16/wicker-parks-six-corner-intersection-getting-all-pedestrian-crossing-but-not-this-year/",
+    "https://blockclubchicago.org/2026/07/14/40-apartments-including-rental-townhomes-pitched-for-vacant-logan-square-lot/",
+    "https://blockclubchicago.org/2026/07/14/wicker-parks-car-free-meet-me-on-milwaukee-events-return-in-august/"
+  ]
+}

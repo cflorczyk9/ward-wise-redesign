@@ -1,0 +1,35 @@
+{
+  "ward": "23",
+  "headline": "Ward 23 ranks 32nd of 50, strong on family living, short on parks and gathering spots.",
+  "summary": "Ward 23 covers Garfield Ridge, West Lawn, West Elsdon and Archer Heights on Chicago's Southwest Side. It ranks 32nd out of 50 wards overall, with a score of 39.76, in the lower half of the city but well clear of the bottom. Its strongest measures point to a tightly knit residential area. The ward ranks 1st in the city for the share of households where someone lives alone, meaning family and shared living are more common here than almost anywhere else in Chicago. It also ranks 2nd for licensed tobacco retailers per resident, meaning fewer of them than in nearly every other ward, and 3rd on two separate measures of how much of a rental unit's value ends up as landlord profit, meaning renters here keep more of what they pay than in most of the city.\n\nWhere the ward falls short is public and gathering space. It ranks last in the city for parks, with just 4 mapped inside its boundaries, for civic and cultural places (18 of them), and for houses of worship per resident. It also ranks last for cars per household, meaning more homes here depend on a vehicle than almost anywhere else in Chicago, and last for the modeled share of adults expected to visit a bar weekly. Put together, the picture is a residential, car-dependent stretch of the Southwest Side with little built infrastructure for public life outside the home.",
+  "reading_the_rankings": "A few of these numbers are softer than they look. The ward's last-place score on a measure labeled \"review count,\" with a value of 1,070, sits inside a cluster of 36 other wards within two points of the same score, and the middle half of all 50 wards spans just two points on that measure, so last place here is closer to a tie with most of the city than a real gap. Two of the strengths are modeled estimates rather than counts of anything that happened. The 3rd-place rank for adults with no religious affiliation (19.4 percent) and the last-place rank for adults expected to visit a bar weekly (4.1 percent) both come from survey-based statistical models that the source itself rates low confidence. They describe what a ward with this area's demographics usually looks like on average, a general pattern rather than a number collected from this ward directly.",
+  "news": [
+    {
+      "headline": "'Moving Archer Forward' Initiative Aims To Bring 800 New Housing Units To Archer Avenue",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/13/moving-archer-forward-initiative-aims-to-bring-800-new-housing-units-to-archer-avenue/",
+      "date": "2026-07-13",
+      "note": "City and regional transit planners unveiled a long-range plan to redevelop the Archer Avenue corridor from Bridgeport to Garfield Ridge, with new housing, retail space and street upgrades."
+    },
+    {
+      "headline": "Garfield Ridge Satellite Center Celebrates 30 Years Serving Seniors",
+      "outlet": "Clear-Ridge Reporter & Newshound (via ward23.org)",
+      "url": "https://www.ward23.org/uploads/1/3/3/5/133511932/news_article.pdf",
+      "date": "2026-07-01",
+      "note": "The Garfield Ridge Satellite Center marked 30 years of serving seniors with a City Council resolution and a month of activities for older residents."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Silvana Tabares",
+    "website_url": "https://www.ward23.org/",
+    "verified": true,
+    "verification_note": "wards.json listed no site for this ward. Fetched https://www.ward23.org/ directly this session. The homepage header reads '23rd Ward Alderman Silvana Tabares' and its navigation and content refer throughout to the 23rd Ward, confirming it's her official site."
+  },
+  "sources_fetched": [
+    "https://www.ward23.org/",
+    "https://www.ward23.org/2026.html",
+    "https://www.ward23.org/uploads/1/3/3/5/133511932/news_article.pdf",
+    "https://blockclubchicago.org/2026/07/13/moving-archer-forward-initiative-aims-to-bring-800-new-housing-units-to-archer-avenue/"
+  ]
+}

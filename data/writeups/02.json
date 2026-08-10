@@ -1,0 +1,17 @@
+{
+  "ward": "02",
+  "headline": "Ward 2 ranks 11th of 50, fast on city services, worst in the city on air quality.",
+  "summary": "Ward 2 covers the Near North Side and Lincoln Park, and it ranks 11th of 50 wards overall. City crews close out its tree-debris requests faster than in any other ward, and it ranks first in the city for putting its full annual menu budget to use rather than leaving money unspent. Commutes run shorter here than almost anywhere else in the city, and the ward also ranks first on a modeled measure of how often neighbors exchange favors with each other.\n\nThe ward also ranks worst in the city on two measures of air pollution exposure, an air-toxics hazard index and a modeled cancer-risk figure tied to the same air toxics. Nearly six in ten households here have just one person living in them, the highest share of any ward, and the ward ranks last on a measure of child care center availability and near the bottom on winter sunlight at street level. It is a dense part of the city that scores well on basic city services and poorly on air quality and on the measures tied to family households and daylight.",
+  "reading_the_rankings": "The ward's perfect menu-budget score, showing all of its roughly $1.5 million in annual capital money committed to projects, is reported directly by the source, but 16 other wards land within two points of it, and the figure only covers the ward's boundaries as redrawn in 2023, so a wide band of wards look similar on this measure and the year-over-year comparison is short. The number-one rank for short commutes is allocated from census tracts by area, which assumes people are spread evenly inside each tract, and the source rates the measure medium confidence, so a tract that straddles the ward line could be pulling in some of a neighboring ward's numbers. On the other end, the last-place rank on air-toxics hazard carries the same census-tract allocation caveat and the same medium-confidence rating, so the worst-in-the-city label is real but not drawn at the precision the single rank implies.",
+  "news": [],
+  "news_status": "none_found",
+  "alderperson": {
+    "name": "Brian Hopkins",
+    "website_url": "https://www.aldermanhopkins.com/",
+    "verified": true,
+    "verification_note": "Fetched https://www.aldermanhopkins.com/ this session. The homepage header reads \"2nd Ward Alderman Brian Hopkins | Constituent Service\" and repeats his name and role through the navigation and site content."
+  },
+  "sources_fetched": [
+    "https://www.aldermanhopkins.com/"
+  ]
+}

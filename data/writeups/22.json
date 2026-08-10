@@ -1,0 +1,28 @@
+{
+  "ward": "22",
+  "headline": "Ward 22 ranks 39th of 50 overall, last in the city on measures of neighborly contact.",
+  "summary": "Ward 22 covers South Lawndale (Little Village), Garfield Ridge, North Lawndale, and Archer Heights on Chicago's Southwest Side. It ranks 39th out of 50 wards overall, with a combined score of 34.84. Most of what's measured here comes with a caveat attached too, 163 of the 180 rankings that exist for this ward.\n\nThe strongest numbers touch on housing costs and one measure of air quality. Two related estimates put the share of rent that ends up as landlord profit among the lowest of any ward, whether the estimate is based on a property's assessed value or its last sale price. Ozone levels also rank 2nd best citywide. The weakest numbers describe how much neighbors interact with each other. Modeled estimates rank the ward last of 50 both for residents who trade favors with neighbors monthly and for those who talk with neighbors monthly. The ward also ranks near the bottom on two other environmental measures, the city's cumulative Environmental Justice index and a toxic-release index. Ozone measures one pollutant, not the ward's overall environmental burden.",
+  "reading_the_rankings": "Take the ward's number-one ranking for menu spending on surveillance cameras. The caveat notes that the middle half of all 50 wards span a total of zero points on this measure, meaning most wards spend close to nothing on cameras and the ranking sits on a very small real difference. The two neighbor-connection measures at the bottom, both ranked 50th, come from a model built on a civic engagement survey and census data, not a count of who actually exchanged a favor or a conversation with a neighbor here specifically, and the source itself calls the estimate low confidence. The environmental numbers cut two ways too. The ward ranks 2nd best on ozone but near last on the city's broader Environmental Justice index and a toxic-release measure, and all three come from tract-level data reassigned to ward boundaries, which assumes people are spread evenly inside each census tract, so a tract straddling the ward line can push some of the number onto a neighboring ward instead.",
+  "news": [
+    {
+      "headline": "Garfield Ridge resident crafts neighborhood's first community framework plan",
+      "outlet": "Chicago Sun-Times",
+      "url": "https://chicago.suntimes.com/real-estate/2026/07/04/garfield-ridge-resident-crafts-neighborhoods-first-community-framework-plan",
+      "date": "2026-07-04",
+      "note": "A recent UIC graduate built Garfield Ridge 2050, a 25-year community plan based on 216 resident survey responses, backed by Ald. Rodriguez and Ald. Tabares."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Michael D. Rodriguez",
+    "website_url": "https://www.22ndward.org/",
+    "verified": true,
+    "verification_note": "wards.json listed no site for this ward. Found and fetched https://www.22ndward.org/ this session. It names 'Michael D. Rodriguez, Alderperson of the 22nd Ward' in the page header and footer, confirming it as his official ward site."
+  },
+  "sources_fetched": [
+    "https://www.22ndward.org/",
+    "https://chicago.suntimes.com/garfield-ridge",
+    "https://chicago.suntimes.com/real-estate/2026/07/04/garfield-ridge-resident-crafts-neighborhoods-first-community-framework-plan",
+    "https://chicago.suntimes.com/archer-heights"
+  ]
+}

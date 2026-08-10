@@ -1,0 +1,51 @@
+{
+  "ward": "11",
+  "headline": "Ward 11 ranks 13th of 50, fast on city service, near heavy industry.",
+  "summary": "Ward 11 sits on the Near South Side and covers Bridgeport, Armour Square, New City, and McKinley Park. It ranks 13th out of 50 wards overall, solidly in the top third. Its clearest strength is basic city service. No ward in the data closes out a broken streetlight request faster, at 1.48 days on average. Its restaurant scene also skews local, with a smaller share of chain restaurants than any other ward, and it ranks second-best citywide on grocery store access.\n\nThe weak spots cluster on the industrial side of the ledger. Ward 11 ranks last of 50 wards on proximity to sites with hazardous-chemical risk management plans, and near the bottom on nearby major-emitter facilities, diesel particulate matter in the air, and traffic exposure near homes. Four separate measures point the same direction, toward heavier industrial exposure than most of the city.",
+  "reading_the_rankings": "Two of these numbers need context before they carry much weight. The rank of 1st on streetlight repair time, at 1.48 days, is real, but the dataset flags this measure as not tracked in every ward, so the comparison set is smaller than the full 50. The rank of last, 50th of 50, on proximity to hazardous risk management plan sites comes with a bigger catch. The source rates its own confidence as medium, assumes population spreads evenly across census tracts even where a tract crosses into a neighboring ward, and bunches most of the city within an 11-point spread on this measure. Last place here isn't necessarily far from 40th. The rank of 1st on chain restaurant share, only 6 percent of the ward's restaurants belonging to a major chain, carries none of those caveats and holds up as stated.",
+  "news": [
+    {
+      "headline": "City Worker Who Improved Bike Infrastructure Killed While Biking In Bridgeport",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/06/07/city-worker-who-improved-bike-infrastructure-killed-while-biking-in-bridgeport/",
+      "date": "2026-06-07",
+      "note": "Riley O'Neil, a Chicago Department of Transportation planner who worked on bike infrastructure, was fatally struck while biking on Halsted Street in Bridgeport."
+    },
+    {
+      "headline": "Bridgeport's First Big Street Fest In Years Kicks Off This Weekend With Motoblot",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/06/18/bridgeports-first-big-street-fest-in-years-kicks-off-this-weekend-with-motoblot/",
+      "date": "2026-06-18",
+      "note": "The motorcycle-themed festival Motoblot moved to Halsted Street in Bridgeport for its first large-scale run in the neighborhood in several years."
+    },
+    {
+      "headline": "42 Parks On South, West Sides Getting Improved Air Conditioning To Help Battle Heat Waves",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/13/42-park-fieldhouses-on-south-west-sides-getting-improved-air-conditioning-to-help-battle-heat-waves/",
+      "date": "2026-07-13",
+      "note": "Armour Square Park is one of 30 South and West Side parks slated for air conditioning upgrades this summer under a Chicago Park District effort."
+    },
+    {
+      "headline": "'Moving Archer Forward' Initiative Aims To Bring 800 New Housing Units To Archer Avenue",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/07/13/moving-archer-forward-initiative-aims-to-bring-800-new-housing-units-to-archer-avenue/",
+      "date": "2026-07-13",
+      "note": "A city plan would overhaul streets and add about 800 housing units and 280,000 square feet of retail along Archer Avenue from Bridgeport to Garfield Ridge, and heads to the City Council's plan commission next month."
+    }
+  ],
+  "news_status": "found",
+  "alderperson": {
+    "name": "Nicole T. Lee",
+    "website_url": "https://votenicolelee.com/",
+    "verified": true,
+    "verification_note": "Fetched chicago.gov/city/en/about/wards/11.html this session. It names 'Alderman Nicole Lee' and lists the 11th Ward office (3659 S. Halsted St., ward11@cityofchicago.org) but has no personal website field, unlike some other ward pages. Fetched votenicolelee.com directly, which identifies itself as 'Nicole Lee, 11th Ward Alderman' in its header and matches the same name and ward, though its footer marks it as paid for by her campaign committee rather than a city office site."
+  },
+  "sources_fetched": [
+    "https://www.chicago.gov/city/en/about/wards/11.html",
+    "https://votenicolelee.com/",
+    "https://blockclubchicago.org/2026/06/07/city-worker-who-improved-bike-infrastructure-killed-while-biking-in-bridgeport/",
+    "https://blockclubchicago.org/2026/06/18/bridgeports-first-big-street-fest-in-years-kicks-off-this-weekend-with-motoblot/",
+    "https://blockclubchicago.org/2026/07/13/42-park-fieldhouses-on-south-west-sides-getting-improved-air-conditioning-to-help-battle-heat-waves/",
+    "https://blockclubchicago.org/2026/07/13/moving-archer-forward-initiative-aims-to-bring-800-new-housing-units-to-archer-avenue/"
+  ]
+}
