@@ -22,6 +22,7 @@
     fromYear: null,
     toYear: null,
     categories: new Set(),  // active category filters; empty means "all"
+    rampIn: {},       // metric_id -> first trustworthy year, when trimmed
   };
 
   var el = {
@@ -213,9 +214,42 @@
   // year would otherwise read as down 100 percent.
   var CURRENT_YEAR = new Date().getFullYear();
 
+  // Several measures were phased in rather than switched on, so their first
+  // years are the collection ramping up and not the world changing. Chicago's
+  // crash reporting is the clearest case: ward 42 reads 30 injuries in 2015,
+  // 128 in 2016, 454 in 2017, then settles near 750. Measured from 2015 that
+  // is "+2,430%", which is a fact about the database, not about the street.
+  //
+  // So drop leading points that sit far below where the series actually lives.
+  // The median of the later points is the reference because it ignores the
+  // ramp itself. Verified against a 50-ward pass: this lands on 2017 for both
+  // crash metrics, matching the citywide onset computed independently.
+  function median(values) {
+    var sorted = values.slice().sort(function (a, b) { return a - b; });
+    var mid = Math.floor(sorted.length / 2);
+    return sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
+  }
+
+  function trimRampIn(points) {
+    if (points.length < 4) return { points: points, droppedTo: null };
+
+    var cut = 0;
+    while (points.length - cut >= 3) {
+      var later = points.slice(cut + 1).map(function (p) { return Math.abs(p.value); });
+      var reference = median(later);
+      if (!reference) break;
+      if (Math.abs(points[cut].value) < reference * 0.5) cut += 1;
+      else break;
+    }
+
+    if (!cut) return { points: points, droppedTo: null };
+    return { points: points.slice(cut), droppedTo: points[cut].year };
+  }
+
   function buildSeries(payload) {
     var series = {};
     var years = {};
+    var rampIn = {};
     var partialDropped = 0;
 
     (payload.timeseries || []).forEach(function (entry) {
@@ -237,10 +271,15 @@
         .map(function (year) { return { year: Number(year), value: byYear[year].value }; })
         .sort(function (a, b) { return a.year - b.year; });
 
-      if (points.length) series[entry.metric_id] = points;
+      var trimmed = trimRampIn(points);
+      if (trimmed.points.length) {
+        series[entry.metric_id] = trimmed.points;
+        if (trimmed.droppedTo !== null) rampIn[entry.metric_id] = trimmed.droppedTo;
+      }
     });
 
     state.series = series;
+    state.rampIn = rampIn;
     state.partialDropped = partialDropped;
     state.years = Object.keys(years).map(Number).sort(function (a, b) { return a - b; });
   }
@@ -384,7 +423,10 @@
     var pair =
       formatValue(change.from.value, meta.unit) + " → " + formatValue(change.to.value, meta.unit) +
       '<span class="row-years"> · ' + change.from.year + "–" + change.to.year + "</span>" +
-      (change.lowStart ? '<span class="row-flag"> low start</span>' : "");
+      (change.lowStart ? '<span class="row-flag"> low start</span>' : "") +
+      (state.rampIn[change.metricId] > state.fromYear
+        ? '<span class="row-flag"> data begins ' + state.rampIn[change.metricId] + "</span>"
+        : "");
 
     var head = document.createElement("button");
     head.type = "button";
@@ -406,6 +448,10 @@
       "<dt>" + change.to.year + "</dt><dd>" + formatValue(change.to.value, meta.unit) + "</dd>" +
       "<dt>Change</dt><dd>" + formatValue(change.delta, meta.unit) + " (" + deltaText + ")</dd>" +
       "<dt>Points</dt><dd>" + change.points.length + " years of data</dd>" +
+      (state.rampIn[change.metricId] > state.fromYear
+        ? "<dt>Trimmed</dt><dd>earlier years dropped, this measure was still being " +
+          "phased in until " + state.rampIn[change.metricId] + "</dd>"
+        : "") +
       "<dt>Better when</dt><dd>" + (meta.direction === "lower" ? "lower" : "higher") + "</dd>" +
       "</dl>" +
       (meta.description ? '<p class="desc">' + meta.description + "</p>" : "") +
