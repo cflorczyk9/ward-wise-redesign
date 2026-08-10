@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ward Wise Reports — what changed in your ward</title>
-<meta name="description" content="Fifteen years of Chicago ward data, read as change instead of a snapshot. Built on the Ward Wise Penlight API.">
+<title>Ward Wise Reports — where your ward stands</title>
+<meta name="description" content="Where a Chicago ward stands today across 177 measures, and what has changed where the data supports saying so.">
 <link rel="icon" href="static/logo.svg" type="image/svg+xml">
 <!-- Same cascade as the explorer pages, so the header matches exactly.
      reports.css loads last and owns everything below the header. -->
@@ -38,11 +38,6 @@
   <section class="picker">
     <label for="ward">Ward</label>
     <select id="ward" disabled><option>Loading…</option></select>
-    <span class="picker-sep"></span>
-    <label for="from-year">From</label>
-    <select id="from-year" disabled></select>
-    <label for="to-year">To</label>
-    <select id="to-year" disabled></select>
   </section>
 
   <section class="lede" id="lede" hidden>
@@ -52,22 +47,50 @@
 
   <section class="statusbar" id="status">Loading the metric dictionary…</section>
 
-  <section class="filters" id="filters" hidden></section>
-
-  <section class="results" id="results" hidden>
-    <div class="column" id="col-better">
-      <h2>Moved the right way</h2>
-      <ol class="rows" id="rows-better"></ol>
+  <!-- Where the ward stands right now. Every measure is current, scored across
+       all 50 wards at one moment, so nothing here depends on the time series. -->
+  <section class="results" id="snapshot" hidden>
+    <div class="column">
+      <h2>Strongest here</h2>
+      <ol class="rows" id="rows-strong"></ol>
     </div>
-    <div class="column" id="col-worse">
-      <h2>Moved the wrong way</h2>
-      <ol class="rows" id="rows-worse"></ol>
+    <div class="column">
+      <h2>Weakest here</h2>
+      <ol class="rows" id="rows-weak"></ol>
     </div>
   </section>
 
-  <section class="excluded" id="excluded" hidden>
-    <h2>Not in this report</h2>
-    <p id="excluded-note"></p>
+  <!-- Secondary on purpose. Most of the dictionary has no usable history, so
+       this section says what it can stand behind and no more. -->
+  <section class="change" id="change" hidden>
+    <div class="change-head">
+      <h2>What changed over time</h2>
+      <p class="change-note" id="change-note"></p>
+      <div class="picker picker-inline">
+        <label for="from-year">From</label>
+        <select id="from-year" disabled></select>
+        <label for="to-year">To</label>
+        <select id="to-year" disabled></select>
+      </div>
+    </div>
+
+    <div class="filters" id="filters" hidden></div>
+
+    <div class="results" id="results" hidden>
+      <div class="column">
+        <h2>Moved the right way</h2>
+        <ol class="rows" id="rows-better"></ol>
+      </div>
+      <div class="column">
+        <h2>Moved the wrong way</h2>
+        <ol class="rows" id="rows-worse"></ol>
+      </div>
+    </div>
+
+    <div class="excluded" id="excluded" hidden>
+      <h2>Not in this section</h2>
+      <p id="excluded-note"></p>
+    </div>
   </section>
 
 </main>

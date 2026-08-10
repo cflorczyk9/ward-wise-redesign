@@ -23,6 +23,9 @@
     toYear: null,
     categories: new Set(),  // active category filters; empty means "all"
     rampIn: {},       // metric_id -> first trustworthy year, when trimmed
+    matrix: null,     // ward -> metric -> {s: score, v: value}, current snapshot
+    ranks: {},        // metric_id -> {rank, of} for the selected ward
+    overall: {},      // ward -> {rank, score}
   };
 
   var el = {
@@ -35,6 +38,11 @@
     subhead: document.getElementById("subhead"),
     filters: document.getElementById("filters"),
     results: document.getElementById("results"),
+    snapshot: document.getElementById("snapshot"),
+    rowsStrong: document.getElementById("rows-strong"),
+    rowsWeak: document.getElementById("rows-weak"),
+    change: document.getElementById("change"),
+    changeNote: document.getElementById("change-note"),
     rowsBetter: document.getElementById("rows-better"),
     rowsWorse: document.getElementById("rows-worse"),
     excluded: document.getElementById("excluded"),
@@ -183,9 +191,25 @@
   // ---- data ------------------------------------------------------------
 
   function loadDictionary() {
-    return Promise.all([getJson("/metrics"), getJson("/wards")]).then(function (results) {
+    return Promise.all([
+      getJson("/metrics"),
+      getJson("/wards"),
+      // The snapshot. Every ward scored on every measure at one moment, so
+      // this is the half of the report that owes nothing to the time series.
+      getJson("/metrics/score-matrix?area_type=ward&year=latest"),
+      getJson("/metrics/scores?area_type=ward"),
+    ]).then(function (results) {
       var metricsPayload = results[0];
       var wardsPayload = results[1];
+      var matrixPayload = results[2];
+      var scoresPayload = results[3];
+
+      var matrix = matrixPayload.matrix || {};
+      state.matrix = matrix[Object.keys(matrix)[0]] || {};
+
+      (scoresPayload.scores || []).forEach(function (row) {
+        state.overall[row.area_id] = { rank: row.rank, score: row.score };
+      });
 
       (metricsPayload.metrics || []).forEach(function (metric) {
         state.metrics[metric.metric_id] = metric;
@@ -285,20 +309,150 @@
   }
 
   function loadWard(wardId) {
-    status("Loading every dated observation for Ward " + Number(wardId) + "…");
+    status("Loading Ward " + Number(wardId) + "…");
     el.results.hidden = true;
     el.excluded.hidden = true;
+    el.change.hidden = true;
+
+    // The snapshot needs nothing but data already in hand, so paint it before
+    // waiting on the history call. It is the part of the page that is always
+    // trustworthy, and it should never be blocked by the part that is not.
+    state.wardId = wardId;
+    state.ranks = computeRanks(wardId);
+    renderSnapshotHeader();
+    renderSnapshot();
 
     return getJson("/metrics/timeseries?area_type=ward&area_id=" + encodeURIComponent(wardId))
       .then(function (payload) {
         buildSeries(payload);
-        state.wardId = wardId;
         populateYears();
         render();
       })
       .catch(function (err) {
         fail("Loading Ward " + Number(wardId) + " failed.", err);
       });
+  }
+
+
+  // ---- snapshot --------------------------------------------------------
+
+  // Rank the selected ward against the other 49 on every current measure.
+  // The matrix carries a normalised score per ward per metric, already
+  // direction-corrected upstream, so a high score always means "doing well".
+  function computeRanks(wardId) {
+    var ranks = {};
+    if (!state.matrix) return ranks;
+
+    var metricIds = {};
+    Object.keys(state.matrix).forEach(function (ward) {
+      Object.keys(state.matrix[ward] || {}).forEach(function (mid) { metricIds[mid] = true; });
+    });
+
+    Object.keys(metricIds).forEach(function (mid) {
+      var scored = [];
+      Object.keys(state.matrix).forEach(function (ward) {
+        var cell = state.matrix[ward] && state.matrix[ward][mid];
+        if (cell && typeof cell.s === "number") scored.push({ ward: ward, s: cell.s });
+      });
+      if (scored.length < 25) return; // too thin to call it a rank out of 50
+      scored.sort(function (a, b) { return b.s - a.s; });
+      for (var i = 0; i < scored.length; i += 1) {
+        if (scored[i].ward === wardId) {
+          var cell = state.matrix[wardId][mid];
+          ranks[mid] = { rank: i + 1, of: scored.length, score: cell.s, value: cell.v };
+          break;
+        }
+      }
+    });
+    return ranks;
+  }
+
+  function ordinal(n) {
+    var rem100 = n % 100;
+    if (rem100 >= 11 && rem100 <= 13) return n + "th";
+    return n + ["th", "st", "nd", "rd"][n % 10 > 3 ? 0 : n % 10];
+  }
+
+  function renderSnapshotRow(mid, info, strong) {
+    var meta = state.metrics[mid] || {};
+    var li = document.createElement("li");
+    li.className = "row " + (strong ? "better" : "worse");
+
+    var li_label = meta.label || titleCase(mid);
+    var head = document.createElement("button");
+    head.type = "button";
+    head.className = "row-head";
+    head.setAttribute("aria-expanded", "false");
+    head.innerHTML =
+      '<span class="row-label">' + li_label +
+      '<span class="row-cat">' + titleCase(meta.category || "other") + "</span>" +
+      '<span class="row-pair">' + formatValue(info.value, meta.unit) + "</span></span>" +
+      '<span class="row-right"><span class="row-delta">' +
+      ordinal(info.rank) + '<span class="row-of"> of ' + info.of + "</span></span></span>";
+
+    var detail = document.createElement("div");
+    detail.className = "row-detail";
+    detail.hidden = true;
+    detail.innerHTML =
+      "<dl>" +
+      "<dt>Value</dt><dd>" + formatValue(info.value, meta.unit) + "</dd>" +
+      "<dt>Rank</dt><dd>" + ordinal(info.rank) + " of " + info.of + " wards</dd>" +
+      "<dt>Better when</dt><dd>" + (meta.direction === "lower" ? "lower" : "higher") + "</dd>" +
+      "</dl>" +
+      (meta.description ? '<p class="desc">' + meta.description + "</p>" : "") +
+      (meta.source ? '<p class="src">Source: ' + meta.source + "</p>" : "");
+
+    head.addEventListener("click", function () {
+      var open = detail.hidden;
+      detail.hidden = !open;
+      head.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+
+    li.appendChild(head);
+    li.appendChild(detail);
+    return li;
+  }
+
+
+  // The lede is the ward's standing today: one composite rank out of 50, built
+  // from measures collected at a single moment. No time series involved.
+  function renderSnapshotHeader() {
+    var ward = state.wards.filter(function (w) { return w.ward_id === state.wardId; })[0] || {};
+    var alderName = ward.alderperson && ward.alderperson.name ? ward.alderperson.name : null;
+    var overall = state.overall[state.wardId];
+    var counted = Object.keys(state.ranks).length;
+
+    el.headline.innerHTML = overall
+      ? "Ward " + Number(state.wardId) + " ranks " +
+        '<span class="count">' + ordinal(overall.rank) + "</span> of 50 in Chicago today."
+      : "Ward " + Number(state.wardId) + " today.";
+
+    el.subhead.textContent =
+      (counted ? "Scored on " + counted + " current measures. " : "") +
+      (alderName ? "Alderperson " + alderName + "." : "");
+
+    el.lede.hidden = false;
+  }
+
+  function renderSnapshot() {
+    var ranked = Object.keys(state.ranks).map(function (mid) {
+      return { mid: mid, info: state.ranks[mid] };
+    });
+    if (!ranked.length) { el.snapshot.hidden = true; return 0; }
+
+    ranked.sort(function (a, b) { return a.info.rank - b.info.rank; });
+
+    el.rowsStrong.innerHTML = "";
+    el.rowsWeak.innerHTML = "";
+    ranked.slice(0, 10).forEach(function (r) {
+      el.rowsStrong.appendChild(renderSnapshotRow(r.mid, r.info, true));
+    });
+    ranked.slice(-10).reverse().forEach(function (r) {
+      el.rowsWeak.appendChild(renderSnapshotRow(r.mid, r.info, false));
+    });
+
+    el.snapshot.hidden = false;
+    return ranked.length;
   }
 
   // ---- change math -----------------------------------------------------
@@ -497,19 +651,13 @@
     if (!better.length) el.rowsBetter.innerHTML = '<li class="row"><div class="row-head">Nothing in this window.</div></li>';
     if (!worse.length) el.rowsWorse.innerHTML = '<li class="row"><div class="row-head">Nothing in this window.</div></li>';
 
-    var ward = state.wards.filter(function (w) { return w.ward_id === state.wardId; })[0] || {};
-    var alderName = ward.alderperson && ward.alderperson.name ? ward.alderperson.name : null;
+    el.changeNote.textContent =
+      "Only " + moved.length + " of " + Object.keys(state.metrics).length + " measures have enough " +
+      "usable history to compare " + state.fromYear + " to " + state.toYear + ". " +
+      better.length + " moved the right way, " + worse.length + " moved the wrong way. " +
+      "Treat this section as weaker evidence than the standings above.";
 
-    el.headline.innerHTML =
-      "Ward " + Number(state.wardId) + " changed on " +
-      '<span class="count">' + moved.length + "</span> measures between " +
-      state.fromYear + " and " + state.toYear + ".";
-
-    el.subhead.textContent =
-      better.length + " moved the right way, " + worse.length + " moved the wrong way" +
-      (alderName ? ". Alderperson " + alderName + "." : ".");
-
-    el.lede.hidden = false;
+    el.change.hidden = false;
     el.results.hidden = false;
 
     var tracked = Object.keys(state.series).length;

@@ -264,3 +264,36 @@ footer {
 
 footer p { margin: 0 0 0.4rem; }
 footer .fine { color: var(--ink-faint); font-size: 0.78rem; }
+
+/* ---- snapshot vs change hierarchy ------------------------------------- */
+
+/* The standings are the page. The change section is supporting material and
+   is set back visually so it reads that way without needing a disclaimer. */
+.row-of { color: var(--ink-faint); font-weight: 400; font-size: 0.82rem; }
+
+.change {
+  margin-top: 3rem;
+  padding-top: 1.6rem;
+  border-top: 2px solid var(--rule);
+}
+
+.change-head { margin-bottom: 1.2rem; }
+
+.change-head h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.15rem;
+  letter-spacing: -0.015em;
+  font-weight: 620;
+  color: var(--ink);
+}
+
+.change-note {
+  margin: 0 0 0.9rem;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  max-width: 46rem;
+}
+
+.picker-inline { padding-bottom: 0; }
+
+#snapshot { margin-bottom: 0.5rem; }
