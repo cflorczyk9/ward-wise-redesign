@@ -11,12 +11,17 @@
 
 .report-page {
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
-  --sans: ui-sans-serif, -apple-system, "Segoe UI", Inter, Helvetica, Arial, sans-serif;
+  /* Same fallback order as the site header (styles.css), so a machine with
+     Inter installed renders one sans, not two. */
+  --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --measure-text: 40rem;   /* body column, roughly 70 characters */
   --measure-wide: 62rem;   /* photos, tables, the two-column measure grid */
   --rule-strong: #17181c;
-  --rule-hair: #dcdee3;
-  --ink-quiet: #6f7683;
+  --rule-hair: #e9ebef;    /* matches --k3-hair so hairlines agree site-wide */
+  --ink-quiet: #656c78;
+  --ink-body: #3d4048;
+  --tint-hover: #f6f4ef;
+  --tint-callout: #f8f6f1;
   color: #17181c;
 }
 
@@ -40,6 +45,7 @@
 
 .report-kicker {
   font-family: var(--sans);
+  font-weight: 650;
   font-size: 0.72rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -61,7 +67,7 @@
   font-family: var(--serif);
   font-size: 1.09rem;
   line-height: 1.62;
-  color: #3d4048;
+  color: var(--ink-body);
   max-width: 46ch;
   margin: 0 auto;
 }
@@ -103,7 +109,7 @@
   font-size: 0.93rem;
   line-height: 1.55;
   margin: 0;
-  color: #3d4048;
+  color: var(--ink-body);
 }
 
 /* ---- your equation ---------------------------------------------------- */
@@ -174,7 +180,7 @@
   padding: 0.28rem 0.6rem;
   font-family: var(--sans);
   font-size: 0.76rem;
-  color: #3d4048;
+  color: var(--ink-body);
   cursor: pointer;
   border-right: 1px solid var(--rule-hair);
 }
@@ -182,7 +188,7 @@
 .equation-choice:last-child span { border-right: 0; }
 
 .equation-choice input:checked + span {
-  background: var(--rule-strong);
+  background: var(--k3-hue);
   color: #fff;
 }
 
@@ -201,17 +207,22 @@
   border: 1px solid var(--rule-hair);
   border-radius: 3px;
   cursor: pointer;
-  color: #3d4048;
+  color: var(--ink-body);
 }
 
-.equation-reset:hover { background: #f6f4ef; }
+.equation-reset:hover { background: var(--tint-hover); }
+
+.equation-reset:focus-visible {
+  outline: 2px solid var(--rule-strong);
+  outline-offset: -2px;
+}
 
 .equation-result {
   font-family: var(--sans);
   font-size: 0.88rem;
   margin: 1.2rem 0 0;
   padding: 0.6rem 0.8rem;
-  background: #f6f4ef;
+  background: var(--tint-hover);
   border-radius: 3px;
 }
 
@@ -229,8 +240,8 @@
   font-variant-numeric: tabular-nums;
 }
 
-.idx-move.is-up { color: #1d6b3a; }
-.idx-move.is-down { color: #8f2f2f; }
+.idx-move.is-up { color: var(--better); }
+.idx-move.is-down { color: var(--worse); }
 
 /* ---- the index -------------------------------------------------------- */
 
@@ -256,7 +267,7 @@
   color: inherit;
 }
 
-.index-grid a:hover { background: #f6f4ef; }
+.index-grid a:hover { background: var(--tint-hover); }
 
 .idx-num {
   font-family: var(--serif);
@@ -275,6 +286,12 @@
   margin: 0 auto 4.5rem;
   padding-top: 2.4rem;
   border-top: 1px solid var(--rule-hair);
+  /* Fifty sections make a ~165,000px page. Off-screen sections skip layout
+     and paint entirely, which keeps anchor jumps from outrunning the
+     rasterizer. The intrinsic size approximates a section so the scrollbar
+     and anchor positions stay sane before a section is realised. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 3300px;
 }
 
 .ward:first-child { border-top: 0; padding-top: 0; }
@@ -331,8 +348,8 @@
   padding-bottom: 0.7rem;
 }
 
-.photo-caption { color: #3d4048; }
-.photo-credit { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.68rem; }
+.photo-caption { color: var(--ink-body); }
+.photo-credit { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.72rem; }
 .ward-photo a { color: inherit; }
 
 /* ---- body ------------------------------------------------------------- */
@@ -393,8 +410,8 @@
 
 .ward-measures h3, .ward-reading h3, .ward-news h3 {
   font-family: var(--sans);
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
+  font-size: 0.72rem;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--ink-quiet);
   font-weight: 650;
@@ -448,7 +465,7 @@
   font-family: var(--serif);
   font-size: 0.87rem;
   line-height: 1.5;
-  color: #3d4048;
+  color: var(--ink-body);
   margin-bottom: 0.35rem;
 }
 
@@ -465,7 +482,7 @@
 .ward-reading {
   margin: 2rem 0;
   padding: 1.3rem 1.5rem;
-  background: #f8f6f1;
+  background: var(--tint-callout);
   border-left: 3px solid var(--k3-hue);
   max-width: var(--measure-text);
 }
@@ -500,7 +517,7 @@
   margin-top: 0.25rem;
 }
 
-.news-note { font-family: var(--serif); font-size: 0.89rem; line-height: 1.5; color: #3d4048; margin: 0.35rem 0 0; }
+.news-note { font-family: var(--serif); font-size: 0.89rem; line-height: 1.5; color: var(--ink-body); margin: 0.35rem 0 0; }
 
 .news-empty {
   font-family: var(--serif);
@@ -527,14 +544,18 @@
 .ward-top:hover { text-decoration: underline; }
 
 .ward-contribute {
-  font-family: var(--sans);
-  font-size: 0.8rem;
+  font-family: var(--serif);
+  font-size: 0.92rem;
+  font-style: italic;
   color: var(--ink-quiet);
   max-width: var(--measure-text);
   margin: 0.4rem 0 1rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--rule-hair);
+  border-bottom: 1px solid var(--rule-hair);
 }
 
 @media print {
   .site-header, .ward-top, .report-index, .report-equation { display: none; }
-  .ward { break-inside: avoid-page; }
+  .ward { break-inside: avoid-page; content-visibility: visible; }
 }

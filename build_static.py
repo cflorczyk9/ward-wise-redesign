@@ -120,6 +120,11 @@ def build(upstream: Path) -> list[str]:
             flags=re.S,
         )
 
+        # Upstream's template calls this page "about"; this site serves it as
+        # support.html and k3-shell.css scopes on data-page="support".
+        if out_name == "support.html":
+            page = page.replace('data-page="about"', 'data-page="support"')
+
         leftover = re.findall(r"{%.*?%}|{{.*?}}", page)
         if leftover:
             print(f"  WARNING unresolved template syntax in {out_name}: {leftover[:3]}")

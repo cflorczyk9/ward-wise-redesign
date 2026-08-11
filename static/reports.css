@@ -15,7 +15,7 @@
 .k3-page {
   --ink: var(--k3-ink);
   --ink-soft: var(--k3-soft);
-  --ink-faint: #9aa0ab;
+  --ink-faint: #6f7683;  /* 4.57:1 on white, the AA floor for fine print */
   --paper: #fff;
   --card: #fff;
   --rule: var(--k3-hair);
@@ -25,7 +25,7 @@
   --better-soft: #e8f3ed;
   --worse: #b03a2b;
   --worse-soft: #fbecea;
-  --measure: 68rem;
+  --measure: 62rem;      /* matches the editorial pages' column */
   --radius: 10px;
 }
 
@@ -103,7 +103,7 @@ body { margin: 0; background: #fff; }
 }
 
 .lede p { margin: 0; color: var(--ink-soft); font-size: 1rem; }
-.lede .count { color: var(--brand); font-weight: 600; }
+.lede .count { color: var(--brand); font-weight: 600; font-variant-numeric: tabular-nums; }
 
 .statusbar { color: var(--ink-soft); font-size: 0.94rem; padding: 0.5rem 0 1rem; }
 .statusbar[hidden] { display: none; }
@@ -249,15 +249,16 @@ body { margin: 0; background: #fff; }
 /* ---- excluded + footer ----------------------------------------------- */
 
 .excluded { margin-top: 2.4rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); }
-.excluded h2 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint); margin: 0 0 0.5rem; }
+.excluded h2 {
+  font-weight: 620; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint); margin: 0 0 0.5rem; }
 .excluded p { margin: 0; color: var(--ink-soft); font-size: 0.9rem; }
 
 footer {
   max-width: var(--measure);
   margin: 0 auto;
   padding: 1.6rem clamp(1rem, 4vw, 1.5rem) 3rem;
-  border-top: 1px solid #e9ebef;
-  color: #6f7683;
+  border-top: 1px solid var(--rule);
+  color: var(--ink-soft);
   font-size: 0.86rem;
   background: #fff;
 }
@@ -297,3 +298,9 @@ footer .fine { color: var(--ink-faint); font-size: 0.78rem; }
 .picker-inline { padding-bottom: 0; }
 
 #snapshot { margin-bottom: 0.5rem; }
+
+.chip:focus-visible,
+.statusbar .retry:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: -2px;
+}

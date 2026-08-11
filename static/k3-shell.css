@@ -1,6 +1,6 @@
 /* K3 shell: the chrome every page shares, plus the Dictionary and Support
    restyle. Loads after styles.css and before any page sheet, so the header
-   is identical on all four routes and the two content pages inherit the same
+   is identical on every route and the two content pages inherit the same
    ink/hairline/violet system the explorer uses.
 
    Tokens are namespaced (--k3-*) so nothing in styles.css :root is disturbed
@@ -8,7 +8,7 @@
 
 :root {
   --k3-ink: #17181c;
-  --k3-soft: #6f7683;
+  --k3-soft: #656c78;
   --k3-hair: #e9ebef;
   --k3-hue: #4c1d95;
   --k3-hue-bright: #5b21b6;
@@ -49,7 +49,7 @@
 
 .site-header .nav-link {
   border: 1px solid transparent;
-  border-radius: 99px;
+  border-radius: 999px;
   color: var(--k3-soft);
   font-weight: 650;
   transition: color 0.14s ease, background-color 0.14s ease;
@@ -67,7 +67,7 @@
 
 /* Scoped to Dictionary and Support so /classic is untouched. */
 body[data-page="dictionary"],
-body[data-page="about"] {
+body[data-page="support"] {
   background: #fff;
   color: var(--k3-ink);
   font-size: 15px;
@@ -78,21 +78,21 @@ body[data-page="about"] {
 /* styles.css paints :root beige, which would show through wherever body does
    not reach (short pages, overscroll). Clear it on these two routes only. */
 html:has(body[data-page="dictionary"]),
-html:has(body[data-page="about"]) { background: #fff; }
+html:has(body[data-page="support"]) { background: #fff; }
 
 body[data-page="dictionary"] .metrics-layout,
-body[data-page="about"] .metrics-layout {
+body[data-page="support"] .metrics-layout {
   gap: 0;
   max-width: 720px;
   padding: 0 clamp(16px, 4vw, 28px) 64px;
 }
 
 body[data-page="dictionary"] a,
-body[data-page="about"] a { color: var(--k3-hue-bright); }
+body[data-page="support"] a { color: var(--k3-hue-bright); }
 
 /* page title block */
 body[data-page="dictionary"] .metrics-header,
-body[data-page="about"] .metrics-header {
+body[data-page="support"] .metrics-header {
   background: none;
   border: 0;
   box-shadow: none;
@@ -101,7 +101,7 @@ body[data-page="about"] .metrics-header {
 }
 
 body[data-page="dictionary"] .metrics-header h1,
-body[data-page="about"] .metrics-header h1 {
+body[data-page="support"] .metrics-header h1 {
   font-size: clamp(26px, 4vw, 33px);
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -109,7 +109,7 @@ body[data-page="about"] .metrics-header h1 {
 }
 
 body[data-page="dictionary"] .metrics-header p,
-body[data-page="about"] .metrics-header p {
+body[data-page="support"] .metrics-header p {
   color: var(--k3-soft);
   font-size: 14.5px;
   margin-top: 12px;
@@ -117,7 +117,7 @@ body[data-page="about"] .metrics-header p {
 }
 
 body[data-page="dictionary"] .eyebrow,
-body[data-page="about"] .eyebrow {
+body[data-page="support"] .eyebrow {
   color: var(--k3-soft);
   font-size: 11px;
   font-weight: 700;
@@ -128,7 +128,7 @@ body[data-page="about"] .eyebrow {
 
 /* panels become hairline-separated bands, not floating cards */
 body[data-page="dictionary"] .panel,
-body[data-page="about"] .panel {
+body[data-page="support"] .panel {
   background: none;
   border: 0;
   border-radius: 0;
@@ -141,7 +141,7 @@ body[data-page="about"] .panel {
 }
 
 body[data-page="dictionary"] .panel h2,
-body[data-page="about"] .panel h2 {
+body[data-page="support"] .panel h2 {
   font-size: 19px;
   font-weight: 750;
   letter-spacing: -0.01em;
@@ -149,7 +149,7 @@ body[data-page="about"] .panel h2 {
 }
 
 body[data-page="dictionary"] .panel p,
-body[data-page="about"] .panel p {
+body[data-page="support"] .panel p {
   color: var(--k3-soft);
   font-size: 13.5px;
   margin: 8px 0 0;
@@ -157,7 +157,7 @@ body[data-page="about"] .panel p {
 }
 
 body[data-page="dictionary"] .panel section + section,
-body[data-page="about"] .panel section + section {
+body[data-page="support"] .panel section + section {
   border-top: 1px solid var(--k3-hair);
 }
 
@@ -579,14 +579,14 @@ body[data-page="dictionary"] .dict-empty b { color: var(--k3-ink); }
 
 /* ---------- Support ---------- */
 
-body[data-page="about"] .support-cta-heading {
+body[data-page="support"] .support-cta-heading {
   align-items: start;
   display: grid;
   gap: 14px 22px;
   grid-template-columns: minmax(0, 1fr) auto;
 }
 
-body[data-page="about"] .support-cta {
+body[data-page="support"] .support-cta {
   align-self: center;
   background: #fff;
   border: 1.5px solid var(--k3-hue-bright);
@@ -599,27 +599,27 @@ body[data-page="about"] .support-cta {
   white-space: nowrap;
 }
 
-body[data-page="about"] .support-cta:hover { background: var(--k3-hue-soft); }
+body[data-page="support"] .support-cta:hover { background: var(--k3-hue-soft); }
 
-body[data-page="about"] .signifier-see-all a {
+body[data-page="support"] .signifier-see-all a {
   font-size: 12.5px;
   font-weight: 650;
 }
 
-body[data-page="about"] .signifier-examples {
+body[data-page="support"] .signifier-examples {
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   margin-top: 18px;
 }
 
-body[data-page="about"] .signifier-example {
+body[data-page="support"] .signifier-example {
   border: 1px solid var(--k3-hair);
   border-radius: 12px;
   overflow: hidden;
 }
 
-body[data-page="about"] .signifier-example img {
+body[data-page="support"] .signifier-example img {
   aspect-ratio: 4 / 3;
   display: block;
   object-fit: cover;
@@ -628,14 +628,14 @@ body[data-page="about"] .signifier-example img {
 
 /* 50 cells, one per ward; the filled ones have a resident nomination. Violet,
    not orange, because orange means "behind" everywhere else on the site. */
-body[data-page="about"] .ward-grid {
+body[data-page="support"] .ward-grid {
   display: grid;
   gap: 4px;
   grid-template-columns: repeat(auto-fill, minmax(34px, 1fr));
   margin-top: 16px;
 }
 
-body[data-page="about"] .ward-cell {
+body[data-page="support"] .ward-cell {
   align-items: center;
   background: #f4f5f8;
   border-radius: 7px;
@@ -648,14 +648,14 @@ body[data-page="about"] .ward-cell {
   min-height: 32px;
 }
 
-body[data-page="about"] .ward-cell.is-nominated {
+body[data-page="support"] .ward-cell.is-nominated {
   background: var(--k3-hue-bright);
   color: #fff;
 }
 
-body[data-page="about"] .about-progress-count { color: var(--k3-hue); }
+body[data-page="support"] .about-progress-count { color: var(--k3-hue); }
 
-body[data-page="about"] .about-progress {
+body[data-page="support"] .about-progress {
   align-items: baseline;
   display: flex;
   flex-wrap: wrap;
@@ -663,20 +663,20 @@ body[data-page="about"] .about-progress {
   margin-top: 18px;
 }
 
-body[data-page="about"] .about-progress-count {
+body[data-page="support"] .about-progress-count {
   font-size: 32px;
   font-variant-numeric: tabular-nums;
   font-weight: 800;
   letter-spacing: -0.025em;
 }
 
-body[data-page="about"] .about-progress-of,
-body[data-page="about"] .about-progress-note {
+body[data-page="support"] .about-progress-of,
+body[data-page="support"] .about-progress-note {
   color: var(--k3-soft);
   font-size: 12.5px;
 }
 
-body[data-page="about"] .about-progress-bar {
+body[data-page="support"] .about-progress-bar {
   background: var(--k3-hair);
   border-radius: 99px;
   flex: 0 0 100%;
@@ -684,7 +684,7 @@ body[data-page="about"] .about-progress-bar {
   overflow: hidden;
 }
 
-body[data-page="about"] .about-progress-bar > * {
+body[data-page="support"] .about-progress-bar > * {
   background: var(--k3-hue-bright);
   display: block;
   height: 100%;
@@ -692,9 +692,9 @@ body[data-page="about"] .about-progress-bar > * {
 
 /* ---------- the catalog growth chart ---------- */
 
-body[data-page="about"] .about-metric-growth { margin-top: 18px; }
+body[data-page="support"] .about-metric-growth { margin-top: 18px; }
 
-body[data-page="about"] .about-growth-head {
+body[data-page="support"] .about-growth-head {
   align-items: baseline;
   display: flex;
   flex-wrap: wrap;
@@ -702,16 +702,16 @@ body[data-page="about"] .about-growth-head {
   justify-content: space-between;
 }
 
-body[data-page="about"] .about-growth-axis {
+body[data-page="support"] .about-growth-axis {
   color: var(--k3-soft);
   font-size: 11.5px;
   margin-top: 8px;
   max-width: 58ch;
 }
 
-body[data-page="about"] .about-growth-plot { margin-top: 14px; position: relative; }
+body[data-page="support"] .about-growth-plot { margin-top: 14px; position: relative; }
 
-body[data-page="about"] .about-sparkline {
+body[data-page="support"] .about-sparkline {
   display: block;
   height: auto;
   overflow: visible;
@@ -719,19 +719,19 @@ body[data-page="about"] .about-sparkline {
 }
 
 /* grid and axes stay recessive, they orient rather than compete */
-body[data-page="about"] .spark-grid { stroke: #eceef2; stroke-width: 1; }
-body[data-page="about"] .spark-tick { stroke: #f3f4f7; stroke-width: 1; }
+body[data-page="support"] .spark-grid { stroke: #eceef2; stroke-width: 1; }
+body[data-page="support"] .spark-tick { stroke: #f3f4f7; stroke-width: 1; }
 
-body[data-page="about"] .spark-ylab,
-body[data-page="about"] .spark-xlab {
+body[data-page="support"] .spark-ylab,
+body[data-page="support"] .spark-xlab {
   fill: #9aa0ab;
   font-size: 11px;
   font-variant-numeric: tabular-nums;
 }
 
-body[data-page="about"] .spark-area { fill: rgb(76 29 149 / 8%); }
+body[data-page="support"] .spark-area { fill: rgb(76 29 149 / 8%); }
 
-body[data-page="about"] .spark-line {
+body[data-page="support"] .spark-line {
   stroke: var(--k3-hue);
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -739,16 +739,16 @@ body[data-page="about"] .spark-line {
 }
 
 /* only the days that added a real batch carry a marker */
-body[data-page="about"] .spark-dot.is-add {
+body[data-page="support"] .spark-dot.is-add {
   fill: #fff;
   stroke: var(--k3-hue);
   stroke-width: 2;
 }
 
-body[data-page="about"] .spark-now-halo { fill: #fff; }
-body[data-page="about"] .spark-now { fill: var(--k3-hue); }
+body[data-page="support"] .spark-now-halo { fill: #fff; }
+body[data-page="support"] .spark-now { fill: var(--k3-hue); }
 
-body[data-page="about"] .spark-nowlab {
+body[data-page="support"] .spark-nowlab {
   fill: var(--k3-hue);
   font-size: 15px;
   font-variant-numeric: tabular-nums;
@@ -757,24 +757,24 @@ body[data-page="about"] .spark-nowlab {
 
 /* crosshair on hover. SVG has no `hidden` attribute of its own, so the
    attribute selector is what actually takes it off screen. */
-body[data-page="about"] .spark-cursor[hidden] { display: none; }
+body[data-page="support"] .spark-cursor[hidden] { display: none; }
 
-body[data-page="about"] .spark-cursor-rule {
+body[data-page="support"] .spark-cursor-rule {
   stroke: var(--k3-hue);
   stroke-dasharray: 3 3;
   stroke-width: 1;
 }
 
-body[data-page="about"] .spark-cursor-dot {
+body[data-page="support"] .spark-cursor-dot {
   fill: var(--k3-hue);
   stroke: #fff;
   stroke-width: 2;
 }
 
 /* invisible hover targets spanning the plot height */
-body[data-page="about"] .spark-band { fill: transparent; }
+body[data-page="support"] .spark-band { fill: transparent; }
 
-body[data-page="about"] .spark-tip {
+body[data-page="support"] .spark-tip {
   background: var(--k3-ink);
   border-radius: 8px;
   color: #fff;
@@ -788,15 +788,15 @@ body[data-page="about"] .spark-tip {
   z-index: 3;
 }
 
-body[data-page="about"] .spark-tip.below { transform: translate(-50%, 14px); }
-body[data-page="about"] .spark-tip-date { color: rgb(255 255 255 / 62%); font-size: 10.5px; }
-body[data-page="about"] .spark-tip-head { font-weight: 650; }
-body[data-page="about"] .spark-tip-empty { color: rgb(255 255 255 / 72%); }
+body[data-page="support"] .spark-tip.below { transform: translate(-50%, 14px); }
+body[data-page="support"] .spark-tip-date { color: rgb(255 255 255 / 62%); font-size: 10.5px; }
+body[data-page="support"] .spark-tip-head { font-weight: 650; }
+body[data-page="support"] .spark-tip-empty { color: rgb(255 255 255 / 72%); }
 
-body[data-page="about"] .about-metric-now { color: var(--k3-hue); font-weight: 700; }
-body[data-page="about"] .about-error { color: var(--k3-warm); font-size: 12.5px; }
+body[data-page="support"] .about-metric-now { color: var(--k3-hue); font-weight: 700; }
+body[data-page="support"] .about-error { color: var(--k3-warm); font-size: 12.5px; }
 
 @media (max-width: 640px) {
-  body[data-page="about"] .support-cta-heading { grid-template-columns: minmax(0, 1fr); }
-  body[data-page="about"] .support-cta { justify-self: start; }
+  body[data-page="support"] .support-cta-heading { grid-template-columns: minmax(0, 1fr); }
+  body[data-page="support"] .support-cta { justify-self: start; }
 }

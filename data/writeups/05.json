@@ -35,10 +35,9 @@
   ],
   "news_status": "found",
   "alderperson": {
-    "name": "Desmon C. Yancy",
-    "website_url": null,
-    "verified": false,
-    "verification_note": "wards.json listed no site for this ward. The domain long associated with the office, 5thwardchicago.org, was fetched this session (both the homepage and /the-alderman/) and now redirects to a GoDaddy domain-parking page, not to anything naming Yancy. The city's ward directory page at chicago.gov/city/en/about/wards/05.html, fetched this session, confirms 'Desmon C. Yancy' as the 5th Ward alderperson but does not link to a personal or office site. His Facebook page, facebook.com/AlderYancy5, was also fetched and displays his name and title but nothing that reads as an independent verification of official status. No current, verifiable official website was found, so this field is left blank rather than pointing to a dead or unconfirmed link."
+    "website_url": "https://www.chicago.gov/city/en/about/wards/05.html",
+    "verified": true,
+    "verification_note": "No standalone ward office site exists for Ward 5. This is the City of Chicago's official ward directory page, confirmed live and naming Alderman Desmon C. Yancy for Ward 5."
   },
   "sources_fetched": [
     "https://5thwardchicago.org/the-alderman/",

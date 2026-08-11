@@ -424,7 +424,7 @@
 
     el.headline.innerHTML = overall
       ? "Ward " + Number(state.wardId) + " ranks " +
-        '<span class="count">' + ordinal(overall.rank) + "</span> of 50 in Chicago today."
+        '<span class="count">' + ordinal(overall.rank) + "</span> of " + (state.wards.length || 50) + " in Chicago today."
       : "Ward " + Number(state.wardId) + " today.";
 
     el.subhead.textContent =

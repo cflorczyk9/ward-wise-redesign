@@ -150,6 +150,17 @@ def main() -> int:
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
 
+    # Keep report.html's hand-written quarter strings in step with QUARTER, so
+    # next quarter's build cannot leave a stale tab title or placeholder.
+    page = HERE / "report.html"
+    if page.exists():
+        html = page.read_text()
+        html = re.sub(r"<title>Ward Wise Quarterly — [^<]+</title>",
+                      f"<title>Ward Wise Quarterly — {QUARTER}</title>", html)
+        html = re.sub(r'(<p class="report-kicker" id="quarter">)[^<]*(</p>)',
+                      rf"\g<1>{QUARTER}\g<2>", html)
+        page.write_text(html)
+
     print(f"wrote {OUT.relative_to(HERE)}  ({QUARTER}, {WINDOW[0]} to {WINDOW[1]})")
     print(f"  {50 - len(missing)}/50 wards have a write-up")
     print(f"  {with_news}/50 wards have at least one verified news item")

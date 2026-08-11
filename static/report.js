@@ -140,7 +140,7 @@
       '<section class="ward" id="ward-' + ward.ward_id + '">' +
       '<div class="ward-head">' +
       '<span class="ward-num">Ward ' + ward.ward_number + "</span>" +
-      (overall.rank ? '<span class="ward-rank">' + ordinal(overall.rank) + " of 50 overall</span>" : "") +
+      (overall.rank ? '<span class="ward-rank">' + ordinal(overall.rank) + " of " + (overall.of || 50) + " overall</span>" : "") +
       (communities ? '<span class="ward-communities">' + text(communities) + "</span>" : "") +
       "</div>" +
       (w.headline ? "<h2>" + text(w.headline) + "</h2>" : "<h2>Ward " + ward.ward_number + "</h2>") +
@@ -204,10 +204,17 @@
       var written = ids.filter(function (id) { return report.wards[id].writeup; }).length;
       var withNews = ids.filter(function (id) { return (report.wards[id].news || []).length; }).length;
       el.provenance.textContent =
-        written + " of 50 wards written up, " + withNews + " with verified local coverage in the window. " +
+        written + " of " + ids.length + " wards written up, " + withNews + " with verified local coverage in the window. " +
         "Every linked article was retrieved when the report was compiled.";
 
       el.status.hidden = true;
+
+      // The sections render after the browser has already tried to honour a
+      // #ward-NN link, so a shared link would land at the top. Re-jump now.
+      if (location.hash) {
+        var target = document.getElementById(location.hash.slice(1));
+        if (target) target.scrollIntoView();
+      }
 
       // equation.js listens for this so it can attach to the rendered index.
       document.dispatchEvent(new CustomEvent("report:rendered", {
@@ -217,8 +224,13 @@
     .catch(function (err) {
       el.status.hidden = false;
       el.status.classList.add("error");
-      el.status.textContent =
-        "Could not load the quarterly report. " + err.message +
-        " Run build_ward_data.py then build_report.py to generate it.";
+      el.status.textContent = "Could not load the quarterly report. " +
+        ((err && err.message) || "unknown error") + " ";
+      var retry = document.createElement("button");
+      retry.type = "button";
+      retry.className = "retry";
+      retry.textContent = "Try again";
+      retry.addEventListener("click", function () { location.reload(); });
+      el.status.appendChild(retry);
     });
 })();

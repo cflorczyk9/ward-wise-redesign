@@ -313,8 +313,37 @@
         "Lincoln Park"
       ],
       "display_name": "Ward 2",
-      "news": [],
-      "news_status": "none_found",
+      "news": [
+        {
+          "date": "2026-05-28",
+          "headline": "'Teen Takeovers' Revive Chicago Debate Over Curfews And Parental Accountability",
+          "note": "Alderman Brian Hopkins leads the push for a stricter youth curfew ordinance that covers his own downtown ward and chairs the committee handling it.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/05/28/teen-takeovers-revive-chicago-debate-over-curfews-and-parental-accountability/"
+        },
+        {
+          "date": "2026-05-27",
+          "headline": "Cortland Street Bridge To Remain Open For Pedestrians, Cyclists Through Summer",
+          "note": "The ward includes the Lincoln Park side of the bridge, and Hopkins passed the ordinance requiring the city to share closure plans after the project snarled traffic.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/05/27/cortland-street-bridge-to-remain-open-for-pedestrians-cyclists-through-summer/"
+        },
+        {
+          "date": "2026-05-21",
+          "headline": "Good News For Gardeners: Native Plants On Parkways Can Grow To 36 Inches Under New City Rule",
+          "note": "Hopkins introduced the citywide ordinance after seeing the height-limit problem at a garden walk in the ward's Lincoln Park section.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/05/21/good-news-for-gardeners-native-plants-on-parkways-can-grow-to-36-inches-under-new-city-rule/"
+        },
+        {
+          "date": "2026-06-16",
+          "headline": "New Housing OK'd For Avondale, McKinley Park, Streeterville And Across From Johnny's Icehouse",
+          "note": "One of the approved projects is a hotel-to-apartment conversion at 201 E. Walton Place, which Hopkins backed as new housing stock for the neighborhood.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/06/16/new-housing-okd-for-avondale-mckinley-park-streeterville-and-across-from-johnnys-ice-house/"
+        }
+      ],
+      "news_status": "found",
       "overall": {
         "of": 50,
         "rank": 11,
@@ -1140,8 +1169,9 @@
         "name": "Desmon C. Yancy",
         "photo_url": "https://occprodstoragev1.blob.core.usgovcloudapi.net/council-profile-pictures/E0AC4B85-6AF3-ED11-A7C6-001DD804FC2B.jpg",
         "title": "Alderperson",
-        "website_url": null,
-        "website_verified": false
+        "verification_note": "No standalone ward office site exists for Ward 5. This is the City of Chicago's official ward directory page, confirmed live and naming Alderman Desmon C. Yancy for Ward 5.",
+        "website_url": "https://www.chicago.gov/city/en/about/wards/05.html",
+        "website_verified": true
       },
       "caveated_count": 162,
       "communities": [
@@ -8183,8 +8213,23 @@
         "Belmont Cragin"
       ],
       "display_name": "Ward 29",
-      "news": [],
-      "news_status": "none_found",
+      "news": [
+        {
+          "date": "2026-08-04",
+          "headline": "Austin Senior Housing In Disrepair, Residents Say: 'We Should Not Have To Live Like This'",
+          "note": "Seniors at Crestwood Apartments on North Austin Boulevard describe mold and sewage backups after failed inspections, and Alderman Taliaferro joined their rally in the ward.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/08/04/austin-senior-housing-in-disrepair-residents-say-we-should-not-have-to-live-like-this/"
+        },
+        {
+          "date": "2026-07-29",
+          "headline": "Mars Factory Overhaul Talks On Hold As Alderman Looks To 'Reset' Contentious Public Meetings",
+          "note": "Taliaferro paused public meetings on the closed Mars Wrigley factory site in Galewood after residents rejected a 479-unit housing plan, leaving redevelopment talks on hold until fall.",
+          "outlet": "Block Club Chicago",
+          "url": "https://blockclubchicago.org/2026/07/29/mars-factory-overhaul-talks-on-hold-as-alderman-looks-to-reset-contentious-public-meetings/"
+        }
+      ],
+      "news_status": "found",
       "overall": {
         "of": 50,
         "rank": 38,

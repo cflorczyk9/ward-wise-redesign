@@ -343,8 +343,13 @@
     .catch(function (err) {
       el.status.hidden = false;
       el.status.classList.add("error");
-      el.status.textContent =
-        "Could not load the menu money report. " + err.message +
-        " Check that data/menu.json exists.";
+      el.status.textContent = "Could not load the menu money report. " +
+        ((err && err.message) || "unknown error") + " ";
+      var retry = document.createElement("button");
+      retry.type = "button";
+      retry.className = "retry";
+      retry.textContent = "Try again";
+      retry.addEventListener("click", function () { location.reload(); });
+      el.status.appendChild(retry);
     });
 })();

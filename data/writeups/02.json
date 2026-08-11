@@ -3,8 +3,37 @@
   "headline": "Ward 2 tops the city for living alone and for trading favors with neighbors.",
   "summary": "Living alone is more common in Ward 2 than in any other ward in Chicago, just under six in ten households hold a single resident. That figure is a straight census count. The ward also ranks first for adults who trade favors with their neighbors at least monthly, and that one is a modeled estimate built on a national civic-engagement survey. The two never touch each other's data and still land in the same place. Someone without another person in the apartment has more reason to lean on whoever lives next door. The ward's worst-in-the-city rate of child-care centers is measured against total residents, and a ward this heavy with single-person households has fewer children in that population to begin with.\n\nTwo of the ward's worst scores measure the same pollution from two directions. The air-toxics hazard index and the modeled cancer-risk figure, about 33 cases per million from those same air toxics, both come from the same cumulative-impact data on the same pollutants, so a last-place finish on one predicts a last-place finish on the other rather than describing two separate problems. Winter sunlight has a simpler explanation. Ward 2's own landmark, the Olympia Centre, is a skyscraper, and Near North Side carries some of the tallest buildings in the city. Ground-level winter light reaches only about 43 percent of the ward on the solstice, second-to-last of the 50, the same shade effect that shows up wherever a ward is built mostly of towers. Street parking is scarce here for real. The ward's residential permit-zone block faces are the densest of any in the city, the kind of number that a different ranking on this page makes look like a non-issue.",
   "reading_the_rankings": "The ward's best parking score is the one most likely to fool a quick read. Parking complaints make up a smaller share of all 311 activity here than in any other ward, first place on that measure. That figure is a share of total 311 activity, so it moves for two different reasons. It falls when parking complaints shrink, and it also falls when every other kind of 311 complaint grows around it, so a low share does not by itself mean parking is easy. The harder number sits among the ward's weakest scores instead. Residential permit-zone block faces here run denser than in any other ward in the city, a direct measure of competition for each spot, and it points the opposite direction from the complaint share. The ward's perfect menu-budget score deserves the same second look. It records a decision by the alderman's office about how the ward's roughly $1.5 million in annual menu money got spent, a fact about that office rather than about the neighborhood, and sixteen other wards come close enough to that same perfect mark to call it a tie.",
-  "news": [],
-  "news_status": "none_found",
+  "news": [
+    {
+      "headline": "'Teen Takeovers' Revive Chicago Debate Over Curfews And Parental Accountability",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/05/28/teen-takeovers-revive-chicago-debate-over-curfews-and-parental-accountability/",
+      "date": "2026-05-28",
+      "note": "Alderman Brian Hopkins leads the push for a stricter youth curfew ordinance that covers his own downtown ward and chairs the committee handling it."
+    },
+    {
+      "headline": "Cortland Street Bridge To Remain Open For Pedestrians, Cyclists Through Summer",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/05/27/cortland-street-bridge-to-remain-open-for-pedestrians-cyclists-through-summer/",
+      "date": "2026-05-27",
+      "note": "The ward includes the Lincoln Park side of the bridge, and Hopkins passed the ordinance requiring the city to share closure plans after the project snarled traffic."
+    },
+    {
+      "headline": "Good News For Gardeners: Native Plants On Parkways Can Grow To 36 Inches Under New City Rule",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/05/21/good-news-for-gardeners-native-plants-on-parkways-can-grow-to-36-inches-under-new-city-rule/",
+      "date": "2026-05-21",
+      "note": "Hopkins introduced the citywide ordinance after seeing the height-limit problem at a garden walk in the ward's Lincoln Park section."
+    },
+    {
+      "headline": "New Housing OK'd For Avondale, McKinley Park, Streeterville And Across From Johnny's Icehouse",
+      "outlet": "Block Club Chicago",
+      "url": "https://blockclubchicago.org/2026/06/16/new-housing-okd-for-avondale-mckinley-park-streeterville-and-across-from-johnnys-ice-house/",
+      "date": "2026-06-16",
+      "note": "One of the approved projects is a hotel-to-apartment conversion at 201 E. Walton Place, which Hopkins backed as new housing stock for the neighborhood."
+    }
+  ],
+  "news_status": "found",
   "alderperson": {
     "name": "Brian Hopkins",
     "website_url": "https://www.aldermanhopkins.com/",
@@ -12,6 +41,10 @@
     "verification_note": "Fetched https://www.aldermanhopkins.com/ this session. The homepage header reads \"2nd Ward Alderman Brian Hopkins | Constituent Service\" and repeats his name and role through the navigation and site content."
   },
   "sources_fetched": [
+    "https://blockclubchicago.org/2026/05/21/good-news-for-gardeners-native-plants-on-parkways-can-grow-to-36-inches-under-new-city-rule/",
+    "https://blockclubchicago.org/2026/05/27/cortland-street-bridge-to-remain-open-for-pedestrians-cyclists-through-summer/",
+    "https://blockclubchicago.org/2026/05/28/teen-takeovers-revive-chicago-debate-over-curfews-and-parental-accountability/",
+    "https://blockclubchicago.org/2026/06/16/new-housing-okd-for-avondale-mckinley-park-streeterville-and-across-from-johnnys-ice-house/",
     "https://www.aldermanhopkins.com/"
   ]
 }
