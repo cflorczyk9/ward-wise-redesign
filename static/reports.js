@@ -45,6 +45,8 @@
     changeNote: document.getElementById("change-note"),
     rowsBetter: document.getElementById("rows-better"),
     rowsWorse: document.getElementById("rows-worse"),
+    rowsOffice: document.getElementById("rows-office"),
+    officeChanges: document.getElementById("office-changes"),
     excluded: document.getElementById("excluded"),
     excludedNote: document.getElementById("excluded-note"),
     provenance: document.getElementById("provenance"),
@@ -149,19 +151,27 @@
       var raw = toValue - fromValue;
       return (raw >= 0 ? "+" : "−") + formatValue(Math.abs(raw), unit);
     }
-    var shown = Math.abs(pct) >= 10 ? Math.round(Math.abs(pct)) : Math.abs(pct).toFixed(1);
+    var shown = Math.abs(pct) >= 100 ? Math.round(Math.abs(pct)) : Math.abs(pct).toFixed(1);
     return (pct >= 0 ? "+" : "−") + shown + "%";
   }
 
   // ---- sparkline -------------------------------------------------------
 
-  function sparkline(points, isBetter) {
+  function sparkline(points, tone) {
     var W = 68, H = 22, PAD = 2;
     if (points.length < 2) return "";
 
     var values = points.map(function (p) { return p.value; });
     var lo = Math.min.apply(null, values);
     var hi = Math.max.apply(null, values);
+    // A floor on the y-domain, so a wobble of a few percent renders nearly
+    // flat instead of stretching to fill the full height like a real swing.
+    var minSpan = 0.12 * Math.max(Math.abs(hi), Math.abs(lo));
+    if (hi - lo < minSpan) {
+      var mid = (hi + lo) / 2;
+      lo = mid - minSpan / 2;
+      hi = mid + minSpan / 2;
+    }
     var span = hi - lo || 1;
     var firstYear = points[0].year;
     var yearSpan = points[points.length - 1].year - firstYear || 1;
@@ -177,7 +187,8 @@
     }).join(" ");
 
     var last = coords[coords.length - 1];
-    var stroke = isBetter ? "var(--better)" : "var(--worse)";
+    var stroke = tone === "neutral" ? "var(--ink-soft)"
+      : tone === "better" ? "var(--better)" : "var(--worse)";
 
     return (
       '<svg class="spark" width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + " " + H + '" aria-hidden="true">' +
@@ -214,6 +225,7 @@
       (metricsPayload.metrics || []).forEach(function (metric) {
         state.metrics[metric.metric_id] = metric;
       });
+      state.coverage = metricsPayload.coverage || {};
 
       state.wards = (wardsPayload.wards || []).slice().sort(function (a, b) {
         return Number(a.ward_id) - Number(b.ward_id);
@@ -238,6 +250,43 @@
   // year would otherwise read as down 100 percent.
   var CURRENT_YEAR = new Date().getFullYear();
 
+  // Measures that record what the ward office did with its own budget, not
+  // what the ward is like. They are shown without a better/worse verdict,
+  // matching the standard the Quarterly applies to the same measures.
+  var OFFICE_METRIC = /^menu_|^council_attendance_pct$|^nonroutine_bills_sponsored_current_session$|^participatory_budgeting$/;
+
+  // The 311 clocks jump in lockstep citywide (2015, 2017, 2018, 2019, and
+  // again later) by amounts no set of neighborhoods produces together, so the
+  // measurement changed, not the service. A trend read off any two years is a
+  // statement about the measurement eras it happens to span.
+  var UNSTABLE_METRIC = /^c311_/;
+
+  // A bounded score is not a quantity; "+62%" on a diversity score misleads
+  // where "up 9.8 points" informs. These units always show the raw movement.
+  var BOUNDED_UNIT = /score|index|rating/i;
+
+  function allocationOf(metricId) {
+    var cov = (state.coverage || {})[metricId] || {};
+    return String(((cov.latest_metadata || {}).allocation_method) || "");
+  }
+
+  // Business-license measures are dated by license expiration, so their
+  // newest rows sit in the future. Dropping the current year is not enough
+  // for them; the last retained year comes off the same forward-dated stock
+  // snapshot, so it goes too.
+  function isForwardStamped(metricId) {
+    var cov = (state.coverage || {})[metricId] || {};
+    return allocationOf(metricId) === "license_ward_field" &&
+      String(cov.latest_period_end || "") > new Date().toISOString().slice(0, 10);
+  }
+
+  function isMonotonicNonDecreasing(points) {
+    for (var i = 1; i < points.length; i++) {
+      if (points[i].value < points[i - 1].value) return false;
+    }
+    return true;
+  }
+
   // Several measures were phased in rather than switched on, so their first
   // years are the collection ramping up and not the world changing. Chicago's
   // crash reporting is the clearest case: ward 42 reads 30 injuries in 2015,
@@ -257,12 +306,21 @@
   function trimRampIn(points) {
     if (points.length < 4) return { points: points, droppedTo: null };
 
+    // A series that only ever rises is a real slow trend or a register, not a
+    // collection ramp. Trimming it would delete decades of genuine history
+    // (landmark designations, TIF increments growing by design), so leave it
+    // alone; registers get their own flag downstream.
+    if (isMonotonicNonDecreasing(points)) return { points: points, droppedTo: null };
+
     var cut = 0;
     while (points.length - cut >= 3) {
       var later = points.slice(cut + 1).map(function (p) { return Math.abs(p.value); });
       var reference = median(later);
       if (!reference) break;
-      if (Math.abs(points[cut].value) < reference * 0.5) cut += 1;
+      // 0.6, not 0.5: a 50-ward check showed onset years settling one point
+      // later than the old cutoff caught (crash counts at 49%, Divvy's
+      // partial first season at 54% of the later median).
+      if (Math.abs(points[cut].value) < reference * 0.6) cut += 1;
       else break;
     }
 
@@ -275,6 +333,7 @@
     var years = {};
     var rampIn = {};
     var partialDropped = 0;
+    var forwardDropped = 0;
 
     (payload.timeseries || []).forEach(function (entry) {
       var byYear = {};
@@ -295,6 +354,11 @@
         .map(function (year) { return { year: Number(year), value: byYear[year].value }; })
         .sort(function (a, b) { return a.year - b.year; });
 
+      if (points.length && isForwardStamped(entry.metric_id)) {
+        points.pop();
+        forwardDropped += 1;
+      }
+
       var trimmed = trimRampIn(points);
       if (trimmed.points.length) {
         series[entry.metric_id] = trimmed.points;
@@ -305,6 +369,7 @@
     state.series = series;
     state.rampIn = rampIn;
     state.partialDropped = partialDropped;
+    state.forwardDropped = forwardDropped;
     state.years = Object.keys(years).map(Number).sort(function (a, b) { return a - b; });
   }
 
@@ -473,10 +538,24 @@
     var last = inWindow[inWindow.length - 1];
     if (first.year === last.year) return null;
 
-    var meta = state.metrics[metricId] || {};
+    var meta = state.metrics[metricId];
+    var unit = String((meta || {}).unit || "").toLowerCase();
     var delta = last.value - first.value;
     var base = Math.abs(first.value);
-    var pct = base > 0.0001 ? (delta / base) * 100 : null;
+
+    // A series with no dictionary entry has no direction; guessing one turned
+    // a rising depression rate green. Those render in the excluded note, not
+    // in a verdict column. Office-budget and 311 measures get their own
+    // treatment for the reasons on their constants above.
+    var kind = !meta ? "undefined"
+      : OFFICE_METRIC.test(metricId) ? "office"
+      : UNSTABLE_METRIC.test(metricId) ? "unstable"
+      : "trend";
+    meta = meta || {};
+
+    // Percent change on a bounded score misleads; those show raw movement.
+    var usePct = !BOUNDED_UNIT.test(unit);
+    var pct = usePct && base > 0.0001 ? (delta / base) * 100 : null;
     var lowerIsBetter = String(meta.direction || "higher") === "lower";
     var improved = lowerIsBetter ? delta < 0 : delta > 0;
 
@@ -485,25 +564,55 @@
     // would outrank the poverty rate falling three points. Flag those, and
     // rank them below everything else, rather than letting them lead.
     //
-    // Both halves of the test matter. A small denominator only distorts when
-    // it produces a big percent, so 91 permits becoming 107 is an ordinary
-    // +18% and is left alone even though the series peaks far above 91.
+    // Two tests, either is enough when the percent is big. The relative one
+    // catches a series starting far below its own peak. The absolute one
+    // catches a series that lives entirely in single digits, where the ratio
+    // test goes blind: one gym becoming two per ten thousand residents is
+    // "+133%" with a perfectly healthy base-to-peak ratio.
     var peak = Math.max.apply(null, inWindow.map(function (p) { return Math.abs(p.value); }));
-    var thinBase = peak > 0 && base / peak < 0.25;
-    var lowStart = pct === null || (thinBase && Math.abs(pct) >= 100);
+    var thinBase = peak > 0 && base / peak < 0.5;
+    var absFloor =
+      unit.indexOf("count") > -1 || unit === "units" ? base < 10 :
+      unit.indexOf("10") > -1 ? base < 5 :
+      unit.indexOf("percent") > -1 ? base < 2 : false;
+    var zeroBase = usePct && base <= 0.0001;
+    var lowStart = zeroBase ||
+      (pct !== null && Math.abs(pct) >= 40 && (thinBase || absFloor));
     var magnitude = pct === null ? Math.abs(delta) : Math.abs(pct);
+
+    // A count that only ever rises is a register. Its "change" is
+    // accumulation, so it carries a flag and sorts with the low starts.
+    var cumulative = (unit.indexOf("count") > -1 || unit === "units") &&
+      inWindow.length >= 5 && delta > 0 && isMonotonicNonDecreasing(inWindow);
+
+    // "Changed" implies recent movement. If the series has sat still for
+    // five-plus years, say when the movement actually happened.
+    var staleSince = null;
+    var i = inWindow.length - 1;
+    while (i > 0 && inWindow[i - 1].value === last.value) i -= 1;
+    if (i > 0 && last.year - inWindow[i].year >= 5) staleSince = inWindow[i].year;
+
+    // Ward-stamped records changed shape with the 2023 boundary redraw, so a
+    // window spanning it compares two differently shaped wards.
+    var alloc = allocationOf(metricId);
+    var redraw = (alloc === "license_ward_field" || alloc === "direct_ward") &&
+      first.year <= 2022 && last.year >= 2023;
 
     return {
       metricId: metricId,
       meta: meta,
+      kind: kind,
       points: inWindow,
       from: first,
       to: last,
       delta: delta,
       pct: pct,
       improved: improved,
-      flat: delta === 0,
+      flat: delta === 0 || (pct !== null && Math.abs(pct) < 0.05),
       lowStart: lowStart,
+      cumulative: cumulative,
+      staleSince: staleSince,
+      redraw: redraw,
       magnitude: magnitude,
     };
   }
@@ -564,10 +673,12 @@
     });
   }
 
-  function renderRow(change) {
+  function renderRow(change, neutral) {
     var meta = change.meta;
     var li = document.createElement("li");
-    li.className = "row " + (change.improved ? "better" : "worse") + (change.lowStart ? " low-start" : "");
+    li.className = neutral
+      ? "row office-row"
+      : "row " + (change.improved ? "better" : "worse") + (change.lowStart ? " low-start" : "");
 
     var label = meta.label || titleCase(change.metricId);
     var deltaText = formatChange(change.pct, change.from.value, change.to.value, meta.unit);
@@ -578,6 +689,9 @@
       formatValue(change.from.value, meta.unit) + " → " + formatValue(change.to.value, meta.unit) +
       '<span class="row-years"> · ' + change.from.year + "–" + change.to.year + "</span>" +
       (change.lowStart ? '<span class="row-flag"> low start</span>' : "") +
+      (change.cumulative ? '<span class="row-flag"> running register</span>' : "") +
+      (change.staleSince ? '<span class="row-flag"> unchanged since ' + change.staleSince + "</span>" : "") +
+      (change.redraw ? '<span class="row-flag"> spans the 2023 redraw</span>' : "") +
       (state.rampIn[change.metricId] > state.fromYear
         ? '<span class="row-flag"> data begins ' + state.rampIn[change.metricId] + "</span>"
         : "");
@@ -590,7 +704,8 @@
       '<span class="row-label">' + label +
       '<span class="row-cat">' + titleCase(meta.category || "other") + "</span>" +
       '<span class="row-pair">' + pair + "</span></span>" +
-      '<span class="row-right">' + sparkline(change.points, change.improved) +
+      '<span class="row-right">' +
+      sparkline(change.points, neutral ? "neutral" : change.improved ? "better" : "worse") +
       '<span class="row-delta">' + deltaText + "</span></span>";
 
     var detail = document.createElement("div");
@@ -606,7 +721,15 @@
         ? "<dt>Trimmed</dt><dd>earlier years dropped, this measure was still being " +
           "phased in until " + state.rampIn[change.metricId] + "</dd>"
         : "") +
-      "<dt>Better when</dt><dd>" + (meta.direction === "lower" ? "lower" : "higher") + "</dd>" +
+      (change.redraw
+        ? "<dt>Boundaries</dt><dd>this record is stamped with a ward number at collection " +
+          "time, and ward boundaries were redrawn in 2023, so the two ends of this " +
+          "comparison describe differently shaped wards</dd>"
+        : "") +
+      (neutral
+        ? "<dt>Read as</dt><dd>a choice made by the ward office, not a condition of " +
+          "the neighborhood</dd>"
+        : "<dt>Better when</dt><dd>" + (meta.direction === "lower" ? "lower" : "higher") + "</dd>") +
       "</dl>" +
       (meta.description ? '<p class="desc">' + meta.description + "</p>" : "") +
       (meta.source ? '<p class="src">Source: ' + meta.source + "</p>" : "");
@@ -626,17 +749,27 @@
     if (!state.wardId) return;
 
     var all = Object.keys(state.series).map(changeFor).filter(Boolean);
-    renderFilters(all);
 
-    var moved = all.filter(function (change) {
+    var trends = all.filter(function (change) { return change.kind === "trend"; });
+    var office = all.filter(function (change) { return change.kind === "office" && !change.flat; });
+    var unstable = all.filter(function (change) { return change.kind === "unstable"; });
+    var undefinedCount = all.filter(function (change) { return change.kind === "undefined"; }).length;
+
+    renderFilters(trends);
+
+    var moved = trends.filter(function (change) {
       if (change.flat) return false;
       if (state.categories.size === 0) return true;
       return state.categories.has(change.meta.category || "other");
     });
+    var flatCount = trends.filter(function (change) { return change.flat; }).length;
 
-    // Solid bases first, then by how far the measure moved.
+    // Solid bases first, then by how far the measure moved. A register's
+    // accumulation is demoted the same way a low start is.
     moved.sort(function (a, b) {
-      if (a.lowStart !== b.lowStart) return a.lowStart ? 1 : -1;
+      var aDemoted = a.lowStart || a.cumulative;
+      var bDemoted = b.lowStart || b.cumulative;
+      if (aDemoted !== bDemoted) return aDemoted ? 1 : -1;
       return b.magnitude - a.magnitude;
     });
 
@@ -651,30 +784,47 @@
     if (!better.length) el.rowsBetter.innerHTML = '<li class="row"><div class="row-head">Nothing in this window.</div></li>';
     if (!worse.length) el.rowsWorse.innerHTML = '<li class="row"><div class="row-head">Nothing in this window.</div></li>';
 
+    office.sort(function (a, b) { return b.magnitude - a.magnitude; });
+    el.rowsOffice.innerHTML = "";
+    office.forEach(function (change) { el.rowsOffice.appendChild(renderRow(change, true)); });
+    el.officeChanges.hidden = !office.length;
+
     el.changeNote.textContent =
-      "Only " + moved.length + " of " + Object.keys(state.metrics).length + " measures have enough " +
-      "usable history to compare " + state.fromYear + " to " + state.toYear + ". " +
-      better.length + " moved the right way, " + worse.length + " moved the wrong way. " +
-      "Treat this section as weaker evidence than the standings above.";
+      moved.length + " measures moved between their earliest and latest readings inside this " +
+      "window; the anchor years vary by measure and are printed on each row. " +
+      better.length + " moved the right way, " + worse.length + " moved the wrong way, and " +
+      flatCount + " held flat. Treat this section as weaker evidence than the standings above.";
 
     el.change.hidden = false;
     el.results.hidden = false;
 
-    var tracked = Object.keys(state.series).length;
-    var noHistory = Object.keys(state.metrics).length - all.length;
+    var defined = Object.keys(state.metrics).length;
+    var insufficient = defined - trends.length - office.length - unstable.length;
     var lowStartCount = moved.filter(function (change) { return change.lowStart; }).length;
 
     el.excludedNote.textContent =
-      noHistory + " of " + Object.keys(state.metrics).length + " metrics are not ranked, because the API " +
-      "holds a single dated reading for them in this ward and there is no change to report yet. " +
-      tracked + " metrics carry at least one dated observation. " +
-      state.partialDropped + " readings dated " + CURRENT_YEAR + " were dropped, because that year is " +
-      "still in progress and comparing a part-year against full years invents change that has not " +
-      "happened. " +
+      "Of " + defined + " defined measures, " + insufficient + " lack two usable readings " +
+      "inside this window, from having no dated history at all up to having one reading. " +
+      unstable.length + " track the 311 request system, whose measurement changed repeatedly " +
+      "citywide (synchronized jumps in 2015, 2017, 2018 and 2019 across wards), so a trend " +
+      "read across those years describes the measurement, not the ward, and they are left out. " +
+      (undefinedCount
+        ? (undefinedCount === 1
+            ? "1 more series carries no dictionary definition, so which direction is " +
+              "better cannot be known and it is left out too. "
+            : undefinedCount + " more series carry no dictionary definition, so which " +
+              "direction is better cannot be known and they are left out too. ")
+        : "") +
+      state.partialDropped + " readings dated " + CURRENT_YEAR + " were dropped, because that " +
+      "year is still in progress. " +
+      (state.forwardDropped
+        ? state.forwardDropped + " newest license readings were dropped as well, because " +
+          "license records are dated by expiration and sit ahead of today. "
+        : "") +
       (lowStartCount
-        ? lowStartCount + " measures are marked low start and sorted last. They begin near the bottom " +
-          "of their own range, which inflates the percentage into something technically true and not " +
-          "very informative."
+        ? lowStartCount + " measures are marked low start and sorted last. They begin near the " +
+          "bottom of their own range or from a small base, which inflates the percentage into " +
+          "something technically true and not very informative."
         : "");
     el.excluded.hidden = false;
 

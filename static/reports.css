@@ -228,6 +228,10 @@ body { margin: 0; background: #fff; }
   font-style: italic;
 }
 
+/* Flags follow the year range and each other; the dot keeps them separable
+   when a row carries more than one. */
+.row-flag::before { content: "· "; font-style: normal; }
+
 .row.low-start .row-delta { opacity: 0.62; font-weight: 560; }
 
 .row-right { display: flex; align-items: center; gap: 0.7rem; }
@@ -304,3 +308,26 @@ footer .fine { color: var(--ink-faint); font-size: 0.78rem; }
   outline: 2px solid var(--brand);
   outline-offset: -2px;
 }
+
+/* ---- office-budget changes (no verdict) -------------------------------- */
+
+.office-changes { margin-top: 2rem; }
+
+.office-changes h2 {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 620;
+  margin: 0 0 0.4rem;
+}
+
+.office-note {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  max-width: 46rem;
+  margin: 0 0 1rem;
+}
+
+.office-row .row-delta { color: var(--ink); }
