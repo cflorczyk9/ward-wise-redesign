@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ward Wise Menu Money by Ward</title>
+<meta name="description" content="How each Chicago ward's aldermanic office spends its annual menu money on streets, lighting, sidewalks, alleys, parks, cameras, schools, and bike and pedestrian projects, ward by ward.">
+<link rel="icon" href="static/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="static/styles.css">
+<link rel="stylesheet" href="static/k3-shell.css">
+<link rel="stylesheet" href="static/reports.css">
+<link rel="stylesheet" href="static/report.css">
+<link rel="stylesheet" href="static/menu.css">
+</head>
+<body data-page="menu">
+
+    <header class="site-header">
+      <a class="site-brand" href="index.html" aria-label="Ward Wise Penlight home">
+        <span class="brand-mark" aria-hidden="true">
+          <img class="brand-logo" src="static/logo.svg" alt=""
+               width="64" height="64">
+        </span>
+        <span class="brand-copy">
+          <span class="brand-kicker">Ward Wise</span>
+          <span class="brand-name">Penlight</span>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a class="nav-link" href="index.html">Explore</a>
+        <a class="nav-link" href="reports.html">Reports</a>
+        <a class="nav-link" href="report.html">Quarterly</a>
+        <a class="nav-link is-active" href="menu.html">Menu money</a>
+        <a class="nav-link" href="dictionary.html">Dictionary</a>
+        <a class="nav-link" href="support.html">Support</a>
+      </nav>
+    </header>
+
+<main class="k3-page report-page menu-page">
+
+  <section class="report-masthead">
+    <p class="report-kicker">Ward by ward</p>
+    <h1>All fifty wards, and how each office spends its menu money.</h1>
+    <p class="report-standfirst">
+      Chicago gives each ward's aldermanic office about $1.5 million a year for capital
+      projects in the ward, covering street resurfacing, lighting, sidewalks, alleys,
+      parks, cameras, schools, and bike and pedestrian work. Each office decides how to
+      split that money across those categories, and some let residents vote on part of
+      it through participatory budgeting. The mix on this page is a choice made inside
+      that office, not a description of the ward it serves.
+    </p>
+  </section>
+
+  <section class="report-howto">
+    <h2>How to read this</h2>
+    <div class="howto-grid">
+      <div>
+        <h3>What each percent measures</h3>
+        <p>
+          Every figure here is a share of the ward's menu budget, the portion spent on
+          that category. Ward Wise Penlight doesn't publish a project by project dollar
+          breakdown, so shares are what the data can show.
+        </p>
+      </div>
+      <div>
+        <h3>Whose decision this is</h3>
+        <p>
+          The mix of categories below is decided inside the ward's aldermanic office.
+          It doesn't describe the neighborhood's needs, wealth, or population, only how
+          one office chose to allocate its budget.
+        </p>
+      </div>
+      <div>
+        <h3>What "budget used" means</h3>
+        <p>
+          Budget used is the share of the year's menu allotment that actually got
+          committed to projects. A lower number means part of the budget sat unspent
+          that year. It says nothing about how much the ward was allotted to start.
+        </p>
+      </div>
+      <div>
+        <h3>Where the numbers come from</h3>
+        <p>
+          Every measure is defined in the Ward Wise Penlight dictionary, which spells
+          out exactly what each one counts and how it's built.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="statusbar" id="status">Loading the menu money report…</section>
+
+  <section class="menu-citywide" id="citywide" hidden>
+    <h2 class="menu-section-label">The citywide picture</h2>
+    <p class="menu-section-intro">
+      The median share each of the eight spending categories received across all fifty
+      wards, highest first.
+    </p>
+    <ol class="citywide-bars" id="citywide-bars"></ol>
+    <p class="menu-dynamic-note" id="citywide-note"></p>
+  </section>
+
+  <section class="menu-wards" id="wards-section" hidden>
+    <h2 class="menu-section-label">All fifty wards</h2>
+    <p class="menu-section-intro">
+      Wards are sorted by number by default, and selecting one opens its full mix
+      against the citywide median. Numeric column headers can also sort the table.
+    </p>
+    <div class="menu-table-wrap">
+      <table class="menu-table" id="wards-table">
+        <caption class="visually-hidden">
+          Menu money spending shares and budget used for all fifty Chicago wards, one
+          row per ward, expandable for a full per-ward breakdown.
+        </caption>
+        <thead>
+          <tr id="wards-thead-row"></tr>
+        </thead>
+        <tbody id="wards-tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="menu-further">
+    <h2 class="menu-section-label">Further reading</h2>
+    <p>
+      The <a href="https://penlight.wardwise.org/dictionary">Ward Wise Penlight
+      dictionary</a> defines exactly what each measure on this page counts. A companion
+      project, <a href="https://github.com/HarryBrisson/chicago-participatory-urbanism">Chicago
+      Participatory Urbanism</a>, follows how the participatory budgeting process is
+      playing out ward by ward.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <p>
+    Data from the <a href="https://penlight.wardwise.org">Ward Wise Penlight</a> API, a
+    <a href="https://chihacknight.org/">Chi Hack Night</a> project by Harry Brisson.
+    This is an independent reporting view built against that public API.
+  </p>
+  <p class="fine" id="provenance"></p>
+</footer>
+
+<script src="static/menu.js"></script>
+</body>
+</html>

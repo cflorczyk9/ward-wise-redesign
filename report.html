@@ -28,6 +28,7 @@
         <a class="nav-link" href="index.html">Explore</a>
         <a class="nav-link" href="reports.html">Reports</a>
         <a class="nav-link is-active" href="report.html">Quarterly</a>
+        <a class="nav-link" href="menu.html">Menu money</a>
         <a class="nav-link" href="dictionary.html">Dictionary</a>
         <a class="nav-link" href="support.html">Support</a>
       </nav>
@@ -82,6 +83,26 @@
 
   <section class="statusbar" id="status">Loading the quarterly report…</section>
 
+  <section class="report-equation" id="equation" hidden>
+    <h2>Your equation</h2>
+    <p class="equation-intro">
+      Penlight is built on the idea that there is no single answer to what makes
+      a neighbourhood good. The ranking printed below weights every measure the
+      way the site does by default. Set your own priorities here and the fifty
+      re-rank to match, using the same 0 to 100 scores the map uses.
+      <a href="https://penlight.wardwise.org/survey" rel="noopener noreferrer"
+         target="_blank">Fill in My equation on Penlight</a> and your answers
+      also count toward its citywide tally.
+    </p>
+    <form class="equation-form" id="equation-form" aria-label="Weight the wellbeing categories"></form>
+    <p class="equation-result" id="equation-result" aria-live="polite" hidden></p>
+    <p class="equation-fine">
+      With every category at Somewhat this matches the printed ranking, give or
+      take rounding ties. Good governance includes measures of the ward office
+      itself, such as how its menu budget was spent.
+    </p>
+  </section>
+
   <section class="report-index" id="index" hidden>
     <h2>The fifty</h2>
     <ol class="index-grid" id="index-grid"></ol>
@@ -100,6 +121,8 @@
   <p class="fine" id="provenance"></p>
 </footer>
 
+<script src="static/site-config.js"></script>
 <script src="static/report.js"></script>
+<script src="static/equation.js"></script>
 </body>
 </html>

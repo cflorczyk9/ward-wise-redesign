@@ -8,6 +8,9 @@
 (function () {
   "use strict";
 
+  var SITE = window.WARDWISE_SITE || {};
+  var SUPPORT_URL = SITE.support || "https://penlight.wardwise.org/about";
+
   var el = {
     status: document.getElementById("status"),
     index: document.getElementById("index"),
@@ -103,10 +106,18 @@
 
   // A real photograph of a real landmark, carrying its own credit. The credit
   // line is not optional: build_ward_data.py only passes through images that
-  // have one, and the page prints whatever it was given.
+  // have one, and the page prints whatever it was given. Ward Wise is trying
+  // to collect a resident photo for every ward, so a missing image becomes an
+  // invitation rather than a blank.
   function photoBlock(ward) {
     var p = ward.photo;
-    if (!p || !p.url) return "";
+    if (!p || !p.url) {
+      return (
+        '<p class="ward-contribute">No credited photograph represents this ward yet. ' +
+        '<a href="' + SUPPORT_URL + '" rel="noopener noreferrer" target="_blank">' +
+        "Ward Wise takes resident photo submissions</a>.</p>"
+      );
+    }
     var caption = p.learn_more
       ? '<a href="' + text(p.learn_more) + '" rel="noopener noreferrer" target="_blank">' + text(p.caption) + "</a>"
       : text(p.caption);
@@ -156,7 +167,9 @@
       '<div class="ward-news"><h3>Reported this quarter</h3>' + newsBlock(ward) + "</div>" +
 
       '<p class="ward-footnote">' + ward.caveated_count + " of " + ward.ranked_count +
-      " ranked measures in this ward carry at least one caveat.</p>" +
+      " ranked measures in this ward carry at least one caveat. See something these " +
+      'measures miss? <a href="' + SUPPORT_URL + '" rel="noopener noreferrer" ' +
+      'target="_blank">Suggest a metric to Ward Wise</a>.</p>' +
       '<a class="ward-top" href="#index">Back to the fifty</a>' +
       "</section>"
     );
@@ -195,6 +208,11 @@
         "Every linked article was retrieved when the report was compiled.";
 
       el.status.hidden = true;
+
+      // equation.js listens for this so it can attach to the rendered index.
+      document.dispatchEvent(new CustomEvent("report:rendered", {
+        detail: { wardIds: ids },
+      }));
     })
     .catch(function (err) {
       el.status.hidden = false;

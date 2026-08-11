@@ -251,9 +251,13 @@ def build() -> dict:
 
 
 def main() -> int:
+    global BASE
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--ward", help="print one ward instead of writing the file")
+    parser.add_argument("--api-base", default=BASE,
+                        help="Penlight API root, for standing this up against another city")
     args = parser.parse_args()
+    BASE = args.api_base.rstrip("/")
 
     data = build()
 

@@ -159,19 +159,51 @@ is the cheapest early warning available.
 ```
 index.html         Explore  (rendered from upstream k3.html)
 reports.html       Reports  (this project's own page)
+report.html        the Quarterly: write-ups, news, photos, your equation
+menu.html          Menu money: how each ward office spent its budget
 dictionary.html    Dictionary (rendered)
 support.html       Support    (rendered)
 static/reports.js  the report: fetch, change math, sparklines, render
 static/reports.css the report's styles; palette inherited from k3-shell.css
+static/report.js   renders the compiled quarterly (data/report.json)
+static/equation.js the your-equation panel: category weights, live re-rank
+static/menu.js     renders the menu money page (data/menu.json)
+static/site-config.js  the city constants the pages read
 static/geocode.js  browser-side address lookup, replaces the Flask routes
 static/k3*.js/css  the explorer, from upstream
 static/styles.css  upstream's base stylesheet
 build_static.py    renders upstream Jinja templates to static HTML
+build_ward_data.py per-ward facts and rankings  (data/wards.json)
+build_report.py    compiles the quarterly        (data/report.json)
+build_equation_data.py  score matrix + menu money (data/equation.json, menu.json)
 dev.py             static server + /api proxy, stdlib only
 check_api.py       contract check across both surfaces
+check_voice.py     mechanical prose rules for the write-ups
+check_sameness.py  templating detector across the fifty write-ups
 api-baseline.json  last known-good API fingerprint
 _redirects         the Netlify version of the /api proxy
 ```
+
+## Another city
+
+Penlight's support page says it is exploring Columbus, Madison, Cincinnati,
+New York, and Los Angeles. Most of this site already travels, because nothing
+in it is served: the pages are static files, and every number on them comes
+out of a build script pointed at an API.
+
+To stand it up against another city's Penlight instance:
+
+1. Point the builders at it: `python3 build_ward_data.py --api-base <url>`,
+   then `python3 build_equation_data.py --api-base <url>`, then
+   `python3 build_report.py`. Ranks, caveats, categories, and menu figures are
+   recomputed from whatever set of areas the matrix serves. A few summary
+   strings still say fifty; the ranking math does not.
+2. Update `static/site-config.js`, which holds the city name, the area noun,
+   and the Penlight URLs the pages link to.
+3. Update `_redirects` (or `dev.py`) so `/api` proxies the new host.
+4. Rewrite the editorial copy. The masthead, the how-to-read cells, and the
+   fifty write-ups are journalism about one city, kept in plain HTML and JSON
+   on purpose. The scripts move; the words are written per city.
 
 ## Status
 

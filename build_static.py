@@ -45,6 +45,7 @@ NAV = [
     ("index.html", "index", "Explore"),
     ("reports.html", "reports", "Reports"),
     ("report.html", "report", "Quarterly"),
+    ("menu.html", "menu", "Menu money"),
     ("dictionary.html", "dictionary", "Dictionary"),
     ("support.html", "about", "Support"),
 ]

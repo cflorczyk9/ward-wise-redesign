@@ -106,6 +106,132 @@
   color: #3d4048;
 }
 
+/* ---- your equation ---------------------------------------------------- */
+
+.report-equation {
+  max-width: var(--measure-wide);
+  margin: 0 auto 3rem;
+  padding: 1.6rem 0 2.2rem;
+  border-top: 1px solid var(--rule-hair);
+  border-bottom: 1px solid var(--rule-hair);
+}
+
+.report-equation h2 {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  margin: 0 0 0.6rem;
+}
+
+.equation-intro {
+  font-family: var(--serif);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  max-width: var(--measure-text);
+  margin: 0 0 1.4rem;
+}
+
+.equation-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr));
+  gap: 0.7rem 1.4rem;
+}
+
+.equation-cat {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.equation-cat legend {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0;
+  margin-bottom: 0.25rem;
+}
+
+.equation-count {
+  font-weight: 400;
+  color: var(--ink-quiet);
+  font-size: 0.72rem;
+}
+
+.equation-choices {
+  display: inline-flex;
+  border: 1px solid var(--rule-hair);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.equation-choice input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.equation-choice span {
+  display: inline-block;
+  padding: 0.28rem 0.6rem;
+  font-family: var(--sans);
+  font-size: 0.76rem;
+  color: #3d4048;
+  cursor: pointer;
+  border-right: 1px solid var(--rule-hair);
+}
+
+.equation-choice:last-child span { border-right: 0; }
+
+.equation-choice input:checked + span {
+  background: var(--rule-strong);
+  color: #fff;
+}
+
+.equation-choice input:focus-visible + span {
+  outline: 2px solid var(--rule-strong);
+  outline-offset: -2px;
+}
+
+.equation-reset {
+  align-self: end;
+  justify-self: start;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  padding: 0.4rem 0.7rem;
+  background: none;
+  border: 1px solid var(--rule-hair);
+  border-radius: 3px;
+  cursor: pointer;
+  color: #3d4048;
+}
+
+.equation-reset:hover { background: #f6f4ef; }
+
+.equation-result {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  margin: 1.2rem 0 0;
+  padding: 0.6rem 0.8rem;
+  background: #f6f4ef;
+  border-radius: 3px;
+}
+
+.equation-fine {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: var(--ink-quiet);
+  max-width: var(--measure-text);
+  margin: 0.9rem 0 0;
+}
+
+.idx-move {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.idx-move.is-up { color: #1d6b3a; }
+.idx-move.is-down { color: #8f2f2f; }
+
 /* ---- the index -------------------------------------------------------- */
 
 .report-index { padding-bottom: 2.4rem; border-bottom: 1px solid var(--rule-hair); margin-bottom: 3rem; }
@@ -400,7 +526,15 @@
 .ward-top { font-family: var(--sans); font-size: 0.73rem; text-decoration: none; }
 .ward-top:hover { text-decoration: underline; }
 
+.ward-contribute {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--ink-quiet);
+  max-width: var(--measure-text);
+  margin: 0.4rem 0 1rem;
+}
+
 @media print {
-  .site-header, .ward-top, .report-index { display: none; }
+  .site-header, .ward-top, .report-index, .report-equation { display: none; }
   .ward { break-inside: avoid-page; }
 }

@@ -1,0 +1,342 @@
+/* Ward Wise Menu Money. Extends report.css and reports.css.
+ *
+ * This page reuses the report masthead, kicker, standfirst, and howto-grid
+ * classes as-is (loaded on menu.html via report.css). Everything here is new,
+ * the citywide bar chart, the fifty-ward table, and its expandable per-ward
+ * panels. Tokens (--serif, --sans, --rule-hair, --ink-quiet, --rule-strong)
+ * come from .report-page in report.css. --k3-hue comes from :root in
+ * k3-shell.css. Nothing here redeclares them.
+ */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- shared section chrome --------------------------------------------- */
+
+.menu-citywide,
+.menu-wards,
+.menu-further {
+  max-width: var(--measure-wide);
+  margin: 0 auto 2.4rem;
+  padding: 1.4rem 0 2rem;
+  border-bottom: 1px solid var(--rule-hair);
+}
+
+.menu-further { border-bottom: 0; padding-bottom: 0; }
+
+.menu-section-label {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  font-weight: 650;
+  margin: 0 0 0.7rem;
+}
+
+.menu-section-intro {
+  font-family: var(--serif);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #3d4048;
+  max-width: 52ch;
+  margin: 0 0 1.4rem;
+}
+
+.menu-further p {
+  font-family: var(--serif);
+  font-size: 1rem;
+  line-height: 1.65;
+  max-width: var(--measure-text);
+  margin: 0;
+}
+
+.menu-further a { color: var(--k3-hue); }
+
+/* ---- citywide picture --------------------------------------------------- */
+
+.citywide-bars {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.citywide-bar-row {
+  display: grid;
+  grid-template-columns: minmax(8rem, 11rem) 1fr 3.6rem;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--rule-hair);
+}
+
+.citywide-bar-row:first-child { border-top: 1px solid var(--rule-hair); }
+
+.citywide-bar-label {
+  font-family: var(--sans);
+  font-size: 0.86rem;
+  font-weight: 560;
+}
+
+.citywide-bar-track {
+  position: relative;
+  display: block;
+  height: 0.6rem;
+  background: #f1efe9;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.citywide-bar-fill {
+  display: block;
+  height: 100%;
+  background: var(--k3-hue);
+  border-radius: 3px;
+}
+
+.citywide-bar-value {
+  font-family: var(--sans);
+  font-size: 0.84rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-quiet);
+  text-align: right;
+}
+
+.menu-dynamic-note {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #3d4048;
+  margin: 1.2rem 0 0;
+  max-width: 52ch;
+}
+
+/* ---- the fifty-ward table ------------------------------------------------ */
+
+.menu-table-wrap {
+  overflow-x: auto;
+  border-top: 1px solid var(--rule-hair);
+  border-bottom: 1px solid var(--rule-hair);
+}
+
+.menu-table {
+  width: 100%;
+  min-width: 880px;
+  border-collapse: collapse;
+  font-family: var(--sans);
+  font-size: 0.84rem;
+}
+
+.menu-table th,
+.menu-table td {
+  padding: 0.55rem 0.7rem;
+  text-align: right;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--rule-hair);
+  font-variant-numeric: tabular-nums;
+}
+
+.menu-table th:first-child,
+.menu-table td:first-child,
+.menu-table th:nth-child(2),
+.menu-table td:nth-child(2) {
+  text-align: left;
+  white-space: normal;
+}
+
+.menu-table thead th {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  position: sticky;
+  top: 0;
+  background: #fff;
+  vertical-align: bottom;
+}
+
+.sort-btn {
+  font: inherit;
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.sort-btn:hover { color: var(--k3-hue); }
+.sort-btn:focus-visible { outline: 2px solid var(--k3-hue); outline-offset: 2px; }
+
+.sort-arrow::before { content: ""; }
+
+th[aria-sort="ascending"] .sort-arrow::before { content: "▲"; font-size: 0.6rem; }
+th[aria-sort="descending"] .sort-arrow::before { content: "▼"; font-size: 0.6rem; }
+th[aria-sort="ascending"] .sort-btn,
+th[aria-sort="descending"] .sort-btn { color: var(--k3-hue); }
+
+.ward-toggle {
+  font: inherit;
+  font-family: var(--sans);
+  font-size: 0.87rem;
+  font-weight: 620;
+  color: var(--rule-strong);
+  background: none;
+  border: 0;
+  padding: 0.1rem 0;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.ward-toggle:hover { color: var(--k3-hue); }
+.ward-toggle:focus-visible { outline: 2px solid var(--k3-hue); outline-offset: 2px; }
+
+.ward-toggle-icon {
+  display: inline-block;
+  transition: transform 0.14s ease;
+  color: var(--ink-quiet);
+}
+
+.ward-toggle[aria-expanded="true"] .ward-toggle-icon { transform: rotate(90deg); }
+
+.top-cat-cell { display: table-cell; }
+.top-cat-label { display: block; font-weight: 560; }
+.top-cat-value { display: block; font-size: 0.76rem; color: var(--ink-quiet); margin-top: 0.05rem; }
+
+.ward-row:hover { background: #faf9f5; }
+
+.ward-detail-row td {
+  padding: 0;
+  border-bottom: 1px solid var(--rule-hair);
+}
+
+.ward-detail {
+  background: #f8f6f1;
+  border-left: 3px solid var(--k3-hue);
+  padding: 1.2rem 1.4rem 1.4rem;
+  white-space: normal;
+}
+
+.detail-heading {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  font-weight: 650;
+  margin: 0 0 0.8rem;
+}
+
+.detail-bars { margin-bottom: 1.4rem; max-width: 40rem; }
+
+.detail-metric { margin-bottom: 0.75rem; }
+
+.detail-metric-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.4rem 0.8rem;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  margin-bottom: 0.25rem;
+}
+
+.detail-metric-label { font-weight: 560; }
+
+.detail-metric-value {
+  font-variant-numeric: tabular-nums;
+  color: var(--rule-strong);
+  font-weight: 600;
+}
+
+.detail-metric-median {
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-weight: 400;
+  color: var(--ink-quiet);
+  font-variant-numeric: tabular-nums;
+}
+
+.detail-bar-track {
+  position: relative;
+  display: block;
+  height: 0.55rem;
+  background: #eceae5;
+  border-radius: 3px;
+}
+
+.detail-bar-fill {
+  display: block;
+  height: 100%;
+  background: var(--k3-hue);
+  border-radius: 3px;
+}
+
+.detail-bar-tick {
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  width: 2px;
+  background: var(--rule-strong);
+}
+
+.detail-stats-wrap { max-width: 40rem; }
+
+.detail-stats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem 1.6rem;
+}
+
+.detail-stats li { border-top: 1px solid var(--rule-hair); padding-top: 0.6rem; }
+
+.detail-stat-label {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.76rem;
+  color: var(--ink-quiet);
+}
+
+.detail-stat-value {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  margin-top: 0.1rem;
+}
+
+.detail-stat-desc {
+  font-family: var(--serif);
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: #3d4048;
+  margin: 0.3rem 0 0;
+}
+
+@media (max-width: 620px) {
+  .citywide-bar-row { grid-template-columns: 6.5rem 1fr 3.2rem; gap: 0.5rem; }
+  .citywide-bar-label { font-size: 0.8rem; }
+}
