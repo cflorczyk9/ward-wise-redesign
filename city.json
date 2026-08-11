@@ -1,0 +1,40 @@
+{
+  "_comment": "The single per-city source of truth. Python builders read this file directly; build_site_config.py generates static/site-config.js from it for the pages. The stamp-out guide in README.md walks every field.",
+  "city": "Chicago",
+  "state": "Illinois",
+  "area_noun": "ward",
+  "area_noun_plural": "wards",
+  "area_count": 50,
+  "office_title": "Alderperson",
+  "api_base": "https://penlight.wardwise.org",
+  "site_base": "https://penlight.wardwise.org",
+  "survey_url": "https://penlight.wardwise.org/survey",
+  "support_url": "https://penlight.wardwise.org/about",
+  "dictionary_url": "https://penlight.wardwise.org/dictionary",
+  "press_allowlist": [
+    "blockclubchicago.org",
+    "chicago.suntimes.com",
+    "suntimes.com",
+    "chicagotribune.com",
+    "chicagobusiness.com",
+    "wttw.com",
+    "news.wttw.com",
+    "chicago.gov",
+    "cityofchicago.org",
+    "chicityclerk.com",
+    "chicago.councilmatic.org",
+    "illinoispolicy.org",
+    "axios.com/local/chicago"
+  ],
+  "boundary_redraw_year": 2023,
+  "unstable_metric_prefixes": ["c311_"],
+  "office_metric_pattern": "^menu_|^council_attendance_pct$|^nonroutine_bills_sponsored_current_session$|^participatory_budgeting$",
+  "probe_area_id": "42",
+  "default_area_id": "42",
+  "probe_metric_id": "poverty_pct",
+  "geocoder": {
+    "primary_locator_url": "https://gisapps.chicago.gov/arcgis/rest/services/Chicago_Addresses/GeocodeServer",
+    "nominatim_viewbox": "-87.95,42.03,-87.50,41.62",
+    "nominatim_query_suffix": ", Chicago, Illinois"
+  }
+}

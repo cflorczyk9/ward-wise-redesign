@@ -25,7 +25,15 @@ import sys
 import urllib.request
 from pathlib import Path
 
-BASE = "https://penlight.wardwise.org"
+def load_city() -> dict:
+    """Load the per-city config this script's defaults and wording are pinned to."""
+    return json.loads((Path(__file__).parent / "city.json").read_text())
+
+
+CITY = load_city()
+BASE = CITY["api_base"]
+AREA_COUNT = CITY["area_count"]
+REDRAW_YEAR = CITY["boundary_redraw_year"]
 OUT = Path(__file__).parent / "data" / "wards.json"
 
 # Allocation methods, in plain English, and whether they weaken a ward-level
@@ -55,12 +63,12 @@ ALLOCATION_NOTES = {
     "ward_field": (
         "license_ward_field",
         "Taken from a ward field recorded by the source at the time. Ward boundaries "
-        "were redrawn in 2023, so older records refer to a differently shaped ward.",
+        f"were redrawn in {REDRAW_YEAR}, so older records refer to a differently shaped ward.",
     ),
     "direct": (
         "direct_ward",
         "Reported directly against a ward by the source. Boundaries were redrawn in "
-        "2023, so this counts today's ward but older figures counted a different one.",
+        f"{REDRAW_YEAR}, so this counts today's ward but older figures counted a different one.",
     ),
 }
 BY_METHOD = {code: text for code, text in ALLOCATION_NOTES.values()}
@@ -155,7 +163,7 @@ def caveats_for(entry: dict, meta: dict, coverage: dict) -> list[str]:
         notes.append(f"The source itself rates this {confidence} confidence.")
 
     if (coverage.get(entry["metric_id"]) or {}).get("status") != "populated":
-        notes.append("This measure is not fully populated across all 50 wards.")
+        notes.append(f"This measure is not fully populated across all {AREA_COUNT} wards.")
 
     return notes
 
@@ -165,6 +173,7 @@ def build() -> dict:
     meta = {m["metric_id"]: m for m in metrics_payload["metrics"]}
     coverage = metrics_payload.get("coverage", {})
     wards_payload = get("/api/wards")
+    ward_total = len(wards_payload["wards"]) or AREA_COUNT
     scores = {r["area_id"]: r for r in get("/api/metrics/scores?area_type=ward")["scores"]}
     matrix_raw = get("/api/metrics/score-matrix?area_type=ward&year=latest")["matrix"]
     matrix = matrix_raw[list(matrix_raw)[0]]
@@ -244,7 +253,7 @@ def build() -> dict:
                 "website_url": usable_url(alder.get("website_url")),
                 "website_verified": bool(usable_url(alder.get("website_url"))),
             },
-            "overall": {"rank": overall.get("rank"), "score": overall.get("score"), "of": 50},
+            "overall": {"rank": overall.get("rank"), "score": overall.get("score"), "of": ward_total},
             "photo": photo,
             "communities": [
                 c.get("name")

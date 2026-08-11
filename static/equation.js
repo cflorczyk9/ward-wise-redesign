@@ -16,6 +16,15 @@
 (function () {
   "use strict";
 
+  var SITE = window.WARDWISE_SITE || {};
+
+  function capitalize(str) {
+    str = String(str || "");
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  var AREA_NOUN = capitalize(SITE.areaNoun || "ward"); // "Ward"
+
   var CHOICES = [
     { label: "Not really", value: 0 },
     { label: "Somewhat", value: 1 },
@@ -178,14 +187,18 @@
 
     var leaderLi = state.items[ordered[0]];
     var leaderNum = leaderLi ? leaderLi.querySelector(".idx-num").textContent : ordered[0];
-    var line = "Under your weights Ward " + leaderNum + " leads the fifty.";
+    // "leads the fifty" is per-city editorial prose (the count word, not the
+    // area noun), left as a fixed literal on purpose. Wiring it to
+    // SITE.areaNounPlural would change Chicago's rendered wording from "the
+    // fifty" to "the wards", which is not this pass's job.
+    var line = "Under your weights " + AREA_NOUN + " " + leaderNum + " leads the fifty.";
     var upDelta = state.baseline[biggestUp] - ranks[biggestUp];
     var downDelta = ranks[biggestDown] - state.baseline[biggestDown];
     if (upDelta > 0) {
-      line += " Biggest riser Ward " + Number(biggestUp) + ", up " + upDelta + " from the default.";
+      line += " Biggest riser " + AREA_NOUN + " " + Number(biggestUp) + ", up " + upDelta + " from the default.";
     }
     if (downDelta > 0) {
-      line += " Biggest faller Ward " + Number(biggestDown) + ", down " + downDelta + ".";
+      line += " Biggest faller " + AREA_NOUN + " " + Number(biggestDown) + ", down " + downDelta + ".";
     }
     result.textContent = line;
     result.hidden = false;

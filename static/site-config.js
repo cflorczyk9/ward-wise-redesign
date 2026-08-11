@@ -1,4 +1,5 @@
-/* One place for the facts that tie this site to a city.
+/* GENERATED FILE. Built from city.json by build_site_config.py, do not
+ * edit by hand, your changes will be overwritten on the next build.
  *
  * Penlight has said it wants to expand beyond Chicago. Everything mechanical
  * about this site already travels: the pages are static, the data files are
@@ -10,9 +11,24 @@
 
 window.WARDWISE_SITE = {
   city: "Chicago",
+  state: "Illinois",
   areaNoun: "ward",
+  areaNounPlural: "wards",
   areaCount: 50,
-  penlight: "https://penlight.wardwise.org",
-  survey: "https://penlight.wardwise.org/survey",
-  support: "https://penlight.wardwise.org/about",
+  officeTitle: "Alderperson",
+  apiBase: "https://penlight.wardwise.org",
+  siteBase: "https://penlight.wardwise.org",
+  surveyUrl: "https://penlight.wardwise.org/survey",
+  supportUrl: "https://penlight.wardwise.org/about",
+  dictionaryUrl: "https://penlight.wardwise.org/dictionary",
+  boundaryRedrawYear: 2023,
+  unstableMetricPrefixes: ["c311_"],
+  officeMetricPattern: "^menu_|^council_attendance_pct$|^nonroutine_bills_sponsored_current_session$|^participatory_budgeting$",
+  probeAreaId: "42",
+  defaultAreaId: "42",
+  geocoder: {
+    primaryLocatorUrl: "https://gisapps.chicago.gov/arcgis/rest/services/Chicago_Addresses/GeocodeServer",
+    nominatimViewbox: "-87.95,42.03,-87.50,41.62",
+    nominatimQuerySuffix: ", Chicago, Illinois"
+  }
 };

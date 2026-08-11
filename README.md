@@ -226,23 +226,66 @@ data/writeups/     fifty researched ward write-ups with verified news
 ## Another city
 
 Penlight's support page says it is exploring Columbus, Madison, Cincinnati,
-New York, and Los Angeles. Most of this site already travels, because nothing
-in it is served: the pages are static files, and every number on them comes
-out of a build script pointed at an API.
+New York, and Los Angeles. Most of this site already travels. Nothing here is
+served. The pages are static files, and every number on them comes from a
+build script pointed at `city.json`, the single per-city source of truth the
+Python builders read directly.
 
-To stand it up against another city's Penlight instance:
+To stand up a new city, Columbus for instance, work through `city.json` field
+by field.
 
-1. Point the builders at it: `python3 build_ward_data.py --api-base <url>`,
-   then `python3 build_equation_data.py --api-base <url>`, then
-   `python3 build_report.py`. Ranks, caveats, categories, and menu figures are
-   recomputed from whatever set of areas the matrix serves. A few summary
-   strings still say fifty; the ranking math does not.
-2. Update `static/site-config.js`, which holds the city name, the area noun,
-   and the Penlight URLs the pages link to.
-3. Update `_redirects` (or `dev.py`) so `/api` proxies the new host.
-4. Rewrite the editorial copy. The masthead, the how-to-read cells, and the
-   fifty write-ups are journalism about one city, kept in plain HTML and JSON
-   on purpose. The scripts move; the words are written per city.
+1. **Identity.** Fill in `city`, `state`, `area_noun`, `area_noun_plural`,
+   `area_count`, and `office_title`. These are the new place's name, its
+   residents' word for a district, how many districts exist, and what the
+   elected officeholder is called.
+2. **API and site links.** Point `api_base`, `site_base`, `survey_url`,
+   `support_url`, and `dictionary_url` at the new Penlight instance.
+3. **Press list.** Rebuild `press_allowlist` with that city's own local
+   outlets. `build_report.py` drops any citation from an outlet off the list.
+4. **Era specifics.** `boundary_redraw_year` records whenever that city's
+   districts were last redrawn. `unstable_metric_prefixes` catches whichever
+   series jump in citywide lockstep the way Chicago's 311 clocks do, and
+   `office_metric_pattern` is the regex that flags measures recording what an
+   officeholder decided rather than a citywide condition. Add a real
+   `probe_area_id` and `default_area_id` from the new API, plus a
+   `probe_metric_id` with reliable history.
+5. **Geocoder.** `geocoder.nominatim_viewbox` and
+   `geocoder.nominatim_query_suffix` take the new city's bounding box and
+   place name. `geocoder.primary_locator_url` is optional. Leave it blank for
+   a city with no address locator of its own, and the site falls back to
+   Nominatim alone.
+
+Then regenerate everything downstream, in order.
+
+```bash
+python3 build_site_config.py           # city.json -> static/site-config.js
+python3 build_ward_data.py --api-base <url>
+python3 build_equation_data.py --api-base <url>
+python3 build_report.py
+python3 check_api.py --update          # new baseline for the new host
+```
+
+Edit `_redirects` (and `dev.py` locally) so the proxy points at the new host
+too.
+
+A few things stay hand-made per city. No field in `city.json` does this work
+for you.
+
+- The editorial copy. The masthead, the how-to-read cells, and the write-ups
+  themselves are journalism about one city, along with any equation-panel
+  prose that names a count out loud, like "the fifty."
+- The menu money page's underlying metric family. Chicago's aldermanic
+  discretionary program is a Chicago fact. If the new city's API carries no
+  equivalent office-spending measures, `menu.html` just doesn't get linked.
+- `static/ward-neighbors.js`, the map's adjacency data. Its generator lives in
+  the upstream ward-wise-frontend repo, so rebuild it there from the new
+  city's boundary file and copy the output across.
+- The explorer, dictionary, and support pages, re-rendered per city through
+  `build_static.py` (see above).
+
+The one thing every field above assumes is a two-digit zero-padded area id,
+like `writeups/07.json` and `#ward-07`, so a city whose districts aren't
+numbered that way needs every `zfill(2)` call audited by hand first.
 
 ## The Quarterly's evidence rules
 

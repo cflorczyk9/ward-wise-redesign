@@ -31,8 +31,16 @@ import sys
 import urllib.request
 from pathlib import Path
 
-DEFAULT_BASE = "https://penlight.wardwise.org"
 HERE = Path(__file__).parent
+
+
+def load_city() -> dict:
+    """Load the per-city config the default API root is pinned to."""
+    return json.loads((HERE / "city.json").read_text())
+
+
+CITY = load_city()
+DEFAULT_BASE = CITY["api_base"]
 EQUATION_OUT = HERE / "data" / "equation.json"
 MENU_OUT = HERE / "data" / "menu.json"
 

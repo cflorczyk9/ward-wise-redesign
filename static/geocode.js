@@ -20,10 +20,17 @@
 window.WardWiseGeocode = (function () {
   "use strict";
 
-  var CHICAGO =
-    "https://gisapps.chicago.gov/arcgis/rest/services/Chicago_Addresses/GeocodeServer";
+  var SITE = window.WARDWISE_SITE || {};
+  var GEOCODER = SITE.geocoder || {};
+
+  // Falls back to Chicago's own values when the config is missing, so this
+  // degrades to exactly today's behavior on an unconfigured page.
+  var PRIMARY_LOCATOR = GEOCODER.primaryLocatorUrl !== undefined
+    ? GEOCODER.primaryLocatorUrl
+    : "https://gisapps.chicago.gov/arcgis/rest/services/Chicago_Addresses/GeocodeServer";
   var NOMINATIM = "https://nominatim.openstreetmap.org/search";
-  var VIEWBOX = "-87.95,42.03,-87.50,41.62"; // Chicago, as Nominatim wants it
+  var VIEWBOX = GEOCODER.nominatimViewbox || "-87.95,42.03,-87.50,41.62"; // as Nominatim wants it
+  var QUERY_SUFFIX = GEOCODER.nominatimQuerySuffix || ", Chicago, Illinois";
 
   function getJson(url, timeoutMs) {
     var controller = new AbortController();
@@ -37,11 +44,12 @@ window.WardWiseGeocode = (function () {
   }
 
   // Autocomplete against the city's address points. Returns {suggestions: [...]}.
+  // No suggestions without a primary locator; Nominatim has no matching endpoint.
   function suggest(query) {
     var text = String(query || "").trim();
-    if (text.length < 3) return Promise.resolve({ suggestions: [] });
+    if (!PRIMARY_LOCATOR || text.length < 3) return Promise.resolve({ suggestions: [] });
 
-    var url = CHICAGO + "/suggest?f=json&maxSuggestions=6&text=" + encodeURIComponent(text);
+    var url = PRIMARY_LOCATOR + "/suggest?f=json&maxSuggestions=6&text=" + encodeURIComponent(text);
     return getJson(url, 6000).then(function (data) {
       var raw = (data && data.suggestions) || [];
       var out = [];
@@ -57,10 +65,10 @@ window.WardWiseGeocode = (function () {
   // Turn a picked suggestion into coordinates. Returns {match: {...}|null}.
   function resolve(text, key) {
     var label = String(text || "").trim();
-    if (!label) return Promise.resolve({ match: null });
+    if (!PRIMARY_LOCATOR || !label) return Promise.resolve({ match: null });
 
     var url =
-      CHICAGO + "/findAddressCandidates?f=json&outSR=4326&maxLocations=1&SingleLine=" +
+      PRIMARY_LOCATOR + "/findAddressCandidates?f=json&outSR=4326&maxLocations=1&SingleLine=" +
       encodeURIComponent(label) + (key ? "&magicKey=" + encodeURIComponent(key) : "");
 
     return getJson(url, 6000).then(function (data) {
@@ -78,18 +86,21 @@ window.WardWiseGeocode = (function () {
   }
 
   // One-shot lookup for whatever was typed. The city locator is authoritative
-  // for addresses, so it goes first; Nominatim picks up neighborhoods and
-  // landmarks it does not carry.
+  // for addresses, so it goes first when there is one; Nominatim picks up
+  // neighborhoods and landmarks it does not carry, and is all there is when
+  // a city has no primary locator configured.
   function search(query) {
     var text = String(query || "").trim();
     if (!text) return Promise.resolve({ match: null });
 
-    return resolve(text, null)
+    var primary = PRIMARY_LOCATOR ? resolve(text, null) : Promise.resolve({ match: null });
+
+    return primary
       .then(function (result) {
         if (result.match) return result;
         var url =
           NOMINATIM + "?format=jsonv2&limit=1&bounded=1&viewbox=" + encodeURIComponent(VIEWBOX) +
-          "&q=" + encodeURIComponent(text + ", Chicago, Illinois");
+          "&q=" + encodeURIComponent(text + QUERY_SUFFIX);
         return getJson(url, 8000).then(function (rows) {
           if (!rows || !rows.length) return { match: null };
           return {

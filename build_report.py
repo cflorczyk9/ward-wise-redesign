@@ -29,13 +29,18 @@ WARDS = HERE / "data" / "wards.json"
 WRITEUPS = HERE / "data" / "writeups"
 OUT = HERE / "data" / "report.json"
 
+
+def load_city() -> dict:
+    """Load the per-city config the allowed press outlets come from."""
+    return json.loads((HERE / "city.json").read_text())
+
+
+CITY = load_city()
+
 QUARTER = "Q3 2026"
 WINDOW = ("2026-05-11", "2026-08-09")
 ALLOWED_OUTLETS = re.compile(
-    r"blockclubchicago\.org|chicago\.suntimes\.com|suntimes\.com|chicagotribune\.com|"
-    r"chicagobusiness\.com|wttw\.com|news\.wttw\.com|chicago\.gov|cityofchicago\.org|"
-    r"chicityclerk\.com|chicago\.councilmatic\.org|illinoispolicy\.org|"
-    r"axios\.com/local/chicago",
+    "|".join(re.escape(domain) for domain in CITY["press_allowlist"]),
     re.I,
 )
 

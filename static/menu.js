@@ -10,7 +10,12 @@
 (function () {
   "use strict";
 
-  var SHARE_IDS = [
+  // The order this site has always shown Chicago's eight share measures in.
+  // Any id from the loaded data that matches one of these sorts into this
+  // position; anything the config adds that isn't on this list sorts after,
+  // alphabetically, so a differently-shaped city's page still has a stable
+  // order without a code change.
+  var KNOWN_SHARE_ORDER = [
     "menu_streets_share",
     "menu_lighting_share",
     "menu_sidewalks_share",
@@ -20,6 +25,15 @@
     "menu_schools_share",
     "menu_active_transport_share"
   ];
+
+  var NON_SHARE_METRICS = {
+    menu_budget_utilization: true,
+    menu_project_diversity: true,
+    menu_spending_spread: true
+  };
+
+  // Derived from data.metrics once menu.json loads; see deriveShareIds().
+  var SHARE_IDS = [];
 
   var SHORT_LABELS = {
     menu_streets_share: "Streets",
@@ -32,19 +46,33 @@
     menu_active_transport_share: "Active transport"
   };
 
-  var COLS = [
-    { key: "ward_number", label: "Ward", sortable: true },
-    { key: null, label: "Top category", sortable: false },
-    { key: "menu_streets_share", label: "Streets", sortable: true },
-    { key: "menu_lighting_share", label: "Lighting", sortable: true },
-    { key: "menu_sidewalks_share", label: "Sidewalks", sortable: true },
-    { key: "menu_alleys_share", label: "Alleys", sortable: true },
-    { key: "menu_parks_share", label: "Parks", sortable: true },
-    { key: "menu_cameras_share", label: "Cameras", sortable: true },
-    { key: "menu_schools_share", label: "Schools", sortable: true },
-    { key: "menu_active_transport_share", label: "Active transport", sortable: true },
-    { key: "menu_budget_utilization", label: "Budget used", sortable: true }
-  ];
+  // Built alongside SHARE_IDS once menu.json loads; see buildCols().
+  var COLS = [];
+
+  function deriveShareIds(metrics) {
+    var all = Object.keys(metrics).filter(function (id) { return !NON_SHARE_METRICS[id]; });
+    var known = KNOWN_SHARE_ORDER.filter(function (id) { return all.indexOf(id) > -1; });
+    var unknown = all.filter(function (id) { return KNOWN_SHARE_ORDER.indexOf(id) === -1; }).sort();
+    return known.concat(unknown);
+  }
+
+  // A city-specific share id with no entry in SHORT_LABELS falls back to
+  // whatever the dictionary itself calls it.
+  function shareLabel(id, metrics) {
+    return SHORT_LABELS[id] || (metrics[id] && metrics[id].label) || id;
+  }
+
+  function buildCols(shareIds, metrics) {
+    var cols = [
+      { key: "ward_number", label: "Ward", sortable: true },
+      { key: null, label: "Top category", sortable: false }
+    ];
+    shareIds.forEach(function (id) {
+      cols.push({ key: id, label: shareLabel(id, metrics), sortable: true });
+    });
+    cols.push({ key: "menu_budget_utilization", label: "Budget used", sortable: true });
+    return cols;
+  }
 
   // Shortened by hand from the menu.json metric descriptions, not pasted raw.
   var STATS = [
@@ -331,6 +359,8 @@
     })
     .then(function (data) {
       metricsById = data.metrics;
+      SHARE_IDS = deriveShareIds(data.metrics);
+      COLS = buildCols(SHARE_IDS, data.metrics);
 
       buildCitywideBars(data);
       buildWardsTable(data);

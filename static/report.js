@@ -9,7 +9,14 @@
   "use strict";
 
   var SITE = window.WARDWISE_SITE || {};
-  var SUPPORT_URL = SITE.support || "https://penlight.wardwise.org/about";
+  var SUPPORT_URL = SITE.supportUrl || "https://penlight.wardwise.org/about";
+
+  function capitalize(str) {
+    str = String(str || "");
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  var AREA_NOUN = capitalize(SITE.areaNoun || "ward"); // "Ward"
 
   var el = {
     status: document.getElementById("status"),
@@ -139,11 +146,11 @@
     return (
       '<section class="ward" id="ward-' + ward.ward_id + '">' +
       '<div class="ward-head">' +
-      '<span class="ward-num">Ward ' + ward.ward_number + "</span>" +
-      (overall.rank ? '<span class="ward-rank">' + ordinal(overall.rank) + " of " + (overall.of || 50) + " overall</span>" : "") +
+      '<span class="ward-num">' + AREA_NOUN + " " + ward.ward_number + "</span>" +
+      (overall.rank ? '<span class="ward-rank">' + ordinal(overall.rank) + " of " + (overall.of || SITE.areaCount || 50) + " overall</span>" : "") +
       (communities ? '<span class="ward-communities">' + text(communities) + "</span>" : "") +
       "</div>" +
-      (w.headline ? "<h2>" + text(w.headline) + "</h2>" : "<h2>Ward " + ward.ward_number + "</h2>") +
+      (w.headline ? "<h2>" + text(w.headline) + "</h2>" : "<h2>" + AREA_NOUN + " " + ward.ward_number + "</h2>") +
       photoBlock(ward) +
       alderBlock(ward) +
       (w.summary ? '<div class="ward-summary">' + w.summary.split(/\n\n+/).map(function (p) {
@@ -185,12 +192,12 @@
     var next = state.ids[idx + 1];
     var ward = state.report.wards[id];
     return (
-      '<nav class="ward-pager ' + position + '" aria-label="Ward navigation">' +
+      '<nav class="ward-pager ' + position + '" aria-label="' + AREA_NOUN + ' navigation">' +
       '<a class="pager-all" href="#index">All fifty wards</a>' +
-      '<span class="pager-where">Ward ' + ward.ward_number + " of " + state.ids.length + "</span>" +
+      '<span class="pager-where">' + AREA_NOUN + " " + ward.ward_number + " of " + state.ids.length + "</span>" +
       '<span class="pager-steps">' +
-      (prev ? '<a href="#ward-' + prev + '">‹ Ward ' + Number(prev) + "</a>" : "") +
-      (next ? '<a href="#ward-' + next + '">Ward ' + Number(next) + " ›</a>" : "") +
+      (prev ? '<a href="#ward-' + prev + '">‹ ' + AREA_NOUN + " " + Number(prev) + "</a>" : "") +
+      (next ? '<a href="#ward-' + next + '">' + AREA_NOUN + " " + Number(next) + " ›</a>" : "") +
       "</span></nav>"
     );
   }
@@ -206,7 +213,7 @@
     var ward = state.report.wards[id];
     el.wards.innerHTML = pager(id, "top") + wardSection(ward) + pager(id, "bottom");
     document.querySelector("main").setAttribute("data-view", "ward");
-    document.title = "Ward " + ward.ward_number + " — Ward Wise Quarterly";
+    document.title = AREA_NOUN + " " + ward.ward_number + " — Ward Wise Quarterly";
     window.scrollTo(0, 0);
   }
 

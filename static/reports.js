@@ -13,6 +13,35 @@
 
   var API = "/api"; // same-origin; _redirects (prod) and dev.py (local) proxy it
 
+  // Wired to the per-city config (window.WARDWISE_SITE, built from city.json).
+  // Every reader-facing literal below falls back to today's Chicago wording
+  // when the config is missing, so an unconfigured page reads exactly as it
+  // always has.
+  var SITE = window.WARDWISE_SITE || {};
+
+  function capitalize(str) {
+    str = String(str || "");
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  var AREA_NOUN = capitalize(SITE.areaNoun || "ward"); // "Ward"
+  var CITY = SITE.city || "Chicago";
+  var DEFAULT_AREA_ID = SITE.defaultAreaId || "42";
+  var REDRAW_YEAR = SITE.boundaryRedrawYear; // null/undefined -> redraw flag never fires
+
+  // Builds a regex matching any of the given literal prefixes, escaping each
+  // one. A missing config falls back to the fixed regex this site shipped
+  // with; an explicit empty list means the city declares no unstable
+  // measures, and returns null so nothing is excluded.
+  function prefixRegex(prefixes, fallback) {
+    if (!prefixes) return fallback;
+    if (!prefixes.length) return null;
+    var escaped = prefixes.map(function (p) {
+      return String(p).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    });
+    return new RegExp("^(?:" + escaped.join("|") + ")");
+  }
+
   var state = {
     metrics: {},      // metric_id -> dictionary entry
     wards: [],
@@ -253,13 +282,15 @@
   // Measures that record what the ward office did with its own budget, not
   // what the ward is like. They are shown without a better/worse verdict,
   // matching the standard the Quarterly applies to the same measures.
-  var OFFICE_METRIC = /^menu_|^council_attendance_pct$|^nonroutine_bills_sponsored_current_session$|^participatory_budgeting$/;
+  var OFFICE_METRIC = SITE.officeMetricPattern
+    ? new RegExp(SITE.officeMetricPattern)
+    : /^menu_|^council_attendance_pct$|^nonroutine_bills_sponsored_current_session$|^participatory_budgeting$/;
 
   // The 311 clocks jump in lockstep citywide (2015, 2017, 2018, 2019, and
   // again later) by amounts no set of neighborhoods produces together, so the
   // measurement changed, not the service. A trend read off any two years is a
   // statement about the measurement eras it happens to span.
-  var UNSTABLE_METRIC = /^c311_/;
+  var UNSTABLE_METRIC = prefixRegex(SITE.unstableMetricPrefixes, /^c311_/);
 
   // A bounded score is not a quantity; "+62%" on a diversity score misleads
   // where "up 9.8 points" informs. These units always show the raw movement.
@@ -374,7 +405,7 @@
   }
 
   function loadWard(wardId) {
-    status("Loading Ward " + Number(wardId) + "…");
+    status("Loading " + AREA_NOUN + " " + Number(wardId) + "…");
     el.results.hidden = true;
     el.excluded.hidden = true;
     el.change.hidden = true;
@@ -394,7 +425,7 @@
         render();
       })
       .catch(function (err) {
-        fail("Loading Ward " + Number(wardId) + " failed.", err);
+        fail("Loading " + AREA_NOUN + " " + Number(wardId) + " failed.", err);
       });
   }
 
@@ -419,7 +450,7 @@
         var cell = state.matrix[ward] && state.matrix[ward][mid];
         if (cell && typeof cell.s === "number") scored.push({ ward: ward, s: cell.s });
       });
-      if (scored.length < 25) return; // too thin to call it a rank out of 50
+      if (scored.length < Math.ceil((SITE.areaCount || 50) / 2)) return; // too thin to call it a rank out of 50
       scored.sort(function (a, b) { return b.s - a.s; });
       for (var i = 0; i < scored.length; i += 1) {
         if (scored[i].ward === wardId) {
@@ -488,9 +519,9 @@
     var counted = Object.keys(state.ranks).length;
 
     el.headline.innerHTML = overall
-      ? "Ward " + Number(state.wardId) + " ranks " +
-        '<span class="count">' + ordinal(overall.rank) + "</span> of " + (state.wards.length || 50) + " in Chicago today."
-      : "Ward " + Number(state.wardId) + " today.";
+      ? AREA_NOUN + " " + Number(state.wardId) + " ranks " +
+        '<span class="count">' + ordinal(overall.rank) + "</span> of " + (state.wards.length || SITE.areaCount || 50) + " in " + CITY + " today."
+      : AREA_NOUN + " " + Number(state.wardId) + " today.";
 
     el.subhead.textContent =
       (counted ? "Scored on " + counted + " current measures. " : "") +
@@ -549,7 +580,7 @@
     // treatment for the reasons on their constants above.
     var kind = !meta ? "undefined"
       : OFFICE_METRIC.test(metricId) ? "office"
-      : UNSTABLE_METRIC.test(metricId) ? "unstable"
+      : UNSTABLE_METRIC && UNSTABLE_METRIC.test(metricId) ? "unstable"
       : "trend";
     meta = meta || {};
 
@@ -592,11 +623,13 @@
     while (i > 0 && inWindow[i - 1].value === last.value) i -= 1;
     if (i > 0 && last.year - inWindow[i].year >= 5) staleSince = inWindow[i].year;
 
-    // Ward-stamped records changed shape with the 2023 boundary redraw, so a
-    // window spanning it compares two differently shaped wards.
+    // Ward-stamped records changed shape with the boundary redraw, so a
+    // window spanning it compares two differently shaped wards. No redraw
+    // year configured means this never fires.
     var alloc = allocationOf(metricId);
-    var redraw = (alloc === "license_ward_field" || alloc === "direct_ward") &&
-      first.year <= 2022 && last.year >= 2023;
+    var redraw = REDRAW_YEAR != null &&
+      (alloc === "license_ward_field" || alloc === "direct_ward") &&
+      first.year <= REDRAW_YEAR - 1 && last.year >= REDRAW_YEAR;
 
     return {
       metricId: metricId,
@@ -691,7 +724,7 @@
       (change.lowStart ? '<span class="row-flag"> low start</span>' : "") +
       (change.cumulative ? '<span class="row-flag"> running register</span>' : "") +
       (change.staleSince ? '<span class="row-flag"> unchanged since ' + change.staleSince + "</span>" : "") +
-      (change.redraw ? '<span class="row-flag"> spans the 2023 redraw</span>' : "") +
+      (change.redraw ? '<span class="row-flag"> spans the ' + REDRAW_YEAR + ' redraw</span>' : "") +
       (state.rampIn[change.metricId] > state.fromYear
         ? '<span class="row-flag"> data begins ' + state.rampIn[change.metricId] + "</span>"
         : "");
@@ -723,7 +756,7 @@
         : "") +
       (change.redraw
         ? "<dt>Boundaries</dt><dd>this record is stamped with a ward number at collection " +
-          "time, and ward boundaries were redrawn in 2023, so the two ends of this " +
+          "time, and ward boundaries were redrawn in " + REDRAW_YEAR + ", so the two ends of this " +
           "comparison describe differently shaped wards</dd>"
         : "") +
       (neutral
@@ -805,9 +838,11 @@
     el.excludedNote.textContent =
       "Of " + defined + " defined measures, " + insufficient + " lack two usable readings " +
       "inside this window, from having no dated history at all up to having one reading. " +
-      unstable.length + " track the 311 request system, whose measurement changed repeatedly " +
-      "citywide (synchronized jumps in 2015, 2017, 2018 and 2019 across wards), so a trend " +
-      "read across those years describes the measurement, not the ward, and they are left out. " +
+      (unstable.length
+        ? unstable.length + " track the 311 request system, whose measurement changed repeatedly " +
+          "citywide (synchronized jumps in 2015, 2017, 2018 and 2019 across wards), so a trend " +
+          "read across those years describes the measurement, not the ward, and they are left out. "
+        : "") +
       (undefinedCount
         ? (undefinedCount === 1
             ? "1 more series carries no dictionary definition, so which direction is " +
@@ -868,8 +903,8 @@
           var option = document.createElement("option");
           option.value = ward.ward_id;
           var alderName = ward.alderperson && ward.alderperson.name ? " · " + ward.alderperson.name : "";
-          option.textContent = "Ward " + Number(ward.ward_id) + alderName;
-          if (ward.ward_id === "42") option.selected = true;
+          option.textContent = AREA_NOUN + " " + Number(ward.ward_id) + alderName;
+          if (ward.ward_id === DEFAULT_AREA_ID) option.selected = true;
           el.ward.appendChild(option);
         });
         el.ward.disabled = false;
@@ -883,7 +918,7 @@
         return null;
       }
 
-      return loadWard(el.ward.value || "42");
+      return loadWard(el.ward.value || DEFAULT_AREA_ID);
     })
     .catch(function () {
       // Already surfaced above. Swallow so it does not land as an unhandled

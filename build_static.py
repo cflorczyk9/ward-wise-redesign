@@ -16,12 +16,21 @@ Standard library only.
 
 from __future__ import annotations
 
+import json
 import re
 import sys
 from pathlib import Path
 
 HERE = Path(__file__).parent.resolve()
-SITE_BASE = "https://penlight.wardwise.org"
+
+
+def load_city() -> dict:
+    """Load the per-city config the site's live-URL base is pinned to."""
+    return json.loads((HERE / "city.json").read_text())
+
+
+CITY = load_city()
+SITE_BASE = CITY["site_base"]
 
 # Flask endpoint name -> the static file it becomes here. The explorer takes
 # the front door, since it is the richer surface; the reports view is its own

@@ -14,6 +14,7 @@ Standard library only. No venv, no pip install.
 
 from __future__ import annotations
 
+import json
 import os
 import sys
 import urllib.error
@@ -22,9 +23,17 @@ from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
-API_BASE = os.environ.get("PENLIGHT_API_BASE", "https://penlight.wardwise.org").rstrip("/")
-PORT = int(os.environ.get("PORT", "1838"))  # 1837 is Penlight's; this sits next to it
 ROOT = Path(__file__).parent.resolve()
+
+
+def load_city() -> dict:
+    """Load the per-city config the upstream API default is pinned to."""
+    return json.loads((ROOT / "city.json").read_text())
+
+
+CITY = load_city()
+API_BASE = os.environ.get("PENLIGHT_API_BASE", CITY["api_base"]).rstrip("/")
+PORT = int(os.environ.get("PORT", "1838"))  # 1837 is Penlight's; this sits next to it
 
 # Headers that describe the hop rather than the payload. Forwarding them would
 # corrupt the response we re-send.

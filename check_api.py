@@ -12,6 +12,7 @@ you exactly what moved since the last one.
     python3 check_api.py            # compare against api-baseline.json
     python3 check_api.py --update   # accept what is live now as the baseline
     python3 check_api.py --json     # machine-readable, for CI
+    python3 check_api.py --api-base https://other.city.example
 
 Exit codes: 0 clean, 1 drift found, 2 could not reach the API.
 Standard library only.
@@ -26,9 +27,19 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-API_BASE = "https://penlight.wardwise.org"
-BASELINE = Path(__file__).parent / "api-baseline.json"
-PROBE_WARD = "42"
+HERE = Path(__file__).parent
+
+
+def load_city() -> dict:
+    """Load the per-city config this check's probes and defaults are pinned to."""
+    return json.loads((HERE / "city.json").read_text())
+
+
+CITY = load_city()
+API_BASE = CITY["api_base"]
+BASELINE = HERE / "api-baseline.json"
+PROBE_WARD = CITY["probe_area_id"]
+PROBE_METRIC = CITY["probe_metric_id"]
 
 # Every field static/app.js actually reads. If one of these disappears or is
 # renamed upstream, some part of the report silently stops working.
@@ -57,34 +68,43 @@ REQUIRED = {
 ENDPOINTS = [
     ("reports", "/api/metrics"),
     ("reports", "/api/wards"),
-    ("reports", "/api/metrics/timeseries?area_type=ward&area_id=42"),
+    ("reports", f"/api/metrics/timeseries?area_type=ward&area_id={PROBE_WARD}"),
     ("explorer", "/api/wards.geojson"),
     ("explorer", "/api/metrics/score-matrix?area_type=ward&year=latest"),
     ("explorer", "/api/metrics/scores?area_type=ward"),
-    ("explorer", "/api/metrics/scores/details?ward_id=42"),
-    ("explorer", "/api/metrics/comparison?metrics=poverty_pct&area_type=ward"),
-    ("explorer", "/api/metrics/timeline?metrics=poverty_pct&area_type=ward&area_id=42"),
-    ("explorer", "/api/metrics/delta?metric_id=poverty_pct&from_year=2019&to_year=2023"),
-    ("explorer", "/api/wards/42"),
-    ("explorer", "/api/wards/42/community-areas"),
-    ("explorer", "/api/wards/42/places"),
+    ("explorer", f"/api/metrics/scores/details?ward_id={PROBE_WARD}"),
+    ("explorer", f"/api/metrics/comparison?metrics={PROBE_METRIC}&area_type=ward"),
+    ("explorer", f"/api/metrics/timeline?metrics={PROBE_METRIC}&area_type=ward&area_id={PROBE_WARD}"),
+    ("explorer", f"/api/metrics/delta?metric_id={PROBE_METRIC}&from_year=2019&to_year=2023"),
+    ("explorer", f"/api/wards/{PROBE_WARD}"),
+    ("explorer", f"/api/wards/{PROBE_WARD}/community-areas"),
+    ("explorer", f"/api/wards/{PROBE_WARD}/places"),
 ]
 
 # The address lookup moved into the browser, so these are load-bearing in a way
 # they were not when a Flask route sat in front of them. Both must keep
 # answering AND keep sending a CORS header, or the search box dies with no
 # server-side fallback to catch it.
-GEOCODERS = [
-    (
-        "chicago",
-        "https://gisapps.chicago.gov/arcgis/rest/services/Chicago_Addresses/"
-        "GeocodeServer/suggest?f=json&maxSuggestions=3&text=550+N+Saint+Clair",
-    ),
-    (
-        "nominatim",
-        "https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&q=Wicker+Park,+Chicago",
-    ),
-]
+def _plus(text: str) -> str:
+    return "+".join(text.split())
+
+
+# A city-quality search term rather than a hardcoded neighbourhood, so this
+# still probes something real when city.json points at another place.
+PROBE_ADDRESS = f"{_plus(CITY['city'])},+{_plus(CITY['state'])}"
+
+GEOCODERS: list[tuple[str, str]] = []
+_geocoder = CITY.get("geocoder") or {}
+if _geocoder.get("primary_locator_url"):
+    GEOCODERS.append((
+        "primary",
+        _geocoder["primary_locator_url"]
+        + f"/suggest?f=json&maxSuggestions=3&text={PROBE_ADDRESS}",
+    ))
+GEOCODERS.append((
+    "nominatim",
+    f"https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&q={PROBE_ADDRESS}",
+))
 
 
 def fetch(path: str) -> dict:
@@ -282,10 +302,14 @@ def compare(old: dict, new: dict) -> list[str]:
 
 
 def main() -> int:
+    global API_BASE
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--api-base", default=API_BASE,
+                        help="Penlight API root, for checking another city's deployment")
     parser.add_argument("--update", action="store_true", help="accept the live API as the new baseline")
     parser.add_argument("--json", action="store_true", help="machine-readable output")
     args = parser.parse_args()
+    API_BASE = args.api_base.rstrip("/")
 
     try:
         problems = check_surfaces() + check_required_fields()
