@@ -170,9 +170,51 @@
       " ranked measures in this ward carry at least one caveat. See something these " +
       'measures miss? <a href="' + SUPPORT_URL + '" rel="noopener noreferrer" ' +
       'target="_blank">Suggest a metric to Ward Wise</a>.</p>' +
-      '<a class="ward-top" href="#index">Back to the fifty</a>' +
       "</section>"
     );
+  }
+
+  // The quarterly reads as an index of fifty, one ward at a time. The hash is
+  // the router: #ward-NN shows that ward, anything else shows the index, and
+  // a shared link opens straight onto its ward.
+  var state = { report: null, ids: [] };
+
+  function pager(id, position) {
+    var idx = state.ids.indexOf(id);
+    var prev = state.ids[idx - 1];
+    var next = state.ids[idx + 1];
+    var ward = state.report.wards[id];
+    return (
+      '<nav class="ward-pager ' + position + '" aria-label="Ward navigation">' +
+      '<a class="pager-all" href="#index">All fifty wards</a>' +
+      '<span class="pager-where">Ward ' + ward.ward_number + " of " + state.ids.length + "</span>" +
+      '<span class="pager-steps">' +
+      (prev ? '<a href="#ward-' + prev + '">‹ Ward ' + Number(prev) + "</a>" : "") +
+      (next ? '<a href="#ward-' + next + '">Ward ' + Number(next) + " ›</a>" : "") +
+      "</span></nav>"
+    );
+  }
+
+  function showIndex() {
+    document.querySelector("main").setAttribute("data-view", "index");
+    el.wards.innerHTML = "";
+    document.title = "Ward Wise Quarterly — " + state.report.quarter;
+    window.scrollTo(0, 0);
+  }
+
+  function showWard(id) {
+    var ward = state.report.wards[id];
+    el.wards.innerHTML = pager(id, "top") + wardSection(ward) + pager(id, "bottom");
+    document.querySelector("main").setAttribute("data-view", "ward");
+    document.title = "Ward " + ward.ward_number + " — Ward Wise Quarterly";
+    window.scrollTo(0, 0);
+  }
+
+  function route() {
+    if (!state.report) return;
+    var match = /^#ward-(\d{2})$/.exec(location.hash);
+    if (match && state.report.wards[match[1]]) showWard(match[1]);
+    else showIndex();
   }
 
   fetch("data/report.json", { headers: { Accept: "application/json" } })
@@ -182,6 +224,8 @@
     })
     .then(function (report) {
       var ids = Object.keys(report.wards).sort(function (a, b) { return Number(a) - Number(b); });
+      state.report = report;
+      state.ids = ids;
 
       el.quarter.textContent =
         report.quarter + " · reporting window " + report.window.from + " to " + report.window.to;
@@ -189,17 +233,19 @@
       el.indexGrid.innerHTML = ids.map(function (id) {
         var w = report.wards[id];
         var rank = (w.overall || {}).rank;
+        var headline = (w.writeup || {}).headline;
         return (
           '<li><a href="#ward-' + id + '">' +
+          '<span class="idx-meta">' +
           '<span class="idx-num">' + w.ward_number + "</span>" +
           '<span class="idx-name">' + text((w.alderperson || {}).name || "") + "</span>" +
           (rank ? '<span class="idx-rank">' + ordinal(rank) + "</span>" : "") +
+          "</span>" +
+          (headline ? '<span class="idx-headline">' + text(headline) + "</span>" : "") +
           "</a></li>"
         );
       }).join("");
       el.index.hidden = false;
-
-      el.wards.innerHTML = ids.map(function (id) { return wardSection(report.wards[id]); }).join("");
 
       var written = ids.filter(function (id) { return report.wards[id].writeup; }).length;
       var withNews = ids.filter(function (id) { return (report.wards[id].news || []).length; }).length;
@@ -209,17 +255,13 @@
 
       el.status.hidden = true;
 
-      // The sections render after the browser has already tried to honour a
-      // #ward-NN link, so a shared link would land at the top. Re-jump now.
-      if (location.hash) {
-        var target = document.getElementById(location.hash.slice(1));
-        if (target) target.scrollIntoView();
-      }
-
       // equation.js listens for this so it can attach to the rendered index.
       document.dispatchEvent(new CustomEvent("report:rendered", {
         detail: { wardIds: ids },
       }));
+
+      route();
+      window.addEventListener("hashchange", route);
     })
     .catch(function (err) {
       el.status.hidden = false;

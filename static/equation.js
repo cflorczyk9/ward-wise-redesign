@@ -162,7 +162,7 @@
       if (!move) {
         move = document.createElement("span");
         move.className = "idx-move";
-        li.querySelector("a").appendChild(move);
+        (li.querySelector(".idx-meta") || li.querySelector("a")).appendChild(move);
       }
       if (delta > 0) {
         move.textContent = "▲" + delta;
