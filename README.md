@@ -1,23 +1,33 @@
-# Ward Wise Reports
+# Ward Wise Redesign
 
-An independent Chicago civic-data site built against the public
-[Ward Wise Penlight](https://penlight.wardwise.org) API. Four pages, no build
-step at runtime, no backend.
+An independent Chicago civic-data site built on the public
+[Ward Wise Penlight](https://penlight.wardwise.org) API. Six pages, no build
+step at runtime, no backend, no framework.
+
+**Credit where it belongs.** The data, the collection pipeline, the API, and
+the explorer's design are [Harry Brisson](https://github.com/HarryBrisson)'s
+work through his [Chi Hack Night](https://chihacknight.org/) project. The
+explorer, dictionary, and support pages here are rendered from the templates in
+his [ward-wise-frontend](https://github.com/HarryBrisson/ward-wise-frontend)
+repo. His [chicago-participatory-urbanism](https://github.com/HarryBrisson/chicago-participatory-urbanism)
+repo is the companion analysis behind the menu money page's subject. This repo
+adds an independent reporting layer on top of that foundation and would be an
+empty shell without it.
 
 | Page | What it is |
 |---|---|
-| `index.html` | **Explore.** The sequenced explorer: address search, ward map, preset metric lists. |
-| `reports.html` | **Reports.** What actually changed in a ward, and which way. |
-| `dictionary.html` | Every measure, its source, and how it is scored. |
-| `support.html` | How residents contribute. Links out to the live Penlight site. |
+| `index.html` | **Explore.** The explorer, rendered from upstream. Address search, ward map, preset metric lists. |
+| `report.html` | **Quarterly.** An index of all fifty wards. Each opens as its own article, with a researched write-up, verified local news, a photograph, and a reader-weighted re-ranking panel. |
+| `reports.html` | **Reports.** Where a ward stands today across every measure, with change over time as clearly labelled secondary evidence. |
+| `menu.html` | **Menu money.** How each ward office split its annual discretionary capital budget, against citywide medians. |
+| `dictionary.html` | Every measure, its source, and how it is scored. Rendered from upstream. |
+| `support.html` | How residents contribute. Rendered from upstream, links to the live Penlight site. |
 
-Penlight answers "how does my ward score right now". This answers the question the
-same API can already support and the map cannot show: **what actually moved, and
-which way**. Pick a ward and a window, get every measure that changed, ranked by how
-far it moved, split into the ones that got better and the ones that got worse.
-
-Independent front end. The data, the pipeline, and the API are Harry Brisson's
-[Chi Hack Night](https://chihacknight.org/) project.
+Penlight's map answers "how does my ward score right now". These pages answer
+the questions the same API can support and a map cannot show. Where does the
+ward stand against the other forty-nine, what do those rankings honestly
+support, what was reported locally this quarter, and what does the history say
+once its artifacts are labelled instead of displayed as trends.
 
 ## Run it
 
@@ -31,8 +41,10 @@ no npm, no bundler.
 ## Where the explorer came from
 
 The explorer, dictionary, and support pages started as a Flask app, because
-Harry's repo is one. They are rendered to static HTML once by `build_static.py`
-and the output is committed. Re-run it after pulling template changes:
+[Harry's repo](https://github.com/HarryBrisson/ward-wise-frontend) is one. They
+are rendered to static HTML once by `build_static.py` and the output is
+committed. Re-run it after pulling template changes from a local clone of that
+repo:
 
 ```bash
 python3 build_static.py ../ward-wise-frontend
@@ -101,19 +113,41 @@ showing a short list.
 
 ### Reading a change honestly
 
-A few decisions that are easy to get wrong and are worth knowing about.
+The change section was rebuilt after an eight-lane verification pass recomputed
+every displayed figure against fresh API pulls. The arithmetic was exact
+everywhere tested; the failures were in what honest arithmetic was allowed to
+imply. The rules now standing, each one earned by a documented failure:
 
-- **Direction matters.** The dictionary marks each metric `higher` or `lower` for
-  which way is good. Crime falling and broadband rising are both improvements, and
-  they sort into the same column.
-- **Anchors, not exact years.** Metrics sit on different reporting calendars, so
-  each one anchors to its first and last observation inside the window rather than
-  demanding an exact year match. A metric is skipped if both anchors land on the
-  same year.
-- **One value per year.** Pipeline re-runs can emit the same year more than once.
-  The newest snapshot for a year wins.
-- **No dividing by zero.** Percent change off a near-zero base is meaningless, so
-  those fall back to showing raw movement.
+- **Direction matters, and unknown direction disqualifies.** The dictionary
+  marks each metric `higher` or `lower`. A handful of series exist in the
+  timeseries data with no dictionary entry at all, and guessing a direction for
+  them once rendered a rising depression rate as an improvement. Undefined
+  series are excluded and counted.
+- **Measurement changes are not trends.** The six 311 service clocks jump in
+  citywide lockstep in the same years, which is the measurement changing, not
+  fifty wards moving together. They are excluded from the verdict columns with
+  the reason printed.
+- **Office decisions are not neighborhood verdicts.** Menu budget shares record
+  one office reallocating a fixed pot. They render in their own neutral
+  section, never as "moved the right way."
+- **Small bases are flagged by absolute size, not just ratio.** One gym
+  becoming two per ten thousand residents is "+133%" and used to lead a column.
+  Counts under 10, per-10k rates under 5, and percents under 2 points now carry
+  a low start flag and sort last when the percent is large.
+- **Registers are not momentum.** A count that only ever rises is flagged as a
+  running register, and the ramp trimmer skips monotonic series entirely so it
+  cannot delete decades of real slow history.
+- **The 2023 redraw is disclosed.** Ward-stamped records spanning the boundary
+  change carry a flag, and license records dated by expiration drop their
+  forward-stamped newest year.
+- **Bounded scores show points, not percents.** Sparklines carry a minimum
+  vertical scale so a one percent wobble cannot draw like a cliff.
+- **Anchors, not exact years.** Metrics sit on different reporting calendars,
+  so each one anchors to its first and last observation inside the window, and
+  the anchor years print on every row.
+- **One value per year, no dividing by zero.** Pipeline re-runs are deduped
+  newest-wins, and percent change off a near-zero base falls back to raw
+  movement.
 
 ## Staying current with the API
 
@@ -182,6 +216,11 @@ check_voice.py     mechanical prose rules for the write-ups
 check_sameness.py  templating detector across the fifty write-ups
 api-baseline.json  last known-good API fingerprint
 _redirects         the Netlify version of the /api proxy
+data/wards.json    per-ward facts: rankings, caveats, alderpeople, photos
+data/report.json   the compiled quarterly the page loads
+data/equation.json the score matrix snapshot behind the your-equation panel
+data/menu.json     menu money raw values and citywide medians
+data/writeups/     fifty researched ward write-ups with verified news
 ```
 
 ## Another city
@@ -205,16 +244,26 @@ To stand it up against another city's Penlight instance:
    fifty write-ups are journalism about one city, kept in plain HTML and JSON
    on purpose. The scripts move; the words are written per city.
 
+## The Quarterly's evidence rules
+
+Every number in the fifty ward write-ups traces to a field in
+`data/wards.json`, which is regenerated from the live API and has been verified
+byte-identical against a fresh rebuild. Every news link was fetched when the
+report was compiled; `build_report.py` drops any citation that was not, any
+outlet off the agreed local-press list, and any story outside the reporting
+window. Two mechanical prose gates (`check_voice.py`, `check_sameness.py`) run
+over the write-ups. Officeholder measures are labelled as facts about an
+office, never presented as verdicts on the person holding it.
+
 ## Status
 
-All four pages work against live data. The explorer's address search, ward map,
-and preset lists work with no backend. The reports view ranks change with
-direction awareness, category filters, a year window, and per-metric detail.
-
-Reads retry twice on a transient failure (502, 503, 429, or a dropped
-connection) before giving up, and fail immediately on a 404 or 400. A single
-upstream blip was otherwise enough to leave the page dead.
+All six pages work against live data with no backend. The Quarterly carries a
+researched write-up, verified news, and a verified official ward link for all
+fifty wards, opens one ward at a time from its index, and re-ranks live under
+reader-chosen category weights. Reads retry twice on a transient failure (502,
+503, 429, or a dropped connection) before giving up, and fail immediately on a
+404 or 400.
 
 Not yet built: ward-versus-city comparison (`/api/metrics/delta` already returns
-`delta_vs_city`), neighborhood and χGRID area types, a shareable permalink per
-ward, and a deploy.
+`delta_vs_city`), neighborhood and χGRID area types, and a production deploy
+(the site is Netlify-ready via `_redirects`).
