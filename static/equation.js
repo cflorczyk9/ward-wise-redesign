@@ -133,6 +133,17 @@
     var ranks = compositeRanks(weights);
     var ordered = Object.keys(ranks).sort(function (a, b) { return ranks[a] - ranks[b]; });
 
+    // Every category at "Not really" weights nothing, so there is nothing to
+    // rank. Say so instead of rendering a ranking of zero wards.
+    if (!ordered.length) {
+      restorePrinted(grid);
+      result.textContent =
+        "With every category at Not really, no measure counts and there is " +
+        "nothing to rank. The printed order below is the site's default.";
+      result.hidden = false;
+      return;
+    }
+
     var biggestUp = null;
     var biggestDown = null;
     ordered.forEach(function (ward) {

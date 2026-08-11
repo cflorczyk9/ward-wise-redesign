@@ -217,7 +217,7 @@
 
     var detailRow =
       '<tr class="ward-detail-row" id="' + detailId + '-row" hidden>' +
-      '<td colspan="11">' +
+      '<td colspan="' + COLS.length + '">' +
       '<div class="ward-detail">' +
       buildDetailBars(w, data) +
       buildDetailStats(w) +
@@ -235,6 +235,13 @@
     copy.sort(function (a, b) {
       var av = key === "ward_number" ? a.wardNumber : a.w[key];
       var bv = key === "ward_number" ? b.wardNumber : b.w[key];
+      // A ward missing this measure sinks to the bottom under either
+      // direction, instead of landing wherever NaN comparisons leave it.
+      var aMissing = typeof av !== "number" || isNaN(av);
+      var bMissing = typeof bv !== "number" || isNaN(bv);
+      if (aMissing && bMissing) return a.wardNumber - b.wardNumber;
+      if (aMissing) return 1;
+      if (bMissing) return -1;
       return (av - bv) * dir;
     });
     return copy;
@@ -309,11 +316,12 @@
   }
 
   function setProvenance(data) {
+    var total = Object.keys(data.wards).length;
     var counts = Object.keys(data.city).map(function (id) { return data.city[id].wards_reporting; });
     var minCount = Math.min.apply(null, counts);
-    el.provenance.textContent = minCount >= 50
-      ? "All 50 wards report every measure on this page."
-      : minCount + " of 50 wards report every measure on this page, the rest are missing at least one.";
+    el.provenance.textContent = minCount >= total
+      ? "All " + total + " wards report every measure on this page."
+      : minCount + " of " + total + " wards report every measure on this page, the rest are missing at least one.";
   }
 
   fetch("data/menu.json", { headers: { Accept: "application/json" } })

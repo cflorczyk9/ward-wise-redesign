@@ -94,6 +94,18 @@ def is_officeholder(metric_id: str) -> bool:
     return metric_id in OFFICEHOLDER_CONDUCT or metric_id.startswith("menu_")
 
 
+def usable_url(url: str | None) -> str | None:
+    """Drop the API's malformed ward-site values instead of publishing them.
+
+    Wards 17 and 39 arrive as email addresses wrapped in http://www., which no
+    browser can open. check_api.py reports them upstream; here they become "no
+    verified site" rather than a dead link under an official-looking label.
+    """
+    if not url or "@" in url:
+        return None
+    return url
+
+
 def tidy_name(name: str | None) -> str | None:
     """Repair names that arrive with the suffix sorted to the front.
 
@@ -229,8 +241,8 @@ def build() -> dict:
                 "photo_url": alder.get("photo_url"),
                 # Present for 27 of 50. The rest are filled in by research and
                 # must be verified before they are published.
-                "website_url": alder.get("website_url"),
-                "website_verified": bool(alder.get("website_url")),
+                "website_url": usable_url(alder.get("website_url")),
+                "website_verified": bool(usable_url(alder.get("website_url"))),
             },
             "overall": {"rank": overall.get("rank"), "score": overall.get("score"), "of": 50},
             "photo": photo,

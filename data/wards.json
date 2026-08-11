@@ -4251,8 +4251,8 @@
         "name": "David H. Moore",
         "photo_url": "https://occprodstoragev1.blob.core.usgovcloudapi.net/council-profile-pictures/EF6C6F46-F988-EC11-8D20-001DD804FD38.jpg",
         "title": "Alderperson",
-        "website_url": "http://www.David.Moore@cityofchicago.org",
-        "website_verified": true
+        "website_url": null,
+        "website_verified": false
       },
       "caveated_count": 166,
       "communities": [
@@ -10043,8 +10043,8 @@
         "name": "Samantha Nugent",
         "photo_url": "https://occprodstoragev1.blob.core.usgovcloudapi.net/council-profile-pictures/7C82104C-F888-EC11-8D20-001DD804FD38.jpg",
         "title": "Alderperson",
-        "website_url": "http://www.ward39@cityofchicago.org",
-        "website_verified": true
+        "website_url": null,
+        "website_verified": false
       },
       "caveated_count": 161,
       "communities": [
