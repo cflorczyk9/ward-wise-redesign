@@ -55,6 +55,7 @@
     matrix: null,     // ward -> metric -> {s: score, v: value}, current snapshot
     ranks: {},        // metric_id -> {rank, of} for the selected ward
     overall: {},      // ward -> {rank, score}
+    snapshotSkipped: { office: 0, undefined_: 0 },  // counts behind the snapshot note
   };
 
   var el = {
@@ -65,6 +66,7 @@
     lede: document.getElementById("lede"),
     headline: document.getElementById("headline"),
     subhead: document.getElementById("subhead"),
+    snapshotNote: document.getElementById("snapshot-note"),
     filters: document.getElementById("filters"),
     results: document.getElementById("results"),
     snapshot: document.getElementById("snapshot"),
@@ -432,11 +434,33 @@
 
   // ---- snapshot --------------------------------------------------------
 
+  // Two kinds of measure stay out of "Strongest here" and "Weakest here".
+  //
+  // Office measures record what the ward office chose to do with its own
+  // budget, not what the ward is like. Ranking one here prints "menu money on
+  // sidewalks, 50th of 50" under a heading a reader takes as a verdict on
+  // their neighborhood. The change section already refuses that framing and
+  // gives these measures their own neutral block. The snapshot was the one
+  // place the rule was written down and not applied.
+  //
+  // Undefined measures are scored by the API but carry no dictionary entry,
+  // so there is no label, no source, and no stated direction. renderSnapshotRow
+  // falls back to a title-cased raw id and defaults "better when" to higher,
+  // which is backwards for depression_pct and social_isolation_pct and prints
+  // as a statement of fact. A measure the site cannot describe is a measure it
+  // should not rank.
+  function snapshotSkipReason(mid) {
+    if (OFFICE_METRIC.test(mid)) return "office";
+    if (!state.metrics[mid]) return "undefined_";
+    return null;
+  }
+
   // Rank the selected ward against the other 49 on every current measure.
   // The matrix carries a normalised score per ward per metric, already
   // direction-corrected upstream, so a high score always means "doing well".
   function computeRanks(wardId) {
     var ranks = {};
+    state.snapshotSkipped = { office: 0, undefined_: 0 };
     if (!state.matrix) return ranks;
 
     var metricIds = {};
@@ -445,6 +469,14 @@
     });
 
     Object.keys(metricIds).forEach(function (mid) {
+      var skip = snapshotSkipReason(mid);
+      if (skip) {
+        // Only count a skip the ward actually carries, so the note describes
+        // this ward's page rather than the catalog.
+        var here = state.matrix[wardId] && state.matrix[wardId][mid];
+        if (here && typeof here.s === "number") state.snapshotSkipped[skip] += 1;
+        return;
+      }
       var scored = [];
       Object.keys(state.matrix).forEach(function (ward) {
         var cell = state.matrix[ward] && state.matrix[ward][mid];
@@ -527,7 +559,34 @@
       (counted ? "Scored on " + counted + " current measures. " : "") +
       (alderName ? "Alderperson " + alderName + "." : "");
 
+    // Say what the two lists leave out rather than quietly shortening them.
+    var note = snapshotNote();
+    el.snapshotNote.textContent = note;
+    el.snapshotNote.hidden = !note;
+
     el.lede.hidden = false;
+  }
+
+  // Reads off the counters computeRanks filled while it was filtering.
+  function snapshotNote() {
+    var skipped = state.snapshotSkipped || { office: 0, undefined_: 0 };
+    var noun = String(AREA_NOUN).toLowerCase();
+    var parts = [];
+
+    if (skipped.office) {
+      parts.push(
+        skipped.office + " budget and attendance measures are not ranked here, because they " +
+        "record what the " + noun + " office decided rather than what the " + noun + " is like. " +
+        "They are further down, under What changed over time."
+      );
+    }
+    if (skipped.undefined_) {
+      parts.push(
+        skipped.undefined_ + " more are scored by the API but missing from the metric dictionary, " +
+        "so there is no source and no stated direction to show for them."
+      );
+    }
+    return parts.join(" ");
   }
 
   function renderSnapshot() {

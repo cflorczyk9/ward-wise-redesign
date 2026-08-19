@@ -105,6 +105,16 @@ body { margin: 0; background: #fff; }
 .lede p { margin: 0; color: var(--ink-soft); font-size: 1rem; }
 .lede .count { color: var(--brand); font-weight: 600; font-variant-numeric: tabular-nums; }
 
+/* Two classes deep on purpose: `.lede p` above sets margin and size, and a
+   single-class rule would lose the cascade to it. */
+.lede .lede-note {
+  margin: 0.5rem 0 0;
+  color: var(--ink-faint);
+  font-size: 0.9rem;
+  max-width: 46rem;
+}
+.lede .lede-note[hidden] { display: none; }
+
 .statusbar { color: var(--ink-soft); font-size: 0.94rem; padding: 0.5rem 0 1rem; }
 .statusbar[hidden] { display: none; }
 
