@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}{{ heading }} · Ward Wise Penlight{% endblock %}
+{% block body_class %}fd-theme{% endblock %}
+
+{% block content %}
+  <main>
+    <section class="fd-hero fd-center fd-error">
+      <div class="fd-wrap fd-narrow fd-stack">
+        <p class="fd-eyebrow">{{ code }}</p>
+        <h1 class="fd-h1">{{ heading }}</h1>
+        <p class="fd-sub">{{ message }}</p>
+        <div class="fd-actions">
+          <a class="fd-btn" href="{{ url_for('home') }}">Go to the home page</a>
+          <a class="fd-more" href="{{ url_for('explore') }}">Open the map</a>
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock %}

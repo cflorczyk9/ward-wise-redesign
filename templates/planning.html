@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}For planners · Ward Wise Penlight{% endblock %}
+{% block body_class %}fd-theme{% endblock %}
+
+{% block content %}
+  <main>
+    <p class="fd-proposal">Proposal preview. Membership prices and rules are drafts for the team to settle.</p>
+    <section class="fd-hero">
+      <div class="fd-wrap fd-stack">
+        <p class="fd-eyebrow">For planners and community groups</p>
+        <h1 class="fd-h1">The evidence behind the plan.</h1>
+        <p class="fd-sub">Every measure is free to download for all 50 wards and 77 community areas. Members also get views and analysis built around their work.</p>
+      </div>
+    </section>
+
+    <section class="fd-section-tight">
+      <div class="fd-wrap">
+        <div id="fd-download" class="fd-panel fd-stack-lg">
+          <div class="fd-stack">
+            <p class="fd-tag">Free for everyone</p>
+            <h2 class="fd-h2">Download a domain.</h2>
+            <p class="fd-body">One row per area and one column per measure. The first rows list each column's label, unit and source.</p>
+          </div>
+          <div class="fd-row-form">
+            <div class="fd-field">
+              <label for="fd-download-domain">Domain</label>
+              <select id="fd-download-domain"><option>Loading…</option></select>
+            </div>
+            <div class="fd-field">
+              <label for="fd-download-geo">Geography</label>
+              <select id="fd-download-geo">
+                <option value="ward">50 wards</option>
+                <option value="community_area">77 community areas</option>
+              </select>
+            </div>
+            <div class="fd-field">
+              <button type="button" id="fd-download-go" class="fd-btn">Download CSV</button>
+            </div>
+          </div>
+          <p id="fd-download-status" class="fd-small" role="status"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="fd-section">
+      <div class="fd-wrap fd-stack-lg">
+        <div class="fd-stack">
+          <p class="fd-tag">From the data</p>
+          <h2 class="fd-h2">Where Chicago is permitting new homes.</h2>
+          <p class="fd-body">Estimated new residential units by ward, from City of Chicago building permits.</p>
+        </div>
+        <div id="fd-housing" class="fd-grid-2 fd-fill-cards"><p class="fd-loading">Loading live data…</p></div>
+        <a class="fd-more" href="{{ url_for('dictionary') }}#metric=new_residential_units_permitted_est">How this is measured</a>
+      </div>
+    </section>
+
+    <section class="fd-section fd-fill">
+      <div class="fd-wrap fd-stack-lg">
+        <div class="fd-stack">
+          <p class="fd-tag">Organization membership · $1,500 per year</p>
+          <h2 class="fd-h1">What members add.</h2>
+        </div>
+        <div class="fd-grid-4">
+          <article class="fd-card fd-stack"><h3 class="fd-h3">Custom views</h3><p class="fd-body">A saved set of measures and areas for your team, at one shareable link.</p></article>
+          <article class="fd-card fd-stack"><h3 class="fd-h3">Custom analysis</h3><p class="fd-body">Ten hours a year on your own questions, such as how a corridor has changed since 2020.</p></article>
+          <article class="fd-card fd-stack"><h3 class="fd-h3">Quarterly briefing</h3><p class="fd-body">A short call on what changed in the areas you serve.</p></article>
+          <article class="fd-card fd-stack"><h3 class="fd-h3">A vote</h3><p class="fd-body">Members choose half of the new measures built each quarter.</p></article>
+        </div>
+        <div class="fd-actions">
+          <a class="fd-btn" href="{{ url_for('guild_join') }}?type=planning&budget=large">Apply for membership</a>
+          <a class="fd-more" href="{{ url_for('guild') }}">Compare memberships</a>
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{{ url_for('static', filename='common.js', v=asset_version) }}"></script>
+  <script src="{{ url_for('static', filename='frontdoor.js', v=asset_version) }}"></script>
+{% endblock %}

@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% block title %}Apply for membership · Ward Wise Penlight{% endblock %}
+{% block body_class %}fd-theme{% endblock %}
+
+{% block content %}
+  <main>
+    <p class="fd-proposal">Proposal preview. This form confirms in your browser and sends nothing.</p>
+
+    <section class="fd-hero">
+      <div class="fd-wrap fd-narrow fd-stack">
+        <p class="fd-eyebrow">The Ward Wise Guild</p>
+        <h1 class="fd-h1">Apply for membership.</h1>
+        <p class="fd-sub">Four short steps. We reply within a week, and dues begin only after you've tried a view built for you.</p>
+      </div>
+    </section>
+
+    <section class="fd-section-tight" style="padding-top: 0">
+      <div class="fd-wrap fd-narrow">
+        <ol class="fd-steps" aria-label="Application steps">
+          <li>About you</li>
+          <li>Membership</li>
+          <li>Your needs</li>
+          <li>Review</li>
+        </ol>
+
+        <form id="fd-join" class="fd-panel" novalidate>
+          <fieldset class="fd-step">
+            <legend>About you</legend>
+            <div class="fd-field">
+              <label for="fd-j-org">Organization</label>
+              <input id="fd-j-org" name="org" type="text" required autocomplete="organization">
+            </div>
+            <div class="fd-row-form">
+              <div class="fd-field">
+                <label for="fd-j-name">Your name</label>
+                <input id="fd-j-name" name="name" type="text" required autocomplete="name">
+              </div>
+              <div class="fd-field">
+                <label for="fd-j-email">Email</label>
+                <input id="fd-j-email" name="email" type="email" required autocomplete="email">
+              </div>
+            </div>
+            <div class="fd-field">
+              <label for="fd-j-site">Website (optional)</label>
+              <input id="fd-j-site" name="site" type="url" placeholder="https://">
+            </div>
+            <div class="fd-actions"><button type="button" class="fd-btn" data-fd-next>Continue</button></div>
+          </fieldset>
+
+          <fieldset class="fd-step" hidden>
+            <legend>Membership</legend>
+            <div class="fd-field">
+              <label for="fd-j-type">Type of organization</label>
+              <select id="fd-j-type" name="type" required>
+                <option value="community">Community group or nonprofit</option>
+                <option value="business">Local business</option>
+                <option value="planning">Planning or research organization</option>
+                <option value="ward_office">Ward office</option>
+                <option value="developer">Developer or consultancy</option>
+                <option value="institution">University, foundation or hospital</option>
+                <option value="agency">City or county agency</option>
+              </select>
+            </div>
+            <fieldset class="fd-field">
+              <legend>Yearly budget or revenue</legend>
+              <label class="fd-choice"><input type="radio" name="budget" value="small" required checked><span>Under $250,000</span></label>
+              <label class="fd-choice"><input type="radio" name="budget" value="mid"><span>$250,000 to $1 million</span></label>
+              <label class="fd-choice"><input type="radio" name="budget" value="large"><span>$1 million to $10 million</span></label>
+              <label class="fd-choice"><input type="radio" name="budget" value="xl"><span>Over $10 million</span></label>
+            </fieldset>
+            <p class="fd-tierline">Your membership would be <strong id="fd-join-tier"></strong>. <a href="{{ url_for('guild') }}#dues">Compare memberships</a></p>
+            <div class="fd-actions">
+              <button type="button" class="fd-btn" data-fd-next>Continue</button>
+              <button type="button" class="fd-btn fd-btn-ghost" data-fd-back>Back</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="fd-step" hidden>
+            <legend>Your needs</legend>
+            <fieldset class="fd-field">
+              <legend>What would help most</legend>
+              <label class="fd-choice"><input type="checkbox" name="needs" value="Custom views"><span>Custom views for our team</span></label>
+              <label class="fd-choice"><input type="checkbox" name="needs" value="Custom analysis"><span>Analysis of a question we have</span></label>
+              <label class="fd-choice"><input type="checkbox" name="needs" value="Quarterly snapshots"><span>Quarterly snapshots of our areas</span></label>
+              <label class="fd-choice"><input type="checkbox" name="needs" value="Zoning and permit alerts"><span>Zoning and permit alerts</span></label>
+              <label class="fd-choice"><input type="checkbox" name="needs" value="A new measure"><span>A measure Ward Wise doesn't track yet</span></label>
+            </fieldset>
+            <div class="fd-field">
+              <label for="fd-j-areas">Wards or neighborhoods you work in</label>
+              <input id="fd-j-areas" name="areas" type="text" placeholder="Ward 5, South Shore, Woodlawn">
+            </div>
+            <div class="fd-field">
+              <label for="fd-j-notes">Anything else</label>
+              <textarea id="fd-j-notes" name="notes" rows="4"></textarea>
+            </div>
+            <div class="fd-actions">
+              <button type="button" class="fd-btn" data-fd-next>Continue</button>
+              <button type="button" class="fd-btn fd-btn-ghost" data-fd-back>Back</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="fd-step" hidden>
+            <legend>Review</legend>
+            <dl id="fd-join-review" class="fd-review"></dl>
+            <label class="fd-choice">
+              <input type="checkbox" name="charter" required>
+              <span>We agree to the <a href="{{ url_for('guild') }}#charter" target="_blank" rel="noopener">member charter</a>, including that money never moves a number.</span>
+            </label>
+            <div class="fd-actions">
+              <button type="submit" class="fd-btn">Submit application</button>
+              <button type="button" class="fd-btn fd-btn-ghost" data-fd-back>Back</button>
+            </div>
+          </fieldset>
+        </form>
+
+        <section id="fd-join-done" class="fd-panel fd-done fd-stack-lg" tabindex="-1" hidden>
+          <div class="fd-stack">
+            <p class="fd-tag">Application received</p>
+            <h2 class="fd-h1">Thank you, <span data-fd-done-org></span>.</h2>
+            <p class="fd-body">You applied as <strong data-fd-done-tier></strong>. Here is what happens next.</p>
+          </div>
+          <ol class="fd-loop" style="grid-template-columns: repeat(3, minmax(0, 1fr))">
+            <li><h3 class="fd-h3">A short call</h3><p>A team member emails within a week to learn what you're working on.</p></li>
+            <li><h3 class="fd-h3">A trial view</h3><p>We build a view for your areas and review it with your team, at no charge.</p></li>
+            <li><h3 class="fd-h3">Membership begins</h3><p>Dues start once the view is useful to you, and your name joins the member list.</p></li>
+          </ol>
+          <div class="fd-actions">
+            <a class="fd-btn" href="{{ url_for('guild') }}">Back to membership</a>
+            <a class="fd-more" href="{{ url_for('explore') }}">Explore the map</a>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{{ url_for('static', filename='common.js', v=asset_version) }}"></script>
+  <script src="{{ url_for('static', filename='frontdoor.js', v=asset_version) }}"></script>
+{% endblock %}

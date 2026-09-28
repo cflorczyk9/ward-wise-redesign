@@ -7,7 +7,7 @@ const AREA_TYPES = {
     idProp: "ward_id",
     loadAreas: () => WardWiseExplorer.fetchExplorerWards().then((r) => r.wards || []),
     loadGeojson: () => WardWiseExplorer.fetchWardGeojson(),
-    rankerTitle: "Top wards by weighted composite",
+    rankerTitle: "Top wards",
   },
   community_area: {
     label: "Neighborhoods",
@@ -15,7 +15,7 @@ const AREA_TYPES = {
     idProp: "community_area_id",
     loadAreas: () => WardWiseExplorer.fetchCommunityAreas().then((r) => r.community_areas || []),
     loadGeojson: () => WardWiseExplorer.fetchCommunityAreaGeojson(),
-    rankerTitle: "Top neighborhoods by weighted composite",
+    rankerTitle: "Top neighborhoods",
   },
   chi: {
     // User-facing labels use the χGRID brand mark; the area_type key stays the ASCII "chi".
@@ -24,7 +24,7 @@ const AREA_TYPES = {
     idProp: "chi_id",
     loadAreas: () => WardWiseExplorer.fetchChis().then((r) => r.chis || []),
     loadGeojson: () => WardWiseExplorer.fetchChigridGeojson(),
-    rankerTitle: "Top χGRIDs by weighted composite",
+    rankerTitle: "Top χGRIDs",
   },
 };
 
@@ -713,13 +713,13 @@ function renderMethodologyPanel() {
   const full = formula ? formula.textContent.trim() : "";
   // The bar clamps to one line so it never eats the map; the untruncated equation belongs here.
   const equationHtml = full
-    ? `<div class="methodology-equation"><p class="eyebrow">Your equation</p>
-         <p><strong>wellbeing</strong> = ${WardWiseExplorer.escapeHtml(full)}</p></div>`
+    ? `<div class="methodology-equation"><p class="eyebrow">Your score</p>
+         <p>${WardWiseExplorer.escapeHtml(full)}</p></div>`
     : "";
   const notes = compileMethodologyNotes();
   if (!notes.length) {
     body.innerHTML = equationHtml +
-      '<p class="methodology-empty">Your weighted metrics are all directly measured for this geography — no caveats to flag.</p>';
+      '<p class="methodology-empty">Every measure you picked is measured directly for this map, so there is nothing to flag.</p>';
     return;
   }
   body.innerHTML = equationHtml + notes
@@ -765,18 +765,19 @@ function renderWellbeingEquation() {
     if (explorerState.deltaMode) {
       const from = document.getElementById("delta-from-year")?.value;
       const to = document.getElementById("delta-to-year")?.value;
-      formula.textContent = `no selected metrics were remeasured between ${from} and ${to} — widen the window`;
+      formula.textContent = `None of your measures changed between ${from} and ${to}. Try a wider window.`;
     } else {
-      formula.textContent = "choose metrics in the panel";
+      formula.textContent = "Choose measures in the panel";
     }
   } else {
+    // Readable names in soft chips: "Parks − Violent crime + 10× Transit". Lower-is-better
+    // measures subtract. Spaces sit between spans so the text version still reads as a sentence.
     const terms = selected.map(({ metric, weight }, index) => {
-      const sign = metric.direction === "lower" ? "-" : "+";
-      const variable = WardWiseExplorer.escapeHtml(metricEquationVariable(metric));
-      const weightedVariable = weight === 1
-        ? variable
-        : `${WardWiseExplorer.formatNumber(weight, { maximumFractionDigits: 1 })} x ${variable}`;
-      return sign === "+" && index === 0 ? weightedVariable : `${sign} ${weightedVariable}`;
+      const sign = metric.direction === "lower" ? "\u2212" : "+";
+      const name = WardWiseExplorer.escapeHtml(metric.label || metricEquationVariable(metric));
+      const times = weight === 1 ? "" : `<b>${WardWiseExplorer.formatNumber(weight, { maximumFractionDigits: 1 })}\u00d7</b> `;
+      const chip = `<span class="eq-term">${times}${name}</span>`;
+      return sign === "+" && index === 0 ? chip : `<span class="eq-op">${sign}</span> ${chip}`;
     });
     formula.innerHTML = terms.join(" ");
   }
@@ -1118,15 +1119,31 @@ function fitFullCity() {
   });
 }
 
+// Dark mode fills more strongly (see --ward-fill-opacity in styles.css); light keeps 0.44.
+function wardFillOpacity() {
+  return Number(cssVariable("--ward-fill-opacity", "0.44")) || 0.44;
+}
+
 function wardStyle(wardId) {
   const score = scoreForWard(wardId)?.score;
   const isSelected = wardId === explorerState.currentWardId;
+  const isHovered = !isSelected && explorerState.hoverFromRanker && wardId === explorerState.hoveredWardId;
+  if (isHovered) {
+    return {
+      color: cssVariable("--selected-ward", "#0071e3"),
+      fillColor: fillColorForScore(score),
+      fillOpacity: Math.max(0.72, wardFillOpacity()),
+      weight: 2.5,
+    };
+  }
   return {
     color: isSelected
       ? cssVariable("--selected-ward", "#0f766e")
-      : cssVariable("--action", "#155e75"),
+      // A dedicated variable, not --action: --action is the site's link/button blue, and reusing
+      // it here would make every unselected ward outline as loud as the selected one.
+      : cssVariable("--ward-outline", "#155e75"),
     fillColor: fillColorForScore(score),
-    fillOpacity: isSelected ? 0.72 : 0.44,
+    fillOpacity: isSelected ? Math.max(0.72, wardFillOpacity()) : wardFillOpacity(),
     weight: isSelected ? 3 : 1,
   };
 }
@@ -1144,7 +1161,9 @@ function fillColorForDelta(delta) {
   // Centered at ZERO change (neutral grey, NOT the median): a wellbeing-score improvement is green, a
   // decline is red. Magnitude is scaled to the biggest mover on the map so the strongest changes saturate.
   const t = Math.max(-1, Math.min(1, delta / maxAbs));
-  const neutral = cssVariable("--score-mid", "#94a3b8");
+  // --map-fill, not --score-mid: --score-mid is now the middle of the sequential blue ramp used
+  // for absolute scores, so reusing it here would tint "no change" wards blue instead of neutral.
+  const neutral = cssVariable("--map-fill", "#94a3b8");
   return t >= 0
     ? interpolateHexColor(neutral, "#15803d", t) // good / positive change → green
     : interpolateHexColor(neutral, "#b91c1c", -t); // bad / negative change → red
@@ -1352,6 +1371,9 @@ function updateMapStyles() {
   }
 }
 
+// Colors come from CSS variables read at paint time, so repaint when light or dark switches.
+document.addEventListener("fd:theme", () => updateMapStyles());
+
 function selectWard(wardId) {
   explorerState.currentWardId = String(wardId);
   const ward = findArea(wardId);
@@ -1377,21 +1399,46 @@ function clearSelectedWard() {
 
 function previewWard(wardId, event) {
   explorerState.hoveredWardId = wardId;
+  if (!event) {
+    // Leaderboard hover: outline the area on the map and leave the details card alone. Opening the
+    // card here put it on top of the very row under the cursor, which fired mouseleave, which closed
+    // it, which fired mouseenter again: the flicker.
+    explorerState.hoverFromRanker = true;
+    restyleWard(wardId);
+    return;
+  }
+  explorerState.hoverFromRanker = false;
   highlightRankerRow(wardId); // elevate the matching leaderboard entry
-  // On a map hover we pass the Leaflet event so the details tooltip follows the cursor; a ranker-row
-  // hover (no event) leaves it in its anchored spot.
+  // Map hover: the card follows the cursor and ignores the mouse (see .is-preview), so it can never
+  // land under the pointer and steal the hover from the area beneath it.
   showWardDetails(wardId, event);
+  document.querySelector("#ward-details-popover")?.classList.add("is-preview");
 }
 
 function clearWardPreview(wardId) {
   if (explorerState.hoveredWardId !== wardId) return;
   explorerState.hoveredWardId = null;
+  if (explorerState.hoverFromRanker) {
+    explorerState.hoverFromRanker = false;
+    restyleWard(wardId);
+    return;
+  }
   highlightRankerRow(null);
   if (explorerState.currentWardId) {
     showWardDetails(explorerState.currentWardId);
   } else {
     hideWardDetails();
   }
+}
+
+// Restyle one area (hover outline on or off) without repainting the whole map.
+function restyleWard(wardId) {
+  const layer = explorerState.mapLayers.get(String(wardId));
+  if (!layer) return;
+  layer.setStyle(wardStyle(String(wardId)));
+  if (String(wardId) === explorerState.hoveredWardId) layer.bringToFront();
+  const selected = explorerState.currentWardId && explorerState.mapLayers.get(explorerState.currentWardId);
+  if (selected) selected.bringToFront();
 }
 
 // Emphasize the hovered area's row in the leaderboard (and scroll it into view) without a full re-render.
@@ -1459,6 +1506,7 @@ function showWardDetails(wardId, event) {
   if (!detailsPanel || !ward) return;
 
   explorerState.currentDetailsWardId = String(wardId);
+  detailsPanel.classList.remove("is-preview");
   detailsPanel.hidden = false;
   detailsPanel.innerHTML = renderMetricWardDetails(wardId, ward);
   attachWardDetailsActions();
@@ -1525,16 +1573,16 @@ function renderMetricWardDetails(wardId, ward) {
     .slice(0, 5);
   const componentRows = components.length
     ? components.map(renderMetricComponentRow).join("")
-    : `<p>No weighted metric components are available for this ${areaNoun()}.</p>`;
+    : `<p>None of your measures have data for this ${areaNoun()} yet.</p>`;
   return `
     <button class="details-close" type="button">Close</button>
     <div class="panel-heading">
-      <p class="eyebrow">Metric focus</p>
+      <p class="eyebrow">Selected</p>
       <h2>${WardWiseExplorer.escapeHtml(ward.display_name)}</h2>
     </div>
     ${renderWardScore(wardId)}
     <section class="metric-breakdown">
-      <p class="eyebrow">${explorerState.deltaMode ? "Biggest changes" : "Top weighted inputs"}</p>
+      <p class="eyebrow">${explorerState.deltaMode ? "Biggest changes" : "What drives the score"}</p>
       <div class="metric-component-list">${componentRows}</div>
     </section>
   `;
@@ -1543,7 +1591,8 @@ function renderMetricWardDetails(wardId, ward) {
 function renderMetricComponentRow(component) {
   const metric = explorerState.metrics.find((item) => item.metric_id === component.metric_id);
   const label = WardWiseExplorer.escapeHtml(metric?.label || component.metric_id);
-  const weight = `weight ${WardWiseExplorer.formatNumber(component.weight, { maximumFractionDigits: 1 })}`;
+  // Plain words for the two weights a tap can set: counted (1) and top priority (10).
+  const weight = component.weight > 1 ? "Top priority" : "Counted";
   if (component.isDelta) {
     // Change-over-time: show the raw movement (pre → post) and the SIGNED normalized change.
     const fmt = (v) => WardWiseExplorer.formatMetricValue(v, metric);
@@ -1566,7 +1615,7 @@ function renderMetricComponentRow(component) {
     <article class="metric-component-row">
       <div>
         <strong>${label}</strong>
-        <span>${WardWiseExplorer.formatMetricValue(component.value, metric)} raw value</span>
+        <span>Measured ${WardWiseExplorer.formatMetricValue(component.value, metric)}</span>
       </div>
       <div>
         <strong>${WardWiseExplorer.formatNumber(component.normalized_score, { maximumFractionDigits: 1 })}</strong>
@@ -1581,11 +1630,11 @@ function renderWardScore(wardId) {
   const delta = explorerState.deltaMode;
   const hasScore = !(score?.score === null || score?.score === undefined);
   const scoreLabel = hasScore ? rankerScoreText(score.score) : (delta ? "No change data" : "No score");
-  const eyebrow = delta ? "Change over time" : "Current weighted score";
+  const eyebrow = delta ? "Change over time" : "Your score";
   const fromYear = document.getElementById("delta-from-year")?.value;
   const toYear = document.getElementById("delta-to-year")?.value;
   const subline = delta
-    ? (hasScore ? `${fromYear} → ${toYear} · wellbeing points` : "")
+    ? (hasScore ? `${fromYear} to ${toYear}, in score points` : "")
     : (score?.rank ? `Rank ${score.rank} of ${rankedScoreCount()}` : "No rank");
   const scoreAccent = !hasScore
     ? cssVariable("--map-fill", "#94a3b8")
@@ -1675,6 +1724,7 @@ function renderWeightedRanker() {
         const ward = findArea(row.area_id);
         return `
           <button class="comparison-row${isSelected ? " is-selected" : ""}" type="button" data-ward-id="${row.area_id}">
+            <span class="comparison-row-rank">${row.rank}</span>
             <span class="comparison-row-main">
               ${renderWardVisualSignifierMarkup(ward)}
               <span class="comparison-row-copy">

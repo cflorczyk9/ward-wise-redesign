@@ -594,7 +594,8 @@
         });
       })
       .catch((error) => {
-        metricsRoot.innerHTML = `<p>Unable to load metrics: ${WardWiseExplorer.escapeHtml(error.message)}</p>`;
+        // A dropped connection reads "Failed to fetch", which tells a visitor nothing.
+        metricsRoot.innerHTML = "<p>The measure catalog couldn't load right now. It's usually back within a minute, so try reloading the page.</p>";
       });
   }
 })();

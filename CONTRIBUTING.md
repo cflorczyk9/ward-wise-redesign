@@ -9,17 +9,13 @@ and experience doesn't require setting up a data pipeline or holding AWS credent
 
 ## Good first issues
 
-**1. `static/logo.png` is 1.24 MB.** It's loaded by `base.html` on every page for a header mark
-that renders at roughly 40px. Resizing and compressing it is the single biggest performance win
-available here.
+**1. `static/styles.css` still carries rules from the original app.** The first part of the file
+styles the full-screen map (`/map`), and the proposal pages and dark mode follow it. Rules for pages
+that no longer exist here were removed in the redesign, but the map section was never audited rule
+by rule. Before deleting anything, search the templates and every script for the class name.
 
-**2. `static/styles.css` is 3,092 lines and carries dead rules.** It was one stylesheet for the
-whole app — reports, admin screens, submissions, auth. Those pages don't exist in this repo, so
-their rules are unreachable. A careful sweep against the three views is safe and valuable. (Check
-against all three: `styles.css` has no per-page scoping.)
-
-**3. No mobile audit.** There are responsive overrides at `styles.css:2463` and `:2625`, but the
-map view in particular has never been designed for small screens. Try it at 375px wide.
+**2. The map on phones.** `/map` now fits a phone screen and has a dark mode, but it was built for a
+desktop layout first. Try it at 375px wide and on a real phone.
 
 ## Conventions
 
@@ -32,8 +28,9 @@ Match what's there — this codebase has a consistent voice.
   Support page stopped loading the history store. Write in that register or don't write.
 - **Escape everything.** JS renders HTML by string interpolation; `WardWiseExplorer.escapeHtml`
   (aliased to `esc` in most files) is not optional.
-- **CSS uses custom properties** defined at the top of `styles.css`. Reach for an existing token
-  before inventing a color.
+- **CSS uses color tokens** (`--ink`, `--fill`, `--card`, `--blue` and the rest), defined in
+  `styles.css` under "Color tokens" with a light and a dark value each. Use a token instead of a
+  raw color, so the rule works in both themes.
 
 ## Where things live
 
