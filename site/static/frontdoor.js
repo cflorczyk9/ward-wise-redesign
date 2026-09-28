@@ -184,6 +184,7 @@
     licensed_chain_restaurant_share_pct: "Chain restaurant share",
     public_transit_pct: "Commute by transit",
     active_transportation_pct: "Walk or bike to work",
+    modeled_fear_walking_pct: "Walking at night (est.)",
   };
 
   const UNIT_SUFFIX = {
@@ -496,6 +497,7 @@
     ward: [
       "c311_pothole_days",
       "violent_crime_rate_per_10000",
+      "modeled_fear_walking_pct",
       "park_acres_per_10000_residents",
       "median_household_income",
       "new_residential_units_permitted_est",
@@ -506,6 +508,7 @@
       "median_household_income",
       "observed_asking_rent_usd",
       "violent_crime_rate_per_10000",
+      "modeled_fear_walking_pct",
       "public_transit_pct",
       "licensed_grocery_stores_per_10000_residents",
       "licensed_coffee_shops_per_10000_residents",
@@ -519,6 +522,20 @@
   // Measures where "better" depends on who is asking. Cheap rent is good for a tenant and often
   // a sign of disinvestment, so the map shows these from low to high with no verdict.
   const NEUTRAL = new Set(["observed_asking_rent_usd"]);
+
+  // Estimates rather than counts. The panel says so wherever the number appears.
+  const MODELED = {
+    modeled_fear_walking_pct: "Share of adults likely to feel unsafe walking alone near home at night. An estimate from a national survey, not a count of crimes.",
+  };
+
+  // Where the number comes from: the original dataset, and the dictionary entry that explains it.
+  function sourceLine(metric) {
+    if (!metric.source) return "";
+    const source = metric.source_url
+      ? `<a href="${esc(metric.source_url)}" target="_blank" rel="noopener">${esc(metric.source)}</a>`
+      : esc(metric.source);
+    return `<p class="fd-small fd-source-line">From ${source}.<br><a href="/dictionary#metric-entry-${esc(metric.metric_id)}">How it's measured</a></p>`;
+  }
 
   async function initExplore() {
     const root = document.querySelector("[data-fd-explore]");
@@ -588,14 +605,14 @@
         swapIn(panel, `
           <p class="fd-tag">${esc(better)}</p>
           <h3 class="fd-h2">${esc(name)}</h3>
-          <p class="fd-small">${esc(metric.description || "")}</p>
+          <p class="fd-small">${esc(MODELED[metric.metric_id] || metric.description || "")}</p>
           <p class="fd-explore-median">City median <strong>${esc(formatValue(median, metric))}</strong></p>
           <div class="fd-explore-lists">
             <div><p class="fd-tag">${neutral ? "Highest" : "Best"}</p><ol class="fd-pick">${ranked.slice(0, 3).map((e) => listItem(e.row, e.spot, metric)).join("")}</ol></div>
             <div><p class="fd-tag">${neutral ? "Lowest" : "Worst"}</p><ol class="fd-pick">${ranked.slice(-3).reverse().map((e) => listItem(e.row, e.spot, metric)).join("")}</ol></div>
           </div>
           <p class="fd-small fd-explore-hint">Select any ${state.areaType === "ward" ? "ward" : "neighborhood"} on the map for its numbers.</p>
-          <p class="fd-small">From ${esc(metric.source)}.</p>`);
+          ${sourceLine(metric)}`);
         return;
       }
 
@@ -619,6 +636,8 @@
           ${spot && !neutral ? `<p><span class="fd-band-${b.key}">${b.label}</span> <span class="fd-small">${ordinal(spot.rank)} of ${spot.of} ${esc(noun)}. Median ${esc(formatValue(spot.median, metric))}.</span></p>
           <div class="fd-track"><span class="fd-dot fd-dot-${b.key}" data-left="${(spot.position * 100).toFixed(1)}" style="left: 0%"></span></div>
           <div class="fd-track-ends" aria-hidden="true"><span>Best</span><span>Median</span><span>Worst</span></div>` : ""}
+          ${MODELED[metric.metric_id] ? `<p class="fd-small">${esc(MODELED[metric.metric_id])}</p>` : ""}
+          ${sourceLine(metric)}
         </div>
         <div class="fd-actions">
           <a class="fd-btn" href="${link}">${linkLabel}</a>
@@ -862,25 +881,23 @@
   // Proposed dues, for discussion with the team. Nothing here is a settled price.
   const TIERS = {
     neighbor: { name: "Resident", dues: 0 },
-    local: { name: "Community", dues: 120 },
-    partner: { name: "Organization", dues: 1500 },
-    anchor: { name: "Institution", dues: 6000 },
+    local: { name: "Community", dues: 300 },
+    partner: { name: "Organization", dues: 2500 },
+    anchor: { name: "Institution", dues: 7500 },
   };
 
   const TIER_INCLUDES = {
     neighbor: ["Everything on the public site", "Email updates for your ward", "Nominate new measures"],
-    local: ["A quarterly snapshot of up to 3 areas", "One saved view you can share", "A vote on what gets built next"],
-    partner: ["Custom views for your whole team", "10 hours of custom analysis a year", "A quarterly briefing", "Priority on new-measure requests"],
-    anchor: ["40 hours of custom analysis a year", "Higher-volume API access", "Eligible for a council seat", "Listed as an institutional member"],
+    local: ["Seats for your whole team", "Custom views you can share", "A vote on what gets built next", "Analysis at $100 an hour"],
+    partner: ["Everything in Community", "A quarterly data briefing", "API access", "Priority on new-measure requests"],
+    anchor: ["Everything in Organization", "10 hours of custom analysis a year", "Higher-volume API with an uptime promise", "Eligible for a council seat"],
   };
 
   // Budget sets the tier, with two floors. Developers and consultancies resell what they
   // learn, so they start at Organization, and city or county agencies start at Institution.
-  // Ward offices are always Organization: every ward paying the same dues is what lets the
-  // charter promise that no ward buys a better report.
+  // Aldermanic offices and campaigns can't join at all, since the site ranks them (charter).
   function tierFor(type, budget) {
     if (type === "resident") return "neighbor";
-    if (type === "ward_office") return "partner";
     const byBudget = { small: "local", mid: "local", large: "partner", xl: "anchor" }[budget] || "local";
     const floor = { developer: "partner", agency: "anchor" }[type];
     const order = ["neighbor", "local", "partner", "anchor"];
@@ -902,11 +919,12 @@
       const tier = TIERS[key];
       const founding = root.querySelector("[name=fd-founding]")?.checked;
       const sliding = root.querySelector("[name=fd-sliding]")?.checked;
+      const firstYear = founding ? Math.round(tier.dues * 0.7) : tier.dues;
       const amount = tier.dues === 0
         ? "Free"
-        : sliding ? "Pay what you can" : `${money(tier.dues)}<small> per year</small>`;
+        : sliding ? "Pay what you can" : `${money(firstYear)}<small> ${founding ? "first year" : "per year"}</small>`;
       const notes = [];
-      if (founding && tier.dues) notes.push("Founding price, fixed for three years.");
+      if (founding && tier.dues && !sliding) notes.push(`Founding price, 30% off the first year. Then ${money(tier.dues)} a year, held for two years.`);
       if (sliding && tier.dues) notes.push(`Listed at ${money(tier.dues)}. Nobody is turned away for money.`);
       swapIn(out, `
         <p class="fd-tag">Your membership</p>
