@@ -6,14 +6,14 @@
     {# Lets CSS hide scroll-reveal content only when a script is there to reveal it. #}
     <script>document.documentElement.classList.add("fd-js");</script>
     {# Light or dark, decided before anything paints so a dark page never flashes white.
-       Saved choice wins (wardwise:theme = light | dark); otherwise follow the system. #}
+       Saved choice wins (wardwise:theme = light | dark | auto). With nothing saved the site starts light. #}
     <script>
       (function () {
         var KEY = "wardwise:theme";
         var root = document.documentElement;
         var media = window.matchMedia("(prefers-color-scheme: dark)");
         function pref() {
-          try { var v = localStorage.getItem(KEY); return v === "light" || v === "dark" ? v : "auto"; } catch (e) { return "auto"; }
+          try { var v = localStorage.getItem(KEY); return v === "dark" || v === "auto" ? v : "light"; } catch (e) { return "light"; }
         }
         function apply(animate) {
           var p = pref();
@@ -34,7 +34,7 @@
           pref: pref,
           isDark: function () { return root.classList.contains("is-dark"); },
           set: function (p) {
-            try { if (p === "auto") localStorage.removeItem(KEY); else localStorage.setItem(KEY, p); } catch (e) {}
+            try { if (p === "light") localStorage.removeItem(KEY); else localStorage.setItem(KEY, p); } catch (e) {}
             apply(true);
           }
         };
@@ -125,6 +125,7 @@
               <li><a href="{{ url_for('about') }}">Get involved</a></li>
               <li><a href="{{ live_url('/data-notes') }}">Data notes</a></li>
               <li><a href="{{ live_url('/api-docs') }}">API docs</a></li>
+              <li><a href="{{ url_for('connect') }}">Ward Wise in Claude</a></li>
               <li><a href="https://chihacknight.org/" rel="noopener">Chi Hack Night</a></li>
             </ul>
           </div>

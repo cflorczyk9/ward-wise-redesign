@@ -4588,3 +4588,125 @@ body:not(.fd-theme) .comparison-row.is-selected .comparison-row-community-areas 
 /* The card that follows the cursor on the map is look-only. If it could take the mouse, it would
    steal the hover from the area under it and close itself, which is the flicker. */
 .ward-details-popover.is-preview { pointer-events: none; }
+
+/* --- Connect (MCP) — the /connect page, owned by the MCP-connector feature -------------------- */
+
+.fd-copybox { align-items: center; background: var(--card); border-radius: 16px; box-shadow: 0 0 0 1px var(--edge); box-sizing: border-box; display: flex; gap: 12px; min-width: 0; padding: 8px 8px 8px 20px; width: 100%; }
+.fd-copybox code { color: var(--ink); flex: 1 1 auto; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 15px; min-width: 0; overflow-x: auto; white-space: nowrap; }
+.fd-copybox button { flex: none; }
+.fd-copybox button.is-copied { box-shadow: inset 0 0 0 1px var(--good); color: var(--good) !important; }
+
+.fd-cli { background: var(--card); border-radius: 16px; box-shadow: 0 0 0 1px var(--edge); box-sizing: border-box; margin: 0; max-width: 100%; overflow-x: auto; padding: 18px 20px; }
+.fd-cli code { color: var(--ink); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 14px; white-space: pre; }
+
+@media (max-width: 640px) {
+  .fd-copybox { flex-wrap: wrap; padding: 14px 14px 14px 18px; }
+  .fd-copybox code { flex-basis: 100%; }
+  .fd-copybox button { margin-left: auto; }
+}
+
+
+/* ---- Home: Ward Wise in Claude ----
+   An integrations card with one tile per way to connect, so it reads as a feature you plug in
+   and not as another centered pitch like the alerts block above it. */
+.fd-mcp .fd-mcp-card {
+  background: var(--card);
+  border-radius: 28px;
+  box-shadow: 0 0 0 1px var(--edge), var(--shadow-sm);
+  padding: 44px 48px;
+  display: grid;
+  gap: 36px;
+}
+.fd-mcp .fd-mcp-top { align-items: flex-start; display: flex; gap: 20px; min-width: 0; }
+.fd-mcp .fd-mcp-icon {
+  align-items: center;
+  background: var(--fill);
+  border-radius: 16px;
+  box-shadow: inset 0 0 0 1px var(--hair);
+  display: flex;
+  flex: none;
+  height: 60px;
+  justify-content: center;
+  width: 60px;
+}
+.fd-mcp .fd-mcp-copy { display: grid; gap: 8px; min-width: 0; }
+.fd-mcp .fd-mcp-kicker { color: var(--ink-2); font-size: 14px; font-weight: 600; letter-spacing: -0.01em; margin: 0; }
+.fd-mcp .fd-mcp-title { color: var(--ink); font-size: clamp(24px, 2.6vw, 30px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; margin: 0; }
+.fd-mcp .fd-mcp-sub { color: var(--ink-2); font-size: 17px; line-height: 1.45; margin: 0; max-width: 48ch; }
+.fd-mcp .fd-mcp-tiles { display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); min-width: 0; }
+.fd-mcp .fd-mcp-tile {
+  background: var(--fill);
+  border-radius: 16px;
+  box-shadow: inset 0 0 0 1px var(--hair);
+  color: inherit;
+  display: grid;
+  gap: 6px;
+  align-content: start;
+  min-width: 0;
+  padding: 18px 20px;
+  text-decoration: none !important;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.fd-mcp a.fd-mcp-tile:hover { box-shadow: inset 0 0 0 1px var(--line); transform: translateY(-2px); }
+.fd-mcp .fd-mcp-tile-label { color: var(--ink); font-size: 15px; font-weight: 600; margin: 0; }
+.fd-mcp .fd-mcp-tile-meta { color: var(--ink-2); font-size: 13px; margin: 0; }
+.fd-mcp .fd-mcp-tile-url {
+  color: var(--ink-2);
+  display: block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12.5px;
+  line-height: 1.4;
+  margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+.fd-mcp .fd-mcp-tile-cta { color: var(--link); font-size: 13px; font-weight: 600; margin-top: 2px; }
+.fd-mcp .fd-mcp-tile-cta::after { content: " \203A"; }
+.fd-mcp .fd-mcp-tile-code { cursor: default; }
+.fd-mcp .fd-mcp-code-row {
+  align-items: center;
+  background: var(--card);
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 1px var(--hair);
+  display: flex;
+  gap: 8px;
+  margin-top: 2px;
+  min-width: 0;
+  padding: 8px 10px;
+}
+.fd-mcp .fd-mcp-code-row code {
+  color: var(--ink);
+  display: block;
+  flex: 1 1 auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.fd-mcp .fd-mcp-copy-btn {
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--link);
+  cursor: pointer;
+  flex: none;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 10px;
+}
+.fd-mcp .fd-mcp-copy-btn:hover { background: var(--blue-wash); }
+.fd-mcp .fd-mcp-copy-btn.is-copied { box-shadow: inset 0 0 0 1px var(--good); color: var(--good); }
+@media (max-width: 900px) {
+  .fd-mcp .fd-mcp-tiles { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .fd-mcp .fd-mcp-card { border-radius: 22px; padding: 28px 22px; }
+  .fd-mcp .fd-mcp-top { flex-direction: column; }
+  .fd-mcp .fd-mcp-icon { height: 52px; width: 52px; }
+}
+      

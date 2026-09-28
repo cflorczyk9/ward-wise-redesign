@@ -12,7 +12,7 @@
         var root = document.documentElement;
         var media = window.matchMedia("(prefers-color-scheme: dark)");
         function pref() {
-          try { var v = localStorage.getItem(KEY); return v === "light" || v === "dark" ? v : "auto"; } catch (e) { return "auto"; }
+          try { var v = localStorage.getItem(KEY); return v === "dark" || v === "auto" ? v : "light"; } catch (e) { return "light"; }
         }
         function apply(animate) {
           var p = pref();
@@ -33,7 +33,7 @@
           pref: pref,
           isDark: function () { return root.classList.contains("is-dark"); },
           set: function (p) {
-            try { if (p === "auto") localStorage.removeItem(KEY); else localStorage.setItem(KEY, p); } catch (e) {}
+            try { if (p === "light") localStorage.removeItem(KEY); else localStorage.setItem(KEY, p); } catch (e) {}
             apply(true);
           }
         };
@@ -47,7 +47,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32.png">
     <link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
     
-    <link rel="stylesheet" href="/static/styles.css?v=1790619643">
+    <link rel="stylesheet" href="/static/styles.css?v=1790629740">
   </head>
   <body class="fd-theme">
     
@@ -143,6 +143,7 @@
               <li><a href="/about">Get involved</a></li>
               <li><a href="https://penlight.wardwise.org/data-notes">Data notes</a></li>
               <li><a href="https://penlight.wardwise.org/api-docs">API docs</a></li>
+              <li><a href="/connect">Ward Wise in Claude</a></li>
               <li><a href="https://chihacknight.org/" rel="noopener">Chi Hack Night</a></li>
             </ul>
           </div>
@@ -180,7 +181,7 @@
         paint();
       })();
     </script>
-    <script src="/static/my_ward.js?v=1790619643"></script>
+    <script src="/static/my_ward.js?v=1790629740"></script>
     
   </body>
 </html>

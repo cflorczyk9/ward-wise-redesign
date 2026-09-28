@@ -6,3 +6,20 @@
   publish = "site"
   command = "echo Pages are prebuilt by freeze.py"
   functions = "netlify/functions"
+
+# esbuild tree-shakes the MCP server's unused SDK transports (Express, Hono) out of the
+# bundle. Set explicitly rather than trusting the default zisi bundler, verified in
+# scratchpad/ww-mcp/RESEARCH.md section 4.
+[functions]
+  node_bundler = "esbuild"
+
+# The .mcpb (Claude Desktop extension, a zip archive per the MCPB spec) has no content type
+# Netlify infers from the extension on its own, and Content-Disposition makes sure a click
+# downloads the file instead of the browser trying to open it inline.
+# Syntax verified against https://docs.netlify.com/build/configure-builds/file-based-configuration/
+# (fetched 2026-09-28).
+[[headers]]
+  for = "/static/downloads/*.mcpb"
+  [headers.values]
+    Content-Type = "application/zip"
+    Content-Disposition = 'attachment; filename="wardwise.mcpb"'

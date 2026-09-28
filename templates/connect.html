@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+
+{% block title %}Ward Wise in Claude · Ward Wise Penlight{% endblock %}
+{% block body_class %}fd-theme{% endblock %}
+
+{% block content %}
+  <main>
+    <section class="fd-hero fd-center">
+      <div class="fd-wrap fd-narrow fd-stack">
+        {# Same mark as the header and the About page, drawn inline so it takes the light and dark logo colors. #}
+        <svg class="fd-about-logo" viewBox="0 0 64 64" width="112" height="112" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="connect-beam" x1="18" y1="46" x2="54" y2="16" gradientUnits="userSpaceOnUse">
+              <stop offset="0" style="stop-color: var(--logo-hue)" stop-opacity="0.22"/>
+              <stop offset="1" style="stop-color: var(--logo-hue)" stop-opacity="0.03"/>
+            </linearGradient>
+          </defs>
+          <path d="M18 46 L52 2 L58 34 Z" fill="url(#connect-beam)"/>
+          <path d="M18 46 L30 33 L39 38 L52 18" fill="none" style="stroke: var(--logo-hue)" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="52" cy="18" r="4.2" style="fill: var(--logo-hue)"/>
+          <circle cx="18" cy="46" r="4.6" style="fill: var(--logo-ink)"/>
+        </svg>
+        <p class="fd-about-wordmark">Penlight</p>
+        <h1 class="fd-h1">Ward Wise data in Claude.</h1>
+        <p class="fd-sub">
+          Ask about any Chicago ward in plain English and get answers built from the same 271
+          public measures on this site, sources included.
+        </p>
+      </div>
+    </section>
+
+    <section class="fd-section-tight">
+      <div class="fd-wrap fd-narrow fd-stack">
+        <p class="fd-tag">The server</p>
+        <h2 class="fd-h2">One address connects it.</h2>
+        <p class="fd-body">
+          This is the address for the Ward Wise server. It works with Claude and any other app
+          built on MCP (Model Context Protocol, the open standard AI apps use to reach outside
+          data). Copy it, then paste it where the app asks for a connector.
+        </p>
+        <div class="fd-copybox">
+          <code id="mcp-url">https://wardwise-redesign.netlify.app/mcp</code>
+          <button type="button" class="fd-btn fd-btn-ghost" id="mcp-copy" data-copy-target="mcp-url">Copy</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="fd-section fd-fill">
+      <div class="fd-wrap fd-stack-lg">
+        <div class="fd-stack">
+          <p class="fd-tag">In Claude</p>
+          <h2 class="fd-h1">Add it in under a minute.</h2>
+        </div>
+        <!--
+          Click path verified against https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp
+          (fetched 2026-09-28), "Adding Custom Connectors as an Individual User": "Navigate to
+          Customize > Connectors. Click "+" then "Add custom connector". Enter your remote MCP
+          server URL. Optionally click "Advanced settings" to add OAuth Client ID/Secret. Click
+          "Add" to complete configuration." Supported on Free (one connector), Pro and Max.
+        -->
+        <ol class="fd-loop">
+          <li><h3 class="fd-h3">Open Customize</h3><p>In Claude's sidebar, click Customize.</p></li>
+          <li><h3 class="fd-h3">Open Connectors</h3><p>Click Connectors, then the plus button.</p></li>
+          <li><h3 class="fd-h3">Add custom connector</h3><p>Paste the address from above and click Add.</p></li>
+          <li><h3 class="fd-h3">Start asking</h3><p>No sign-in and no extra settings. Ward Wise shows up as a connector right away.</p></li>
+        </ol>
+        <div class="fd-stack" style="margin-top: 8px">
+          <p class="fd-tag">In Claude Code</p>
+          <p class="fd-body">From the command line, this one line adds the same server.</p>
+          <!--
+            Flag syntax verified against https://code.claude.com/docs/en/mcp (fetched 2026-09-28):
+            `claude mcp add --transport http <name> <url>`, with the docs' own worked example
+            `claude mcp add --transport http notion https://mcp.notion.com/mcp`.
+          -->
+          <pre class="fd-cli"><code>claude mcp add --transport http wardwise https://wardwise-redesign.netlify.app/mcp</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="fd-section">
+      <div class="fd-wrap fd-narrow fd-stack">
+        <p class="fd-tag">Download</p>
+        <h2 class="fd-h2">Or download the file.</h2>
+        <p class="fd-body">
+          The same nine tools come packed in one file for Claude Desktop.
+        </p>
+        <div class="fd-actions">
+          <a class="fd-btn" href="{{ url_for('static', filename='downloads/wardwise.mcpb') }}" download="wardwise.mcpb">Download for Claude Desktop{% if mcpb_size %} ({{ mcpb_size }}){% endif %}</a>
+        </div>
+        <!--
+          Install flow verified against https://claude.com/docs/connectors/building/mcpb (fetched
+          2026-09-28): "Each of these install methods opens an installation UI where the user
+          reviews extension details and permissions, configures required settings, grants
+          permissions, and completes installation." Also
+          https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop
+          (fetched 2026-09-28) and the Anthropic engineering post on Desktop Extensions, which
+          states the flow as "Download a .mcpb file, double-click to open with Claude Desktop,
+          click 'Install.'" Icon size (512x512 recommended, 256x256 minimum, PNG with
+          transparency) and platform support (macOS and Windows) are from the same claude.com page.
+        -->
+        <p class="fd-small">Open the file. Claude Desktop shows the tools and permissions, then you click Install. Works on Mac and Windows.</p>
+        <div class="fd-actions">
+          <!--
+            Cursor deep link verified against https://cursor.com/docs/mcp/install-links (fetched
+            2026-09-28): cursor://anysphere.cursor-deeplink/mcp/install?name=$NAME&config=$BASE64_ENCODED_CONFIG,
+            where config is base64(JSON.stringify(<transport config>)), "the same format as
+            mcp.json." The remote-server shape ({"url": "..."}) is confirmed at
+            https://cursor.com/docs/context/mcp (fetched 2026-09-28), a mcp.json entry shown as
+            {"url": "http://localhost:3000/mcp", "headers": {...}}. Neither page shows a full
+            worked example for a remote HTTP server, only for a stdio one, so this combines two
+            verified facts rather than copying one full example.
+          -->
+          <a class="fd-more" href="cursor://anysphere.cursor-deeplink/mcp/install?name=wardwise&amp;config=eyJ1cmwiOiJodHRwczovL3dhcmR3aXNlLXJlZGVzaWduLm5ldGxpZnkuYXBwL21jcCJ9">Add to Cursor</a>
+          <!--
+            VS Code install link verified against https://code.visualstudio.com/api/extension-guides/ai/mcp
+            (fetched 2026-09-28): "vscode:mcp/install?{json-configuration}... Provide the JSON
+            server configuration in the form {"name":"server-name","command":...} and then
+            perform a JSON-stringify and URL encode on it." The "type": "http" / "url" fields for
+            a remote server are confirmed at
+            https://code.visualstudio.com/docs/agents/reference/mcp-configuration (fetched
+            2026-09-28), shown as {"type": "http", "url": "https://mcp.context7.com/mcp"}.
+          -->
+          <a class="fd-more" href="vscode:mcp/install?%7B%22name%22%3A%22wardwise%22%2C%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fwardwise-redesign.netlify.app%2Fmcp%22%7D">Add to VS Code</a>
+          <a class="fd-more" href="{{ url_for('static', filename='downloads/wardwise-mcp.json') }}" download="wardwise-mcp.json">JSON config for other apps</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="fd-section">
+      <div class="fd-wrap fd-stack-lg">
+        <div class="fd-stack">
+          <p class="fd-tag">Try asking</p>
+          <h2 class="fd-h2">What to ask it.</h2>
+          <p class="fd-sub">A few examples to start with.</p>
+        </div>
+        <div class="fd-grid-2">
+          <article class="fd-card fd-card-line"><p class="fd-body">"How does Ward 5 compare to the rest of the city on walking safety at night?"</p></article>
+          <article class="fd-card fd-card-line"><p class="fd-body">"Which wards have the most people commuting 45 minutes or more?"</p></article>
+          <article class="fd-card fd-card-line"><p class="fd-body">"What ward is 5400 S Hyde Park Blvd in?"</p></article>
+          <article class="fd-card fd-card-line"><p class="fd-body">"Which wards have gotten the most new housing permits?"</p></article>
+          <article class="fd-card fd-card-line"><p class="fd-body">"How have new housing permits in Ward 20 changed since 2020?"</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="fd-section fd-fill">
+      <div class="fd-wrap fd-stack-lg">
+        <div class="fd-stack">
+          <p class="fd-tag">The fine print</p>
+          <h2 class="fd-h2">What it can and cannot do.</h2>
+          <p class="fd-sub">It only reads what's already public on this site.</p>
+        </div>
+        <div class="fd-principles">
+          <div class="fd-principle"><h3 class="fd-h3">Read-only</h3><p>It only reads the same public measures shown on this site. It cannot edit a ward, a boundary, or any number.</p></div>
+          <div class="fd-principle"><h3 class="fd-h3">No sign-in</h3><p>Anyone can connect with the address above. There's no account, no key, and nothing personal gets collected.</p></div>
+          <div class="fd-principle"><h3 class="fd-h3">Some measures are modeled</h3><p>A few, like fear of walking at night, are built from a national survey model. The server marks these as estimates, separate from the ward-level counts.</p></div>
+          <div class="fd-principle"><h3 class="fd-h3">Every number has a source</h3><p>Data comes from Penlight and the public records behind it, including the City of Chicago and the U.S. Census Bureau.</p></div>
+        </div>
+        <div class="fd-actions"><a class="fd-more" href="{{ live_url('/api-docs') }}">Read the raw API docs</a></div>
+      </div>
+    </section>
+  </main>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{{ url_for('static', filename='common.js', v=asset_version) }}"></script>
+  <script src="{{ url_for('static', filename='frontdoor.js', v=asset_version) }}"></script>
+  <script>
+    (function () {
+      var button = document.getElementById("mcp-copy");
+      if (!button) return;
+      var timer = null;
+      button.addEventListener("click", function () {
+        var target = document.getElementById(button.getAttribute("data-copy-target"));
+        if (!target) return;
+        var text = target.textContent.trim();
+        var done = function (ok) {
+          clearTimeout(timer);
+          button.textContent = ok ? "Copied" : "Select and copy";
+          button.classList.toggle("is-copied", ok);
+          timer = setTimeout(function () {
+            button.textContent = "Copy";
+            button.classList.remove("is-copied");
+          }, 1800);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); });
+        } else {
+          done(false);
+        }
+      });
+    })();
+  </script>
+{% endblock %}

@@ -42,10 +42,25 @@ ASSET_VERSION = int(max(
 ))
 
 
+def _mcpb_size_label() -> str:
+    """Human-readable size of the packed Claude Desktop extension, for the /connect page.
+
+    Rebuild the file with `npm run build:mcpb` (see mcpb/build.mjs), which writes
+    static/downloads/wardwise.mcpb. This reads the real file at render time rather than
+    hardcoding a number that would go stale.
+    """
+    mcpb_path = STATIC_DIR / "downloads" / "wardwise.mcpb"
+    if not mcpb_path.exists():
+        return ""
+    size_kb = mcpb_path.stat().st_size / 1024
+    return f"{size_kb:.0f} KB"
+
+
 @app.context_processor
 def inject_globals():
     return {
         "asset_version": ASSET_VERSION,
+        "mcpb_size": _mcpb_size_label(),
         # Features that stayed behind in the monorepo — nominate a metric, submit a photo,
         # the reports page, the API docs. They link out to the live site rather than 404.
         "live_url": lambda path: f"{SITE_BASE}{path}",
@@ -174,6 +189,11 @@ def metrics_redirect():
 @app.get("/about")
 def about():
     return render_template("about.html")
+
+
+@app.get("/connect")
+def connect():
+    return render_template("connect.html")
 
 
 @app.get("/support")

@@ -33,6 +33,7 @@ PAGES = {
     "/alerts": "alerts.html",
     "/dictionary": "dictionary.html",
     "/about": "about.html",
+    "/connect": "connect.html",
 }
 
 REDIRECTS = """# Written by freeze.py. Netlify reads this top to bottom and stops at the first match.

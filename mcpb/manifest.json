@@ -1,0 +1,68 @@
+{
+  "manifest_version": "0.3",
+  "name": "wardwise",
+  "display_name": "Ward Wise",
+  "version": "0.1.1",
+  "description": "Read-only Chicago ward and community area data from Ward Wise, covering 50 wards, 77 community areas and 271 public measures.",
+  "long_description": "Ward Wise reports civic wellbeing data for the City of Chicago. It covers 50 wards, 77 community areas, and 271 measures pulled from public sources through Penlight. Most measures are direct counts or survey figures. A few measures are modeled statistical estimates rather than direct measurements, and those come back with an estimate caveat attached. Always cite the source given with each value when you share it.",
+  "author": {
+    "name": "Ward Wise (Chi Hack Night)",
+    "url": "https://wardwise-redesign.netlify.app/connect"
+  },
+  "homepage": "https://wardwise-redesign.netlify.app/connect",
+  "documentation": "https://wardwise-redesign.netlify.app/connect",
+  "icon": "icon.png",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server/index.mjs"]
+    }
+  },
+  "tools": [
+    {
+      "name": "search_metrics",
+      "description": "Search the 271 Ward Wise measures by keyword, wellbeing category, or geography. Use this first to find a metric id before calling another tool."
+    },
+    {
+      "name": "ward_profile",
+      "description": "Get a compact profile for one Chicago ward, including its alderperson, population, its biggest community area overlaps, and a count of mapped places by category. Accepts a ward number 1 through 50."
+    },
+    {
+      "name": "rank_wards",
+      "description": "Rank Chicago wards or community areas by one measure's raw value, or by a weighted composite wellbeing score built from several measures. Leave metric_ids empty to use Ward Wise's own default composite score."
+    },
+    {
+      "name": "compare_areas_on_metric",
+      "description": "Get one measure's value for a set of wards or community areas, or for all of them, along with the citywide median so a single number has context."
+    },
+    {
+      "name": "metric_trend",
+      "description": "Get one measure's history for one area, either its full year-by-year series or, when both a from year and a to year are given, a two-point change compared with the citywide change over the same span."
+    },
+    {
+      "name": "find_ward_for_address",
+      "description": "Look up which Chicago ward an address falls in. Geocodes the address with the free Census Bureau geocoder, then checks it against ward boundaries. Address matching depends on that third party government service and can occasionally fail to match an address."
+    },
+    {
+      "name": "area_overlaps",
+      "description": "Chicago wards and community areas don't share the same boundaries. Give one ward or one community area and get every area it overlaps, with the percentage of each side."
+    },
+    {
+      "name": "places_in_ward",
+      "description": "List mapped places of interest in one Chicago ward, such as parks, libraries, museums, and faith institutions. Optionally filter to one category."
+    },
+    {
+      "name": "metric_detail",
+      "description": "Look up the full definition of one measure, including what it means, its unit, its source, how it is calculated, which years and geographies it covers, and whether it is a modeled estimate."
+    }
+  ],
+  "keywords": ["chicago", "wards", "civic data", "penlight", "open data"],
+  "compatibility": {
+    "platforms": ["darwin", "win32"],
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  }
+}
