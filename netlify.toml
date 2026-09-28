@@ -1,0 +1,8 @@
+# Netlify publishes the pages freeze.py rendered into site/. There is no build step on Netlify:
+# run `python3 freeze.py` locally after changing a template or static file, and commit site/.
+# The live data proxies are in site/_redirects, and the address lookup is a function.
+
+[build]
+  publish = "site"
+  command = "echo Pages are prebuilt by freeze.py"
+  functions = "netlify/functions"

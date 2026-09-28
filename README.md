@@ -60,6 +60,20 @@ That's the whole setup: a venv, Flask, and `requests`. Then open
 <http://localhost:1837>. You get the real site with real Chicago data — no AWS credentials,
 no data pipeline, no database.
 
+## Deploy (Netlify)
+
+Netlify serves plain files, so `freeze.py` renders every page into `site/`, which is committed.
+After changing a template or anything in `static/`, run it and commit the result:
+
+```bash
+.venv/bin/python freeze.py
+```
+
+`netlify.toml` publishes `site/`. `site/_redirects` (written by `freeze.py`) does at Netlify's edge
+what `server.py` does locally: it forwards `/api/*` to the Penlight API and `/clerk/*` to the City
+Clerk, and maps `/map`, `/for/residents` and the rest to their files. The address lookup that
+`/geocode` does in `server.py` runs as a Netlify function, `netlify/functions/geocode.mjs`.
+
 ## How it works
 
 `server.py` is a small shell. It renders the templates, proxies `/api/*` to the live Penlight API

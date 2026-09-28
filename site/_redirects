@@ -1,0 +1,21 @@
+# Written by freeze.py. Netlify reads this top to bottom and stops at the first match.
+
+# Live data, same origin, so the browser needs no CORS and no key (server.py does this locally).
+/api/*    https://penlight.wardwise.org/api/:splat                200
+/clerk/*  https://api.chicityclerkelms.chicago.gov/:splat         200
+/geocode  /.netlify/functions/geocode                             200
+
+# Old addresses
+/support  /about       301
+/metrics  /dictionary  301
+
+# Pages
+/map              /map.html  200
+/for/residents    /for/residents.html  200
+/for/planning     /for/planning.html  200
+/for/business     /for/business.html  200
+/guild            /guild.html  200
+/guild/join       /guild/join.html  200
+/alerts           /alerts.html  200
+/dictionary       /dictionary.html  200
+/about            /about.html  200
