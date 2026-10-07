@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Ward report card · Ward Wise Penlight{% endblock %}
+{% block title %}Ward report card · Ward Wise{% endblock %}
 {% block body_class %}fd-theme{% endblock %}
 
 {% block content %}
@@ -79,10 +79,9 @@
           <p class="fd-tag">Election day is February 23, 2027</p>
           <h2 class="fd-h2">The same report for every ward.</h2>
           <p class="fd-body">
-            Ward Wise does not endorse candidates, and no campaign can become a member. Candidates and
-            voters see the same numbers, measured the same way.
+            Ward Wise does not endorse candidates. Candidates and voters see the same numbers, measured
+            the same way.
           </p>
-          <a class="fd-more" href="{{ url_for('guild') }}#charter">Read the member charter</a>
         </div>
         <div class="fd-stack">
           <p class="fd-tag">Stay informed</p>
@@ -98,8 +97,7 @@
         <h2 class="fd-h2">Nominate what your block cares about.</h2>
         <p class="fd-body">
           Parking difficulty, water-fountain lead and 311 response times all began as resident
-          nominations. Under the proposed member charter, half of each quarter's new measures would
-          come from residents.
+          nominations.
         </p>
         <div class="fd-actions"><a class="fd-more" href="{{ live_url('/suggest-metric') }}">Nominate a measure</a></div>
       </div>

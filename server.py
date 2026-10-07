@@ -6,8 +6,8 @@ below. Proxying (rather than calling the API cross-origin from the browser) keep
 request same-origin, so there is no CORS to configure and no API key to hand out.
 
 Environment:
-  PENLIGHT_API_BASE   where /api/* is forwarded   (default: https://penlight.wardwise.org)
-  PENLIGHT_SITE_BASE  where out-of-scope links go (default: https://penlight.wardwise.org)
+  PENLIGHT_API_BASE   where /api/* is forwarded   (default: https://www.wardwise.org)
+  PENLIGHT_SITE_BASE  where out-of-scope links go (default: https://www.wardwise.org)
   PROXY_ALLOW_WRITES  1 to forward POSTs upstream (default: 0, stubbed — see proxy())
   PORT                default 1837, the year Chicago was incorporated
 """
@@ -23,7 +23,7 @@ import requests
 from flask import Flask, Response, jsonify, redirect, render_template, request, url_for
 
 API_BASE = os.environ.get("PENLIGHT_API_BASE", "https://penlight.wardwise.org").rstrip("/")
-SITE_BASE = os.environ.get("PENLIGHT_SITE_BASE", "https://penlight.wardwise.org").rstrip("/")
+SITE_BASE = os.environ.get("PENLIGHT_SITE_BASE", "https://www.wardwise.org").rstrip("/")
 ALLOW_WRITES = os.environ.get("PROXY_ALLOW_WRITES", "0") == "1"
 
 # Headers that describe the *hop*, not the payload — forwarding them would corrupt the

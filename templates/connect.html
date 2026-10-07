@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Ward Wise in Claude · Ward Wise Penlight{% endblock %}
+{% block title %}Ward Wise in Claude · Ward Wise{% endblock %}
 {% block body_class %}fd-theme{% endblock %}
 
 {% block content %}
@@ -20,7 +20,7 @@
           <circle cx="52" cy="18" r="4.2" style="fill: var(--logo-hue)"/>
           <circle cx="18" cy="46" r="4.6" style="fill: var(--logo-ink)"/>
         </svg>
-        <p class="fd-about-wordmark">Penlight</p>
+        <p class="fd-about-wordmark">Ward Wise</p>
         <h1 class="fd-h1">Ward Wise data in Claude.</h1>
         <p class="fd-sub">
           Ask about any Chicago ward in plain English and get answers built from the same 271
@@ -154,7 +154,7 @@
           <div class="fd-principle"><h3 class="fd-h3">Read-only</h3><p>It only reads the same public measures shown on this site. It cannot edit a ward, a boundary, or any number.</p></div>
           <div class="fd-principle"><h3 class="fd-h3">No sign-in</h3><p>Anyone can connect with the address above. There's no account, no key, and nothing personal gets collected.</p></div>
           <div class="fd-principle"><h3 class="fd-h3">Some measures are modeled</h3><p>A few, like fear of walking at night, are built from a national survey model. The server marks these as estimates, separate from the ward-level counts.</p></div>
-          <div class="fd-principle"><h3 class="fd-h3">Every number has a source</h3><p>Data comes from Penlight and the public records behind it, including the City of Chicago and the U.S. Census Bureau.</p></div>
+          <div class="fd-principle"><h3 class="fd-h3">Every number has a source</h3><p>Data comes from the Ward Wise API and the public records behind it, including the City of Chicago and the U.S. Census Bureau.</p></div>
         </div>
         <div class="fd-actions"><a class="fd-more" href="{{ live_url('/api-docs') }}">Read the raw API docs</a></div>
       </div>

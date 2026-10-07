@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}About · Ward Wise Penlight{% endblock %}
+{% block title %}About · Ward Wise{% endblock %}
 {% block body_class %}fd-theme fd-about{% endblock %}
 
 {% block content %}
@@ -20,10 +20,10 @@
           <circle cx="52" cy="18" r="4.2" style="fill: var(--logo-hue)"/>
           <circle cx="18" cy="46" r="4.6" style="fill: var(--logo-ink)"/>
         </svg>
-        <p class="fd-about-wordmark">Penlight</p>
+        <p class="fd-about-wordmark">Ward Wise</p>
         <h1 class="fd-h1">A clearer view of every ward.</h1>
         <p class="fd-sub">
-          Penlight turns Chicago's open data into measures of neighborhood wellbeing that anyone can
+          Ward Wise turns Chicago's open data into measures of neighborhood wellbeing that anyone can
           explore, weight and compare. Volunteers build it at
           <a href="https://chihacknight.org/" rel="noopener">Chi Hack Night</a>.
         </p>
@@ -63,7 +63,7 @@
         <div class="fd-stack">
           <p class="fd-tag">Since May 2026</p>
           <h2 class="fd-h1">The catalog keeps growing.</h2>
-          <p class="fd-sub">Penlight launched with 20 measures for the Bean's 20th birthday and has added more every month since.</p>
+          <p class="fd-sub">The site launched with 20 measures for the Bean's 20th birthday and has added more every month since.</p>
         </div>
         <div id="about-metric-growth" class="about-metric-growth"><p class="fd-loading">Loading history…</p></div>
       </div>
@@ -85,7 +85,42 @@
       </div>
     </section>
 
-    <section class="fd-section">
+    <section class="fd-section fd-fill">
+      <div class="fd-wrap fd-stack-lg">
+        <div class="fd-stack">
+          <p class="fd-tag">Who builds it</p>
+          <h2 class="fd-h1">The team.</h2>
+          <p class="fd-sub">Volunteers who met at Chi Hack Night, each from a different ward. Datasets that volunteers compile stay public.</p>
+        </div>
+        <ul class="fd-team">
+          <li class="fd-team-card">
+            <img src="{{ url_for('static', filename='team/harry-brisson.jpg') }}" alt="Harry Brisson" loading="lazy" width="240" height="240">
+            <strong>Harry Brisson</strong>
+            <span>12th Ward · Data coordinator</span>
+            <a href="https://github.com/HarryBrisson" rel="noopener">@HarryBrisson</a>
+          </li>
+          <li class="fd-team-card">
+            <img src="{{ url_for('static', filename='team/angel-carbajal.jpg') }}" alt="Angel Carbajal" loading="lazy" width="240" height="240">
+            <strong>Angel Carbajal</strong>
+            <span>33rd Ward · UX and design</span>
+            <a href="https://github.com/zyplos" rel="noopener">@zyplos</a>
+          </li>
+          <li class="fd-team-card">
+            <img src="{{ url_for('static', filename='team/connor-florczyk.jpg') }}" alt="Connor Florczyk" loading="lazy" width="240" height="240">
+            <strong>Connor Florczyk</strong>
+            <span>42nd Ward · UX and reporting</span>
+            <a href="https://github.com/cflorczyk9" rel="noopener">@cflorczyk9</a>
+          </li>
+          <li class="fd-team-card">
+            <img src="{{ url_for('static', filename='team/jackie-schmitz.jpg') }}" alt="Jackie Schmitz" loading="lazy" width="240" height="240">
+            <strong>Jackie Schmitz</strong>
+            <span>43rd Ward · Personalization</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="fd-section" id="get-involved">
       <div class="fd-wrap fd-stack-lg">
         <h2 class="fd-h1">Get involved.</h2>
         <div class="fd-grid-2">
@@ -98,12 +133,12 @@
           <article class="fd-card fd-card-line fd-stack">
             <p class="fd-tag">In person</p>
             <h3 class="fd-h3">Come to Chi Hack Night</h3>
-            <p class="fd-body">Chicago's weekly meetup for people who use data and technology in the public interest meets on Tuesday evenings. Penlight is built there, and no technical background is needed.</p>
+            <p class="fd-body">Chicago's weekly meetup for people who use data and technology in the public interest meets on Tuesday evenings. Ward Wise is built there, and no technical background is needed.</p>
             <a class="fd-more" href="https://chihacknight.org/" rel="noopener">chihacknight.org</a>
           </article>
           <article class="fd-card fd-card-line fd-stack">
             <p class="fd-tag">Beyond Chicago</p>
-            <h3 class="fd-h3">Bring Penlight to your city</h3>
+            <h3 class="fd-h3">Bring Ward Wise to your city</h3>
             <p class="fd-body">Open data and open source travel well. The team is exploring Columbus, Madison, Cincinnati, New York and Los Angeles.</p>
             <a class="fd-more" href="{{ live_url('/your-city') }}">Tell us about your city</a>
           </article>

@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Penlight: a beam of light carrying a rising data line">
-  <title>Penlight</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Ward Wise: a beam of light carrying a rising data line">
+  <title>Ward Wise</title>
   <defs>
     <linearGradient id="plbw" x1="18" y1="46" x2="54" y2="16" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#0b7892" stop-opacity="0.22"/>

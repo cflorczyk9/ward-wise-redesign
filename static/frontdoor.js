@@ -856,11 +856,11 @@
     });
   }
 
-  async function initHousing() {
-    const root = document.getElementById("fd-housing");
+  // Top five and bottom five wards for one measure, as two ruled lists.
+  async function initWardLists(rootId, metricId, highLabel, lowLabel) {
+    const root = document.getElementById(rootId);
     if (!root) return;
     root.innerHTML = [0, 1].map(() => `<div class="fd-card">${skelBlock([["is-lg", "30%"], ["", "100%"], ["", "100%"], ["", "100%"], ["", "100%"], ["", "100%"]])}</div>`).join("");
-    const metricId = "new_residential_units_permitted_est";
     try {
       const data = await api.fetchComparison([metricId], "ward");
       const metric = data.metrics[0];
@@ -869,11 +869,16 @@
         .sort((a, b) => b.values[metricId] - a.values[metricId]);
       const item = (row) => `<li><span>${esc(row.display_name)}</span><strong>${esc(formatValue(row.values[metricId], metric))}</strong></li>`;
       root.innerHTML = `
-        <div class="fd-card"><h3 class="fd-h3">Most</h3><ol class="fd-list">${rows.slice(0, 5).map(item).join("")}</ol></div>
-        <div class="fd-card"><h3 class="fd-h3">Fewest</h3><ol class="fd-list">${rows.slice(-5).reverse().map(item).join("")}</ol></div>`;
+        <div class="fd-card"><h3 class="fd-h3">${esc(highLabel)}</h3><ol class="fd-list">${rows.slice(0, 5).map(item).join("")}</ol></div>
+        <div class="fd-card"><h3 class="fd-h3">${esc(lowLabel)}</h3><ol class="fd-list">${rows.slice(-5).reverse().map(item).join("")}</ol></div>`;
     } catch (error) {
       root.innerHTML = failNotice(error);
     }
+  }
+
+  function initHousing() {
+    initWardLists("fd-housing", "new_residential_units_permitted_est", "Most", "Fewest");
+    initWardLists("fd-chains", "chain_restaurant_share_pct", "Most chain restaurants", "Most independent restaurants");
   }
 
   // --- Membership: dues ------------------------------------------------------------
@@ -1766,7 +1771,7 @@
       <table role="presentation" cellpadding="0" cellspacing="0" class="m-card" style="${M.card}">
         <tr><td class="m-pad" style="padding:24px 28px 0;">
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
-            <td><img src="${origin}/static/logo-email.png" width="28" height="28" alt="" style="vertical-align:middle;margin-right:6px;"><span style="${M.brand}">Ward Wise <span style="color:#6e6e73;font-weight:400;">Penlight</span></span></td>
+            <td><img src="${origin}/static/logo-email.png" width="28" height="28" alt="" style="vertical-align:middle;margin-right:6px;"><span style="${M.brand}">Ward Wise</span></td>
             <td align="right"><span style="${M.pill}">Ward ${Number(view.ward)}</span></td>
           </tr></table>
         </td></tr>
@@ -1779,7 +1784,7 @@
         <tr><td class="m-pad" style="padding:0 28px;">${sections}</td></tr>
         <tr><td class="m-pad" style="padding:12px 28px 0;"><div style="${M.alder}" data-alder>${alderInner(view.alder, view.ward)}</div></td></tr>
         <tr><td class="m-pad" style="${M.foot}">
-          You're getting this because you asked for Ward ${Number(view.ward)} alerts on Ward Wise Penlight.<br>
+          You're getting this because you asked for Ward ${Number(view.ward)} alerts on Ward Wise.<br>
           <a href="${origin}/alerts" style="${M.link}">Change your alerts</a> &nbsp;|&nbsp; <a href="${origin}/alerts" style="${M.link}">Unsubscribe</a><br><br>
           Records from the Office of the City Clerk and the Chicago Data Portal.<br>Built by volunteers at Chi Hack Night.
         </td></tr>

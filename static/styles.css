@@ -4710,3 +4710,13 @@ body:not(.fd-theme) .comparison-row.is-selected .comparison-row-community-areas 
   .fd-mcp .fd-mcp-icon { height: 52px; width: 52px; }
 }
       
+
+/* About: the team, four cards with photos (same people and roles as the live site). */
+.fd-team { display: grid; gap: 20px; grid-template-columns: repeat(4, minmax(0, 1fr)); list-style: none; margin: 0; padding: 0; }
+.fd-team-card { align-content: start; display: grid; gap: 4px; justify-items: start; }
+.fd-team-card img { aspect-ratio: 1; border-radius: 18px; height: auto; margin-bottom: 10px; object-fit: cover; width: 100%; }
+.fd-team-card strong { color: var(--ink); font-size: 17px; font-weight: 600; }
+.fd-team-card span { color: var(--ink-2); font-size: 14px; }
+.fd-team-card a { color: var(--link); font-size: 14px; text-decoration: none; }
+.fd-team-card a:hover { text-decoration: underline; }
+@media (max-width: 760px) { .fd-team { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

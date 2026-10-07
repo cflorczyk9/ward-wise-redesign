@@ -1,14 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %}Ward Wise Penlight{% endblock %}
+{% block title %}Ward Wise{% endblock %}
 {% block body_class %}fd-theme{% endblock %}
 
 {% block content %}
   <main>
-    <p class="fd-proposal">Proposal preview. Membership prices and rules are drafts for the team to settle.</p>
     <section class="fd-hero fd-center">
       <div class="fd-wrap">
-        <p class="fd-eyebrow">Ward Wise Penlight</p>
+        <p class="fd-eyebrow">Ward Wise</p>
         <h1 class="fd-display">Chicago, measured.</h1>
         <p class="fd-sub" style="margin-top: 20px">
           <span data-fd-count="metrics">271</span> measures of daily life for every ward and
@@ -59,7 +58,7 @@
       <div class="fd-wrap fd-stack-lg">
         <div class="fd-stack">
           <h2 class="fd-h1">Who Ward Wise is for.</h2>
-          <p class="fd-sub">Three groups use the same data, and only the organizations that rely on it pay.</p>
+          <p class="fd-sub">Three groups use the same data, all of it free.</p>
         </div>
         <div class="fd-grid-3">
           <article class="fd-card fd-lane">
@@ -70,36 +69,20 @@
             <a class="fd-more" href="{{ url_for('residents') }}">See your ward</a>
           </article>
           <article class="fd-card fd-lane">
-            <p class="fd-tag">Membership</p>
+            <p class="fd-tag">Free</p>
             <h3 class="fd-h3">Planners and community groups</h3>
-            <p class="fd-price">From $300 per year</p>
-            <p class="fd-body">Free downloads for everyone, plus custom views, analysis and a say in what gets measured next for the groups that plan the city.</p>
+            <p class="fd-price">Free to download</p>
+            <p class="fd-body">Every measure for all 50 wards and 77 community areas, ready to download as a spreadsheet.</p>
             <a class="fd-more" href="{{ url_for('planning') }}">Tools for planners</a>
           </article>
           <article class="fd-card fd-lane">
             <p class="fd-tag">Snapshots</p>
             <h3 class="fd-h3">Local businesses</h3>
-            <p class="fd-price">Free, or $99 for a custom snapshot</p>
-            <p class="fd-body">A free snapshot of any neighborhood's income, rent, commuting and business mix, or a custom one built around your block.</p>
+            <p class="fd-price">Free</p>
+            <p class="fd-body">A snapshot of any neighborhood's income, rent, commuting and business mix.</p>
             <a class="fd-more" href="{{ url_for('business') }}">See a snapshot</a>
           </article>
         </div>
-      </div>
-    </section>
-
-    <section class="fd-section">
-      <div class="fd-wrap fd-stack-lg">
-        <div class="fd-stack">
-          <h2 class="fd-h1">How it stays free.</h2>
-          <p class="fd-sub">Public data goes stale unless someone is paid to keep it current. Membership dues pay for that work.</p>
-        </div>
-        <ol class="fd-loop">
-          <li><h3 class="fd-h3">Organizations join</h3><p>Planners, community groups and businesses pay yearly dues sized to their budget.</p></li>
-          <li><h3 class="fd-h3">Dues fund upkeep</h3><p>Half of every dollar pays people to keep data feeds running and add each year's new records.</p></li>
-          <li><h3 class="fd-h3">The public site stays current</h3><p>Every resident gets the same up-to-date numbers, with no login and no charge.</p></li>
-          <li><h3 class="fd-h3">Residents improve it</h3><p>Resident nominations become new measures, which makes the data more useful to members.</p></li>
-        </ol>
-        <p class="fd-loop-note">The membership is called the Ward Wise Guild. <a class="fd-more" href="{{ url_for('guild') }}">How membership works</a></p>
       </div>
     </section>
 
