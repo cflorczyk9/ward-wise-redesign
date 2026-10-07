@@ -22,6 +22,25 @@
 
     <section class="fd-section-tight">
       <div class="fd-wrap">
+        <div class="fd-starts">
+          <a class="fd-start" href="{{ url_for('residents') }}">
+            <h2 class="fd-h3">How is my ward doing?</h2>
+            <p>Ten measures, each ranked against all 50 wards.</p>
+          </a>
+          <button type="button" class="fd-start" data-fd-start="modeled_fear_walking_pct">
+            <h2 class="fd-h3">Where do people feel safe walking at night?</h2>
+            <p>An estimate from a national survey, shown on the map below.</p>
+          </button>
+          <button type="button" class="fd-start" data-fd-start="chain_restaurant_share_pct">
+            <h2 class="fd-h3">Chain restaurants or local ones?</h2>
+            <p>The share of restaurants that belong to a chain, ward by ward.</p>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="fd-section-tight">
+      <div class="fd-wrap">
         <div class="fd-explore is-loading" data-fd-explore>
           <div class="fd-explore-bar">
             <div class="fd-seg" role="group" aria-label="Geography" data-fd-geo>
@@ -50,38 +69,6 @@
           <div class="fd-figure"><strong data-fd-count="sources">58</strong><span>public data sources</span></div>
           <div class="fd-figure"><strong>50</strong><span>wards</span></div>
           <div class="fd-figure"><strong>77</strong><span>community areas</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="fd-section fd-fill">
-      <div class="fd-wrap fd-stack-lg">
-        <div class="fd-stack">
-          <h2 class="fd-h1">Who Ward Wise is for.</h2>
-          <p class="fd-sub">Three groups use the same data, all of it free.</p>
-        </div>
-        <div class="fd-grid-3">
-          <article class="fd-card fd-lane">
-            <p class="fd-tag">Free</p>
-            <h3 class="fd-h3">Residents and voters</h3>
-            <p class="fd-price">Always free</p>
-            <p class="fd-body">A report card for every ward, ranked against the other 49, so anyone can see how their ward is served before the February 2027 election.</p>
-            <a class="fd-more" href="{{ url_for('residents') }}">See your ward</a>
-          </article>
-          <article class="fd-card fd-lane">
-            <p class="fd-tag">Free</p>
-            <h3 class="fd-h3">Planners and community groups</h3>
-            <p class="fd-price">Free to download</p>
-            <p class="fd-body">Every measure for all 50 wards and 77 community areas, ready to download as a spreadsheet.</p>
-            <a class="fd-more" href="{{ url_for('planning') }}">Tools for planners</a>
-          </article>
-          <article class="fd-card fd-lane">
-            <p class="fd-tag">Snapshots</p>
-            <h3 class="fd-h3">Local businesses</h3>
-            <p class="fd-price">Free</p>
-            <p class="fd-body">A snapshot of any neighborhood's income, rent, commuting and business mix.</p>
-            <a class="fd-more" href="{{ url_for('business') }}">See a snapshot</a>
-          </article>
         </div>
       </div>
     </section>
@@ -127,53 +114,6 @@
         </div>
       </div>
     </section>
-
-    <section class="fd-section fd-fill fd-mcp">
-      <div class="fd-wrap">
-        <div class="fd-mcp-card fd-reveal">
-          <div class="fd-mcp-top">
-            <div class="fd-mcp-icon" aria-hidden="true">
-              <svg class="gn-logo" viewBox="0 0 64 64" width="30" height="30" focusable="false">
-                <defs>
-                  <linearGradient id="fd-mcp-beam" x1="18" y1="46" x2="54" y2="16" gradientUnits="userSpaceOnUse">
-                    <stop offset="0" style="stop-color: var(--logo-hue)" stop-opacity="0.22"/>
-                    <stop offset="1" style="stop-color: var(--logo-hue)" stop-opacity="0.03"/>
-                  </linearGradient>
-                </defs>
-                <path d="M18 46 L52 2 L58 34 Z" fill="url(#fd-mcp-beam)"/>
-                <path d="M18 46 L30 33 L39 38 L52 18" fill="none" style="stroke: var(--logo-hue)" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="52" cy="18" r="4.2" style="fill: var(--logo-hue)"/>
-                <circle cx="18" cy="46" r="4.6" style="fill: var(--logo-ink)"/>
-              </svg>
-            </div>
-            <div class="fd-mcp-copy">
-              <p class="fd-mcp-kicker">Works with Claude</p>
-              <h2 class="fd-mcp-title">Ward Wise connects to Claude.</h2>
-              <p class="fd-mcp-sub">Ask about any Chicago ward in plain English and get an answer sourced from the same public data as this site.</p>
-            </div>
-          </div>
-          <div class="fd-mcp-tiles">
-            <a class="fd-mcp-tile" href="{{ url_for('connect') }}">
-              <p class="fd-mcp-tile-label">Claude on the web</p>
-              <code class="fd-mcp-tile-url">https://wardwise-redesign.netlify.app/mcp</code>
-              <span class="fd-mcp-tile-cta">How to connect</span>
-            </a>
-            <a class="fd-mcp-tile" href="{{ url_for('static', filename='downloads/wardwise.mcpb') }}" download="wardwise.mcpb">
-              <p class="fd-mcp-tile-label">Claude Desktop</p>
-              <p class="fd-mcp-tile-meta">170 KB download</p>
-              <span class="fd-mcp-tile-cta">Download</span>
-            </a>
-            <div class="fd-mcp-tile fd-mcp-tile-code">
-              <p class="fd-mcp-tile-label">Claude Code</p>
-              <div class="fd-mcp-code-row">
-                <code id="fd-mcp-cli">claude mcp add --transport http wardwise https://wardwise-redesign.netlify.app/mcp</code>
-                <button type="button" class="fd-mcp-copy-btn" data-mcp-copy="fd-mcp-cli">Copy</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 {% endblock %}
 
@@ -181,26 +121,4 @@
   <script src="{{ url_for('static', filename='common.js', v=asset_version) }}"></script>
   <script src="{{ url_for('static', filename='civic_map.js', v=asset_version) }}"></script>
   <script src="{{ url_for('static', filename='frontdoor.js', v=asset_version) }}"></script>
-  <script>
-    (function () {
-      var button = document.querySelector(".fd-mcp [data-mcp-copy]");
-      if (!button) return;
-      var timer = null;
-      button.addEventListener("click", function () {
-        var target = document.getElementById(button.getAttribute("data-mcp-copy"));
-        if (!target) return;
-        var done = function (ok) {
-          clearTimeout(timer);
-          button.textContent = ok ? "Copied" : "Select and copy";
-          button.classList.toggle("is-copied", ok);
-          timer = setTimeout(function () { button.textContent = "Copy"; button.classList.remove("is-copied"); }, 1800);
-        };
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(target.textContent.trim()).then(function () { done(true); }, function () { done(false); });
-        } else {
-          done(false);
-        }
-      });
-    })();
-  </script>
 {% endblock %}

@@ -1,0 +1,5 @@
+{# One place for organizations: the two audience pages share this switch. #}
+<nav class="fd-lens" aria-label="Organization type">
+  <a href="{{ url_for('planning') }}"{% if request.endpoint == 'planning' %} aria-current="page"{% endif %}>Planners<span class="fd-lens-long"> and community groups</span></a>
+  <a href="{{ url_for('business') }}"{% if request.endpoint == 'business' %} aria-current="page"{% endif %}><span class="fd-lens-long">Local b</span><span class="fd-lens-short">B</span>usinesses</a>
+</nav>

@@ -185,6 +185,7 @@
     public_transit_pct: "Commute by transit",
     active_transportation_pct: "Walk or bike to work",
     modeled_fear_walking_pct: "Walking at night (est.)",
+    chain_restaurant_share_pct: "Chain restaurants",
   };
 
   const UNIT_SUFFIX = {
@@ -503,6 +504,7 @@
       "new_residential_units_permitted_est",
       "school_proficiency_pct",
       "c311_response_days",
+      "chain_restaurant_share_pct",
     ],
     community_area: [
       "median_household_income",
@@ -512,6 +514,7 @@
       "public_transit_pct",
       "licensed_grocery_stores_per_10000_residents",
       "licensed_coffee_shops_per_10000_residents",
+      "chain_restaurant_share_pct",
     ],
   };
 
@@ -718,6 +721,13 @@
       renderPanel();
     }
 
+    // "Start with a question" cards above the map pick a measure and bring the map into view.
+    document.querySelectorAll("[data-fd-start]").forEach((card) => card.addEventListener("click", () => {
+      const chip = chips.querySelector(`button[data-id="${card.dataset.fdStart}"]`);
+      if (chip) chip.click();
+      root.scrollIntoView({ behavior: "smooth", block: "start" });
+    }));
+
     chips.addEventListener("click", (event) => {
       const button = event.target.closest("button[data-id]");
       if (!button) return;
@@ -856,13 +866,13 @@
     });
   }
 
-  // Top five and bottom five wards for one measure, as two ruled lists.
-  async function initWardLists(rootId, metricId, highLabel, lowLabel) {
+  // Top five and bottom five areas for one measure, as two ruled lists.
+  async function initWardLists(rootId, metricId, highLabel, lowLabel, areaType = "ward") {
     const root = document.getElementById(rootId);
     if (!root) return;
     root.innerHTML = [0, 1].map(() => `<div class="fd-card">${skelBlock([["is-lg", "30%"], ["", "100%"], ["", "100%"], ["", "100%"], ["", "100%"], ["", "100%"]])}</div>`).join("");
     try {
-      const data = await api.fetchComparison([metricId], "ward");
+      const data = await api.fetchComparison([metricId], areaType);
       const metric = data.metrics[0];
       const rows = data.rows
         .filter((row) => row.values[metricId] !== null && row.values[metricId] !== undefined)
@@ -878,7 +888,17 @@
 
   function initHousing() {
     initWardLists("fd-housing", "new_residential_units_permitted_est", "Most", "Fewest");
-    initWardLists("fd-chains", "chain_restaurant_share_pct", "Most chain restaurants", "Most independent restaurants");
+    const chains = () => initWardLists("fd-chains", "chain_restaurant_share_pct", "Most chain restaurants", "Most independent restaurants", chainGeo);
+    let chainGeo = "ward";
+    chains();
+    const seg = document.querySelector("[data-fd-chain-geo]");
+    if (seg) seg.addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-value]");
+      if (!button || button.dataset.value === chainGeo) return;
+      chainGeo = button.dataset.value;
+      seg.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
+      chains();
+    });
   }
 
   // --- Membership: dues ------------------------------------------------------------

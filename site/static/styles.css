@@ -4720,3 +4720,20 @@ body:not(.fd-theme) .comparison-row.is-selected .comparison-row-community-areas 
 .fd-team-card a { color: var(--link); font-size: 14px; text-decoration: none; }
 .fd-team-card a:hover { text-decoration: underline; }
 @media (max-width: 760px) { .fd-team { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* For organizations: one switch shared by the planner and business pages. */
+.fd-lens { background: var(--fill); border-radius: 999px; display: inline-flex; flex-wrap: wrap; gap: 4px; margin: 4px 0 8px; padding: 4px; }
+.fd-lens a { border-radius: 999px; color: var(--ink-2); font-size: 14px; padding: 7px 14px; text-decoration: none; }
+.fd-lens a:hover { color: var(--ink); }
+.fd-lens a[aria-current="page"] { background: var(--card); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12); color: var(--ink); font-weight: 600; }
+
+/* Home: three questions to start from, above the map. */
+.fd-starts { display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.fd-start { background: var(--fill); border: 0; border-radius: 18px; color: inherit; cursor: pointer; display: grid; font: inherit; gap: 6px; padding: 22px 24px; text-align: left; text-decoration: none; transition: background 0.2s; }
+.fd-start:hover { background: var(--field); }
+.fd-start .fd-h3 { color: var(--ink); margin: 0; }
+.fd-start p { color: var(--ink-2); font-size: 15px; margin: 0; }
+@media (max-width: 760px) { .fd-starts { grid-template-columns: minmax(0, 1fr); } }
+.fd-lens, [data-fd-chain-geo] { justify-self: start; max-width: 100%; }
+.fd-lens-short { display: none; }
+@media (max-width: 520px) { .fd-lens-long { display: none; } .fd-lens-short { display: inline; } .fd-lens { flex-wrap: nowrap; } }
