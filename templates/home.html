@@ -13,10 +13,6 @@
           <span data-fd-count="metrics">271</span> measures of daily life for every ward and
           neighborhood, built from public records and free for everyone.
         </p>
-        <div class="fd-actions">
-          <a class="fd-btn" href="{{ url_for('explore') }}">Explore the map</a>
-          <a class="fd-more" href="{{ url_for('residents') }}">See your ward's report card</a>
-        </div>
       </div>
     </section>
 
@@ -24,16 +20,19 @@
       <div class="fd-wrap">
         <div class="fd-starts">
           <a class="fd-start" href="{{ url_for('residents') }}">
-            <h2 class="fd-h3">How is my ward doing?</h2>
-            <p>Ten measures, each ranked against all 50 wards.</p>
+            <span class="fd-start-q">How is my ward doing?</span>
+            <span class="fd-start-d">Ten measures, each ranked against all 50 wards.</span>
+            <span class="fd-start-cue">Open your report card ›</span>
           </a>
           <button type="button" class="fd-start" data-fd-start="modeled_fear_walking_pct">
-            <h2 class="fd-h3">Where do people feel safe walking at night?</h2>
-            <p>An estimate from a national survey, shown on the map below.</p>
+            <span class="fd-start-q">Where do people feel safe walking at night?</span>
+            <span class="fd-start-d">A modeled estimate from a national survey, not a count of crimes.</span>
+            <span class="fd-start-cue">Show it on the map ↓</span>
           </button>
           <button type="button" class="fd-start" data-fd-start="chain_restaurant_share_pct">
-            <h2 class="fd-h3">Chain restaurants or local ones?</h2>
-            <p>The share of restaurants that belong to a chain, ward by ward.</p>
+            <span class="fd-start-q">Chain restaurants or local ones?</span>
+            <span class="fd-start-d">The share of restaurants that belong to a chain.</span>
+            <span class="fd-start-cue">Show it on the map ↓</span>
           </button>
         </div>
       </div>

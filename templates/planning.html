@@ -7,7 +7,6 @@
   <main>
     <section class="fd-hero">
       <div class="fd-wrap fd-stack">
-        <p class="fd-eyebrow">For organizations</p>
         {% include "_org_lens.html" %}
         <h1 class="fd-h1">The evidence behind the plan.</h1>
         <p class="fd-sub">Every measure is free to download for all 50 wards and 77 community areas.</p>
@@ -26,6 +25,7 @@
           <button type="button" data-value="community_area" aria-pressed="false">Neighborhoods</button>
         </div>
         <div id="fd-chains" class="fd-grid-2 fd-fill-cards"><p class="fd-loading">Loading live data…</p></div>
+        <p class="fd-small" role="status" data-fd-chain-note></p>
         <div class="fd-actions">
           <a class="fd-more" href="{{ url_for('dictionary') }}#metric=chain_restaurant_share_pct">How this is measured</a>
           <a class="fd-more" href="{{ url_for('dictionary') }}#metric=licensed_chain_restaurant_share_pct">The business license versions</a>

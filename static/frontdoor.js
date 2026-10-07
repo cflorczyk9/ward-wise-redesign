@@ -526,6 +526,12 @@
   // a sign of disinvestment, so the map shows these from low to high with no verdict.
   const NEUTRAL = new Set(["observed_asking_rent_usd"]);
 
+  // Measures whose "better" direction is a value call get it said in words.
+  const DIRECTION_LABEL = {
+    chain_restaurant_share_pct: "Fewer chains ranks higher",
+    licensed_chain_restaurant_share_pct: "Fewer chains ranks higher",
+  };
+
   // Estimates rather than counts. The panel says so wherever the number appears.
   const MODELED = {
     modeled_fear_walking_pct: "Share of adults likely to feel unsafe walking alone near home at night. An estimate from a national survey, not a count of crimes.",
@@ -597,7 +603,7 @@
       const noun = nounFor(state.areaType);
       const name = SHORT_LABELS[metric.metric_id] || metric.label;
       const neutral = NEUTRAL.has(metric.metric_id);
-      const better = neutral ? "Shown from low to high" : metric.direction === "lower" ? "Lower is better" : "Higher is better";
+      const better = neutral ? "Shown from low to high" : DIRECTION_LABEL[metric.metric_id] || (metric.direction === "lower" ? "Lower is better" : "Higher is better");
 
       if (!state.selected) {
         const ranked = data.rows
@@ -719,13 +725,30 @@
       renderChips();
       paint();
       renderPanel();
+      if (pendingStart && applyStart(pendingStart)) pendingStart = null;
     }
 
-    // "Start with a question" cards above the map pick a measure and bring the map into view.
+    // "Start with a question" rows above the map pick a measure and bring the map into view.
+    // A tap before the map has loaded is held in `pendingStart` and applied once the chips exist.
+    let pendingStart = null;
+    function applyStart(metricId) {
+      const chip = chips.querySelector(`button[data-id="${metricId}"]`);
+      if (!chip) return false;
+      chip.click();
+      const header = document.querySelector(".gn");
+      const offset = (header ? header.offsetHeight : 0) + 12;
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: root.getBoundingClientRect().top + window.scrollY - offset, behavior: reduce ? "auto" : "smooth" });
+      requestAnimationFrame(() => {
+        const title = panel.querySelector("h3");
+        if (!title) return;
+        title.setAttribute("tabindex", "-1");
+        title.focus({ preventScroll: true });
+      });
+      return true;
+    }
     document.querySelectorAll("[data-fd-start]").forEach((card) => card.addEventListener("click", () => {
-      const chip = chips.querySelector(`button[data-id="${card.dataset.fdStart}"]`);
-      if (chip) chip.click();
-      root.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (!applyStart(card.dataset.fdStart)) pendingStart = card.dataset.fdStart;
     }));
 
     chips.addEventListener("click", (event) => {
@@ -881,14 +904,23 @@
       root.innerHTML = `
         <div class="fd-card"><h3 class="fd-h3">${esc(highLabel)}</h3><ol class="fd-list">${rows.slice(0, 5).map(item).join("")}</ol></div>
         <div class="fd-card"><h3 class="fd-h3">${esc(lowLabel)}</h3><ol class="fd-list">${rows.slice(-5).reverse().map(item).join("")}</ol></div>`;
+      return { measured: rows.length, total: data.rows.length };
     } catch (error) {
       root.innerHTML = failNotice(error);
+      return null;
     }
   }
 
   function initHousing() {
     initWardLists("fd-housing", "new_residential_units_permitted_est", "Most", "Fewest");
-    const chains = () => initWardLists("fd-chains", "chain_restaurant_share_pct", "Most chain restaurants", "Most independent restaurants", chainGeo);
+    const chainNote = document.querySelector("[data-fd-chain-note]");
+    const chains = async () => {
+      if (chainNote) chainNote.textContent = "";
+      const counts = await initWardLists("fd-chains", "chain_restaurant_share_pct", "Most chain restaurants", "Most independent restaurants", chainGeo);
+      if (!chainNote || !counts) return;
+      const noun = chainGeo === "ward" ? "wards" : "neighborhoods";
+      chainNote.textContent = `Showing ${noun}. ${counts.measured} of ${counts.total} ${noun} have data. Areas with few restaurants can swing a lot.`;
+    };
     let chainGeo = "ward";
     chains();
     const seg = document.querySelector("[data-fd-chain-geo]");

@@ -4721,19 +4721,30 @@ body:not(.fd-theme) .comparison-row.is-selected .comparison-row-community-areas 
 .fd-team-card a:hover { text-decoration: underline; }
 @media (max-width: 760px) { .fd-team { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
-/* For organizations: one switch shared by the planner and business pages. */
-.fd-lens { background: var(--fill); border-radius: 999px; display: inline-flex; flex-wrap: wrap; gap: 4px; margin: 4px 0 8px; padding: 4px; }
-.fd-lens a { border-radius: 999px; color: var(--ink-2); font-size: 14px; padding: 7px 14px; text-decoration: none; }
-.fd-lens a:hover { color: var(--ink); }
-.fd-lens a[aria-current="page"] { background: var(--card); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12); color: var(--ink); font-weight: 600; }
+/* For organizations: underline tabs shared by the planner and business pages.
+   Tabs switch sections of one area. Pills (.fd-seg) stay for in-place filters. */
+.fd-tabs { border-bottom: 1px solid var(--hair); display: flex; gap: 28px; justify-self: start; margin-bottom: 8px; max-width: 100%; }
+.fd-tabs a { align-items: center; box-shadow: inset 0 -2px 0 transparent; color: var(--ink-2); display: inline-flex; font-size: 15px; min-height: 44px; text-decoration: none; }
+.fd-tabs a:hover { color: var(--ink); }
+.fd-tabs a[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--blue); color: var(--ink); font-weight: 600; }
+.fd-tabs a:focus-visible { border-radius: 4px; outline: 3px solid var(--focus); outline-offset: 2px; }
+.fd-tab-short { display: none; }
+@media (max-width: 520px) { .fd-tab-long { display: none; } .fd-tab-short { display: inline; } }
+[data-fd-chain-geo] { justify-self: start; max-width: 100%; }
 
-/* Home: three questions to start from, above the map. */
-.fd-starts { display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.fd-start { background: var(--fill); border: 0; border-radius: 18px; color: inherit; cursor: pointer; display: grid; font: inherit; gap: 6px; padding: 22px 24px; text-align: left; text-decoration: none; transition: background 0.2s; }
-.fd-start:hover { background: var(--field); }
-.fd-start .fd-h3 { color: var(--ink); margin: 0; }
-.fd-start p { color: var(--ink-2); font-size: 15px; margin: 0; }
-@media (max-width: 760px) { .fd-starts { grid-template-columns: minmax(0, 1fr); } }
-.fd-lens, [data-fd-chain-geo] { justify-self: start; max-width: 100%; }
-.fd-lens-short { display: none; }
-@media (max-width: 520px) { .fd-lens-long { display: none; } .fd-lens-short { display: inline; } .fd-lens { flex-wrap: nowrap; } }
+/* Home: three questions to start from, as plain rows split by thin rules (no boxes). */
+.fd-starts { border-bottom: 1px solid var(--hair); border-top: 1px solid var(--hair); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.fd-start { background: none; border: 0; color: inherit; cursor: pointer; display: grid; font: inherit; gap: 6px; min-height: 44px; padding: 24px 24px 22px; text-align: left; text-decoration: none; }
+.fd-start + .fd-start { border-left: 1px solid var(--hair); }
+.fd-start:first-child { padding-left: 0; }
+.fd-start-q { color: var(--ink); font-size: 19px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.25; }
+.fd-start-d { color: var(--ink-2); font-size: 15px; line-height: 1.45; }
+.fd-start-cue { color: var(--link); font-size: 15px; margin-top: 4px; }
+.fd-start:hover .fd-start-cue { text-decoration: underline; }
+.fd-start:focus-visible { border-radius: 6px; outline: 3px solid var(--focus); outline-offset: -3px; }
+.fd-explore-panel h3:focus { outline: none; }
+@media (max-width: 760px) {
+  .fd-starts { grid-template-columns: minmax(0, 1fr); }
+  .fd-start { padding: 18px 0; }
+  .fd-start + .fd-start { border-left: 0; border-top: 1px solid var(--hair); }
+}

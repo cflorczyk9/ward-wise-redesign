@@ -1,5 +1,6 @@
-{# One place for organizations: the two audience pages share this switch. #}
-<nav class="fd-lens" aria-label="Organization type">
-  <a href="{{ url_for('planning') }}"{% if request.endpoint == 'planning' %} aria-current="page"{% endif %}>Planners<span class="fd-lens-long"> and community groups</span></a>
-  <a href="{{ url_for('business') }}"{% if request.endpoint == 'business' %} aria-current="page"{% endif %}><span class="fd-lens-long">Local b</span><span class="fd-lens-short">B</span>usinesses</a>
+{# One place for organizations: underline tabs shared by the planner and business pages.
+   Tabs switch sections of this area. Pills (fd-seg) stay for filters that change a list in place. #}
+<nav class="fd-tabs" aria-label="For organizations">
+  <a href="{{ url_for('planning') }}"{% if request.endpoint == 'planning' %} aria-current="page"{% endif %}><span>Planners<span class="fd-tab-long"> and community groups</span></span></a>
+  <a href="{{ url_for('business') }}"{% if request.endpoint == 'business' %} aria-current="page"{% endif %}><span><span class="fd-tab-long">Local b</span><span class="fd-tab-short">B</span>usinesses</span></a>
 </nav>
