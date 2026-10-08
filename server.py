@@ -24,6 +24,9 @@ from flask import Flask, Response, jsonify, redirect, render_template, request, 
 
 API_BASE = os.environ.get("PENLIGHT_API_BASE", "https://penlight.wardwise.org").rstrip("/")
 SITE_BASE = os.environ.get("PENLIGHT_SITE_BASE", "https://www.wardwise.org").rstrip("/")
+# This site's own public address. Link previews (iMessage, Slack, LinkedIn) need an absolute
+# image URL, so the og: tags in base.html build theirs from it.
+PUBLIC_BASE = os.environ.get("WARDWISE_PUBLIC_BASE", "https://wardwise-redesign.netlify.app").rstrip("/")
 ALLOW_WRITES = os.environ.get("PROXY_ALLOW_WRITES", "0") == "1"
 
 # Headers that describe the *hop*, not the payload — forwarding them would corrupt the
@@ -60,6 +63,7 @@ def _mcpb_size_label() -> str:
 def inject_globals():
     return {
         "asset_version": ASSET_VERSION,
+        "public_base": PUBLIC_BASE,
         "mcpb_size": _mcpb_size_label(),
         # Features that stayed behind in the monorepo — nominate a metric, submit a photo,
         # the reports page, the API docs. They link out to the live site rather than 404.

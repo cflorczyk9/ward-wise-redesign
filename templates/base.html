@@ -47,6 +47,20 @@
     <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32.png') }}">
     <link rel="apple-touch-icon" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
+    {# Link preview: the card iMessage, Slack and LinkedIn show when someone pastes a Ward Wise link.
+       Redraw static/og-image.png at 1200 x 630 if the headline changes. #}
+    {% set og_description = "271 measures of daily life for every Chicago ward and neighborhood, built from public records and free for everyone." %}
+    <meta name="description" content="{{ og_description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Ward Wise">
+    <meta property="og:title" content="{{ self.title() }}">
+    <meta property="og:description" content="{{ og_description }}">
+    <meta property="og:url" content="{{ public_base }}{{ request.path }}">
+    <meta property="og:image" content="{{ public_base }}/static/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Ward Wise. Chicago, measured. A map of Chicago's 50 wards in shades of blue.">
+    <meta name="twitter:card" content="summary_large_image">
     {% block head %}{% endblock %}
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css', v=asset_version) }}">
   </head>
