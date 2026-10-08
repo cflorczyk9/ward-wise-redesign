@@ -2860,7 +2860,7 @@ select {
   --skel-b: #e7e7ec;
   --skel-fill-a: #e9e9ee;
   --skel-fill-b: #dedee4;
-  --logo-hue: #0b7892;
+  --logo-hue: #0071e3;
   --logo-ink: #1c2433;
 }
 
@@ -2897,7 +2897,7 @@ html.is-dark {
   --skel-b: #2c2c2e;
   --skel-fill-a: #232325;
   --skel-fill-b: #313134;
-  --logo-hue: #3fb6cf;
+  --logo-hue: #2997ff;
   --logo-ink: #f5f5f7;
 }
 

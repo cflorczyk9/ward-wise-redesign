@@ -2,12 +2,12 @@
   <title>Ward Wise</title>
   <defs>
     <linearGradient id="plbw" x1="18" y1="46" x2="54" y2="16" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#0b7892" stop-opacity="0.22"/>
-      <stop offset="1" stop-color="#0b7892" stop-opacity="0.03"/>
+      <stop offset="0" stop-color="#0071e3" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#0071e3" stop-opacity="0.03"/>
     </linearGradient>
   </defs>
   <path d="M18 46 L52 2 L58 34 Z" fill="url(#plbw)"/>
-  <path d="M18 46 L30 33 L39 38 L52 18" fill="none" stroke="#0b7892" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="52" cy="18" r="4.2" fill="#0b7892"/>
+  <path d="M18 46 L30 33 L39 38 L52 18" fill="none" stroke="#0071e3" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="52" cy="18" r="4.2" fill="#0071e3"/>
   <circle cx="18" cy="46" r="4.6" fill="#1c2433"/>
 </svg>
