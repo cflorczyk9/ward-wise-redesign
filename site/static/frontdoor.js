@@ -725,31 +725,7 @@
       renderChips();
       paint();
       renderPanel();
-      if (pendingStart && applyStart(pendingStart)) pendingStart = null;
     }
-
-    // "Start with a question" rows above the map pick a measure and bring the map into view.
-    // A tap before the map has loaded is held in `pendingStart` and applied once the chips exist.
-    let pendingStart = null;
-    function applyStart(metricId) {
-      const chip = chips.querySelector(`button[data-id="${metricId}"]`);
-      if (!chip) return false;
-      chip.click();
-      const header = document.querySelector(".gn");
-      const offset = (header ? header.offsetHeight : 0) + 12;
-      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      window.scrollTo({ top: root.getBoundingClientRect().top + window.scrollY - offset, behavior: reduce ? "auto" : "smooth" });
-      requestAnimationFrame(() => {
-        const title = panel.querySelector("h3");
-        if (!title) return;
-        title.setAttribute("tabindex", "-1");
-        title.focus({ preventScroll: true });
-      });
-      return true;
-    }
-    document.querySelectorAll("[data-fd-start]").forEach((card) => card.addEventListener("click", () => {
-      if (!applyStart(card.dataset.fdStart)) pendingStart = card.dataset.fdStart;
-    }));
 
     chips.addEventListener("click", (event) => {
       const button = event.target.closest("button[data-id]");

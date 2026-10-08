@@ -4731,20 +4731,3 @@ body:not(.fd-theme) .comparison-row.is-selected .comparison-row-community-areas 
 .fd-tab-short { display: none; }
 @media (max-width: 520px) { .fd-tab-long { display: none; } .fd-tab-short { display: inline; } }
 [data-fd-chain-geo] { justify-self: start; max-width: 100%; }
-
-/* Home: three questions to start from, as plain rows split by thin rules (no boxes). */
-.fd-starts { border-bottom: 1px solid var(--hair); border-top: 1px solid var(--hair); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.fd-start { background: none; border: 0; color: inherit; cursor: pointer; display: grid; font: inherit; gap: 6px; min-height: 44px; padding: 24px 24px 22px; text-align: left; text-decoration: none; }
-.fd-start + .fd-start { border-left: 1px solid var(--hair); }
-.fd-start:first-child { padding-left: 0; }
-.fd-start-q { color: var(--ink); font-size: 19px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.25; }
-.fd-start-d { color: var(--ink-2); font-size: 15px; line-height: 1.45; }
-.fd-start-cue { color: var(--link); font-size: 15px; margin-top: 4px; }
-.fd-start:hover .fd-start-cue { text-decoration: underline; }
-.fd-start:focus-visible { border-radius: 6px; outline: 3px solid var(--focus); outline-offset: -3px; }
-.fd-explore-panel h3:focus { outline: none; }
-@media (max-width: 760px) {
-  .fd-starts { grid-template-columns: minmax(0, 1fr); }
-  .fd-start { padding: 18px 0; }
-  .fd-start + .fd-start { border-left: 0; border-top: 1px solid var(--hair); }
-}
